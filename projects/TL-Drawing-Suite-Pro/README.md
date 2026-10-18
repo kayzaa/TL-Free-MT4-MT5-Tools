@@ -1,4 +1,3 @@
-<!-- auto-generated: remove this line after hand-editing so publish keeps your text -->
 <div align="center">
 
 # ⚡ TL Drawing Suite Pro
@@ -20,35 +19,74 @@
 
 > Compiled build only — source code is not published.
 
-## Install
+## ✨ Highlights
 
-- **MT4: copy MT4\TL Drawing Suite Pro.ex4 to** — File > Open Data Folder > MQL4\Indicators MT5: copy MT5\TL Drawing Suite Pro.ex5 to  File > Open Data Folder > MQL5\Indicators Refresh the Navigator, drag the indicator onto a chart. The link buttons (YouTube / RoboForex / WhatsApp / Forex Factory) need "Allow DLL imports". Drawing works without it.
+- **30 drawing tools** — lines, channels, Fibonacci, Gann, Elliott waves, text, measure, long / short position tools and alert lines.
+- **Hotkeys for everything** — press T, H, F, L … and draw; hotkeys work even while the toolbar is closed.
+- **Undo / redo** — Ctrl+Z / Ctrl+Y, 200 steps, survives a timeframe change.
+- **Copy, save, load** — copy drawings to every chart of the same symbol, save / load sets shared by all your MT4 + MT5 terminals on this PC.
+- **Full styling** — 12 colours, 5 widths, 5 line styles, fill, ray, magnet, lock and timeframe visibility.
+- **Plain chart objects** — drawings stay on every timeframe and are saved with the chart / template.
 
-## 30 Tools (click the icon or press the hotkey)
+## 🧰 30 tools (click the icon or press the hotkey)
 
-Cursor (Esc) · Trend line (T) · Ray (R) · Horizontal line (H) · Horizontal ray (J) · Vertical line (V) Rectangle (B) · Zone, auto-extended to the right (Z) · Triangle (G) · Brush / freehand (W) Fibo retracement with prices (F) · Fibo extension (E) · Fibo time zones · Fibo fan · Fibo channel Parallel channel (C) · Regression channel · StdDev channel · Pitchfork (P) · Gann fan Text - any language (X) · Price label (Q) · Arrow up (U) · Arrow down (D) · Elliott wave 0-5 (K) Measure: pips, %, bars, time (M) · Long position (L) · Short position (S) - R:R + lot size Alert line - popup / sound / push / e-mail when price crosses (A) · Cycle lines
+| Group | Tools (hotkey) |
+|---|---|
+| **Basics** | Cursor (Esc) · Trend line (T) · Ray (R) · Horizontal line (H) · Horizontal ray (J) · Vertical line (V) |
+| **Shapes** | Rectangle (B) · Zone, auto-extended to the right (Z) · Triangle (G) · Brush / freehand (W) |
+| **Fibonacci** | Fibo retracement with prices (F) · Fibo extension (E) · Fibo time zones · Fibo fan · Fibo channel |
+| **Channels & Gann** | Parallel channel (C) · Regression channel · StdDev channel · Pitchfork (P) · Gann fan |
+| **Annotation** | Text in any language (X) · Price label (Q) · Arrow up (U) · Arrow down (D) · Elliott wave 0–5 (K) |
+| **Trading** | Measure: pips, %, bars, time (M) · Long position (L) · Short position (S) — R:R + lot size |
+| **Alerts & time** | Alert line — popup / sound / push / e-mail when price crosses (A) · Cycle lines |
 
-## Style
+## 🧠 How it works
 
-12 colors (last one = your own color from the inputs), width 1-5, 5 line styles, FILL, RAY (extend right), MAGNET (snap to open/high/low/close), BACK, LOCK, KEEP tool, TF visibility: all timeframes / only this one / this and lower. Select drawings (double-click) and click a color / width / style to change them.
+### Drawing
 
-## Actions
+- **2-point tools:** click, move (live preview), click. **Esc** cancels.
+- **Text:** click the chart, type into the box, press **Enter** (or click the chart). Click an existing text with the Text tool to edit it.
+- **Position tool:** click the entry, click the stop — the target is set by the R:R input. Drag the entry / stop / target line and all boxes and labels update.
 
-UNDO / REDO (Ctrl+Z / Ctrl+Y, 200 steps, survives a timeframe change), DELETE selected, CLEAR all (2 clicks, can be undone), HIDE / SHOW all, COPY to every chart of the same symbol, SAVE / LOAD (shared by all your MT4 + MT5 terminals on this PC).
+### Style
 
-## Toolbar
+- 12 colours (the last one is your own colour from the inputs), width 1–5, 5 line styles
+- **FILL**, **RAY** (extend right), **MAGNET** (snap to open / high / low / close), **BACK**, **LOCK**, **KEEP** tool
+- **TF visibility:** all timeframes / only this one / this and lower
+- Select drawings (double-click) and click a colour / width / style to change them
 
-Drag the header to move it. X closes it to a small pill, click the pill to open it again. "-" = compact toolbar, "?" = tooltips on / off. Hotkeys keep working while it is closed. Position and settings are remembered per chart.
+### Actions
 
-## Drawing
+| Action | What it does |
+|---|---|
+| **UNDO / REDO** | Ctrl+Z / Ctrl+Y, 200 steps, survives a timeframe change |
+| **DELETE** | Removes the selected drawings |
+| **CLEAR** | Removes all drawings (2 clicks, can be undone) |
+| **HIDE / SHOW** | Toggles all drawings |
+| **COPY** | Copies drawings to every chart of the same symbol |
+| **SAVE / LOAD** | Shared by all your MT4 + MT5 terminals on this PC |
 
-2-point tools: click, move (live preview), click. Esc cancels. Text: click the chart, type into the box, press Enter (or click the chart). Click an existing text with the Text tool to edit it. Position tool: click the entry, click the stop - target = R:R input. Drag the entry / stop / target line and all boxes + labels update.
+## 🖥️ Dashboard & chart
 
-## Notes
+- Drag the header to move the toolbar.
+- **X** closes it to a small pill; click the pill to open it again.
+- **−** switches to a compact toolbar, **?** turns tooltips on / off.
+- Hotkeys keep working while the toolbar is closed.
+- Position and settings are remembered per chart.
 
-Drawings are normal chart objects: they stay on the chart on every timeframe and are saved with the chart / template. The indicator switches "Chart on foreground" off so the toolbar stays on top of the candles (restored when you remove it). MT4 stores object text in the Windows code page: Chinese / Japanese / Korean text works on a Windows set to that language. MT5 supports every language everywhere.
+## 🛠️ Installation
 
-trader.lifestyle - free EAs, indicators and coding help: <https://www.forexfactory.com/thread/1428808-free-eas-indicators-strategies-mt4>
+1. Choose **File → Open Data Folder**.
+2. Copy the file for your platform:
+   - **MT4:** `TL Drawing Suite Pro.ex4` → **MQL4 → Indicators**
+   - **MT5:** `TL Drawing Suite Pro.ex5` → **MQL5 → Indicators**
+3. Refresh the Navigator and drag the indicator onto a chart.
+4. Tick **Allow DLL imports** only for the link buttons (YouTube / RoboForex / WhatsApp / Forex Factory) — drawing works without it.
+
+## ⚠️ Notes
+
+- The indicator switches **"Chart on foreground"** off so the toolbar stays on top of the candles; the setting is restored when you remove it.
+- MT4 stores object text in the Windows code page: Chinese / Japanese / Korean text works on a Windows system set to that language. MT5 supports every language everywhere.
 
 ---
 

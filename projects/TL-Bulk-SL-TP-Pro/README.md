@@ -1,4 +1,3 @@
-<!-- auto-generated: remove this line after hand-editing so publish keeps your text -->
 <div align="center">
 
 # ⚡ TL Bulk SL TP Pro
@@ -19,29 +18,63 @@
 
 > Compiled build only — source code is not published.
 
-## Overview
+## ✨ Highlights
 
-position gets the same SL or TP - without closing anything.
+- **One line, every position** — drag a BUY SL / BUY TP / SELL SL / SELL TP line and all matching positions get that exact price.
+- **Quick actions** — set SL / TP a number of pips from each entry, move to breakeven (with offset), remove SL or TP, close all.
+- **UNDO** — restores the SL / TP from before the last bulk change.
+- **Smart filters** — this symbol or all symbols, buys and/or sells, all positions / manual only / one magic number.
+- **Nothing changes silently** — invalid levels are rejected and counted instead of being half-applied.
+- **Management only** — the EA never opens a trade.
 
-## Install
+## 🧠 How it works
 
-- MT5\Experts\TL Bulk SL TP Pro.ex5 -> File > Open Data Folder > MQL5\Experts Refresh the Navigator, drag the EA onto a chart of the symbol you trade. Enable "Algo Trading" (the EA modifies SL / TP). "Allow DLL imports" is only needed for the link buttons.
+### Drag lines (chart symbol)
 
-## Drag Lines (chart symbol)
+BUY SL, BUY TP, SELL SL and SELL TP lines appear as soon as there are buy or sell positions. Drag a line, release it, and every matching position gets that exact price as its stop loss or take profit.
 
-BUY SL / BUY TP / SELL SL / SELL TP lines appear as soon as there are buy or sell positions. Drag a line and release it -> all matching positions get that exact price as SL or TP. AUTO APPLY OFF: move the lines first, then press APPLY LINES (label shows NOT APPLIED until then). Each label shows: price · positions on the line · pips from the average entry · money if price reaches the line (swap included, commission not). Levels on the wrong side of the price / inside the broker's stops level are rejected and counted - nothing is half-changed silently.
+Each line label shows:
 
-## Quick Actions (chart symbol or All symbols)
+- the price
+- how many positions sit on the line
+- pips from the average entry
+- the money result if price reaches the line (swap included, commission not)
 
-SET SL / SET TP x pips from each entry (- / + buttons), BREAKEVEN (+ offset), REMOVE SL, REMOVE TP, UNDO (restores the SL / TP from before the last bulk change), CLOSE ALL (with confirmation).
+With **AUTO APPLY OFF** you move the lines first and then press **APPLY LINES** — until then the label reads `NOT APPLIED`.
 
-## Filter
+Levels on the wrong side of the price, or inside the broker's stops level, are rejected and counted — nothing is half-changed silently.
 
-ONLY <symbol> / ALL SYMBOLS, BUYS + SELLS / BUYS ONLY / SELLS ONLY, input: all positions / manual only / one magic number.
+### Quick actions (chart symbol or all symbols)
 
-The EA never opens a trade. Dashboard: X closes it to a pill, drag the header to move it, settings are kept per chart.
+| Button | What it does |
+|---|---|
+| **SET SL / SET TP** | Places SL or TP x pips from each entry (adjust with the − / + buttons) |
+| **BREAKEVEN** | Moves stops to the entry price, plus an optional offset |
+| **REMOVE SL / REMOVE TP** | Clears the stop loss or take profit |
+| **UNDO** | Restores the SL / TP from before the last bulk change |
+| **CLOSE ALL** | Closes the filtered positions (asks for confirmation) |
 
-Test on demo first. Trading involves high risk. trader.lifestyle - Forex Factory thread: <https://www.forexfactory.com/thread/1428808-free-eas-indicators-strategies-mt4>
+### Filters
+
+- **Symbol:** ONLY &lt;symbol&gt; or ALL SYMBOLS
+- **Side:** BUYS + SELLS, BUYS ONLY or SELLS ONLY
+- **Input:** all positions, manual positions only, or one magic number
+
+## 🖥️ Dashboard & chart
+
+Click **X** to shrink the dashboard to a small pill, drag the header to move it. Settings are kept per chart.
+
+## 🛠️ Installation
+
+1. In MT5 choose **File → Open Data Folder → MQL5 → Experts** and copy `TL Bulk SL TP Pro.ex5` there.
+2. Refresh the Navigator and drag the EA onto a chart of the symbol you trade.
+3. Enable **Algo Trading** — the EA needs it to modify SL / TP.
+4. Tick **Allow DLL imports** only if you want the link buttons to work.
+
+## ⚠️ Notes
+
+- The EA modifies stops and targets of existing positions and can close them on request (CLOSE ALL) — it never opens a trade.
+- Try it on a demo account first so you know exactly which positions the filters include.
 
 ---
 

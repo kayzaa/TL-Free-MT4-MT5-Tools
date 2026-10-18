@@ -1,4 +1,3 @@
-<!-- auto-generated: remove this line after hand-editing so publish keeps your text -->
 <div align="center">
 
 # ⚡ TL H1 Sweep Reversal Pro
@@ -20,34 +19,77 @@
 
 > Compiled build only — source code is not published.
 
-## Overview
+## ✨ Highlights
 
-Strategy (as described by Silkysilv on Forex Factory, posts #111 / #112):
+- **Sweep → reversal, fully automated** — the previous H1 high / low gets swept on M5, a close back through the sweep candle triggers the trade.
+- **Clear targets** — stop beyond the sweep candle, target at the opposite side of the H1 range.
+- **Set and forget** — open trades run until SL or TP; the EA never moves or closes them.
+- **Any chart, any symbol** — the EA always reads M5 candles internally.
+- **Visual audit trail** — H1 levels, sweep dots, trigger lines, signal arrows and risk / reward boxes on the chart.
+- **Session and spread filters** — trade London open to New York close by default.
 
-Every new H1 candle RefHigh / RefLow = high / low of the last completed H1 candle. Everything resets.
+## 🧠 Strategy rules
 
-SELL
-- The FIRST M5 candle of the hour that trades above RefHigh is the sweep candle (a later, higher candle does NOT replace it).
-  - A later M5 candle of the same hour closes below the LOW of the sweep candle.
-  - Sell at market when that candle closes. Stop loss  = sweep candle high + spread + buffer (pips) Take profit = RefLow
+At every new H1 candle, **RefHigh / RefLow** = high / low of the last completed H1 candle, and everything resets.
 
-BUY - the exact mirror M5 candle below RefLow = sweep candle, a later M5 close above its HIGH -> buy, SL = sweep low - spread - buffer, TP = RefHigh.
+| | SELL | BUY (exact mirror) |
+|---|---|---|
+| **Sweep candle** | The **first** M5 candle of the hour that trades above RefHigh (a later, higher candle does **not** replace it) | The first M5 candle of the hour that trades below RefLow |
+| **Trigger** | A later M5 candle of the same hour closes below the **low** of the sweep candle | A later M5 candle closes above the **high** of the sweep candle |
+| **Entry** | Sell at market when that candle closes | Buy at market when that candle closes |
+| **Stop loss** | Sweep candle high + spread + buffer (pips) | Sweep candle low − spread − buffer |
+| **Take profit** | RefLow | RefHigh |
 
-No confirmation before the hour ends -> the setup is cancelled. Open trades keep running until SL or TP (they are never moved or closed by the EA). One trade at a time by default. Risk 5 % of the balance per trade by default. If the price is already at / beyond the target when the signal comes, the trade is skipped.
+- **No confirmation before the hour ends** → the setup is cancelled.
+- **No management:** open trades keep running until SL or TP — they are never moved or closed by the EA.
+- **One trade at a time** by default.
+- **Already at target?** If price is already at or beyond the target when the signal comes, the trade is skipped.
 
-The EA always reads M5 candles, so it works on any chart timeframe and any symbol. For backtests use the M5 chart (MT4 tester: M5 is required).
+## 🖥️ Dashboard & chart
 
-Installation
-- **MT5: copy MT5\TL H1 Sweep Reversal Pro.ex5 to** — File > Open Data Folder > MQL5\Experts MT4: copy MT4\TL H1 Sweep Reversal Pro.ex4 to  File > Open Data Folder > MQL4\Experts Restart the terminal or right-click "Expert Advisors" in the Navigator > Refresh. Enable "Allow DLL imports" if you want the YouTube / RoboForex / WhatsApp / Forex Factory buttons to open links (the EA trades without it).
+| Element | Meaning |
+|---|---|
+| **Grey lines** | RefHigh / RefLow of every hour |
+| **Dots** | Sweep candles |
+| **Dotted line** | Trigger level (low / high of the sweep candle) |
+| **Arrows** | Signals — including the ones skipped by a filter |
+| **Boxes** | Risk / reward of every trade the EA would take (green = target, red = stop, result in R) |
+| **Dashboard** | Current levels, state of both setups, risk, position, results |
 
-Main inputs Trade direction ............ long + short / long only / short only Confirmation inside range .. extra filter (default off): the confirmation close must also be back inside the H1 range SL buffer (pips) ........... default 1.0 pip (pip = 10 points on 5- and 3-digit symbols) Add spread to SL ........... default on Max. open trades ........... 1 = one at a time, more = pyramiding (several trades at once) Lot mode ................... Risk % of balance (default 5 %) or fixed lots Session filter ............. default 10:00-24:00 SERVER time = London open (08:00 London) to New York close (17:00 New York) on GMT+2/+3 brokers, which most MT4/MT5 brokers use. Adjust if your broker uses another time zone. Max. spread (pips) ......... 0 = off Magic number, comment, slippage, alerts (popup / sound / push), dashboard, tooltips on/off
+## ⚙️ Key inputs
 
-On the chart
-- **Grey lines** — = RefHigh / RefLow of every hour Dots         = sweep candles, dotted line = trigger level (low / high of the sweep candle) Arrows       = signals (also the ones that were skipped by a filter) Boxes        = risk / reward of every trade the EA would take (green = target, red = stop, result in R) Dashboard    = current levels, state of both setups, risk, position, results
+| Input | What it does |
+|---|---|
+| Trade direction | Long + short / long only / short only |
+| Confirmation inside range | Extra filter (default off): the confirmation close must also be back inside the H1 range |
+| SL buffer (pips) | Default 1.0 pip (pip = 10 points on 5- and 3-digit symbols) |
+| Add spread to SL | Default on |
+| Max. open trades | 1 = one at a time; more = pyramiding (several trades at once) |
+| Lot mode | Risk % of balance (default 5 %) or fixed lots |
+| Session filter | Default 10:00–24:00 **server** time = London open (08:00 London) to New York close (17:00 New York) on GMT+2/+3 brokers, which most MT4 / MT5 brokers use. Adjust if your broker uses another time zone |
+| Max. spread (pips) | 0 = off |
+| Other | Magic number, comment, slippage, alerts (popup / sound / push), dashboard, tooltips on / off |
 
-Risk warning: 5 % risk per trade is very aggressive. Test on a demo account first. No profit promise - trading involves high risk.
+## 🛠️ Installation
 
-trader.lifestyle - free tools thread on Forex Factory: <https://www.forexfactory.com/thread/1428808-free-eas-indicators-strategies-mt4>
+1. Choose **File → Open Data Folder**.
+2. Copy the file for your platform:
+   - **MT4:** `TL H1 Sweep Reversal Pro.ex4` → **MQL4 → Experts**
+   - **MT5:** `TL H1 Sweep Reversal Pro.ex5` → **MQL5 → Experts**
+3. Restart the terminal, or right-click **Expert Advisors** in the Navigator → **Refresh**.
+4. Drag the EA onto any chart and allow algo trading.
+5. Tick **Allow DLL imports** only if you want the YouTube / RoboForex / WhatsApp / Forex Factory buttons to open links — the EA trades without it.
+
+> **Strategy Tester:** use the M5 chart (the MT4 tester requires M5).
+
+## 🙏 Credits
+
+- Strategy: **Silkysilv** on Forex Factory, posts #111 / #112.
+
+## ⚠️ Notes
+
+- The default of 5 % risk per trade is very aggressive — consider lowering it, and test on a demo account first. No profit promise.
+- Session times are in broker server time; check your broker's time zone.
 
 ---
 
