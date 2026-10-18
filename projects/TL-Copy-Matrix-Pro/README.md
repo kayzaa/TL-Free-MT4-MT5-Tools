@@ -1,4 +1,3 @@
-<!-- auto-generated: remove this line after hand-editing so publish keeps your text -->
 <div align="center">
 
 # ⚡ TL Copy Matrix Pro
@@ -19,66 +18,98 @@
 
 > Compiled build only — source code is not published.
 
-## Overview
+## ✨ Highlights
 
-One Expert Advisor for both sides. Attach it in SENDER mode on the account you copy FROM and in RECEIVER mode on every account you copy TO. All terminals must run on the same PC or VPS (they talk through the MetaTrader common data folder - no DLL, no internet, no server, no extra software).
+- **One EA, two roles** — attach it as **SENDER** on the account you copy from and as **RECEIVER** on every account you copy to.
+- **No DLL, no internet, no server** — terminals on the same PC or VPS talk through the MetaTrader common data folder.
+- **Copies everything that matters** — market positions, pending orders, SL / TP edits, partial closes, volume adds and full closes.
+- **Smart lot sizing** — multiplier, fixed lot, balance or equity ratio, or risk % at the SL, with contract-size adjustment between brokers.
+- **Built-in safety net** — equity protection, offline-sender handling, retry back-off and a dry-run mode.
+- **Speed you can see** — the dashboard shows copy speed in milliseconds (last / average / best).
 
-## Quick Start
+## 🚀 Quick start
 
-- Sender terminal: open any chart, attach "TL Copy Matrix Pro", Mode = SENDER. That's all (works with the investor / read-only password).
-- Receiver terminal: attach the EA on any chart, Mode = RECEIVER, "For Receiver: account number(s) to copy from" = the sender's account number.
-- Press AutoTrading in the receiver terminal (and keep "Allow Algo Trading" ticked). The dashboard shows "LIVE" / CONNECTED as soon as the sender is found. One EA per terminal is enough - it copies every symbol.
+1. **Sender terminal:** open any chart, attach **TL Copy Matrix Pro**, set **Mode = SENDER**. That's it — it even works with the investor (read-only) password.
+2. **Receiver terminal:** attach the EA on any chart, set **Mode = RECEIVER** and enter the sender's account number in **"For Receiver: account number(s) to copy from"**.
+3. Press **AutoTrading** in the receiver terminal and keep **"Allow Algo Trading"** ticked. The dashboard switches to **LIVE / CONNECTED** as soon as the sender is found.
 
-Topologies: one-to-many, many-to-one (comma list of sender numbers in ONE receiver), many-to-many.
+One EA per terminal is enough — it copies every symbol.
 
-## What Is Copied
+**Topologies:** one-to-many, many-to-one (a comma-separated list of sender numbers in ONE receiver) and many-to-many.
 
-- Market positions and pending orders (limit, stop, stop-limit, expiry converted between broker time zones)
-- SL / TP, and every later SL / TP / pending price change
-- Partial closes, volume adds (netting senders), full closes
-- A sender pending that fills before ours: our pending is replaced by a market copy
-- Reverse mode: Buy <-> Sell, SL <-> TP, limit <-> stop
-- Copies closed by hand on the receiver are never re-opened
+## 🧠 How it works
 
-## Lot & Risk
+### What is copied
 
-Lot mode: sender lot x multiplier / fixed lot / balance ratio x multiplier / equity ratio x multiplier / risk % at the SL. Contract size adjustment between brokers, min / max lot, below-minimum rule (use the minimum or skip).
+- Market positions and pending orders (limit, stop, stop-limit) — expiry is converted between broker time zones.
+- SL / TP, plus every later SL / TP / pending-price change.
+- Partial closes, volume adds (netting senders) and full closes.
+- If a sender pending order fills before ours, our pending is replaced by a market copy.
+- **Reverse mode:** Buy ↔ Sell, SL ↔ TP, limit ↔ stop.
+- Copies you close by hand on the receiver are never re-opened.
 
-## Symbols
+### Lot & risk
 
-Automatic: EURUSD = EURUSD.m = EURUSDm = EURUSD.pro, XAUUSD = GOLD, US30 = DJ30 = WS30, NAS100 = USTEC, GER40 = DE40 ... Manual: SymbolMappings "XAUUSD:GOLD,US30:DJ30". Prefix / suffix, white list and black list. Price mode RELATIVE keeps the SL / TP distance in pips when the two brokers quote different prices (indices, gold, crypto).
+| Lot mode | Lot on the receiver |
+|---|---|
+| Multiplier | Sender lot × multiplier |
+| Fixed | A fixed lot |
+| Balance ratio | Balance ratio × multiplier |
+| Equity ratio | Equity ratio × multiplier |
+| Risk % | Risk % at the SL |
 
-## Filters
+Plus contract-size adjustment between brokers, min / max lot, and a below-minimum rule (use the minimum or skip).
 
-Buy only / sell only, sender magic numbers (0 = manual trades), max spread, max distance to the sender's entry (never chase a moved price), max open copies, max trade age, copy trades already open at the start (on / off), trading days (Mon-Sun) and a time window (server, GMT or local time) with an optional close-all at the window end.
+### Symbol matching
 
-## Drawdown Protection (receiver)
+- **Automatic:** EURUSD = EURUSD.m = EURUSDm = EURUSD.pro, XAUUSD = GOLD, US30 = DJ30 = WS30, NAS100 = USTEC, GER40 = DE40 …
+- **Manual:** `SymbolMappings` such as `XAUUSD:GOLD,US30:DJ30`.
+- Prefix / suffix handling, white list and black list.
+- **Price mode RELATIVE** keeps the SL / TP distance in pips when the two brokers quote different prices (indices, gold, crypto).
 
-based on equity or balance. Action: block new copies / close all + block until the reset / close all + pause for the cooldown. Daily reset at ResetHour:ResetMinute (server time). RESET button in the dashboard re-bases the start balance. Daily profit target: close all copies and pause until the next reset.
+### Filters
 
-## Safety
+Buy only / sell only, sender magic numbers (0 = manual trades), max spread, max distance to the sender's entry (never chase a moved price), max open copies, max trade age, copy trades already open at the start (on / off), trading days (Mon–Sun) and a time window (server, GMT or local time) with an optional close-all at the window end.
+
+### Equity protection (receiver)
+
+- Based on equity or balance.
+- **Actions:** block new copies / close all + block until the reset / close all + pause for the cooldown.
+- Daily reset at `ResetHour:ResetMinute` (server time); the **RESET** button in the dashboard re-bases the start balance.
+- **Daily profit target:** close all copies and pause until the next reset.
+
+### Safety
 
 - The sender never broadcasts while its terminal is disconnected; removals are confirmed for 60 ms, so a re-syncing terminal never makes receivers close trades.
-- Sender offline (no heartbeat for N seconds): copies are KEPT, never closed by mistake. Optional: close everything after N minutes offline.
-- Broker rejections are retried with a back-off (1.5 s ... 60 s), no spam.
-- Dry run: the receiver shows and logs what it would copy without sending orders.
+- **Sender offline** (no heartbeat for N seconds): copies are **kept**, never closed by mistake. Optional: close everything after N minutes offline.
+- Broker rejections are retried with a back-off (1.5 s … 60 s) — no spam.
+- **Dry run:** the receiver shows and logs what it would copy without sending orders.
 - Only trades with the EA's own magic number + copy tag are ever touched.
 
-## Dashboard
+## 🖥️ Dashboard & alerts
 
-Account info, sync status, copy speed in milliseconds (last / average / best), copy speed (sender), live configuration (lot multiplier +/-, reverse, pending, X closes the panel to a small pill, click the pill to open it, drag the header to move.
+- Account info, sync status, copy speed in milliseconds (last / average / best) and sender-side copy speed.
+- Live configuration right on the panel: lot multiplier − / +, reverse, pending.
+- **X** collapses the panel to a small pill, click the pill to reopen it, drag the header to move it.
+- **Alerts:** popup, sound, push notification (mobile) and e-mail. Important events are always reported; every copied trade optionally.
 
-## Alerts
+## 🛠️ Installation
 
-Popup, sound, push notification (mobile), e-mail. Important events always, every copied trade optionally.
+1. Copy `TL Copy Matrix Pro.ex5` into **File → Open Data Folder → MQL5 → Experts** in every terminal (sender and receivers).
+2. Refresh the Navigator (or restart MT5).
+3. Attach the EA to any chart and choose **Mode = SENDER** or **Mode = RECEIVER** (see Quick start).
+4. On the receiver, enable **AutoTrading** and keep **"Allow Algo Trading"** ticked.
 
-## Notes
+## 📋 Requirements
 
-- Copy speed = time from the sender terminal seeing the trade until the copy is filled (same PC clock). Typically a few tens of milliseconds plus the broker's execution time.
-- Netting receiver accounts are supported (one net position per symbol); pending orders are copied there when they fill.
-- Links in the panel need "Allow DLL imports" (only used to open the browser).
+- All terminals must run on the **same PC or VPS** (they share the MetaTrader common data folder).
+- **"Allow DLL imports"** is only needed for the link buttons in the panel (used to open the browser).
 
-trader.lifestyle  ·  YouTube @traderlifestyle
+## ⚠️ Notes
+
+- **Copy speed** = time from the sender terminal seeing the trade until the copy is filled (same PC clock). Typically a few tens of milliseconds plus the broker's execution time.
+- **Netting receiver accounts** are supported (one net position per symbol); pending orders are copied there when they fill.
+- Copying multiplies exposure across accounts — test your setup on demo accounts first.
 
 ---
 

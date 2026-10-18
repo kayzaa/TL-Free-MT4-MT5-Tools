@@ -1,4 +1,3 @@
-<!-- auto-generated: remove this line after hand-editing so publish keeps your text -->
 <div align="center">
 
 # ⚡ TL Martingale Calculator Pro
@@ -18,30 +17,80 @@
 
 > Compiled build only — source code is not published.
 
-## Overview
+## ✨ Highlights
 
-Forex Factory: <https://www.forexfactory.com/thread/1428808-free-eas-indicators-strategies-mt4>
+- **See the whole grid before you trade it** — price, lot, total lots, break-even, margin and P/L for every level.
+- **Broker-real risk colours** — rows turn yellow, orange or red using your broker's actual margin-call / stop-out levels.
+- **A clear verdict** — how many levels your account survives, the estimated stop-out price and the risk : reward.
+- **Two modes** — plan a VIRTUAL grid or project the next levels from your LIVE open trades.
+- **Live panel settings** — type a value or use − / +, results update on the spot.
+- **Plays nicely with others** — it's an indicator, so it runs on the same chart as TL Trade Panel Pro or any EA.
 
-## Install
+## 🧠 What it calculates
 
-- **MT5: copy "TL Martingale Calculator Pro.ex5" to** — File > Open Data Folder > MQL5 > Indicators MT4: copy "TL Martingale Calculator Pro.ex4" to  File > Open Data Folder > MQL4 > Indicators Refresh the Navigator and drag it onto a chart ("Allow DLL imports" only for the link buttons). It is an indicator, so it runs on the same chart as TL Trade Panel Pro or any EA.
+**For every level of a martingale / grid:**
 
-## What It Shows
+- Price, lot, total lots
+- Average (break-even) price and pips back to break-even
+- Floating P/L when price reaches the level
+- Total margin and margin level %
+- Profit if the basket take profit is hit after that level
 
-For every level of a martingale / grid: price, lot, total lots, average (break-even) price, pips back to break-even, floating P/L when the price reaches the level, total margin, margin level %, and the profit if the basket take profit is hit after that level. margin level at the last level, TP profit, estimated STOP-OUT price with all levels open, loss at an optional hard stop, risk : reward, and a verdict: how many levels your account survives. Rows turn yellow (margin call), orange (not enough free margin to open) or red (stop-out), using your broker's real stop-out / margin-call levels.
+**For the whole sequence:**
 
-## Modes
+- Margin level at the last level and TP profit
+- Estimated **STOP-OUT price** with all levels open
+- Loss at an optional hard stop
+- Risk : reward
+- **Verdict:** how many levels your account survives
 
-VIRTUAL - plan a grid from the live price, a typed price or the dragged START line.
-- **LIVE** — - your open trades of the symbol become the first levels (silver lines), the next levels are projected from the last entry and the last lot.
+**Row colours** (using your broker's real stop-out / margin-call levels):
 
-## Settings (live on the panel - type or use - / +)
+| Colour | Meaning |
+|---|---|
+| 🟨 Yellow | Margin call |
+| 🟧 Orange | Not enough free margin to open |
+| 🟥 Red | Stop-out |
 
-BUY or SELL grid, start lot, lot multiplier (2 = classic martingale, 1 = plain grid), lot added per level (additive martingale), step in pips, step multiplier (wider gaps), number of levels (max. 40), basket TP in pips from the average, hard stop beyond the last level. Inputs: commission per lot, magic filter for LIVE mode, colours.
+## 🔀 Modes
 
-## Chart
+- **VIRTUAL** — plan a grid from the live price, a typed price or the dragged **START** line.
+- **LIVE** — your open trades of the symbol become the first levels (silver lines); the next levels are projected from the last entry and the last lot.
 
-Level lines with lot labels, basket TP line, stop-out line, hard-stop line.
+## ⚙️ Key inputs
+
+**Live on the panel** (type a value or use − / +):
+
+| Setting | What it does |
+|---|---|
+| Direction | BUY or SELL grid |
+| Start lot | Lot of the first level |
+| Lot multiplier | 2 = classic martingale, 1 = plain grid |
+| Lot added per level | Additive martingale |
+| Step | Distance between levels in pips |
+| Step multiplier | Wider gaps level by level |
+| Number of levels | Up to 40 |
+| Basket TP | Pips from the average price |
+| Hard stop | Stop beyond the last level |
+
+**Inputs:** commission per lot, magic filter for LIVE mode, colours.
+
+## 🖥️ Chart
+
+Level lines with lot labels, a basket TP line, a stop-out line and a hard-stop line.
+
+## 🛠️ Installation
+
+1. Copy the file for your platform:
+   - **MT5:** `TL Martingale Calculator Pro.ex5` → **File → Open Data Folder → MQL5 → Indicators**
+   - **MT4:** `TL Martingale Calculator Pro.ex4` → **File → Open Data Folder → MQL4 → Indicators**
+2. Refresh the Navigator and drag the indicator onto a chart.
+3. **"Allow DLL imports"** is only needed for the link buttons.
+
+## ⚠️ Notes
+
+- This is a planning calculator — it places no orders.
+- Grid / martingale-style exposure can grow quickly; the stop-out estimate shows where that ends. Test any sequence on demo first.
 
 ---
 

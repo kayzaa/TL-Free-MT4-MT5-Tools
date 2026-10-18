@@ -1,4 +1,3 @@
-<!-- auto-generated: remove this line after hand-editing so publish keeps your text -->
 <div align="center">
 
 # ⚡ TL Liquidity Reaper Pro
@@ -17,37 +16,91 @@
 
 > Compiled build only — source code is not published.
 
-## Overview
+## ✨ Highlights
 
-Independent MetaTrader implementation of the published Liquidity Reaper [JOAT] rules by officialjackofalltrades, requested by Xepo-fx in post #256. Original indicator: <https://www.tradingview.com/script/7J5v2QPQ-Liquidity-Reaper-JOAT/> Video: <https://www.youtube.com/watch?v=RJuGsIMTd1k> Request: <https://www.forexfactory.com/thread/post/15960735#post15960735>
+- **Published rules, brought to MT5** — an independent implementation of Liquidity Reaper [JOAT] by officialjackofalltrades, requested on Forex Factory.
+- **Liquidity pools from confirmed pivots** — swing highs / lows become pools; crossing one opens a pending sweep.
+- **Strict confirmation** — close back through the pool, minimum excursion and a volume check, on bars 1–3 after the sweep.
+- **ATR stop + 1R / 2R / 3R targets** — all three drawn on the chart; you choose which one closes the full position.
+- **Safe by default** — Auto Trading is OFF; signals, rails, zones and the dashboard work without placing a single order.
+- **Closed-bar logic** — signals are handled once per closed bar; startup history never creates orders.
 
-## Installation (MT5 Release)
+## 🧠 Strategy rules
 
-- MT5: copy the EX5 into File > Open Data Folder > MQL5 > Experts.
-- Refresh Navigator and attach the EA to a standard candlestick chart.
-- The chart symbol and timeframe are used for signals.
-- Auto Trading is OFF by default. Signals, rails, zones and dashboard still work.
-- For orders, enable InpAutoTrade or the panel toggle AND MetaTrader's trading permissions. Use a demo account to become familiar with the behavior first.
-- Allow DLL imports only if you want the website buttons to open your browser.
-- The imported Windows shell32 function is used for these buttons only.
+### Liquidity pools & sweeps
 
-## Signal Rules
+- Confirmed swing highs / lows become **liquidity pools**. Default strength: **8 completed bars on each side** — a pivot is not known before its right-side bars close.
+- Crossing a pool **consumes** it and opens a **pending sweep** for that side.
+- A new sweep on a side replaces that side's pending one. When several pools are crossed together, the oldest crossed pool is kept (matching the public indicator's reverse traversal and overwrite behaviour).
+- Active pool limit: **12 per side**. Swept zones stay on the chart for **120 bars** by default.
 
-Confirmed swing highs/lows become liquidity pools. Default strength is 8 completed bars on each side. A pivot is not known before the right bars close. Crossing a pool consumes it and opens a pending sweep for that side. Confirmation is allowed on bars 1, 2 or 3 after the sweep, never the sweep bar. BUY: close above the swept low pool AND above the confirmation candle's open. SELL: close below the swept high pool AND below the candle's open. The maximum excursion beyond the pool must reach 25% of the ORIGINAL sweep candle's range. The extreme is updated while the sweep remains pending. Confirmation volume must be at least 1.1 times its 20-bar SMA, including the confirmation candle. A new sweep on a side replaces that side's pending one. When several pools are crossed together, the oldest crossed pool is retained, matching the public indicator's reverse traversal and overwrite behavior. Active pool limit: 12 per side. Swept zones remain for 120 bars by default.
+### Confirmation
 
-## Stop / Targets / Execution
+Confirmation is allowed on **bars 1, 2 or 3 after the sweep** — never on the sweep bar itself.
 
-Default stop distance: Wilder ATR(14) x 1.5 from the signal close. Alternative: percentage of the signal close. TP1/TP2/TP3 are 1R/2R/3R. All three targets are shown. InpExitTarget selects a FULL-position exit at TP1, TP2 or TP3; default TP3. No automatic partial exits, break-even or trailing. One EA position per symbol/magic. Opposite signals close and reverse by default; InpReverse=false ignores new signals while a position is open. Same-direction signals do not add exposure. CLOSE ALL affects this EA's symbol/magic only. Default sizing is 0.5% of balance using the actual quote-to-stop distance. InpRiskPct=0 selects fixed lots. Lot size is rounded down; undersized orders are skipped rather than increased to the broker minimum. Spread, lot cap, margin, tick size and stop distance are checked. SL and selected TP are sent with the order. A failed request is logged and is not retried on that signal. Foreign positions on an MT5 netting symbol prevent new orders. Use a distinct magic number for independent instances/timeframes. Startup history never creates orders. Signals are handled once per closed bar.
+| | Condition |
+|---|---|
+| **BUY** | Close above the swept low pool **and** above the confirmation candle's open |
+| **SELL** | Close below the swept high pool **and** below the confirmation candle's open |
+| **Excursion** | The maximum excursion beyond the pool must reach **25 %** of the ORIGINAL sweep candle's range (the extreme keeps updating while the sweep is pending) |
+| **Volume** | Confirmation volume ≥ **1.1 ×** its 20-bar SMA (including the confirmation candle) |
 
-## Important Differences From A Tradingview Indicator
+### Stop, targets & execution
 
-Orders are submitted after the confirmation candle closes, at the next available quote. Fill prices, spread, slippage and broker trading rules apply. TradingView can show tentative intrabar signals; this EA waits for bar close. Forex tick volume is selected by default. InpRealVolume uses real volume only when the broker supplies it. Different feeds, sessions and bars can change signals; matching settings do not guarantee identical TradingView chart marks. The video's manually drawn trendlines are not an automatic trend filter. Chart TP/SL graphics describe the most recent signal, including signals which were not traded. The POSITION block reports actual broker positions separately. The visual framework freezes after its stop or TP3 is touched and is replaced by the next signal. The chosen execution target does not alter signal history. On restart, signal state is rebuilt from InpWarmup bars (default 3000). Raid counts refer to this loaded history, not to an account's trade results.
+- **Stop:** Wilder ATR(14) × 1.5 from the signal close (alternative: a percentage of the signal close).
+- **Targets:** TP1 / TP2 / TP3 = 1R / 2R / 3R, all shown on the chart. `InpExitTarget` selects a **full-position exit** at TP1, TP2 or TP3 (default TP3).
+- No automatic partial exits, break-even or trailing.
+- **One EA position per symbol / magic.** Opposite signals close and reverse by default; `InpReverse=false` ignores new signals while a position is open. Same-direction signals never add exposure.
+- **Sizing:** 0.5 % of balance by default, using the actual quote-to-stop distance. `InpRiskPct=0` selects fixed lots. Lots are rounded down; undersized orders are skipped rather than increased to the broker minimum.
+- Spread, lot cap, margin, tick size and stop distance are checked. SL and the selected TP are sent with the order. A failed request is logged and not retried on that signal.
+- **CLOSE ALL** affects this EA's symbol / magic only. Foreign positions on an MT5 netting symbol prevent new orders. Use a distinct magic number for independent instances / timeframes.
 
-## Dashboard
+## 🔄 Differences from the TradingView indicator
 
-Standard trader.lifestyle Canvas panel: drag the header, X to minimize to a pill, click the pill to reopen. Hover explanations, responsive columns, RoboForex / WhatsApp / YouTube / Forex Factory / IndicatorGenius buttons. Native time/price chart objects follow scrolling and zooming. Deleted panel and overlay objects are recreated. No account lock and no expiry.
+- Orders are submitted **after the confirmation candle closes**, at the next available quote — fill price, spread, slippage and broker rules apply.
+- TradingView can show tentative intrabar signals; this EA waits for the bar close.
+- Forex **tick volume** is used by default. `InpRealVolume` uses real volume only when the broker supplies it.
+- Different feeds, sessions and bars can change signals — matching settings do not guarantee identical TradingView chart marks.
+- The video's manually drawn trendlines are **not** an automatic trend filter.
+- On restart, signal state is rebuilt from `InpWarmup` bars (default 3000). Raid counts refer to this loaded history, not to account results.
 
-Trading involves risk. Signals do not guarantee profitable trades. This package is an independent implementation, not an official JOAT product. No source code is included in the Forex Factory ZIP.
+## 🖥️ Dashboard & chart
+
+- Standard trader.lifestyle Canvas panel: drag the header, **X** minimizes to a pill, click the pill to reopen.
+- Hover explanations, responsive columns, RoboForex / WhatsApp / YouTube / Forex Factory / IndicatorGenius buttons.
+- Chart TP / SL graphics describe the **most recent signal**, including signals that were not traded; the **POSITION** block reports actual broker positions separately.
+- The visual framework freezes once its stop or TP3 is touched and is replaced by the next signal. The chosen execution target does not alter signal history.
+- Native time / price chart objects follow scrolling and zooming; deleted panel and overlay objects are recreated.
+- No account lock and no expiry.
+
+## ⚙️ Key inputs
+
+| Input | What it does |
+|---|---|
+| `InpAutoTrade` | Enables order placement (OFF by default; also switchable from the panel) |
+| `InpExitTarget` | Full-position exit at TP1, TP2 or TP3 (default TP3) |
+| `InpReverse` | `true` = opposite signal closes and reverses; `false` = ignore new signals while a position is open |
+| `InpRiskPct` | Risk % of balance per trade (default 0.5); `0` = fixed lots |
+| `InpRealVolume` | Use real volume when the broker supplies it (default: tick volume) |
+| `InpWarmup` | Bars used to rebuild signal state on restart (default 3000) |
+
+## 🛠️ Installation
+
+1. Copy `TL Liquidity Reaper Pro.ex5` into **File → Open Data Folder → MQL5 → Experts**.
+2. Refresh the Navigator and attach the EA to a **standard candlestick chart** — the chart symbol and timeframe are used for signals.
+3. Auto Trading is **OFF** by default. To place orders, enable `InpAutoTrade` (or the panel toggle) **and** MetaTrader's trading permissions.
+4. Allow DLL imports only if you want the website buttons to open your browser (the imported Windows `shell32` function is used for these buttons only).
+
+## ⚠️ Notes
+
+- This is an independent implementation, **not an official JOAT product**.
+- Signals do not guarantee profitable trades. Get familiar with the behaviour on a demo account first.
+
+## 🙏 Credits
+
+- Original indicator: [Liquidity Reaper [JOAT] on TradingView](https://www.tradingview.com/script/7J5v2QPQ-Liquidity-Reaper-JOAT/) by **officialjackofalltrades**
+- Video: [Video on YouTube](https://www.youtube.com/watch?v=RJuGsIMTd1k)
+- Request: [Xepo-fx, post #256 on Forex Factory](https://www.forexfactory.com/thread/post/15960735#post15960735)
 
 ---
 

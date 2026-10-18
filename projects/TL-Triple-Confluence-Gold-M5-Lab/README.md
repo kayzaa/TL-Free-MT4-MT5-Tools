@@ -1,4 +1,3 @@
-<!-- auto-generated: remove this line after hand-editing so publish keeps your text -->
 <div align="center">
 
 # ⚡ TL Triple Confluence Gold M5 Lab
@@ -20,45 +19,98 @@
 
 > Compiled build only — source code is not published.
 
-## Free Forex Factory Edition / Discretionary Chart Indicator
+## ✨ Highlights
 
-Separate filename: TL Triple Confluence Gold M5 Lab.ex5 / .ex4 MT4 and MT5 builds included. See PLATFORM_NOTES.txt. No orders, DLL, account lock or expiry.
+- **Built for gold M5** — trend-pullback analysis on XAUUSD M5 with an EMA 25 / 75 / 140 structure.
+- **Strict, mechanical trend gates** — EMA order, slope, ribbon width, signed efficiency and RSI, rechecked on every closed bar.
+- **Pullback + stochastic trigger** — an EMA touch followed by a confirmation close and a K / D cross.
+- **ATR-based swing stops, 2R target and a time exit** — every signal gets a complete, fixed plan.
+- **Browse real historical signals** — PREVIOUS / NEXT jumps through the chart with TP, SL, TIME EXIT and more on each pill.
+- **Indicator only** — no orders, no DLL, no account lock, no expiry.
 
-## Purpose
+## 💡 Purpose
 
-Trend-pullback analysis for Gold M5. Choose whether a setup fits your own plan; there is no requirement to trade every signal. The indicator places no orders. Credits: Trader DNA, <https://www.youtube.com/watch?v=wf6s7HHUP_8.> The precise mechanical filters and exits below are our implementation additions.
+Trend-pullback analysis for **Gold M5**. You decide whether a setup fits your own plan — there is no requirement to trade every signal, and the indicator places no orders. The concept comes from a Trader DNA video; the precise mechanical filters and exits below are our implementation additions.
 
-## Entry Rules / Defaults
+## 🧠 Strategy rules
 
-EMA25 > EMA75 > EMA140 for BUY, reversed for SELL. Middle and slow EMA must each move >=0.08 ATR over 8 closed bars in that direction; fast EMA may flatten during the pullback. Fast/slow separation >=0.50 ATR. Signed efficiency over 30 bars >=0.10 in the EMA direction: direction*(close-close[30])/sum(abs(close changes),30 bars). RSI75 >51 for BUY, <49 for SELL; close beyond slow EMA on trend side. All trend gates rechecked each close; failures clear the pending EMA touch. Two consecutive qualifying trend bars required. No retained trend permission. An EMA must be touched within 8 bars, allowing 0.10 ATR tolerance. Track deepest touched EMA. Confirmation closes beyond that EMA and prior close in trend direction, with a matching bullish/bearish body and stochastic K/D cross. Stochastic14/3/3; A extreme and B standard enabled. A means both lines <=20 for BUY or >=80 for SELL on cross/preceding bar. Both classes target 2R. At least 6 bars between decisions. Touch consumed after an entry decision. No requirement to close beyond fast EMA when a deeper EMA was tested.
+### Trend gates (rechecked on every close)
 
-## Stop / Target / Time Exit
+| Gate | BUY | SELL |
+|---|---|---|
+| EMA order | EMA25 > EMA75 > EMA140 | EMA25 < EMA75 < EMA140 |
+| Slope | Middle and slow EMA each rise ≥ 0.08 ATR over 8 closed bars (fast EMA may flatten during the pullback) | Mirror |
+| Ribbon width | Fast / slow separation ≥ 0.50 ATR | Same |
+| Signed efficiency (30 bars) | ≥ 0.10 in the EMA direction | Same |
+| RSI(75) | > 51 | < 49 |
+| Price | Close beyond the slow EMA on the trend side | Mirror |
 
-BUY stop = lowest low of last 5 completed candles minus 0.25 ATR. SELL stop = highest high of last 5 candles plus 0.25 ATR. Stop distance from the signal CLOSE must be at least 1 ATR (widen if needed). Skip a setup if that distance exceeds 3 ATR. No future swing pivots are used. Entry at next bar open, stop remains fixed. Next-open risk can differ from close-based ATR bounds, especially at gaps. Invalid next-open risk => GAP SKIP. TP = 2 times initial entry-to-stop price risk. No trailing, BE or partials. If no SL/TP resolved first, exit at close of the 36th completed holding bar (entry bar counts as 1). M5: 180 trading minutes, longer across closures. TIME EXIT can win or lose; its result contributes to totals and cash estimates. It is an OHLC simulation at the close, not guaranteed executable slippage-free.
+- Signed efficiency = `direction × (close − close[30]) / sum(abs(close changes), 30 bars)`.
+- Two consecutive qualifying trend bars are required. There is no retained trend permission — any failed gate clears the pending EMA touch.
 
-## Costs And Outcomes
+### Pullback & trigger
 
-Recorded spread from each historical bar is used by default, with fixed InpSpreadPoints=30 fallback if missing. Symbol points are not dollars. BUY entry adds the entry bar spread; SELL exit OHLC adds each exit bar spread. Bar spread does not reconstruct tick-by-tick ask quotes or spread at exact fill. Assumed round-turn commission = 7 account-currency units / lot; set your costs. Price-R includes spread, excludes commission. Money deducts commission and uses CURRENT tick value/size and selected lots (default0.10). No historical FX, swap or slippage reconstruction. Current symbol pricing may differ by broker. If both SL/TP occur in one bar without an opening resolution, show AMBIGUOUS, excluded from dashboard settled totals. Unresolved signals show OPEN and are excluded from resolved panel totals. Independent overlapping hypothetical signals; NOT account returns/equity.
+- An EMA must be touched within **8 bars**, with a **0.10 ATR** tolerance. The deepest touched EMA is tracked.
+- **Confirmation:** a close beyond that EMA and beyond the prior close in the trend direction, with a matching bullish / bearish body and a **stochastic(14, 3, 3) K / D cross**.
+- No requirement to close beyond the fast EMA when a deeper EMA was tested.
+- **Classes:** A (extreme) and B (standard) are both enabled. **A** means both lines ≤ 20 for BUY or ≥ 80 for SELL on the cross bar or the preceding bar. Both classes target 2R.
+- At least **6 bars** between decisions; the touch is consumed after an entry decision.
 
-## UI / Installation
+### Stop, target & time exit
 
-- Copy EX5 to MQL5/Indicators/TripleConfluence (EX4 under MQL4/Indicators).
-- Refresh Navigator, attach Gold M5 Lab to XAUUSD M5, Inputs > Reset.
-- Default instance ID G avoids colliding with older indicator ID A. Prefer one theme-owning indicator per chart.
-- Large Canvas dashboard: drag header, X collapses, pill reopens, hover explanations.
-- PREVIOUS/NEXT selects real historical signal. Selected risk/target guides and BUY/SELL pills show TP, SL, TIME EXIT, OPEN, AMBIGUOUS or GAP SKIP plus R/points.
-- Current trend permission always refers to latest completed bar even when browsing history. Collision handling may show small dots instead of full pills.
-- CSV export in local MQL Files overwrites the loaded window (default5000 bars).
-- Link buttons show URLs; no DLL or browser automation required. Alerts/push off.
-- Theme restored on remove. No orders are placed.
-- Buffers: 0/1/2 EMAs; 3BUY/4SELL next-open entry; 5SL; 6TP; 7outcome.
-- Status0 OPEN,1TP,2SL,3AMBIGUOUS,4GAP SKIP,5TIME EXIT. Outcome is retrospective, never an entry filter. Forming candles excluded from completed outcomes.
+- **BUY stop** = lowest low of the last 5 completed candles − 0.25 ATR. **SELL stop** = highest high of the last 5 candles + 0.25 ATR.
+- Stop distance from the signal **close** must be at least 1 ATR (widened if needed); the setup is skipped if it exceeds 3 ATR. No future swing pivots are used.
+- **Entry** at the next bar's open; the stop stays fixed. Next-open risk can differ from the close-based ATR bounds, especially at gaps — invalid next-open risk is marked **GAP SKIP**.
+- **TP** = 2 × the initial entry-to-stop price risk. No trailing, break-even or partials.
+- **TIME EXIT:** if neither SL nor TP is hit first, the signal exits at the close of the 36th completed holding bar (the entry bar counts as 1) — 180 trading minutes on M5, longer across market closures. A time exit can win or lose.
 
-## Provenance
+## 📊 Signal outcomes & cost model
 
-The original video supplies the EMA/RSI/stochastic concept. This edition adds explicit trend conditions, swing stops, target and time-exit rules. Created with IndicatorGenius.com — <https://indicatorgenius.com/> <https://trader.lifestyle> | <https://www.youtube.com/@traderlifestyle>
+The indicator tracks each historical signal as an independent, hypothetical OHLC simulation — these are **not** account returns or equity, and not guaranteed executable fills.
 
-The screenshot illustrates the chart and individual signal labels. This archive contains no strategy test reports or aggregate performance tables. Read FF_POST_BBCODE.txt for the formatted forum description.
+- **Spread:** the recorded spread of each historical bar is used by default, with `InpSpreadPoints = 30` as a fallback when missing (symbol points are not dollars). BUY entries add the entry bar's spread; SELL exits add each exit bar's spread. Bar spread does not reconstruct tick-by-tick ask quotes.
+- **Commission:** an assumed round-turn commission of 7 account-currency units per lot — set your own costs.
+- **Price-R** includes spread and excludes commission. **Money** deducts commission and uses the CURRENT tick value / size and the selected lots (default 0.10). No historical FX, swap or slippage reconstruction.
+- If SL and TP both occur in one bar without an opening resolution, the signal shows **AMBIGUOUS** and is excluded from the settled totals. Unresolved signals show **OPEN** and are excluded from resolved totals.
+
+## 🖥️ Dashboard & chart
+
+- Large Canvas dashboard: drag the header, **X** collapses it, the pill reopens it, hover for explanations.
+- **PREVIOUS / NEXT** selects a real historical signal. Selected risk / target guides and BUY / SELL pills show TP, SL, TIME EXIT, OPEN, AMBIGUOUS or GAP SKIP plus R / points.
+- Current trend permission always refers to the latest completed bar, even while browsing history. Where pills would collide, small dots may be shown instead.
+- **CSV export** to the local MQL Files folder overwrites the loaded window (default 5000 bars).
+- Link buttons show their URLs — no DLL or browser automation required. Alerts / push are off by default.
+- The chart theme is restored when the indicator is removed.
+
+**Buffers**
+
+| Buffer | Content |
+|---|---|
+| 0 / 1 / 2 | EMAs |
+| 3 / 4 | BUY / SELL next-open entry |
+| 5 | SL |
+| 6 | TP |
+| 7 | Outcome status: 0 OPEN, 1 TP, 2 SL, 3 AMBIGUOUS, 4 GAP SKIP, 5 TIME EXIT |
+
+The outcome is retrospective and never an entry filter; forming candles are excluded from completed outcomes.
+
+## 🛠️ Installation
+
+1. Copy the file for your platform:
+   - **MT5:** `TL Triple Confluence Gold M5 Lab.ex5` → **File → Open Data Folder → MQL5 → Indicators** (e.g. a `TripleConfluence` subfolder)
+   - **MT4:** `TL Triple Confluence Gold M5 Lab.ex4` → **File → Open Data Folder → MQL4 → Indicators**
+2. Refresh the Navigator and attach **Gold M5 Lab** to an **XAUUSD M5** chart, then use **Inputs → Reset**.
+3. The default instance ID **G** avoids colliding with the older indicator's ID **A**. Prefer one theme-owning indicator per chart.
+
+## ⚠️ Notes
+
+- The outcome labels are hypothetical, overlapping signal simulations — not trading results.
+- The screenshot illustrates the chart and individual signal labels only.
+
+## 🙏 Credits
+
+- Concept (EMA / RSI / stochastic): [Trader DNA on YouTube](https://www.youtube.com/watch?v=wf6s7HHUP_8). This edition adds the explicit trend conditions, swing stops, target and time-exit rules.
+- [trader.lifestyle](https://trader.lifestyle)
 
 ---
 

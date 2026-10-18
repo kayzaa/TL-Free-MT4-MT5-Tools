@@ -1,4 +1,3 @@
-<!-- auto-generated: remove this line after hand-editing so publish keeps your text -->
 <div align="center">
 
 # ⚡ TL Gold Velocity Pro
@@ -19,42 +18,78 @@
 
 > Compiled build only — source code is not published.
 
-## Overview
+## ✨ Highlights
 
-"Catch FAST movement and jump on the train while it lasts - a drop or rise of ~10 $ with an acceleration of 1 $ or more per second, TP 2-5 $, SL 2 $."
+- **Burst detection, tick by tick** — measures how far gold moved inside a window *and* how fast it is moving right now.
+- **Two playbooks** — **RIDE** jumps on the burst, **REBOUND** waits for exhaustion and trades the bounce.
+- **Tick-precise exits** — hard SL at the broker plus a trailing stop, with SL / TP re-anchored to the real fill price.
+- **Ready-made presets** — Sniper, Balanced, Scalper, FF-Original, Rebound or full Manual control.
+- **Greed Shield** — daily target, daily loss stop, max trades per day and a pause after a losing streak.
+- **Intel layer** — liquidity sweep check, news score, DXY, FED rate, MACD, Bollinger, volume and RSI combined into one bias score.
 
-plus the rebound idea (catch the bounce after the hype), the "second tool" (news scoring, DXY, FED rate, MACD, BB, volume, RSI) and a greed shield ("without greed I would be around 2000 $ today").
+## 💡 The idea
 
-## Install
+Built from a Forex Factory request:
 
-- Copy "TL Gold Velocity Pro.ex5" into  File > Open Data Folder > MQL5 > Experts (optional: folder "src" = full source code, compiles in MetaEditor).
-- Restart MT5 or right-click "Expert Advisors" > Refresh in the Navigator.
-- Drag the EA onto an XAUUSD chart (any timeframe, M1 recommended).
-- Enable "Algo Trading". For the panel buttons: allow DLL imports.
-- Run it on a VPS close to your broker's server - see LATENCY below.
+> "Catch FAST movement and jump on the train while it lasts — a drop or rise of ~10 $ with an acceleration of 1 $ or more per second, TP 2–5 $, SL 2 $."
 
-## How It Works (tick by tick)
+On top of that, the EA adds the **rebound** idea (catch the bounce after the hype), the **"second tool"** (news scoring, DXY, FED rate, MACD, BB, volume, RSI) and a **Greed Shield** that stops trading once the day's goal is reached.
 
-MOVE   = net price move inside a window (e.g. 15 $ within 30 s) SPEED  = $ per second over the last second (e.g. >= 1 $/s) Both in the same direction = BURST.
-- **RIDE mode:** — enter WITH the burst (market order). REBOUND mode: wait until the burst is exhausted (speed drops below X % of its peak AND price comes back X $ from the extreme), then trade the bounce AGAINST the burst.
-Exit: hard SL at the broker + tick-precise trailing stop (+ optional TP, break-even, time exit). SL/TP are re-anchored to the real fill price (bursts slip!).
+## 🧠 How it works
 
-## Sniper (default)  15 $ in 30 s, 1 $/s, SL 10 $, trailing from +2 $ (distance 1 $),
+| Term | Meaning |
+|---|---|
+| **MOVE** | Net price move inside a window (e.g. 15 $ within 30 s) |
+| **SPEED** | $ per second over the last second (e.g. ≥ 1 $/s) |
+| **BURST** | MOVE and SPEED in the same direction |
 
-- **no fixed TP, max spread 1.50 $.** — ~10 trades/month.
-BALANCED          10 $ in 20 s, SL 5 $, trailing 0.5/0.5, 07-23 server time. SCALPER           8 $ in 30 s, 0.5 $/s, SL 5 $, trailing 1/0.5, 07-23. FF-ORIGINAL       your idea 1:1: 10 $ / 60 s / 1 $/s, TP 3 $, SL 2 $. REBOUND           10 $ in 30 s burst, bounce after exhaustion, TP 8 / SL 4. MANUAL            every value from groups 1-4 yourself.
+- **RIDE mode** — enter **with** the burst (market order).
+- **REBOUND mode** — wait until the burst is exhausted (speed drops below X % of its peak **and** price comes back X $ from the extreme), then trade the bounce **against** the burst.
+- **Exit** — hard SL at the broker + tick-precise trailing stop (+ optional TP, break-even and time exit). SL / TP are re-anchored to the real fill price, because bursts slip.
 
-## Greed Shield (group 5)
+## 🎯 Presets
 
-Daily target (default 5 %) -> close everything, done for the day. Daily loss stop (5 %), max trades per day, pause after N losses in a row. Goal tracker in the panel: 100 $ -> 100,000 $ at X % per day.
+| Preset | Settings |
+|---|---|
+| **SNIPER** (default) | 15 $ in 30 s, 1 $/s, SL 10 $, trailing from +2 $ (distance 1 $), no fixed TP, max spread 1.50 $ |
+| **BALANCED** | 10 $ in 20 s, SL 5 $, trailing 0.5 / 0.5, 07–23 server time |
+| **SCALPER** | 8 $ in 30 s, 0.5 $/s, SL 5 $, trailing 1 / 0.5, 07–23 |
+| **FF-ORIGINAL** | The original request 1:1 — 10 $ / 60 s / 1 $/s, TP 3 $, SL 2 $ |
+| **REBOUND** | 10 $ burst in 30 s, bounce after exhaustion, TP 8 / SL 4 |
+| **MANUAL** | Set every value from input groups 1–4 yourself |
 
-## Intel (group 6b) - "the second tool"
+## 🛡️ Greed Shield (group 5)
 
-- Liquidation sweep: burst must take out the high/low of the last X minutes.
-- News score (LIVE only, MQL5 calendar): for every USD high/medium event the EA learns from 1 year of calendar history how many $ gold moved per sigma of surprise (actual vs. forecast). After a release it shows the expected gold reaction; optional filter "trade only in news-score direction". Report: MQL5\Files\gvp_newsscore.csv
-- DXY (real symbol or synthetic from EURUSD/USDJPY/GBPUSD/USDCAD/USDSEK/USDCHF), FED rate decision from the calendar, MACD, Bollinger, volume, RSI.
-- All combined in a BIAS SCORE -100..+100 (+ = gold up), optional filter.
-News mode: OFF / ONLY inside news window / AVOID news.
+- **Daily target** (default 5 %) → close everything, done for the day.
+- **Daily loss stop** (5 %), max trades per day, pause after N losses in a row.
+- **Goal tracker** in the panel: 100 $ → 100,000 $ at X % per day.
+
+## 🔭 Intel (group 6b) — "the second tool"
+
+- **Liquidation sweep:** the burst must take out the high / low of the last X minutes.
+- **News score** (live only, MQL5 calendar): for every USD high / medium event, the EA learns from one year of calendar history how many $ gold moved per sigma of surprise (actual vs. forecast). After a release it shows the expected gold reaction; optional filter "trade only in news-score direction". Report: `MQL5\Files\gvp_newsscore.csv`.
+- **DXY** (real symbol or synthetic from EURUSD / USDJPY / GBPUSD / USDCAD / USDSEK / USDCHF), **FED rate decision** from the calendar, **MACD**, **Bollinger**, **volume**, **RSI**.
+- Everything combined into a **BIAS SCORE** from −100 to +100 (+ = gold up), usable as an optional filter.
+- **News mode:** OFF / ONLY inside the news window / AVOID news.
+
+## 🛠️ Installation
+
+1. Copy `TL Gold Velocity Pro.ex5` into **File → Open Data Folder → MQL5 → Experts**.
+2. Restart MT5 or right-click **Expert Advisors → Refresh** in the Navigator.
+3. Drag the EA onto an **XAUUSD** chart (any timeframe, M1 recommended).
+4. Enable **Algo Trading**. For the panel buttons, allow DLL imports.
+
+## 📋 Requirements
+
+- Symbol: **XAUUSD**.
+- A **VPS close to your broker's server** is recommended — burst trading is latency-sensitive.
+- The news score uses the MQL5 economic calendar and works in live trading only.
+
+## ⚠️ Notes
+
+- Bursts move fast: slippage and spread spikes are part of the game. SL / TP are re-anchored to the real fill, but fills can still differ from the trigger price.
+- Dollar distances are built for gold; other symbols would need their own distances.
+- Test on a demo account first.
 
 ---
 
