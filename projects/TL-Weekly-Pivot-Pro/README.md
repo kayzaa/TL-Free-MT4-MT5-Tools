@@ -1,4 +1,3 @@
-<!-- auto-generated: remove this line after hand-editing so publish keeps your text -->
 <div align="center">
 
 # ⚡ TL Weekly Pivot Pro
@@ -20,47 +19,87 @@
 
 > Compiled build only — source code is not published.
 
-## Overview
+## ✨ Highlights
 
-Strategy: Davit's "Pivot Trading" thread  <https://www.forexfactory.com/thread/588764-pivot-trading>
+- **Davit's weekly Fibonacci pivots** as a full EA for MT4 and MT5 — same levels as his pivot indicator, from the broker weekly candle.
+- **Ladder entries** — sell at R38 / R61 / R78, buy at S38 / S61 / S78, each stage with its own switch and lot multiplier.
+- **Pivot as target** — take profit at the weekly PP, with a hard stop beyond R138 / S138 and a trend exit at R100 / S100.
+- **Basket stop** — close everything at a money or % loss, per symbol, per magic number or for the whole account.
+- **Range / trend filter + multi-pair scanner** from completed weekly candles.
+- **High-impact news filter** (Forex Factory feed or MT5 calendar).
 
-## Files
+## 🧠 Strategy rules
 
-- **MT5/TL Weekly Pivot Pro.ex5** — -> MQL5\Experts MT4/TL Weekly Pivot Pro.ex4   -> MQL4\Experts Enable "Allow algo trading" and "Allow DLL imports" (DLL is only used by the link buttons). Attach the EA to one chart per pair you want to trade (M15 or H1 chart, any timeframe works).
+### The levels (broker weekly candle)
 
-## The Levels (same as Davit's pivot indicator, broker weekly candle)
+- **PP** = (High + Low + Close) / 3 of last week.
+- **R / S** = PP ± 0.382 / 0.618 / 0.786 / 1.0 / 1.382 / 1.618 / 2.0 × last week's range.
+- Pivot levels stay fixed for the whole week.
+- If your pivots differ from Davit's chart, set **Week candle** = *Shifted week* + hour offset.
 
-- **PP** — = (High + Low + Close) / 3 of last week R/S  = PP +/- 0.382 / 0.618 / 0.786 / 1.0 / 1.382 / 1.618 / 2.0 x last week's range If your pivots differ from Davit's chart: "Week candle" = Shifted week + hour offset.
+### Entries (ladder / position building)
 
-## Entries (ladder / position building)
+| Side | Ladder stages |
+|---|---|
+| SELL | R38, R61, R78 |
+| BUY | S38, S61, S78 |
 
-- **SELL ladder at R38, R61, R78** — ·   BUY ladder at S38, S61, S78   (each stage on / off, own lot multiplier) Confirmation (default = mizi123's rule): a closed H1 candle ends in the level zone -> that stage is traded. Other modes: Touch (enter at the level) · Rejection candle · TDI cross (Davit, RSI 13 / 2 / 7) Zone tolerance (default 10 pips): pivots are zones, the level counts N pips early. Pivot levels stay fixed for the whole week (broker weekly candle). One ladder per side and week (option).
+- Each stage on / off, with its own lot multiplier.
+- **Confirmation** (default = mizi123's rule): a closed H1 candle ends in the level zone → that stage is traded.
+- Other confirmation modes: **Touch** (enter at the level) · **Rejection candle** · **TDI cross** (Davit, RSI 13 / 2 / 7).
+- **Zone tolerance** (default 10 pips): pivots are zones, so the level counts N pips early.
+- One ladder per side and week (option).
 
-## Exits
+### Exits
 
-Take profit = weekly pivot (or one level back towards the pivot)
-- **Hard stop per order beyond R138 / S138 (+5 pips)** — -  or R100 / R161 / off Trend exit: an H1 candle closes beyond R100 / S100 -> that side is closed (Davit: "smash 100 = trend") Optional half-way break-even / partial close, Friday close 21:00 server
+- **Take profit** = the weekly pivot (or one level back towards the pivot).
+- **Hard stop** per order beyond R138 / S138 (+5 pips) — or R100 / R161 / off.
+- **Trend exit:** an H1 candle closes beyond R100 / S100 → that side is closed (Davit: *"smash 100 = trend"*).
+- Optional half-way break-even / partial close.
+- Friday close at 21:00 server time.
 
-## Basket Stop  (mizi123's request)
+### Basket stop (mizi123's request)
 
-Close everything when the open loss reaches X money or X % of the balance (swap + commission included) Scope: this symbol · all symbols of this magic number · whole account (closes this EA's orders) Default: closes the orders and blocks new entries until next week.
+- Close everything when the open loss reaches **X money** or **X % of the balance** (swap + commission included).
+- **Scope:** this symbol · all symbols of this magic number · whole account (closes this EA's orders).
+- **Default:** closes the orders and blocks new entries until next week.
 
-## Range / Trend Filter + Scanner  (mizi123's request)
+### Range / trend filter + scanner (mizi123's request)
 
-3 votes per pair and week from the completed weekly candles:
-- weekly ADX (Wilder 14) >= 25
-  - >= 2 of the last 4 weeks traded beyond their own R100 / S100
-  - efficiency of the last 4 weekly closes >= 0.6 (net move / path) 0 votes = RANGING, 1 = MIXED, 2-3 = TRENDING.  Filter: skip TRENDING (default), only RANGING, with the trend, off. Live: price beyond R100 / S100 this week -> no new counter trades. The scanner shows every pair of Davit's list: regime, ADX, zone touched this week ("touched R61"), distance to PP. Click a pair to open it.
+Three votes per pair and week, from the completed weekly candles:
 
-## News Filter
+1. Weekly ADX (Wilder 14) ≥ 25
+2. ≥ 2 of the last 4 weeks traded beyond their own R100 / S100
+3. Efficiency of the last 4 weekly closes ≥ 0.6 (net move / path)
 
-No new entries 30 min before / after high impact news (Forex Factory feed or MT5 calendar). MT4 / FF feed: add <https://nfs.faireconomy.media> under Tools > Options > Expert Advisors > Allow WebRequest.
+**0 votes** = RANGING · **1** = MIXED · **2–3** = TRENDING.
 
-## Risk Warning
+- **Filter:** skip TRENDING (default), only RANGING, with the trend, or off.
+- **Live:** price beyond R100 / S100 this week → no new counter-trend trades.
+- **Scanner:** shows every pair of Davit's list — regime, ADX, zone touched this week (e.g. "touched R61"), distance to PP. Click a pair to open it.
 
-This is a counter-trend system that adds to losing positions. Test it on demo first. Backtests are no guarantee for the future.
+### News filter
 
-More free tools + coding help: <https://www.forexfactory.com/thread/1428808-free-eas-indicators-strategies-mt4>
+- No new entries 30 min before / after high-impact news (Forex Factory feed or MT5 calendar).
+
+## 🛠️ Installation
+
+1. Open `File → Open Data Folder`.
+   - **MT4:** copy `MT4/TL Weekly Pivot Pro.ex4` into `MQL4 → Experts`.
+   - **MT5:** copy `MT5/TL Weekly Pivot Pro.ex5` into `MQL5 → Experts`.
+2. Refresh the Navigator. Attach the EA to **one chart per pair** you want to trade (M15 or H1 chart; any timeframe works).
+3. Enable **Allow algo trading**.
+4. For the Forex Factory news feed (and on MT4): add `https://nfs.faireconomy.media` under `Tools → Options → Expert Advisors → Allow WebRequest`.
+5. Optional: enable **Allow DLL imports** — only used by the link buttons.
+
+## 🙏 Credits
+
+- Strategy: **Davit's** Forex Factory thread [Pivot Trading](https://www.forexfactory.com/thread/588764-pivot-trading).
+- Confirmation rule, basket stop and range / trend filter requested by **mizi123**.
+
+## ⚠️ Notes
+
+- This is a **counter-trend system that adds to losing positions** (ladder stages). Exposure grows with each stage — use the hard stop and basket stop, and test on a demo account first.
 
 ---
 

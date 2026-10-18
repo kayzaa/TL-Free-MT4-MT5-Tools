@@ -1,4 +1,3 @@
-<!-- auto-generated: remove this line after hand-editing so publish keeps your text -->
 <div align="center">
 
 # ⚡ TL HA Wickless Pro
@@ -20,68 +19,95 @@
 
 > Compiled build only — source code is not published.
 
-## Overview
+## ✨ Highlights
 
-Vicky224's Heiken Ashi + EMA 200 idea from Forex Factory as an EA for MT4 AND MT5 (same rules, same panel). Source: thread "I will code your EAs and Indicators for no charge", post #83,260 (Sep 2026): <https://www.forexfactory.com/thread/post/15931316#post15931316>
+- **Vicky224's Heiken Ashi + EMA 200 idea** from Forex Factory, coded as an EA for **MT4 and MT5** — same rules, same panel.
+- **Closed-candle signals** — first wickless HA candle on the right side of the EMA 200.
+- **Swing-based stop + balance-% risk sizing** — lot calculated from the SL distance.
+- **Red-folder news filter** using the Forex Factory weekly calendar feed (MT5 calendar as fallback).
+- **Futures-aware** (MT5) — exchange futures detected automatically, SL on the tick grid.
+- **Full chart visuals** — HA candles, EMA 200, signal arrows and the simulated trades of the chart history.
 
-## The Rules (as requested)
+## 🧠 Strategy rules
 
-- Heiken Ashi, confirmed on CLOSED candles, timeframe M5 (other timeframes selectable).
-- BUY : first bullish HA candle WITHOUT a lower wick, price (close) above the EMA 200. SL = 2 pips below the previous swing low.
-- SELL: first bearish HA candle WITHOUT an upper wick, price (close) below the EMA 200. SL = 2 pips above the previous swing high.
-- TP  : at the end of the 3rd consecutive Heiken Ashi candle.
-- Risk 0.50 % of the balance per trade (lot size calculated from the SL distance).
+| | BUY | SELL |
+|---|---|---|
+| **Signal** | First bullish HA candle **without a lower wick** | First bearish HA candle **without an upper wick** |
+| **Trend filter** | Close **above** the EMA 200 | Close **below** the EMA 200 |
+| **Stop loss** | 2 pips below the previous swing low | 2 pips above the previous swing high |
+| **Take profit** | At the end of the 3rd consecutive HA candle | At the end of the 3rd consecutive HA candle |
+
+- Heiken Ashi, confirmed on **closed** candles, timeframe **M5** (other timeframes selectable).
+- **Risk 0.50 % of the balance** per trade (lot size from the SL distance).
 - No break-even, no partial close, no trailing stop, no daily limits, all trading hours.
-- News filter: no new trade 5 minutes before and after red folder news.
-- One trade at a time per pair. Several pairs = open several charts (one EA per chart).
+- **News filter:** no new trade 5 minutes before and after red-folder news.
+- One trade at a time per pair. Several pairs = several charts (one EA per chart).
 
-## How The EA Reads The Rules
+## 🔍 How the EA reads the rules
 
-- "First": the first wickless candle of the current HA run (since the last HA colour change) that is on the right side of the EMA. Input "Which wickless candle": FIRST OF THE RUN (default) / ONLY RIGHT AFTER A COLOUR CHANGE / EVERY wickless candle.
-- Entry at the open of the next candle, right after the signal candle has closed.
-- Swing low / high = lowest low / highest high with 2 candles on each side (fractal), the most recent one below (buy) / above (sell) the entry price, max. 100 candles back.
-- TAKE PROFIT - two switches, use one or both: TP 1 "close after X consecutive HA candles" (on / off, X = 3 by default): the trade is closed when the X-th HA candle after the entry has closed. TP 2 "close when an HA candle closes in the opposite colour" (on / off). Both ON  (default) = close after 3 candles, or earlier if the HA colour changes. Only TP 1          = always hold exactly X candles. Only TP 2          = hold the trade until the HA colour changes (can be many candles). Both OFF           = only the stop loss closes the trade (the EA warns you in the log). Input "the signal candle counts as candle #1" if you count it differently.
-- TIMEFRAME: input "Trading timeframe" (M5 by default). Any timeframe from M1 to D1 works, "current" = the timeframe of the chart. Put the chart on the same timeframe to see the HA candles and arrows that the EA uses.
-- Pip: 10 points on 5/3-digit symbols, 0.1 on gold (input "Points per pip" to override).
+- **"First"** = the first wickless candle of the current HA run (since the last HA colour change) that is on the right side of the EMA. Input **Which wickless candle**: FIRST OF THE RUN (default) / ONLY RIGHT AFTER A COLOUR CHANGE / EVERY wickless candle.
+- **Entry** at the open of the next candle, right after the signal candle has closed.
+- **Swing low / high** = lowest low / highest high with 2 candles on each side (fractal) — the most recent one below (buy) / above (sell) the entry price, max. 100 candles back.
+- **Timeframe:** input **Trading timeframe** (M5 by default). Anything from M1 to D1 works; "current" = the chart timeframe. Put the chart on the same timeframe to see the HA candles and arrows the EA uses.
+- **Pip:** 10 points on 5/3-digit symbols, 0.1 on gold (input **Points per pip** to override).
 - If even the minimum lot would risk more than 0.5 %, the trade is skipped (input).
 
-## News Filter (red folder)
+### Take profit — two switches, use one or both
 
-- Source AUTO: the Forex Factory weekly calendar feed (the real red folders). For that, add this URL once in MT5:  Tools > Options > Expert Advisors > "Allow WebRequest for listed URL":   <https://nfs.faireconomy.media>
-- MT5 only: without the URL the EA uses the MT5 economic calendar (high importance) instead. MT4 has no built-in calendar, so on MT4 the URL is needed for the news filter.
+| Setting | Behaviour |
+|---|---|
+| **TP 1** "close after X consecutive HA candles" | Closes when the X-th HA candle after the entry has closed (X = 3 by default) |
+| **TP 2** "close when an HA candle closes in the opposite colour" | Closes on the first opposite-colour HA candle |
+| Both ON (default) | Close after 3 candles, or earlier if the HA colour changes |
+| Only TP 1 | Always hold exactly X candles |
+| Only TP 2 | Hold until the HA colour changes (can be many candles) |
+| Both OFF | Only the stop loss closes the trade (the EA warns you in the log) |
+
+Input **the signal candle counts as candle #1** if you count it differently.
+
+## 📰 News filter (red folder)
+
+- **Source AUTO:** the Forex Factory weekly calendar feed (the real red folders). Add `https://nfs.faireconomy.media` once under `Tools → Options → Expert Advisors → Allow WebRequest for listed URL`.
+- **MT5:** without the URL the EA falls back to the MT5 economic calendar (high importance).
+- **MT4:** has no built-in calendar, so the URL is needed for the news filter.
 - Checks the base and the quote currency of the pair (EURUSD: EUR + USD, XAUUSD: USD).
-- Optional: orange folder news too, close an open trade before the news.
-- The panel shows the next red folder event with a countdown.
-- The strategy tester has no news data, so the filter is inactive in backtests.
+- Optional: orange-folder news too, and closing an open trade before the news.
+- The panel shows the next red-folder event with a countdown.
+- The Strategy Tester has no news data, so the filter is inactive there.
 
-## Futures (MT5, e.g. Amp Global: Mgcz26 micro gold, Gcez26 gold)
+## 🪙 Futures (MT5, e.g. AMP Global: MGCZ26 micro gold, GCEZ26 gold)
 
 - Detected automatically from the symbol settings (exchange futures).
 - 1 pip = 1 tick (0.1 on gold futures), so "2 pips" = 2 ticks behind the swing.
 - Whole contracts; the SL is placed exactly on the tick grid.
-- Risk: 1 micro gold contract with a typical M5 swing stop risks about 30-150 USD. With 0.5 % risk that needs roughly 20,000 USD or more, otherwise most signals are skipped. Set "Skip the trade if even the min. lot risks more" = false to always trade 1 contract (then the risk per trade is higher than 0.5 %).
-- Netting accounts: one position per symbol, do not trade the same contract by hand.
+- Position size: 1 micro gold contract with a typical M5 swing stop risks about 30–150 USD. At 0.5 % risk that needs roughly 20,000 USD or more — otherwise most signals are skipped. Set **Skip the trade if even the min. lot risks more** = `false` to always trade 1 contract (the risk per trade is then higher than 0.5 %).
+- Netting accounts: one position per symbol — do not trade the same contract by hand.
 - Contract roll: when MGCZ26 expires, put the EA on the next contract (MGCG27).
 
-## Chart & Panel
+## 🖥️ Dashboard & chart
 
-- Heiken Ashi candles on the chart, wickless candles in bright green / red, EMA 200 (on MT4 the EA draws them itself - keep the chart on M5). The normal candles are hidden behind them while the EA runs (restored on removal).
-- Arrows at every signal + the simulated trades of the chart history (dotted line from entry to exit, green = win, red = loss; hover it for entry + SL).
-- Panel: position, candle count (1 of 3), SL, HA mini chart, news filter, results, TRADING ON / PAUSE, CLOSE ALL, link buttons.
-- Alerts: popup, sound, push, email.
+- Heiken Ashi candles on the chart, wickless candles in bright green / red, EMA 200 (on MT4 the EA draws them itself — keep the chart on M5). The normal candles are hidden behind them while the EA runs and restored on removal.
+- Arrows at every signal + the simulated trades of the chart history (dotted line from entry to exit, green / red by outcome; hover for entry + SL).
+- **Panel:** position, candle count (1 of 3), SL, HA mini chart, news filter, results, TRADING ON / PAUSE, CLOSE ALL, link buttons.
+- **Alerts:** popup, sound, push, e-mail.
 
-## Installation
+## 🛠️ Installation
 
-- MT5: copy "MT5\TL HA Wickless Pro.ex5" to  MQL5\Experts\  (File > Open Data Folder). MT4: copy "MT4\TL HA Wickless Pro.ex4" to  MQL4\Experts\  (File > Open Data Folder).
-- Right-click "Expert Advisors" > Refresh in the Navigator.
-- Open an M5 chart per pair and drag the EA on it. Enable "Allow Algo Trading". Enable "Allow DLL imports" only if you want the link buttons (YouTube / RoboForex / WhatsApp / Myfxbook) to open your browser.
-- Add <https://nfs.faireconomy.media> to the WebRequest list (see NEWS FILTER).
+1. Open `File → Open Data Folder`.
+   - **MT4:** copy `MT4\TL HA Wickless Pro.ex4` into `MQL4 → Experts`.
+   - **MT5:** copy `MT5\TL HA Wickless Pro.ex5` into `MQL5 → Experts`.
+2. In the Navigator right-click **Expert Advisors → Refresh**.
+3. Open an **M5 chart per pair** and drag the EA onto it. Enable **Allow Algo Trading**.
+4. Add `https://nfs.faireconomy.media` to the WebRequest list (see News filter).
+5. Optional: enable **Allow DLL imports** only if you want the link buttons (YouTube / RoboForex / WhatsApp / Myfxbook) to open your browser.
 
-## Risk Warning
+## 🙏 Credits
 
-Trading involves high risk. Past results do not guarantee future results. No profit promise.
+- Strategy idea by **Vicky224** — Forex Factory thread "I will code your EAs and Indicators for no charge", [post #83,260 (Sep 2026)](https://www.forexfactory.com/thread/post/15931316#post15931316).
 
-trader.lifestyle  ·  <https://www.youtube.com/@traderlifestyle>
+## ⚠️ Notes
+
+- The chart's simulated history trades and panel results are a visual overview only — no profit promise. Test on a demo account first.
 
 ---
 

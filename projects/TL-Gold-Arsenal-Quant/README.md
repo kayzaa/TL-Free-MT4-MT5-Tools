@@ -1,4 +1,3 @@
-<!-- auto-generated: remove this line after hand-editing so publish keeps your text -->
 <div align="center">
 
 # ⚡ TL Gold Arsenal Quant
@@ -18,31 +17,51 @@
 
 > Compiled build only — source code is not published.
 
-## Overview
+## ✨ Highlights
 
-NO AUTO TRADING. Every tool can be switched on / off individually (EA inputs + live power switches in the panel). Free edition, no lock.
+- **106 gold tools, one dashboard** — price HUD, key levels, SMC, trend matrix, quant stats, macro, news, risk, alerts and utilities for XAUUSD.
+- **No auto trading** — this is an analysis and toolkit dashboard, not a strategy.
+- **Every tool switchable** — via EA inputs *and* live power switches in the panel.
+- **10 categories + ALL** on a left rail, with a switch board per category.
+- **Hover anything for help.** Free edition, no lock.
 
-## Install
+## 🖥️ Dashboard & chart
 
-- MT5: copy "TL Gold Arsenal Quant.ex5" to  MQL5\Experts\
-- MT4: copy "TL Gold Arsenal Quant.ex4" to  MQL4\Experts\
-- Attach it to an XAUUSD chart (any timeframe, M5-H1 recommended).
-- Tick "Allow DLL imports" (only for the YouTube / RoboForex / WhatsApp / Forex Factory buttons).
+- **Left rail** = 10 categories + ALL. **MODULES** opens the switch board of the category; the power icon on every card switches one tool on / off.
+- **X** closes the panel to a small pill; click the pill to reopen. Drag the header (or the pill) to move it.
+- Hover any element for an explanation.
 
-## The Dashboard
+## 🧰 The 106 tools
 
-- Left rail = 10 categories + ALL. "MODULES" opens the switch board of the category, the power icon on every card switches one tool.
-- X closes the panel to a small pill, click the pill to reopen, drag the header (or the pill) to move it. Hover anything for help.
+| Category | Tools |
+|---|---|
+| **PULSE** | Price HUD, spread monitor, candle timer, tick speed, ATR M15 / H1 / D1, ADR progress, volatility regime, swap monitor, session clock, market status, price velocity, tick delta (CVD), watermark |
+| **LEVELS** | Round numbers $100 / $50 / $25 / $10, PDH / PDL / PDC, PWH / PWL, PMH / PML, D / W / M opens, pivots (classic / fibo / camarilla / woodie / demark), Asian range + targets, opening range (NY / London / COMEX / Tokyo), ADR levels, ATR bands, auto Fibonacci + OTE, session VWAP + bands, weekly AVWAP, volume profile POC / VAH / VAL (+ previous day), LBMA fix / COMEX / NY time lines, ICT killzones, silver bullet, NY midnight open, weekend gap, H4 / D1 candle overlay |
+| **SMC** | Swings HH / HL / LH / LL, equal highs / lows, BOS / CHoCH, order blocks, breaker blocks, fair value gaps, premium / discount, liquidity sweeps, H1 supply / demand, auto trendlines, displacement, volume spikes, confluence score |
+| **TREND** | MTF matrix M1 … W1 (EMA stack, RSI, MACD, ADX, Supertrend, Heikin Ashi, Ichimoku, squeeze), EMA ribbon, Supertrend, RSI divergence, candle pattern scanner, regression channel |
+| **QUANT** | Hurst, z-score, realized vol, return distribution, monthly seasonality, weekday stats, hourly volatility, hour x weekday heatmap, probability cone, high / low-in odds, streaks + autocorrelation, efficiency / choppiness, body / wick stats |
+| **MACRO** | Gold / silver ratio, dollar index (broker or synthetic), correlation matrix, currency strength, gold in EUR / GBP / JPY / AUD / CHF, risk assets, metals complex, CFTC COT report (WebRequest) |
+| **NEWS** | Economic calendar (MT5) / US schedule + manual list (MT4), news lock, NFP / CPI / FOMC flags, week facts, news lines, gold reaction to the last NFP / CPI / FOMC releases (MT5) |
+| **RISK** | Position size, draggable R:R tool, contract + margin, exposure + break-even line, prop firm guard, account health, journal stats, trading cost, closed trades on the chart |
+| **ALERTS** | Level cross, volatility, spread, your own lines ("alert" in the name), Telegram, screenshot on alert |
+| **UTILS** | Manual one-click trade panel (2-click confirm, off by default), trade manager BE + trailing (off by default, never opens trades), gold chart theme, world clock, screenshot, pre-trade checklist |
 
-## The 106 Tools
+## 🛠️ Installation
 
-PULSE   price HUD, spread monitor, candle timer, tick speed, ATR M15/H1/D1, ADR progress, volatility regime, swap monitor, session clock, market status, price velocity, tick delta (CVD), watermark LEVELS  round numbers $100/$50/$25/$10, PDH/PDL/PDC, PWH/PWL, PMH/PML, D/W/M opens, pivots (classic/fibo/camarilla/woodie/demark), Asian range + targets, opening range (NY/London/COMEX/Tokyo), ADR levels, ATR bands, auto fibonacci + OTE, session VWAP + bands, weekly AVWAP, volume profile POC/VAH/VAL (+ previous day), LBMA fix / COMEX / NY time lines, ICT killzones, silver bullet, NY midnight open, weekend gap, H4/D1 candle overlay SMC     swings HH/HL/LH/LL, equal highs/lows, BOS/CHoCH, order blocks, breaker blocks, fair value gaps, premium/discount, liquidity sweeps, H1 supply/demand, auto trendlines, displacement, volume spikes, confluence score TREND   MTF matrix M1..W1 (EMA stack, RSI, MACD, ADX, supertrend, Heikin Ashi, Ichimoku, squeeze), EMA ribbon, supertrend, RSI divergence, candle pattern scanner, regression channel QUANT   Hurst, z-score, realized vol, return distribution, monthly seasonality, weekday stats, hourly volatility, hour x weekday heatmap, probability cone, high/low-in odds, streaks + autocorrelation, efficiency/choppiness, body/wick stats MACRO   gold/silver ratio, dollar index (broker or synthetic), correlation matrix, currency strength, gold in EUR/GBP/JPY/AUD/CHF, risk assets, metals complex, CFTC COT report (WebRequest) NEWS    economic calendar (MT5) / US schedule + manual list (MT4), news lock, NFP/CPI/FOMC flags, week facts, news lines, gold reaction to the last NFP / CPI / FOMC releases (MT5) RISK    position size, drag-able R:R tool, contract + margin, exposure + break-even line, prop firm guard, account health, journal stats, trading cost, closed trades on the chart ALERTS  level cross, volatility, spread, your own lines ("alert" in the name), Telegram, screenshot on alert UTILS   manual one-click trade panel (2-click confirm, off by default), trade manager BE + trailing (off by default, never opens trades), gold chart theme, world clock, screenshot, pre-trade checklist
+1. Open `File → Open Data Folder`.
+   - **MT4:** copy `TL Gold Arsenal Quant.ex4` into `MQL4 → Experts`.
+   - **MT5:** copy `TL Gold Arsenal Quant.ex5` into `MQL5 → Experts`.
+2. Refresh the Navigator and attach the EA to an **XAUUSD** chart (any timeframe; M5–H1 recommended).
+3. Optional: tick **Allow DLL imports** — only for the YouTube / RoboForex / WhatsApp / Forex Factory buttons.
+4. Optional WebRequest: `Tools → Options → Expert Advisors → Allow WebRequest for listed URL` and add:
+   - `https://publicreporting.cftc.gov` — COT report
+   - `https://api.telegram.org` — Telegram alerts
 
-## Webrequest (optional): Tools > Options > Expert Advisors > allow
+## ⚠️ Notes
 
-- **<https://publicreporting.cftc.gov**> — (COT report) <https://api.telegram.org>           (Telegram alerts)
-
-Forex Factory thread: <https://www.forexfactory.com/thread/1428808-free-eas-indicators-strategies-mt4> YouTube: <https://www.youtube.com/@traderlifestyle> Trading involves risk. Tools are information only - no financial advice.
+- The tools are information only — no financial advice.
+- Some tools differ by platform: the economic calendar and gold-reaction-to-releases tools use the MT5 calendar; MT4 uses a US schedule + manual list.
+- The manual trade panel and the trade manager are off by default.
 
 ---
 

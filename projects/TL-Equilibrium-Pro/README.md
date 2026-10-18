@@ -1,4 +1,3 @@
-<!-- auto-generated: remove this line after hand-editing so publish keeps your text -->
 <div align="center">
 
 # ⚡ TL Equilibrium Pro
@@ -19,27 +18,37 @@
 
 > Compiled build only — source code is not published.
 
-## What It Does
+## ✨ Highlights
 
-Hedge-cycle basket engine. Each cycle opens 1 buy plus 2 sell-stop hedges below it. All positions are closed together at one money target (basket TP). If price moves a set distance away from the basket, a follow-up cycle opens with a bigger buy lot (multiplier). Decisions are made on the bar open only.
+- **Hedge-cycle basket engine** — every cycle pairs a buy with two sell-stop hedges below it.
+- **One money target** — all positions of the basket close together at a single basket TP.
+- **Follow-up cycles by distance** — when price moves a set distance away from the basket, a new cycle opens with a bigger buy lot (multiplier).
+- **Bar-open decisions** — the engine only acts on the open of a new bar.
+- **Built-in panel** with a warning if the account type is not supported.
 
-## Install
+## 🧠 Strategy rules
 
-- Copy "TL Equilibrium Pro.ex5" to File > Open Data Folder > MQL5 > Experts.
-- Restart MT5 or refresh the Navigator.
-- Drag it onto a EURUSD H1 chart. Enable Algo Trading.
-- Tick "Allow DLL imports" if you want the panel link buttons to work (only used for those buttons).
+> **Cycle:** open 1 buy + 2 sell-stop hedges below it.
+> **Exit:** close all positions together when the basket reaches the money target (basket TP).
+> **Follow-up:** if price moves the set cycle distance away from the basket, open the next cycle with the buy lot multiplied.
+> **Timing:** all decisions are made on the bar open only.
 
-## Requirements
+## 📋 Requirements
 
-- HEDGING account (it does not trade on netting accounts, the panel shows a warning).
-- Backtested on EURUSD H1 with 5-digit pricing. Other symbols need their own distances.
+- **Hedging account** — the EA does not trade on netting accounts (the panel shows a warning).
+- Built for **EURUSD H1** with 5-digit pricing. Other symbols need their own distances.
 
-## Risk
+## 🛠️ Installation
 
-This is a hedge / martingale-style basket. It wins often and in small steps, but it in the tests. Other settings I tried (for example a wider cycle distance) wiped the account in 2024. Test on demo first and only use money you can afford to lose. Past results are no guarantee for the future.
+1. In MT5 open `File → Open Data Folder → MQL5 → Experts` and copy `TL Equilibrium Pro.ex5` there.
+2. Restart MT5 or refresh the Navigator.
+3. Drag the EA onto a **EURUSD H1** chart and enable **Algo Trading**.
+4. Optional: tick **Allow DLL imports** — only used for the panel link buttons.
 
-More free tools: <https://www.forexfactory.com/thread/1428808-free-eas-indicators-strategies-mt4>
+## ⚠️ Notes
+
+- This is a **hedge / martingale-style basket**: the lot grows with every follow-up cycle, so exposure can build up quickly when price keeps moving away. The cycle distance is a critical setting — changing it changes the risk profile a lot.
+- Test on a demo account first and only use money you can afford to lose.
 
 ---
 
