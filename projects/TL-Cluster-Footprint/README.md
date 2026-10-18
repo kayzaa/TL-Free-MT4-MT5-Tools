@@ -1,4 +1,3 @@
-<!-- auto-generated: remove this line after hand-editing so publish keeps your text -->
 <div align="center">
 
 # ⚡ TL Cluster Footprint
@@ -20,26 +19,47 @@
 
 > Compiled build only — source code is not published.
 
-## Overview
+## ✨ Highlights
 
-What it is
-- A footprint (cluster) window like ClusterDelta: Bid x Ask volume per price row for every bar, bar volume / delta / cumulative delta in the header, bar POC (red frame), diagonal imbalances (green / red boxes, ratio and min volume adjustable) and a session or visible volume profile with Volume, Delta and Price columns, POC and value area.
-- NOT ClusterDelta itself. ClusterDelta is a commercial product with CME futures data - get it at clusterdelta.com. This indicator uses your broker's data: MT5: the broker's real tick history (buy/sell split by the bid tick rule; exchange symbols with trade flags use real trade volume). MT4: MT4 has no tick history, so older bars are approximated from M1 bars; every bar that forms while the indicator runs is built from live ticks. Forex / CFD volume is tick volume, not central exchange volume.
+- **Real footprint window** in the style of ClusterDelta — Bid × Ask volume per price row for every bar.
+- **Bar volume, delta and cumulative delta** in the header of each bar.
+- **Bar POC** marked with a red frame, **diagonal imbalances** as green / red boxes (ratio and minimum volume adjustable).
+- **Session or visible volume profile** with Volume, Delta and Price columns, POC and value area.
+- **Full-screen mode**, row zoom, history scrolling and a one-click trading panel toggle.
+- **MT4 and MT5** — runs on your broker's own data, no external feed needed.
 
-Install
-- MT5: copy TL_Cluster_Footprint.ex5 to  MQL5\Indicators\   (File > Open Data Folder)
-- MT4: copy TL_Cluster_Footprint.ex4 to  MQL4\Indicators\
-- Restart or refresh the Navigator, drag it onto a chart (M1 - H1 works best).
+## 🧠 How it works
 
-Window controls
-- "Bid x Ask / VP"  switches cells: Bid x Ask / Volume / Delta
-- "-" / "+"         row size (multiples of the base step)
-- up / down         scroll rows (MT5 also mouse wheel), the dot button re-centres on price
-- < / > / >|        scroll through history / back to the live bar
-- "Full screen"     footprint over the whole chart and back (key F does the same)
-- "Trade"           shows / hides MetaTrader's one-click trading panel (SELL | lot | BUY); the window keeps that corner free. (Indicators cannot send orders themselves.)
-- click a price row marks that level.
-- The link buttons open the browser only with "Allow DLL imports"; otherwise the URL is shown.
+The indicator splits the volume of every candle into price rows and shows who traded where:
+
+- **MT5** uses the broker's real tick history. Buy / sell is split by the bid tick rule; exchange symbols with trade flags use the real trade volume.
+- **MT4** has no tick history, so older bars are approximated from M1 bars. Every bar that forms while the indicator is running is built from live ticks.
+- **Forex / CFD volume is tick volume**, not central exchange volume.
+
+## 🖥️ Dashboard & chart
+
+| Control | What it does |
+|---|---|
+| **Bid x Ask / VP** | Switches the cells between Bid x Ask, Volume and Delta. |
+| **− / +** | Row size (multiples of the base step). |
+| **Up / Down** | Scroll the rows (MT5 also by mouse wheel); the dot button re-centres on price. |
+| **< / > / >\|** | Scroll through history / jump back to the live bar. |
+| **Full screen** | Footprint over the whole chart and back (key **F** does the same). |
+| **Trade** | Shows / hides MetaTrader's one-click trading panel (SELL \| lot \| BUY); the window keeps that corner free. |
+| **Click a price row** | Marks that level. |
+
+## 🛠️ Installation
+
+1. Open `File → Open Data Folder`.
+2. **MT5:** copy `TL_Cluster_Footprint.ex5` to `MQL5 → Indicators`. **MT4:** copy `TL_Cluster_Footprint.ex4` to `MQL4 → Indicators`.
+3. Restart the terminal or refresh the Navigator, then drag the indicator onto a chart — **M1 to H1** works best.
+4. Optional: enable **Allow DLL imports** only if you want the link buttons to open your browser; otherwise the URL is shown.
+
+## ⚠️ Notes
+
+- This is **not ClusterDelta itself**. ClusterDelta is a commercial product with CME futures data — get it at [clusterdelta.com](https://clusterdelta.com). This indicator uses your broker's data.
+- On MT4, history bars are an approximation from M1 data; only bars built while the indicator runs use live ticks.
+- Indicators cannot send orders — the **Trade** button only toggles MetaTrader's own one-click panel.
 
 ---
 

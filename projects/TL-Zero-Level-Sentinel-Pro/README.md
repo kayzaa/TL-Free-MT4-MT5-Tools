@@ -1,4 +1,3 @@
-<!-- auto-generated: remove this line after hand-editing so publish keeps your text -->
 <div align="center">
 
 # ⚡ TL Zero Level Sentinel Pro
@@ -20,47 +19,76 @@
 
 > Compiled build only — source code is not published.
 
-## What It Is
+## ✨ Highlights
 
-Udine's "As simple as possible: 00 level trading" (Forex Factory thread 487923, 2014) plus the filters JibalaPasan and her team (Nathalia, Ron) described in about 680 posts for their private "WSD" dashboard and "Market Sentinel". Their tool was never released, so this is a rebuild from the posts, not a copy.
+- **Udine's "00 level trading"** from Forex Factory, rebuilt as an EA — pending stop orders on the first round level after the daily open.
+- **Plus the WSD / Market Sentinel filters** JibalaPasan and her team described across about 680 posts — a tool that was never released, rebuilt from the posts.
+- **20 rules, live** — every rule can be switched off, and you can hover each one to see its source in the thread.
+- **28-pair WSD board + currency strength** of all 8 currencies and the overall market strength.
+- **One chart trades the whole list** — Jibala's 8 pairs plus the chart symbol by default.
+- **Gold and indices supported** — every distance scales automatically with the symbol's ADR.
 
-## The Rules (each one can be switched off)
+## 🧠 Strategy rules
 
-Udine (post #1):
-- D1 and H1 candle in the same colour (team: D1, H4, H1 and M15)
-- Pending STOP order on the FIRST 00 level after the daily open
-- Frankfurt hour: only .400 / .500 / .600 levels, London: all levels
-- No long at .900, no short at .100, entry > 10 pips from the big round number
-- No trading 1 h before / 30 min after red news on either currency
-- Stop after 4 losses a day and after the daily target
-- SL 10 pips, TP 5 pips (team: TP = 10 - spread - commission), 1 trade per hour per pair
-Team extensions (dates of the posts in brackets):
-- 7 pip buffer around the daily open (08/2014)
-- Entry level 10..30 pips from the open, only level 1 or 2 (09/2014, 2020)
-- ADR room: RmUp / RmDn must hold the TP + 3 pips (08/2014)
-- Currency strength of all 28 pairs: buy the strong, sell the weak (gap), the currency you buy must beat the market strength (01/2015)
-- Correlated pairs in sync (PsyLevel board, 08/2014)
-- Momentum, no entry after an M15 bar that crossed 4 levels (2020)
-- Optional RSI(2) 85/15 (10/2014), spread filter, break-even / trailing (Udine)
+Every rule below can be switched off.
 
-## Gold / Indices
+**Udine (post #1)**
 
-Distance scaling AUTO: forex uses pips like the thread, gold and indices scale every distance (level step, SL, TP, buffers) with their ADR against a reference of 100 pips. The level step snaps to a round number (e.g. 5 USD on gold).
+- D1 and H1 candle in the same colour (team: D1, H4, H1 and M15).
+- **Pending STOP order on the FIRST 00 level** after the daily open.
+- Frankfurt hour: only .400 / .500 / .600 levels; London: all levels.
+- No long at .900, no short at .100; entry more than 10 pips from the big round number.
+- No trading 1 h before / 30 min after red news on either currency.
+- Stop for the day after 4 losses and after the daily target.
+- **SL 10 pips, TP 5 pips** (team: TP = 10 − spread − commission), 1 trade per hour per pair.
 
-## The Dashboard
+**Team extensions** (post dates in brackets)
 
-- Sentinel: status of the chart symbol (WAIT / READY / ARMED / IN TRADE) with the first failing rule, D1-H4-H1-M15 chips, level ladder, ADR room
-- Rules checklist: all 20 rules live, hover a row for its source in the thread
-- Currency strength of the 8 currencies + market strength
-- WSD board: all 28 pairs (+ chart symbol), click a row to open its chart
-- Today: trades, losses x/4, pips, P/L, target, next red news
-- X closes it to a pill, drag the header to move it, MINI / FULL toggles the size
+- 7-pip buffer around the daily open (08/2014).
+- Entry level 10–30 pips from the open, only level 1 or 2 (09/2014, 2020).
+- ADR room: RmUp / RmDn must hold the TP + 3 pips (08/2014).
+- Currency strength of all 28 pairs: buy the strong, sell the weak (gap); the currency you buy must beat the market strength (01/2015).
+- Correlated pairs in sync (PsyLevel board, 08/2014).
+- Momentum: no entry after an M15 bar that crossed 4 levels (2020).
+- Optional RSI(2) 85 / 15 (10/2014), spread filter, break-even / trailing (Udine).
 
-## Install
+### Gold / indices
 
-- MT5: copy "TL Zero Level Sentinel Pro.ex5" to MQL5\Experts, MT4: the .ex4 to MQL4\Experts. Attach it to ONE chart (any symbol, M15 recommended). Default scope = trade list (Jibala's 8 pairs) + the chart symbol, so one chart trades all of them. Red news: Tools > Options > Expert Advisors > Allow WebRequest for <https://nfs.faireconomy.media>  (MT5 falls back to its built-in calendar). Buttons (YouTube / RoboForex / WhatsApp / Forex Factory) need "Allow DLL imports". Your broker needs all 28 pairs in the symbol list for the strength filters (prefix / suffix are detected automatically).
+Distance scaling **AUTO**: forex uses pips like the thread; gold and indices scale every distance (level step, SL, TP, buffers) with their ADR against a reference of 100 pips. The level step snaps to a round number (e.g. 5 USD on gold).
 
-- Test on demo first. Trading involves high risk. You trade at your own risk.
+## 🖥️ Dashboard & chart
+
+| Panel | What it shows |
+|---|---|
+| **Sentinel** | Status of the chart symbol (WAIT / READY / ARMED / IN TRADE) with the first failing rule, D1-H4-H1-M15 chips, level ladder, ADR room. |
+| **Rules checklist** | All 20 rules live — hover a row for its source in the thread. |
+| **Currency strength** | The 8 currencies + market strength. |
+| **WSD board** | All 28 pairs (+ chart symbol); click a row to open its chart. |
+| **Today** | Trades, losses x/4, pips, P/L, target, next red news. |
+
+**X** closes the dashboard to a pill, drag the header to move it, and **MINI / FULL** toggles the size.
+
+## 📋 Requirements
+
+- Your broker needs **all 28 pairs** in the symbol list for the strength filters (prefix / suffix are detected automatically).
+- Red-news filter: allow WebRequest for `https://nfs.faireconomy.media` (MT5 falls back to its built-in calendar).
+
+## 🛠️ Installation
+
+1. Open `File → Open Data Folder`. **MT5:** copy `TL Zero Level Sentinel Pro.ex5` to `MQL5 → Experts`. **MT4:** copy `TL Zero Level Sentinel Pro.ex4` to `MQL4 → Experts`.
+2. Refresh the Navigator and attach the EA to **one** chart (any symbol, **M15 recommended**). The default scope is the trade list (Jibala's 8 pairs) plus the chart symbol, so one chart trades all of them.
+3. For red news: `Tools → Options → Expert Advisors → Allow WebRequest` for `https://nfs.faireconomy.media`.
+4. Enable **Allow DLL imports** only if you want the link buttons (YouTube / RoboForex / WhatsApp / Forex Factory) to open your browser.
+
+## 🙏 Credits
+
+- **Udine** — "As simple as possible: 00 level trading", Forex Factory thread 487923 (2014).
+- **JibalaPasan** and her team (**Nathalia**, **Ron**) — the WSD dashboard and Market Sentinel filters described in the thread. Their tool was never released; this is a rebuild from the posts, not a copy.
+
+## ⚠️ Notes
+
+- With a 10-pip stop and a 5-pip target, spread and commission weigh heavily — test on a demo account first.
+- Trading involves high risk. You trade at your own risk.
 
 ---
 

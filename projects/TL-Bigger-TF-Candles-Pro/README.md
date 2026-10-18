@@ -1,4 +1,3 @@
-<!-- auto-generated: remove this line after hand-editing so publish keeps your text -->
 <div align="center">
 
 # ⚡ TL Bigger TF Candles Pro
@@ -19,32 +18,42 @@
 
 > Compiled build only — source code is not published.
 
-## Overview
+## ✨ Highlights
 
-Draws higher-timeframe candles on your chart: body box + upper/lower wick. Two layers in ONE indicator, e.g. the 10-minute candle with the 2-minute candles inside it.
+- **Higher-timeframe candles on your chart** — body box plus upper and lower wick, drawn right over your price bars.
+- **Two layers in one indicator** — e.g. the 10-minute candle with the 2-minute candles inside it.
+- **Any MT5 timeframe** can be picked for both layers.
+- **Smart labels** — time for intraday, weekday for D1, date for W1/MN1 — plus the range in pips or price distance.
+- **Countdown** to the close of the current big candle.
+- **Hover any box** to see O / H / L / C and the range of that candle.
 
-Every MT5 timeframe can be selected for both layers:
+## 🧠 How it works
 
-## Install
+- The **big candle** layer (default **M10**) is drawn as a filled box behind the price bars.
+- The **inner candle** layer (default **M2**) is drawn as an outline box on top.
+- Each candle shows its body as a box and its wicks as lines, coloured bull / bear.
+- Need 3 or 4 timeframes? Load the indicator a second time with other timeframes. Set a different **"Instance tag"** only if both copies use the same timeframes.
 
-- MT5: File > Open Data Folder > MQL5 > Indicators  -> copy "TL Bigger TF Candles Pro.ex5" there
-- Navigator > Indicators > right click > Refresh, then drag it onto a chart
-- Put the chart on a LOWER timeframe than both layers (e.g. M1 chart for M10 + M2)
+## ⚙️ Key inputs
 
-## Main Inputs
+| Input | What it does |
+|---|---|
+| Big candle timeframe | Outer layer, filled box behind the price bars (default M10). |
+| Inner candle timeframe | Inner layer, outline box drawn on top (default M2). |
+| Colors / style | Bull and bear body and wick colors, filled or outline, line width. |
+| Label | Auto (time for intraday, weekday for D1, date for W1/MN1), Weekday, Time or Weekday+Time. |
+| Range in label | Pips for forex, price distance for gold / indices. |
+| Countdown | Time left until the current big candle closes. |
+| Max candles per layer | How many candles are drawn per layer (default 150). |
+| Instance tag | Lets two copies with the same timeframes run on one chart. |
+| Show link buttons | Set to `false` to hide the link buttons. |
 
-- Big candle timeframe   (default M10, filled box behind the price bars)
-- Inner candle timeframe (default M2, outline box drawn on top)
-- Colors for bull/bear body and wick, filled or outline, line width
-- Label: Auto (time for intraday, weekday for D1, date for W1/MN1), Weekday, Time, Weekday+Time
-- Range in the label (pips for forex, price distance for gold/indices)
-- Countdown to the close of the current big candle
-- Max candles per layer (default 150)
-- Hover a box to see O/H/L/C and range of that candle
+## 🛠️ Installation
 
-Want 3 or 4 timeframes? Load the indicator a second time with other TFs (set a different "Instance tag" only if both copies use the same timeframes).
-
-The link buttons (YouTube / RoboForex / WhatsApp / Forex Factory) need "Allow DLL imports" in the indicator's Dependencies tab - the indicator itself works without it. Turn them off with "Show link buttons = false".
+1. In MT5 open `File → Open Data Folder → MQL5 → Indicators` and copy `TL Bigger TF Candles Pro.ex5` there.
+2. In the Navigator right-click **Indicators → Refresh**, then drag the indicator onto a chart.
+3. Put the chart on a **lower timeframe than both layers** (e.g. an M1 chart for M10 + M2).
+4. Optional: tick **Allow DLL imports** in the Dependencies tab only if you want the link buttons (YouTube / RoboForex / WhatsApp / Forex Factory) to open your browser — the indicator itself works without it.
 
 ---
 

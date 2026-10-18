@@ -1,4 +1,3 @@
-<!-- auto-generated: remove this line after hand-editing so publish keeps your text -->
 <div align="center">
 
 # ⚡ TL Trap Arsenal Quant
@@ -20,30 +19,61 @@
 
 > Compiled build only — source code is not published.
 
-## Overview
+## ✨ Highlights
 
-(inputs + live switches in the panel). Free edition by trader.lifestyle.
+- **A full trap-trading arsenal in one animated dashboard** — every tool can be switched on and off, by input or live in the panel.
+- **58 trap detectors** on closed candles (no repaint) — from SFPs and turtle soup to Judas swings, CISD and Bollinger head fakes.
+- **Liquidity map** — equal highs / lows, unswept swing liquidity, previous day / week / month levels, sessions, pivots, heatmap and more.
+- **TRAP EDGE LAB** — runs every detector over the loaded history so you can see how each one behaved.
+- **Scanner + risk tools** — MTF trap matrix, multi-symbol scanner, anti stop-hunt stop calculator, prop guard and a 2-click trade panel.
+- **Optional auto trader "Trend Trap"** — trades liquidity sweep traps only in the direction of the trend.
 
-## What It Does
+## 🧠 How it works
 
-- Liquidity: equal highs/lows ($$$ pools), unswept swing liquidity (BSL/SSL), PDH/PDL, PWH/PWL, PMH/PML, round numbers, Asian range, session highs/lows, opening range, opens, pivots/Camarilla, 3-touch trendlines, stop cluster zones, liquidity heatmap, liquidity voids, obvious triple tops/bottoms.
-- 58 trap detectors on closed candles (no repaint): SFP, key level sweeps, equal H/L raids, turtle soup (+1), bull/bear traps, range fakeouts, PDH/PDL fakeouts, stop-hunt spikes, fakey, hikkake, Wyckoff spring/upthrust, failed auction (80 % rule), ORB trap, double sweep, pivot fakeout, trendline + round number fakeouts, sweep + MSS, inducement, inverse FVG, Judas swing, candle range theory, CISD, sweep->FVG, SMT divergence, pin bar / engulfing after sweep, outside + two/three bar reversals, trapped traders (Brooks), H2/L2, gap & trap, absorption, effort vs result, VSA, low-volume breakouts, delta / OBV divergence, RSI / hidden / MACD / stochastic divergence, failure swings, CCI false breaks, MACD zero fakeouts, divergence traps, Bollinger head fake, band re-entry, Keltner fakeout, z-score stretch, ATR spike reversal, news spike traps.
-- TRAP EDGE LAB: every detector is back-tested on the loaded history (stop beyond the trap extreme,
-- Scanner: MTF trap matrix M5..D1, multi-symbol trap scanner, session sweep statistics, stop-hunt heatmap, breakout quality, crowding, fear/greed proxy, retail sentiment (manual), trap confluence.
-- Risk: anti stop-hunt stop calculator, position size, stop placement check for open trades, anti-trap checklist, trap time lock, prop guard, account + journal, trade panel (2-click), trade manager, hidden stop.
-- Alerts: trap alerts, liquidity approach, level cross, line alerts, spread, Telegram, screenshots.
+| Module | What's inside |
+|---|---|
+| **Liquidity** | Equal highs / lows ($$$ pools), unswept swing liquidity (BSL / SSL), PDH / PDL, PWH / PWL, PMH / PML, round numbers, Asian range, session highs / lows, opening range, opens, pivots / Camarilla, 3-touch trendlines, stop cluster zones, liquidity heatmap, liquidity voids, obvious triple tops / bottoms. |
+| **Trap detectors** (58, closed candles) | SFP, key level sweeps, equal H/L raids, turtle soup (+1), bull / bear traps, range fakeouts, PDH / PDL fakeouts, stop-hunt spikes, fakey, hikkake, Wyckoff spring / upthrust, failed auction (80 % rule), ORB trap, double sweep, pivot fakeout, trendline + round number fakeouts, sweep + MSS, inducement, inverse FVG, Judas swing, candle range theory, CISD, sweep → FVG, SMT divergence, pin bar / engulfing after sweep, outside + two / three bar reversals, trapped traders (Brooks), H2 / L2, gap & trap, absorption, effort vs result, VSA, low-volume breakouts, delta / OBV divergence, RSI / hidden / MACD / stochastic divergence, failure swings, CCI false breaks, MACD zero fakeouts, divergence traps, Bollinger head fake, band re-entry, Keltner fakeout, z-score stretch, ATR spike reversal, news spike traps. |
+| **TRAP EDGE LAB** | Every detector is run over the loaded history, with the stop placed beyond the trap extreme. |
+| **Scanner** | MTF trap matrix M5..D1, multi-symbol trap scanner, session sweep statistics, stop-hunt heatmap, breakout quality, crowding, fear / greed proxy, retail sentiment (manual), trap confluence. |
+| **Risk** | Anti stop-hunt stop calculator, position size, stop placement check for open trades, anti-trap checklist, trap time lock, prop guard, account + journal, trade panel (2-click), trade manager, hidden stop. |
+| **Alerts** | Trap alerts, liquidity approach, level cross, line alerts, spread, Telegram, screenshots. |
 
-## Auto Trader - Trend Trap (default On, needs "Algo Trading")
+## 🤖 Auto trader — Trend Trap
 
-Default mode TREND TRAP: liquidity sweep traps (SFP, key level sweep, equal H/L raid, stop-hunt spike, turtle soup, round number fakeout) are traded ONLY in the direction of the trend (close + EMA50 vs EMA200 of the chart timeframe): a bear trap in an uptrend = long, a bull trap in a downtrend = short. Initial stop behind the trap (at least 2.5 ATR), chandelier trailing stop 6 ATR, no fixed target, one position at a time, 0.5 % risk per trade. Only gold, only M15 or higher (inputs). MT5 strategy tester (RoboForex history, 10,000 USD, 0.5 % risk): Small accounts: with 0.5 % risk the lot is below 0.01 on accounts under ~4,000 USD. Then the EA trades the minimum lot (0.01) as long as that risks at most 2.5 % (inputs "Small account"), otherwise it skips the signal. Every skipped signal is written to the Experts log with the reason. Honest notes: most of the edge is gold trend following (random entries in the trend direction also make money); longs carry the result, shorts are around zero; it loses on EURUSD / GBPUSD / USDJPY and on M5. The edge depends on low trading costs. Switch the auto trader off in the inputs if you only want the analysis tools. Past results are no promise for the future.
+On by default (needs **Algo Trading** enabled). Liquidity sweep traps — SFP, key level sweep, equal H/L raid, stop-hunt spike, turtle soup and round number fakeout — are traded **only in the direction of the trend** (close + EMA50 vs EMA200 of the chart timeframe):
 
-## Install
+> **LONG:** a bear trap in an uptrend.
+> **SHORT:** a bull trap in a downtrend.
 
-- MT5: copy "TL Trap Arsenal Quant.ex5" to MQL5\Experts, MT4: the .ex4 to MQL4\Experts. Restart / refresh the navigator, drag it on a chart. Allow DLL imports (only for the link buttons) and Algo Trading only if you use the trade panel or the auto trader.
+| Rule | Setting |
+|---|---|
+| Initial stop | Behind the trap, at least 2.5 ATR |
+| Exit | Chandelier trailing stop 6 ATR, no fixed target |
+| Positions | One at a time |
+| Risk | 0.5 % per position |
+| Market | Gold only, M15 or higher (inputs) |
+| Small accounts | When 0.5 % risk would need less than the minimum lot, the EA uses the minimum lot of 0.01 as long as that risks at most 2.5 % (inputs "Small account"); otherwise it skips the signal. |
 
-- The panel: click a category on the left, MODULES opens the switches, X closes it to a pill, drag the header to move it. Hover anything for an explanation (tooltips can be switched off).
+Every skipped signal is written to the Experts log with the reason. Switch the auto trader off in the inputs if you only want the analysis tools.
 
-- Forex Factory thread: <https://www.forexfactory.com/thread/1428808-free-eas-indicators-strategies-mt4> Trading involves risk. Statistics shown are historical and no promise of future results.
+## 🖥️ Dashboard & chart
+
+- Click a **category** on the left; **MODULES** opens the on / off switches.
+- **X** closes the panel to a pill; drag the header to move it.
+- Hover anything for an explanation (tooltips can be switched off).
+
+## 🛠️ Installation
+
+1. Open `File → Open Data Folder`. **MT5:** copy `TL Trap Arsenal Quant.ex5` to `MQL5 → Experts`. **MT4:** copy `TL Trap Arsenal Quant.ex4` to `MQL4 → Experts`.
+2. Restart the terminal or refresh the Navigator, then drag it onto a chart.
+3. Enable **Allow DLL imports** only for the link buttons, and **Algo Trading** only if you use the trade panel or the auto trader.
+
+## ⚠️ Notes
+
+- The auto trader is **on by default** — turn it off in the inputs if you only want analysis.
+- It is built for gold on M15 or higher; other symbols and lower timeframes behave differently and are sensitive to trading costs. Test on a demo account first.
+- Statistics in the panel are historical and no promise of future results.
 
 ---
 

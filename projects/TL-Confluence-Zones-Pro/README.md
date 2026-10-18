@@ -1,4 +1,3 @@
-<!-- auto-generated: remove this line after hand-editing so publish keeps your text -->
 <div align="center">
 
 # ⚡ TL Confluence Zones Pro
@@ -20,50 +19,89 @@
 
 > Compiled build only — source code is not published.
 
-## What It Does
+## ✨ Highlights
 
-A smart-money zone indicator that does not just paint boxes - it scores every zone and only gives a plan after price confirms:
+- **Zones that are scored, not just painted** — 9 independent confluence factors add up to a 0–100 score, every factor visible in the panel.
+- **Plans only after confirmation** — a zone arms on the touch; entry, invalidation and targets appear only when a candle closes back out of it.
+- **Full smart-money toolkit** — order blocks (chart + higher timeframe), fair value gaps, liquidity pools, BOS / CHoCH, HTF key levels and an EMA ribbon.
+- **Market map dashboard** — 15M / 1H / 4H / 1D structure, bias, nearest liquidity and a built-in position sizer.
+- **No repaint** — everything runs on closed bars; plans never move after they appear.
+- **Nothing hidden** — every historical plan stays on the chart with its outcome in R.
+- **EA-ready** — iCustom buffers for the ribbon, plans, score and trends.
 
-- WATCHZONE       the strongest zone close to price (blue frame) - attention, no trade yet
-- CONFLUENCE      9 independent factors -> score 0-100, every factor visible in the panel
-- BUY / SELL ZONE order blocks from the chart AND the higher timeframe, arm on the touch
-- CONFIRMATION    a candle closes back out of the zone -> entry, invalidation, target
+## 🧠 How it works
 
-On the chart
-- Buy / sell zones (order blocks) with volume + strength %, names like MAIN BUY, DEEP BUY, MAIN SELL, PREMIUM SELL, higher-timeframe zones with a thick frame
-- Fair value gaps (with fill %), removed when filled
-- Liquidity pools: equal highs (BSL - seller stops) / equal lows (SSL - buyer stops), xN = number of equal swings, "liquidity pocket" for 2+, sweeps marked
-- BOS / CHoCH labels on the chart timeframe and the higher timeframe
-- HTF key levels (blue): higher-timeframe swings, previous day / week high + low
-- EMA ribbon 8 / 21 / 50 / 200
-- Every historical plan with its result (+R / -1R) - nothing hidden
-- The current plan: ENTRY, INVALIDATION, TARGET 1 (nearest liquidity), TARGET 2
+| Stage | What happens |
+|---|---|
+| **WATCHZONE** | The strongest zone close to price gets a blue frame — attention, no trade yet. |
+| **CONFLUENCE** | 9 independent factors → a score from 0 to 100, every factor shown in the panel. |
+| **BUY / SELL ZONE** | Order blocks from the chart **and** the higher timeframe arm when price touches them. |
+| **CONFIRMATION** | A candle closes back out of the zone → **ENTRY, INVALIDATION, TARGET**. |
 
-Dashboard (drag it anywhere, X = small pill, click the pill to open it again)
-- Market map: 15M / 1H / 4H / 1D structure, candle pattern, flow, EMA ribbon, decision (bias), nearest liquidity above / below in pips
-- Watchzone: score ring + all 9 factors with their points
-- Trade plan + position sizer (risk % -> lots for the stop distance)
-- Layer buttons: zones, FVG, liquidity, levels, BOS / CHoCH, ribbon, signals
-- Avoids other trader.lifestyle panels on the same chart automatically
+### The 9 confluence factors (max 100)
 
-## The 9 Confluence Factors (max 100)
+| Factor | Points |
+|---|---|
+| HTF trend in the zone's direction | 20 (neutral 8) |
+| Premium / discount of the HTF range | 15 (half in: 8) |
+| HTF key level inside the zone | 15 |
+| Fair value gap from the displacement | 10 |
+| Liquidity grab when the zone was built | 10 |
+| Relative volume of the displacement | 10 (1.5×) / 5 (1.0×) |
+| Fresh zone (first touch) | 10 / 4 (second touch) |
+| EMA ribbon stacked | 5 + 5 |
+| Higher-timeframe zone / stacked on one | 10 |
 
-HTF trend in the zone's direction ........ 20 (neutral 8) Premium / discount of the HTF range ...... 15 (half in 8) HTF key level inside the zone ............ 15 Fair value gap from the displacement ..... 10 Liquidity grab when the zone was built ... 10 Relative volume of the displacement ...... 10 (1.5x) / 5 (1.0x) Fresh zone (first touch) ................. 10 / 4 (second touch) EMA ribbon stacked ....................... 5 + 5 Higher-timeframe zone / stacked on one ... 10
-
-## No Repaint
+### No repaint
 
 Everything is calculated on closed bars. Higher-timeframe data is only used after that HTF candle has closed. Plans never move after they appear.
 
-FOR EAs (iCustom buffers) 0-3 EMA ribbon | 4 buy plan entry | 5 sell plan entry | 6 plan stop | 7 plan target 1 8 best watchzone score (last closed bar) | 9 chart trend +1/-1 | 10 HTF trend +1/-1
+## 🖥️ Dashboard & chart
 
-## Install
+**On the chart**
 
-- MT5: File -> Open Data Folder -> MQL5\Indicators -> copy the .ex5 -> Navigator -> Refresh
-- MT4: File -> Open Data Folder -> MQL4\Indicators -> copy the .ex4 -> Navigator -> Refresh Tick "Allow DLL imports" only if you want the link buttons to open your browser.
+- **Buy / sell zones** (order blocks) with volume and strength %, named MAIN BUY, DEEP BUY, MAIN SELL, PREMIUM SELL; higher-timeframe zones get a thick frame.
+- **Fair value gaps** with fill %, removed once filled.
+- **Liquidity pools**: equal highs (BSL — seller stops) and equal lows (SSL — buyer stops), xN = number of equal swings, "liquidity pocket" for 2+, sweeps marked.
+- **BOS / CHoCH** labels on the chart timeframe and the higher timeframe.
+- **HTF key levels** (blue): higher-timeframe swings, previous day / week high and low.
+- **EMA ribbon** 8 / 21 / 50 / 200.
+- **Every historical plan** with its outcome (+R / −1R) — nothing hidden.
+- **The current plan**: ENTRY, INVALIDATION, TARGET 1 (nearest liquidity), TARGET 2.
 
-## Honest Note
+**Dashboard** — drag it anywhere; X shrinks it to a small pill, click the pill to open it again.
 
-The statistics box replays every plan of the loaded history bar by bar (stop first when stop and target are hit in the same bar, no spread / commission). It is there so you can judge the tool on facts, not on screenshots. Zones and confluence are an analysis framework - not a guarantee. Not financial advice.
+- **Market map**: 15M / 1H / 4H / 1D structure, candle pattern, flow, EMA ribbon, decision (bias), nearest liquidity above / below in pips.
+- **Watchzone**: score ring plus all 9 factors with their points.
+- **Trade plan + position sizer** (risk % → lots for the stop distance).
+- **Layer buttons**: zones, FVG, liquidity, levels, BOS / CHoCH, ribbon, signals.
+- **Statistics box** that replays every plan of the loaded history bar by bar (stop first when stop and target are hit in the same bar, no spread / commission) — so you can judge the tool on facts, not screenshots.
+- Automatically avoids other trader.lifestyle panels on the same chart.
+
+## 🤖 For EAs (iCustom buffers)
+
+| Buffer | Content |
+|---|---|
+| 0–3 | EMA ribbon |
+| 4 | Buy plan entry |
+| 5 | Sell plan entry |
+| 6 | Plan stop |
+| 7 | Plan target 1 |
+| 8 | Best watchzone score (last closed bar) |
+| 9 | Chart trend (+1 / −1) |
+| 10 | HTF trend (+1 / −1) |
+
+## 🛠️ Installation
+
+1. Open `File → Open Data Folder`.
+2. **MT5:** copy `TL Confluence Zones Pro.ex5` to `MQL5 → Indicators`. **MT4:** copy `TL Confluence Zones Pro.ex4` to `MQL4 → Indicators`.
+3. Refresh the Navigator and drag the indicator onto a chart.
+4. Tick **Allow DLL imports** only if you want the link buttons to open your browser.
+
+## ⚠️ Notes
+
+- The statistics box ignores spread and commission and assumes the stop is hit first when both levels fall in one bar.
+- Zones and confluence are an analysis framework — not a guarantee. Not financial advice.
 
 ---
 

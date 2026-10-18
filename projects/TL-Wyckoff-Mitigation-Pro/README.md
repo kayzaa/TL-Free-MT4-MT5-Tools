@@ -1,4 +1,3 @@
-<!-- auto-generated: remove this line after hand-editing so publish keeps your text -->
 <div align="center">
 
 # ⚡ TL Wyckoff Mitigation Pro
@@ -22,27 +21,60 @@
 
 > Compiled build only — source code is not published.
 
-## Overview
+## ✨ Highlights
 
-Built after the public IMPACT FX YouTube video "How to spot mitigation before it happens" (Wyckoff distribution schematic #2 + the two-candle system). Independent build of the rules shown in the video.
+- **Wyckoff distribution schematic #2 + the two-candle system (2CS)** turned into clear, rule-based setups.
+- **Step-by-step model**: 2CS origin → SA → UT / spring → flip → entry, for sells *and* buys.
+- **Phase tracker** in the dashboard shows exactly where the current setup stands.
+- **Full trade plan** — entry, stop, mitigation target, partial at the SA level and break-even.
+- **EA or indicator** — run the EA in Indicator mode for signals only, or use the pure indicator that never trades.
+- **Closed bars only** — no repaint.
 
-## Files
+## 🧠 Strategy rules
 
-- **MT5/Experts/TL Wyckoff Mitigation Pro.ex5** — EA (trades) - set "Mode" to Indicator mode for signals only MT5/Indicators/TL Wyckoff Mitigation Pro Indicator.ex5   same model as a pure indicator (never trades) MT4/Experts/TL Wyckoff Mitigation Pro.ex4 MT4/Indicators/TL Wyckoff Mitigation Pro Indicator.ex4 Copy them into File -> Open Data Folder -> MQL5 (or MQL4) -> Experts / Indicators, then refresh the Navigator. Enable "Allow DLL imports" - only needed for the link buttons in the dashboard.
+| Step | Rule |
+|---|---|
+| **2CS origin** | The last opposite candle before the newest leg high / low (inside bars do not count). |
+| **SA** | The first **close** through the 2CS origin = sign of weakness (sell) / strength (buy). |
+| **UT / SPRING** | After the SA, price runs the high (sell) / low (buy) from before the SA. |
+| **FLIP** | A close through the last candle of the UT / spring leg = a new two-candle break → flip zone. |
+| **ENTRY** | Limit at the flip zone edge (or middle), or market at the flip close. |
+| **STOP** | Beyond the UT / spring + ATR buffer, or fixed points (the video uses 15 NAS points). |
+| **TARGET** | The origin of the leg (the mitigation), with a minimum reward / risk filter. |
+| **MANAGEMENT** | Partial close (default 50 %) when the SA level runs + stop to break-even; early exit when price closes back beyond the flip zone ("the high runs"). |
+| **FILTERS** | Optional higher-timeframe 2CS leg in the trade direction, session hours, direction. |
 
-## The Model (closed bars only, no repaint)
+## 🖥️ Dashboard & chart
 
-- **2CS origin** — last opposite candle before the newest leg high / low (inside bars do not count) SA          first CLOSE through the 2CS origin = sign of weakness (sell) / strength (buy) UT / SPRING after the SA price runs the high (sell) / low (buy) from before the SA FLIP        close through the last candle of the UT / spring leg = new two-candle break -> flip zone ENTRY       limit at the flip zone edge (or middle, or market at the flip close) STOP        beyond the UT / spring + ATR buffer (or fixed points - the video uses 15 NAS points) TARGET      origin of the leg (the mitigation), min. reward / risk filter MANAGEMENT  partial (default 50 %) when the SA level runs + stop to break-even, early exit when price closes back beyond the flip zone ("the high runs") FILTERS     optional higher timeframe 2CS leg in the trade direction, session hours, direction
+- **On the chart:** 2CS origin box, SA / UT / SPRING labels, grey FLIP zone, and a red risk + blue reward box per setup with its outcome in R.
+- **Dashboard:** two-candle system status, distribution + accumulation phase tracker (SA → UT → FLIP → ENTRY), trade plan, virtual results of the loaded history (bar OHLC, stop first, no spread), position and alerts.
+- **X** closes the dashboard to a pill; drag the header to move it. It automatically avoids other trader.lifestyle panels.
 
-## On The Chart
+## 📦 Files
 
-2CS origin box, SA / UT / SPRING labels, grey FLIP zone, red risk + blue reward box per setup with the result in R. Dashboard: two-candle system, distribution + accumulation phase tracker (SA -> UT -> FLIP -> ENTRY), trade plan, virtual results of the loaded history (bar OHLC, stop first, no spread), position / alerts. X closes the dashboard to a pill, drag the header to move it, it avoids other trader.lifestyle panels.
+| File | Type | Folder |
+|---|---|---|
+| `TL Wyckoff Mitigation Pro.ex5` | EA (trades) — set **Mode** to Indicator mode for signals only | `MQL5 → Experts` |
+| `TL Wyckoff Mitigation Pro Indicator.ex5` | Same model as a pure indicator (never trades) | `MQL5 → Indicators` |
+| `TL Wyckoff Mitigation Pro.ex4` | EA (trades) | `MQL4 → Experts` |
+| `TL Wyckoff Mitigation Pro Indicator.ex4` | Pure indicator | `MQL4 → Indicators` |
 
-## Notes
+## 🛠️ Installation
 
-The video trades NAS100 on M1 (and 5-second charts). In our tests the rules worked best on XAUUSD M5 / M15; M1 and the forex majors were negative after spread. Test on demo first. Trading involves high risk.
+1. Open `File → Open Data Folder`.
+2. **MT5:** copy the EA to `MQL5 → Experts` and/or the indicator to `MQL5 → Indicators`. **MT4:** copy the EA to `MQL4 → Experts` and/or the indicator to `MQL4 → Indicators`.
+3. Refresh the Navigator and drag the EA or the indicator onto a chart.
+4. Enable **Allow DLL imports** only if you want the link buttons in the dashboard to work.
 
-trader.lifestyle - Forex Factory thread: <https://www.forexfactory.com/thread/1428808-free-eas-indicators-strategies-mt4>
+## 🙏 Credits
+
+- Built after the public **IMPACT FX** YouTube video *"How to spot mitigation before it happens"* (Wyckoff distribution schematic #2 + the two-candle system). This is an independent build of the rules shown in the video.
+
+## ⚠️ Notes
+
+- The video trades NAS100 on M1 (and 5-second charts). Spread matters a lot on very low timeframes and forex majors — check your symbol and timeframe on demo before going live.
+- The virtual results in the dashboard use bar OHLC, stop first and no spread.
+- Trading involves high risk.
 
 ---
 
