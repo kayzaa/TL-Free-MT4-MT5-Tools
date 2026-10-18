@@ -1,4 +1,3 @@
-<!-- auto-generated: remove this line after hand-editing so publish keeps your text -->
 <div align="center">
 
 # ⚡ TL Small Matter Pro
@@ -19,24 +18,51 @@
 
 > Compiled build only — source code is not published.
 
-## Overview
+## ✨ Highlights
 
-Built after the Forex Factory trading journal "it's a small matter" by hayseed (<https://www.forexfactory.com/thread/462458-its-a-small-matter),> his posts #27 #140 #237 #284 #338 #362 #366 #369 #432 and his own MT4 tools (TSR.mq4, alma.mq4, ZigZag w order alerts.mq4, send sell and sell limits.mq4).
+- **hayseed's journal, automated.** Built after the Forex Factory trading journal "it's a small matter" and hayseed's own MT4 tools.
+- **Top-down bias:** weekly TSR(89) Hull MA decides buys only or sells only.
+- **H4 trigger:** ALMA colour change, confirmed by the H4 zigzag leg.
+- **Ladder entry:** one market order plus a ladder of 5 limit orders, like his "send sell and sell limits" script.
+- **Basket management:** per-order targets, target cut at 6 open orders, zigzag-based exits and a basket trailing stop.
 
-## The Rules
+## 🧠 Strategy rules
 
-1  BIAS     weekly TSR(89) (hull MA) lime -> buys only, red -> sells only 2  TRIGGER  ALMA(9, 6, 0.85) colour change on H4 in the bias direction 3  ZIGZAG   the current H4 zigzag(12,5,3) leg points the same way 4  ENTRY    1 market order + a ladder of 5 limit orders beyond the price (his script "send sell and sell limits") 5  EXITS    target = 0.30 x weekly ATR per order from 6 open orders all targets are cut to 1/3 from the average price winners are closed when the H4 zigzag leg reaches 2x its average length basket trailing stop ("trailing account profit closeall") basket kept when the bias turns (hayseed: "negative till the market resumes") NO stop loss per order - a safety net closes the basket at -25 % of balance
+| Step | Rule |
+|---|---|
+| **1 Bias** | Weekly TSR(89) (Hull MA): lime → buys only, red → sells only |
+| **2 Trigger** | ALMA(9, 6, 0.85) colour change on H4 in the bias direction |
+| **3 Zigzag** | The current H4 zigzag(12,5,3) leg points the same way |
+| **4 Entry** | 1 market order + a ladder of 5 limit orders beyond the price |
+| **5 Exits** | See below |
 
-## Install
+**Exits**
+- Target = 0.30 × weekly ATR per order.
+- From 6 open orders, all targets are cut to 1/3 from the average price.
+- Winners are closed when the H4 zigzag leg reaches 2× its average length.
+- Basket trailing stop ("trailing account profit closeall").
+- The basket is kept when the bias turns (hayseed: *"negative till the market resumes"*).
+- **No stop loss per order** — a safety net closes the basket at −25 % of balance.
 
-- Copy "TL Small Matter Pro.ex5" to MQL5\Experts, restart or refresh the Navigator.
-- One chart per pair (any timeframe; the EA works on H4 internally), one magic number per pair.
-- HEDGING account required (the ladder holds several orders at once).
-- Enable "Allow DLL imports" only for the link buttons (YouTube / RoboForex / WhatsApp / Myfxbook).
+## 📋 Requirements
 
-## Risk Warning
+- **Hedging account** (the ladder holds several orders at once).
+- One chart per pair (any timeframe — the EA works on H4 internally), one magic number per pair.
 
-Averaging without a stop loss can lose the whole account. hayseed's own verified
+## 🛠️ Installation
+
+1. In MT5 open **File → Open Data Folder** and copy `TL Small Matter Pro.ex5` to `MQL5 → Experts`.
+2. Restart MT5 or refresh the Navigator.
+3. Drag the EA onto one chart per pair and give each pair its own magic number.
+4. Enable **"Algo Trading"**. Enable **"Allow DLL imports"** only for the link buttons (YouTube / RoboForex / WhatsApp / Myfxbook).
+
+## 🙏 Credits
+
+Built after the Forex Factory trading journal ["it's a small matter"](https://www.forexfactory.com/thread/462458-its-a-small-matter) by **hayseed** — his posts #27, #140, #237, #284, #338, #362, #366, #369, #432 and his own MT4 tools (TSR.mq4, alma.mq4, ZigZag w order alerts.mq4, send sell and sell limits.mq4).
+
+## ⚠️ Notes
+
+- **Averaging without a stop loss can lose the whole account.** The only hard limit is the basket safety net at −25 % of balance. Use a demo account first.
 
 ---
 

@@ -1,4 +1,3 @@
-<!-- auto-generated: remove this line after hand-editing so publish keeps your text -->
 <div align="center">
 
 # ⚡ TL Trendline Scalper Pro
@@ -20,25 +19,73 @@
 
 > Compiled build only — source code is not published.
 
-## Overview
+## ✨ Highlights
 
-swilliam's "Trendline Scalping System" (Forex Factory thread 912456, TMT = Trend - Momentum - Trendline) as one fully automatic EA. No extra indicators needed - everything is calculated inside the EA.
+- **swilliam's TMT system, fully automatic.** Trend – Momentum – Trendline from Forex Factory thread 912456, in one EA.
+- **No extra indicators needed** — everything is calculated inside the EA.
+- **Auto-drawn trendlines** from the highest / lowest swing, with the used-line rule: a line is never traded twice.
+- **Every option from the thread:** sessions, news filter, break-even, 1R + 2R split, ATR stops, choppy-market filter and more.
+- **Animated dashboard** with an 8-rule TMT checklist, trendline radar and RSI / MFI gauges.
+- **MT4 + MT5.**
 
-## Rules (post #1)                                   BUY                         SELL
+## 🧠 Strategy rules (post #1)
 
-1 Daily candle (current day)                     green                       red 2 RSI(8)                                         above 50                    below 50 3 MFI(14, tick volume)                           above 50                    below 50 4 Trend                                          EMA 7 above EMA 20          EMA 7 below EMA 20 5 Pullback into the EMA 7 / 20 zone              yes                         yes 6 Trendline from the highest / lowest swing      drawn automatically (max. 20 bars back, post #1605) 7 Break of the line + bar closed                 (or intrabar break, post #1597 - input) 8 Stop / target                                  10 - 30 pips, swing stop, 1:1 to start (post #1597)
+| # | Rule | BUY | SELL |
+|---|---|---|---|
+| 1 | Daily candle (current day) | Green | Red |
+| 2 | RSI(8) | Above 50 | Below 50 |
+| 3 | MFI(14, tick volume) | Above 50 | Below 50 |
+| 4 | Trend | EMA 7 above EMA 20 | EMA 7 below EMA 20 |
+| 5 | Pullback into the EMA 7 / 20 zone | Yes | Yes |
+| 6 | Trendline from the highest / lowest swing | Drawn automatically (max. 20 bars back, post #1605) | ← same |
+| 7 | Break of the line + bar closed | Or intrabar break (post #1597 — input) | ← same |
+| 8 | Stop / target | 10–30 pips, swing stop, 1:1 to start (post #1597) | ← same |
 
-The trendline: anchor = highest swing high (buy) / lowest swing low (sell) of the last 20 bars, the line is fitted along the following highs / lows (every bar since the swing is on or below / above the line). The first close beyond the line is the signal. A used line is never traded twice - a new swing is needed.
+**The trendline:** the anchor is the highest swing high (buy) / lowest swing low (sell) of the last 20 bars. The line is fitted along the following highs / lows, so every bar since the swing is on or below / above the line. The first close beyond the line is the signal. A used line is never traded twice — a new swing is needed.
 
-Options from the thread: day start hour for the daily candle (broker GMT), London / New York / Asia session, high-impact news filter (MT5 economic calendar, 30 min before / after), break-even after X pips (swilliam: 7), 2 trades with targets 1R + 2R and break-even after target 1 (RiskFighter), ATR stops / targets (Profitfusion), S/R swing target, time exit, max. spread, trades per day, cooldown, long / short only, daily profit target (e.g. 5 $ per day, then the EA pauses until the next day), optional martingale after losing trades (x2 per loss, max. 5 steps - HIGH RISK, off by default), hard breakout stop (SL at the broken trendline: out at once when price falls back under the breakout), stop + reverse (after a loss the opposite trade at once with the martingale lot), choppy-market filter (skip when the swing stop is closer than X x ATR(14) - best study value 1.5 on gold H1).
+### 🧩 Options from the thread
 
-DASHBOARD: animated, drag the header, X closes it to a pill (click to reopen). TMT checklist with all 8 rules for buy + sell, trendline radar (mini chart with the live line), daily candle (change, range vs ADR, distance from high / low, swaps), RSI + MFI gauges, auto trade (ON/OFF, CLOSE), performance + equity curve. On the chart: EMA 7 + 20, live trendline (magenta = buy, orange = sell, grey dotted = filters not OK), past breaks with line + arrow, daily open line. Tooltips everywhere (can be switched off).
+- Day start hour for the daily candle (broker GMT).
+- London / New York / Asia session.
+- High-impact news filter (MT5 economic calendar, 30 min before / after).
+- Break-even after X pips (swilliam: 7).
+- 2 trades with targets 1R + 2R and break-even after target 1 (RiskFighter).
+- ATR stops / targets (Profitfusion), S/R swing target, time exit.
+- Max. spread, trades per day, cooldown, long / short only.
+- Daily profit target (e.g. 5 $ per day, then the EA pauses until the next day).
+- **Hard breakout stop:** SL at the broken trendline — out at once when price falls back under the breakout.
+- **Choppy-market filter:** skip when the swing stop is closer than X × ATR(14).
+- Optional **martingale** after losing trades (×2 per loss, max. 5 steps — high risk, off by default) and **stop + reverse** (after a loss, the opposite trade at once with the martingale lot).
 
-## Defaults (since v1.00 build 06.10.2026) = Gold H1 Preset: all day, target 1:2 (no pip clamp), break-even after 1R
+### 🎛️ Defaults = Gold H1 preset (since v1.00 build 06.10.2026)
 
-(+5 pips locked), pullback may close beyond EMA 20, choppy-market filter 1.5 x ATR, 10 % risk per trade (compounding). For the original 10-30 pip M5 scalping rules set: session London+NY, target 1:1, pip clamp on, break-even off, pullback hold on, ATR filter 0.
+> All day, target 1:2 (no pip clamp), break-even after 1R (+5 pips locked), pullback may close beyond EMA 20, choppy-market filter 1.5 × ATR, 10 % risk per trade (compounding).
 
-INSTALL: MT5 -> MQL5\Experts, MT4 -> MQL4\Experts. Attach to M1, M5 or M15. Enable "Allow Algo Trading" and "Allow DLL imports" (only used for the link buttons). One chart = one magic number.
+**For the original 10–30 pip M5 scalping rules**, set: session London + NY, target 1:1, pip clamp on, break-even off, pullback hold on, ATR filter 0.
+
+## 🖥️ Dashboard & chart
+
+- **Dashboard:** animated; drag the header, **X** closes it to a pill (click to reopen). TMT checklist with all 8 rules for buy and sell, trendline radar (mini chart with the live line), daily candle (change, range vs ADR, distance from high / low, swaps), RSI + MFI gauges, auto trade (ON/OFF, CLOSE), performance + equity curve.
+- **On the chart:** EMA 7 + 20, live trendline (magenta = buy, orange = sell, grey dotted = filters not OK), past breaks with line + arrow, daily open line.
+- Tooltips everywhere (can be switched off).
+
+## 🛠️ Installation
+
+1. In your terminal open **File → Open Data Folder**.
+2. **MT4:** copy `TL Trendline Scalper Pro.ex4` to `MQL4 → Experts`. **MT5:** copy `TL Trendline Scalper Pro.ex5` to `MQL5 → Experts`.
+3. Refresh the Navigator and attach the EA to a chart — the default preset is built for gold H1; the original scalping rules use M1, M5 or M15.
+4. Enable **"Allow Algo Trading"**. Enable **"Allow DLL imports"** only for the link buttons.
+5. One chart = one magic number.
+
+## 🙏 Credits
+
+**swilliam's** "Trendline Scalping System" — Forex Factory thread 912456 — with options contributed in the thread by **RiskFighter** and **Profitfusion**.
+
+## ⚠️ Notes
+
+- The default preset risks 10 % per trade with compounding — that is aggressive. Lower it for live use.
+- Martingale and stop + reverse increase lot size after losses; exposure can grow quickly. Test on demo first.
+- The news filter uses the MT5 economic calendar.
 
 ---
 

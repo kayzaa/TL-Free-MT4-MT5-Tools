@@ -1,4 +1,3 @@
-<!-- auto-generated: remove this line after hand-editing so publish keeps your text -->
 <div align="center">
 
 # ⚡ TL Watchlist Radar Pro
@@ -20,69 +19,130 @@
 
 > Compiled build only — source code is not published.
 
-## Important Scope
+## ✨ Highlights
 
-This is an independent reconstruction of publicly demonstrated scanner functions, with the requested price/VWAP/MA/candle-series extensions. It is not the original Multi Market Scanner, is not endorsed by its author, and does not reproduce a published proprietary source code. Identical scores, preset values and hidden behavior cannot be established from screenshots and a demonstration video. English is the complete primary interface. Spanish, Italian and French cover navigation and many setting labels; help, rule descriptions and some status/value strings remain English. This is not a claim of complete four-language parity.
+- **Scan up to 200 symbols** across any mix of timeframes — Market Watch, a custom list or your favorites.
+- **Seven rule families:** daily reference, daily open, session VWAP, timeframe open, candle pivot, moving average and consecutive candles.
+- **Transparent scoring:** a fully documented trend / momentum / structure / DMI score per symbol and timeframe.
+- **Six views:** scanner, heatmap, detail, recent signals, rule scanner and a ten-page settings panel.
+- **Smart alerts** on transitions only, with cooldowns, gates and per-symbol muting.
+- **Scanner only — it never opens, modifies or closes orders.** No DLL, no WebRequest, no lock, no expiry.
 
-## Installation
+## 🧠 How it works
 
-- MT4: File > Open Data Folder > MQL4 > Experts. Copy TL_Watchlist_Radar_Pro.ex4 there.
-- MT5: File > Open Data Folder > MQL5 > Experts. Copy TL_Watchlist_Radar_Pro.ex5 there.
-- Refresh Navigator > Expert Advisors and attach the matching EA to one chart.
-- Open SETTINGS in the dashboard. All production configuration is in the panel; the standard EA Inputs tab intentionally has no scanner parameters.
-- Select Scan universe, Timeframes and the desired filters. Wait for history.
-- No DLL import, WebRequest permission, account lock or expiry is used.
-- No orders are opened, modified or closed. Trading permission is unnecessary for scanner calculations. The platform must allow the EA to run and fetch history.
-- Minimum practical chart area: approximately 784 x 532 pixels. Enlarge the chart if controls are clipped. Panel scale is capped to available chart space.
+### Universes & timeframes
 
-## Quick Start — The Requested 20-Point Example
+- Up to **200 symbols**. Market Watch additions / removals are checked every 30 seconds. Custom / Favorites lists use commas.
+- Exact broker names are preferred; suffix resolution is accepted only when unique. Ambiguous / missing names are reported.
+- Changing the universe rebuilds the scan and starts signal-age tracking again.
+- **MT5 timeframes:** M1, M2, M3, M4, M5, M6, M10, M12, M15, M20, M30, H1, H2, H3, H4, H6, H8, H12, D1, W1, MN1.
+- The same enabled rules run independently on every selected timeframe. The **reference timeframe** governs sparkline, spread / ATR, volatility and overall age. Equal or custom non-negative weights combine the timeframe scores (one weight per selected timeframe when custom weighting is on).
 
-SETTINGS > SCAN: choose Market Watch, Custom List, or Favorites. SETTINGS > TIMEFRAMES: enter M15,H4 (or your preferred comma-separated periods). SETTINGS > PRICE RULES: Daily open: side = Above; Day Open Points = 20. Enable Only show rule matches to reduce the displayed symbol list to matches. Use RULE SCANNER to inspect each symbol/timeframe and each enabled condition. Above means strictly price > reference + 20 * that symbol's broker point. Below means strictly price < reference - 20 * that symbol's broker point. Equality fails. A tiny numerical tolerance rejects floating-point equality noise. Points are not pips: on a five-decimal EURUSD quote, 20 points = 0.00020; on a symbol with point size 0.01, 20 points = 0.20.
+### Seven rule families
 
-## Universes And Timeframes
+| Rule | Reference |
+|---|---|
+| **Daily reference** | Previous broker D1 close, open, high, low, HLC3 or HL2 |
+| **Daily open** | Opening price of the evaluated candle's broker D1 session |
+| **Session VWAP** | M1 typical price (H+L+C)/3 weighted by tick or real volume, accumulated from the broker D1 open. A bar-volume approximation, not exchange tick-by-tick VWAP. Real volume must come from the broker — no silent tick fallback. |
+| **Timeframe open** | Open of the evaluated candle on each selected timeframe |
+| **Candle pivot** | HLC3, HL2 or OHLC4 of the evaluated or preceding candle — a candle average, not a swing-pivot detector |
+| **Moving average** | Period 1..2000; SMA, EMA, SMMA or LWMA; close / open / high / low / median / typical / weighted price. Native platform MA on each TF. |
+| **Consecutive candles** | 1..100 bullish, bearish or either; At Least or Exactly N. Only completed candles count (also in LIVE mode). Doji and candles with a body not greater than the minimum-body setting break the sequence. Counts are capped by the requested lookback (N+2 closed candles). |
 
-Up to 200 symbols. Market Watch additions/removals are checked every 30 seconds. Custom/Favorites lists use commas. Exact broker names are preferred; suffix resolution is accepted only when unique. Ambiguous/missing names are reported. Changing the universe rebuilds the scan and starts signal-age tracking again.
+- Rules 1–6 each have their own **Disabled / Above / Below** choice and a non-negative point offset.
+- **ALL / ANY** combines the enabled rule families. No enabled rules = no rule match. Missing data in any enabled rule blocks a match, including in ANY mode.
+- **Any timeframe / ALL timeframes** is a separate symbol-level match requirement. The upper scoring filters also apply if you explicitly enable them.
+- **Above** means strictly price > reference + N × the symbol's broker point; **Below** means strictly price < reference − N × point. Equality fails (a tiny tolerance rejects floating-point noise).
 
-## MT5: M1,M2,M3,M4,M5,M6,M10,M12,M15,M20,M30,H1,H2,H3,H4,H6,H8,H12,D1,W1,Mn1.
+> **Points are not pips:** on a five-decimal EURUSD quote, 20 points = 0.00020; on a symbol with point size 0.01, 20 points = 0.20.
 
-The same enabled rules run independently on every selected timeframe. Reference timeframe governs sparkline, spread/ATR, volatility and overall age. Equal or custom nonnegative weights combine the timeframe scores. Supply one weight per selected timeframe when custom weighting is enabled.
+### Confirmed vs. Live
 
-## Seven Rule Families
+- **CONFIRMED** compares the most recently closed candle's close with references anchored to that candle. A Friday candle stays anchored to Friday across a weekend.
+- **LIVE** compares the current bid and may change until the candle closes; the LIVE score includes the forming bar. Stale live quotes do not match.
+- Closed-bar rule results can remain valid while the market is closed; the health label and alert gate separately show market closure or stale quotes.
 
-- Daily reference: previous broker D1 close, open, high, low, HLC3 or HL2.
-- Daily open: opening price of the evaluated candle's broker D1 session.
-- Session VWAP: M1 typical price (H+L+C)/3, weighted by tick volume or real volume, accumulated from broker D1 open through the evaluated time. This is a bar-volume approximation, not exchange tick-by-tick VWAP. Real volume must be supplied by the broker; there is no silent tick fallback.
-- Timeframe open: open of the evaluated candle on each selected timeframe.
-- Candle pivot: HLC3, HL2 or OHLC4; choose the evaluated candle or the candle immediately preceding it. This is a candle average, not a swing-pivot detector.
-- Moving average: period 1..2000; SMA, EMA, SMMA or LWMA; close/open/high/low/ median/typical/weighted applied price. Native platform MA, evaluated on each TF.
-- Consecutive candles: 1..100 bullish, bearish, or either; At Least or Exactly N. Only completed candles count, including in LIVE mode. Doji and candles whose body is not greater than the minimum-body setting break the sequence. Counts are capped by the requested lookback (N+2 closed candles); they are sufficient to decide At Least/Exactly, not unlimited historical run lengths.
-Rules 1..6 have their own Disabled/Above/Below choice and nonnegative point offset. ALL / ANY combines enabled rule families. No enabled rules means no rule match. Missing data in any enabled rule blocks a match, including ANY mode. Any timeframe / ALL timeframes is a separate symbol-level match requirement. The upper scoring filters also apply if you explicitly enable them.
+### Scoring formula (independent — not the original's numbers)
 
-## Confirmed And Live
+The score describes strength — it is **not a probability or an instruction to trade**. Four signed components, each bounded to [−1, 1], use weights **30 / 25 / 25 / 20** by default, normalized to 100:
 
-CONFIRMED compares the most recently closed candle's close with references anchored to that candle. A Friday candle remains anchored to Friday across a weekend. LIVE compares the current bid and may change until the candle closes. The score in LIVE mode includes the forming bar. Stale live quotes do not match. Closed-bar rule results can remain valid while the market is closed; the health label and alert gate separately indicate market closure or stale quotes.
+| Component | Formula |
+|---|---|
+| **Trend** | 0.65 × clip((EMAfast − EMAslow) / ATR) + 0.35 × clip(4 × EMAfastSlope / ATR) |
+| **Momentum** | 0.6 × clip((RSI14 − 50) / 30) + 0.4 × clip(5 × MACDhist / ATR) |
+| **Structure** | 0.4 × (2 × rangePosition − 1) + 0.3 × mean(highDirection, lowDirection) + 0.3 × breakoutDirection |
+| **DMI strength** | clip(2 × (DI+ − DI−) / max(1, DI+ + DI−)) × clip01(ADX14 / 40) |
 
-## Dashboard
+- Range uses the previous 20 bars; high / low direction compares with a 20-bar range shifted back 10 bars; breakout compares the evaluated close with that prior range.
+- EMA defaults 20 / 50, MACD 12 / 26 / signal 9. Wilder-smoothed ATR / RSI / DMI / ADX use period 14 with zero-seeded smoothing over max(350, 6 × slowEMA) bars where available, requiring max(100, 3 × slowEMA) bars. EMA starts from the first available close; EMA slope is a one-bar change. This seed convention is explicit and may differ from other indicators.
+- **Classification:** magnitude < 40 neutral · ≥ 40 watch · ≥ 55 buy / sell · ≥ 75 strong. The sign gives the direction.
+- **Overall** = weighted signed mean of the selected TF scores. **Alignment** counts non-neutral timeframe signals with the same sign as the overall classification. All selected TF scores and reference TF data must be available for an overall status.
+- **Volatility** = ATR14 / mean of the previous 50 ATR14 values: < 0.7 low, < 1.3 normal, < 2 high, otherwise extreme.
+- **Overall age** = bars since the observed classification change on the reference timeframe (no backfill before attachment).
+- Presets: Default / Trend / Swing / Intraday (non-default values are independent choices, not recovered original values). Fast / Normal / Low CPU / Custom modes control refresh and bounded scan batches.
 
-SCANNER: one row per symbol, price/change, individual TF scores, overall score, alignment, age, trend sparkline, favorite, mute and chart-open actions. Click a column to sort; TOP SETUPS ranks strength, alignment, then freshness. Use page/TF arrows for lists and columns that do not fit. Click a score for Detail. HEATMAP: signed directional strength across symbols and timeframes. DETAIL: candle/tick-volume chart and four score contributions; METRICS opens the full indicator list and signals by timeframe, including on smaller charts. RECENT SIGNALS: confirmed transitions, newest first. Retention 5..100 rows. RULE SCANNER: pass/fail and distance in broker points for every enabled rule. SETTINGS: ten pages; numeric/text values open an editor, enums cycle on click. Enter/APPLY saves; Esc/CANCEL cancels. Changes autosave locally per chart ID. The star edits Favorites. A/M toggles per-symbol alert muting. OPEN opens that symbol at the reference timeframe, or the selected detail timeframe. X collapses to a draggable pill; click to reopen. Drag the header to reposition. Dark/light theme, animated logo, hover explanations and scale 1..2 are included. Community buttons display the destination URL in a dialog; open it in a browser.
+## 🖥️ Dashboard & chart
 
-## Filters And Alerts
+| View | What you get |
+|---|---|
+| **SCANNER** | One row per symbol: price / change, individual TF scores, overall score, alignment, age, trend sparkline, favorite, mute and chart-open actions. Click a column to sort; **TOP SETUPS** ranks strength, alignment, then freshness. Page / TF arrows for lists and columns that don't fit. Click a score for Detail. |
+| **HEATMAP** | Signed directional strength across symbols and timeframes |
+| **DETAIL** | Candle / tick-volume chart and the four score contributions; **METRICS** opens the full indicator list and signals by timeframe |
+| **RECENT SIGNALS** | Confirmed transitions, newest first (retention 5..100 rows) |
+| **RULE SCANNER** | Pass / fail and distance in broker points for every enabled rule |
+| **SETTINGS** | Ten pages; numeric / text values open an editor, enums cycle on click. Enter / APPLY saves, Esc / CANCEL cancels. Changes autosave locally per chart ID. |
 
-Direction, strong-only, minimum score/alignment, freshness, favorites, category, volatility, spread quality and symbol search are available under SETTINGS. Market categories use broker paths/name heuristics; unusual names may be Other. Spread/ATR can be ignored, warned about, or filtered. Missing history is shown. Alerts default OFF. Popup and sound channels default ON but are inactive until Enable alerts is ON. Push/email require the terminal's own notification setup. Events: new Buy/Sell, Strong Buy/Sell, score crossing, direction reversal, new Watch, alignment reached and new rule match. Alerts require a transition, not every tick. Default cooldown: 900 seconds per symbol/timeframe/event. Minimum score/alignment, confirmed-only, fresh-only and broker-time active hours are independent alert gates. Overnight hours are supported; equal hours = all day. Muted symbols, stale/closed-market health and configured spread exclusions suppress notifications. In the tester, notifications are logged, never sent. On first initialization, existing states do not generate transition alerts. Recent history and signal age restart when configuration rebuilds the scanner.
+- The star edits Favorites, **A/M** toggles per-symbol alert muting, **OPEN** opens that symbol at the reference timeframe (or the selected detail timeframe).
+- **X** collapses the panel to a draggable pill (click to reopen); drag the header to reposition.
+- Dark / light theme, animated logo, hover explanations and scale 1..2.
+- Community buttons show the destination URL in a dialog — open it in your browser.
 
-## Independent Scoring Formula — Not Original Numerical Parity
+### 🔔 Filters & alerts
 
-Score is descriptive strength, not a probability or an instruction to trade. Four signed components use weights 30/25/25/20 by default, normalized to 100. Each component is bounded to [-1,1] before its weighted contribution. Trend = .65*clip((EMAfast-EMAslow)/ATR) + .35*clip(4*EMAfastSlope/ATR). Momentum = .6*clip((RSI14-50)/30) + .4*clip(5*MACDhist/ATR). Structure = .4*(2*rangePosition-1) + .3*mean(highDirection,lowDirection) + .3*breakoutDirection. Range uses the previous 20 bars; high/low direction compares with a 20-bar range shifted back 10 bars. Breakout compares the evaluated close with that prior range. DMI strength = clip(2*(DIplus-DIminus)/max(1,DIplus+DIminus))*clip01(ADX14/40). Sum the four weighted contributions. EMA defaults20/50, MACD12/26/signal9; Wilder-smoothed ATR/RSI/DMI/ADX use period14 with zero-seeded smoothing over max(350,6*slowEMA) bars where available, requiring max(100,3*slowEMA) bars. EMA starts from the first available close. This seed convention is explicit and may differ from other indicators. EMA slope is a one-bar change. Magnitude <40 neutral; >=40 watch; >=55 buy/sell; >=75 strong. Sign gives direction. Overall is the weighted signed mean of selected TF scores. Alignment counts non-neutral timeframe signals with the same sign as the overall classification. All selected TF scores and reference TF data must be available for overall status. Volatility is ATR14 / mean(previous50 ATR14 values): <.7 low, <1.3 normal, <2 high, otherwise extreme. Overall age is bars since observed classification change on the reference timeframe; it does not backfill before attachment. Default/Trend/Swing/Intraday presets are available; non-default preset values are independent choices, not recovered original values. Fast/Normal/Low CPU/Custom modes control refresh and bounded scan batches.
+- **Filters** (SETTINGS): direction, strong-only, minimum score / alignment, freshness, favorites, category, volatility, spread quality and symbol search. Market categories use broker paths / name heuristics — unusual names may land in "Other". Spread / ATR can be ignored, warned about or filtered. Missing history is shown.
+- **Alerts default OFF.** Popup and sound channels default ON but stay inactive until *Enable alerts* is ON. Push / email need the terminal's own notification setup.
+- **Events:** new Buy / Sell, Strong Buy / Sell, score crossing, direction reversal, new Watch, alignment reached and new rule match.
+- Alerts need a **transition**, not every tick. Default cooldown: 900 seconds per symbol / timeframe / event.
+- Independent gates: minimum score / alignment, confirmed-only, fresh-only and broker-time active hours (overnight supported; equal hours = all day).
+- Muted symbols, stale / closed-market health and configured spread exclusions suppress notifications. In the Strategy Tester, notifications are logged, never sent. On first initialization, existing states do not trigger transition alerts.
 
-## Limitations / Evidence
+## 🚀 Quick start — the requested 20-point example
 
-All six original MQL5 screenshots and 80 sampled video frames across the full video, plus its transcript, informed the feature inventory. Not every frame of the video was inspected. Hidden menu behavior and original mathematics remain unverified. Pagination substitutes for the original scrolling/TF-chip layout; there is no separate ellipsis action menu or distinct minimize/close pair. Market Watch reconciliation is periodic; the scheduler uses sequential bounded batches, not an original proprietary prioritization algorithm. MT4 Strategy Tester validates only its selected test symbol; use a demo terminal for a live multi-symbol acceptance test. Historical modeled ticks are not real ticks. Native MT4/MT5 QA runs and native canvas render captures were completed. The MT5 visual-tester run completed, with native UI audit assertions passing. A journal 'nothing to analyze' message did not stop that completed run. Exhaustive manual mouse/DPI/language testing is not claimed. This build should be reviewed on your demo installation before posting. Rule computations were independently compared with exported native bar data; this is not a profitability test or a validation of the original proprietary score.
+1. **SETTINGS → SCAN:** choose Market Watch, Custom List or Favorites.
+2. **SETTINGS → TIMEFRAMES:** enter `M15,H4` (or your preferred comma-separated periods).
+3. **SETTINGS → PRICE RULES:** Daily open: side = **Above**; Day Open Points = **20**.
+4. Enable **Only show rule matches** to reduce the list to matches.
+5. Use **RULE SCANNER** to inspect each symbol / timeframe and each enabled condition.
 
-## Source Credit
+## 🛠️ Installation
 
-Original concept: Multi Market Scanner MT4, Eduardo Cumplido / Cloud Portfolios. <https://www.mql5.com/en/market/product/198327> Demonstration: <https://www.youtube.com/watch?v=n0kDJ0xZeaM> Independent extensions and FF edition: trader.lifestyle. <https://www.forexfactory.com/thread/1428808-free-eas-indicators-strategies-mt4> <https://www.youtube.com/@traderlifestyle> <https://wa.me/18585003724> CREATED WITH INDICATORGENIUS.COM — <https://indicatorgenius.com/>
+1. In your terminal open **File → Open Data Folder**.
+2. **MT4:** copy `TL_Watchlist_Radar_Pro.ex4` to `MQL4 → Experts`. **MT5:** copy `TL_Watchlist_Radar_Pro.ex5` to `MQL5 → Experts`.
+3. Refresh **Navigator → Expert Advisors** and attach the matching EA to one chart.
+4. Open **SETTINGS** in the dashboard — all configuration lives in the panel; the standard EA Inputs tab intentionally has no scanner parameters.
+5. Select the scan universe, timeframes and filters, then wait for history to load.
 
-Trading involves risk. Scanner conditions are information, not guaranteed outcomes.
+## 📋 Requirements
+
+- The platform must allow the EA to run and fetch history. Trading permission is not needed — no orders are ever opened, modified or closed.
+- No DLL imports, no WebRequest permission, no account lock or expiry.
+- Minimum practical chart area: about **784 × 532 pixels**. Enlarge the chart if controls are clipped; the panel scale is capped to the available space.
+
+## 🙏 Credits
+
+- Original concept: [Multi Market Scanner MT4](https://www.mql5.com/en/market/product/198327) by **Eduardo Cumplido / Cloud Portfolios**.
+- Demonstration: [YouTube video](https://www.youtube.com/watch?v=n0kDJ0xZeaM).
+- Independent extensions and FF edition: **trader.lifestyle**.
+
+## ⚠️ Notes
+
+- **Independent reconstruction.** This rebuilds publicly demonstrated scanner functions, with the requested price / VWAP / MA / candle-series extensions. It is not the original Multi Market Scanner, is not endorsed by its author and does not reproduce any proprietary source code. Identical scores, preset values and hidden behaviour cannot be established from screenshots and a demonstration video.
+- **Feature basis:** the original's six MQL5 screenshots, 80 sampled video frames and the video transcript. Hidden menu behaviour and the original maths remain unverified.
+- **Layout differences:** pagination replaces the original scrolling / TF-chip layout; there is no separate ellipsis action menu or distinct minimize / close pair. Market Watch reconciliation is periodic, and the scheduler uses sequential bounded batches.
+- **Languages:** English is the complete primary interface. Spanish, Italian and French cover navigation and many setting labels; help, rule descriptions and some status / value strings remain English.
+- In the MT4 Strategy Tester only the selected test symbol can be scanned — use a demo terminal to check multi-symbol behaviour. Exhaustive mouse / DPI / language checks are not claimed; review the build on your own demo installation.
+- Scanner conditions are information, not guaranteed outcomes.
 
 ## 🖼️ More screenshots
 

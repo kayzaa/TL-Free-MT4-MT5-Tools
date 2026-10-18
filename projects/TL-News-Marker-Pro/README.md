@@ -1,4 +1,3 @@
-<!-- auto-generated: remove this line after hand-editing so publish keeps your text -->
 <div align="center">
 
 # ⚡ TL News Marker Pro
@@ -19,71 +18,86 @@
 
 > Compiled build only — source code is not published.
 
-## Overview
+## ✨ Highlights
 
-decodagobert's news trading request from Forex Factory as an MT5 indicator. Source: thread "Free EAs, Indicators & Strategies – MT4 / MT5 / TV + Coding Help", post #6: <https://www.forexfactory.com/thread/post/15931670#post15931670>
+- **News right on your chart.** Past events with **actual / forecast / previous**, upcoming events as dashed lines.
+- **Better or worse at a glance.** Green / red labels based on the MT5 calendar rating — correct even for inverse numbers like unemployment.
+- **Filter exactly what you trade.** Currencies, countries, impact level and event keywords.
+- **Zero setup.** Uses the built-in MT5 economic calendar — no WebRequest, no DLL for the data.
+- **Panel with countdown** to the next events, latest results and optional alerts.
 
-## What It Does (as requested)
+## 🧠 How it works
 
-- Marks PAST news on the chart with ACTUAL, FORECAST and PREVIOUS value.
-- Marks UPCOMING events for the next days (dashed lines).
-- Selectable currencies / countries.
-- Selectable impact: HIGH / MEDIUM / LOW (each on/off, also clickable in the panel).
-- Selectable events, e.g. "CPI y/y; Cash Rate; NFP" - only those are shown.
-- Selectable range: how many days back, how many days ahead.
+Built from **decodagobert's** news-trading request on Forex Factory. It:
 
-## Data Source
+- Marks **past** news on the chart with the actual, forecast and previous value.
+- Marks **upcoming** events for the next days (dashed lines).
+- Lets you choose currencies / countries, impact (HIGH / MEDIUM / LOW, each on/off, also clickable in the panel), specific events (e.g. `CPI y/y; Cash Rate; NFP`) and how many days back / ahead to show.
 
-- The built-in MT5 economic calendar (MetaQuotes). No WebRequest, no DLL for the data, nothing to set up. Times are converted automatically - everything is in your broker's server time, exactly like the candles.
+### 📡 Data source
+
+- The built-in **MT5 economic calendar** (MetaQuotes). Times are converted automatically — everything is shown in your broker's server time, exactly like the candles.
 - Forecast = the forecast of the MT5 calendar. It can differ slightly from the Forex Factory consensus.
-- Event names are always shown in ENGLISH, whatever language your terminal uses (built from the calendar's English event code). The filter understands English keywords and also the names in your terminal language.
-- The MT5 calendar is NOT available in the Strategy Tester -> use it on a live chart.
-- MT4 has no built-in calendar, so this is MT5 only.
+- Event names are always shown in **English**, whatever language your terminal uses (built from the calendar's English event code). The filter understands English keywords and also the names in your terminal language.
 
-## On The Chart
+## 🖥️ Dashboard & chart
 
-- One vertical line per time stamp. Colour = impact: red HIGH, orange MEDIUM, yellow LOW. Solid = past, dashed = upcoming.
-- A small vertical text next to each line (bottom of the chart, or top - input): USD CPI y/y  A 3.2%  F 3.1%  P 3.0% GREEN = the result was better than the forecast for that currency, RED   = worse, GREY = in line / no forecast, BLUE = upcoming. "Better" comes from the MT5 calendar rating, so it is correct for inverse numbers too (higher unemployment or jobless claims = red).
-- Hover a line: full name, actual / forecast / previous (revised) of ALL events at that time.
-- Labels never overlap: if there is no room (zoomed out), high impact wins and the others are hidden until you zoom in. The lines always stay.
+**On the chart**
+- One vertical line per time stamp. Colour = impact: **red** HIGH, **orange** MEDIUM, **yellow** LOW. Solid = past, dashed = upcoming.
+- A small vertical label next to each line (bottom or top of the chart — input), e.g. `USD CPI y/y  A 3.2%  F 3.1%  P 3.0%`.
 
-## Event Filter  (inputs "Only these events" / "Hide these events", separated by ;)
+| Label colour | Meaning |
+|---|---|
+| Green | Result better than the forecast for that currency |
+| Red | Worse than the forecast |
+| Grey | In line / no forecast |
+| Blue | Upcoming |
 
-- Case, spaces and symbols are ignored:  "CPI y/y" = "cpi yy" = "cpi-yy".
-- Put a currency in front to limit it:  "USD CPI y/y; AUD Cash Rate; USD NFP".
-- Built-in shortcuts: Cash Rate, NFP, GDP, FOMC, ECB, BOE, BOJ, RBA, RBNZ, SNB, BOC (e.g. "Cash Rate" finds "RBA Interest Rate Decision").
-- To see every event name + its keyword: set "Print all event names" = true and look at the Experts tab.
-- Examples: Only these events:  CPI y/y; Cash Rate Only these events:  USD NFP; USD CPI; USD Interest Rate Decision Hide these events:  speech; CFTC; auction
+- Hover a line to see the full name and actual / forecast / previous (revised) of **all** events at that time.
+- Labels never overlap: when there is no room (zoomed out), high impact wins and the others are hidden until you zoom in. The lines always stay.
 
-## Currencies / Countries
-
-- AUTO = the currencies of the chart symbol (EURUSD -> EUR + USD, XAUUSD -> USD).
-- ALL  = every currency.
-- Or a list: USD,EUR,AUD
-- Countries (optional): US,EU,DE,FR,GB,AU,JP,CH,CA,NZ,CN ... e.g. only German data for EUR: DE
-
-## Panel
-
+**Panel**
 - HIGH / MEDIUM / LOW buttons (click to toggle).
-- NEXT EVENTS with countdown, LATEST RESULTS (actual / forecast in green / red).
+- **NEXT EVENTS** with countdown and **LATEST RESULTS** (actual / forecast in green / red).
 - Minimise with the "–" button.
-- Link buttons YOUTUBE / ROBOFOREX / WHATSAPP / FOREX FACTORY (need "Allow DLL imports" - the indicator works without it, only the buttons don't).
+- Link buttons YOUTUBE / ROBOFOREX / WHATSAPP / FOREX FACTORY.
 
-## Alerts (optional)
-
+**Alerts (optional)**
 - X minutes before an event (high impact only, or all shown events).
 - When the actual value is released (with better / worse).
 
-## Installation
+## ⚙️ Key inputs
 
-- MT5: File > Open Data Folder > MQL5\Indicators\  -> copy "TL News Marker Pro.ex5" there.
-- Navigator: right-click "Indicators" > Refresh.
-- Drag "TL News Marker Pro" on any chart. Tick "Allow DLL imports" for the link buttons.
-- Tip: the input "Enable chart shift" (on by default) makes room on the right side for the upcoming events.
+| Input | What it does |
+|---|---|
+| **Only these events** / **Hide these events** | Keyword lists separated by `;`. Case, spaces and symbols are ignored (`CPI y/y` = `cpi yy` = `cpi-yy`). Put a currency in front to limit it: `USD CPI y/y; AUD Cash Rate; USD NFP`. |
+| **Built-in shortcuts** | Cash Rate, NFP, GDP, FOMC, ECB, BOE, BOJ, RBA, RBNZ, SNB, BOC (e.g. "Cash Rate" finds "RBA Interest Rate Decision") |
+| **Print all event names** | `true` prints every event name + its keyword to the Experts tab |
+| **Currencies** | `AUTO` = the currencies of the chart symbol (EURUSD → EUR + USD, XAUUSD → USD), `ALL` = every currency, or a list like `USD,EUR,AUD` |
+| **Countries** (optional) | US, EU, DE, FR, GB, AU, JP, CH, CA, NZ, CN … e.g. only German data for EUR: `DE` |
+| **Enable chart shift** | On by default — makes room on the right side for upcoming events |
 
-- FREE. No lock, no expiry, no license key. Source code included.
-- Trading involves high risk. This is an information tool, not a signal.
-- trader.lifestyle
+**Filter examples**
+- Only these events: `CPI y/y; Cash Rate`
+- Only these events: `USD NFP; USD CPI; USD Interest Rate Decision`
+- Hide these events: `speech; CFTC; auction`
+
+## 🛠️ Installation
+
+1. In MT5 open **File → Open Data Folder** and copy `TL News Marker Pro.ex5` to `MQL5 → Indicators`.
+2. In the Navigator right-click **Indicators → Refresh**.
+3. Drag **TL News Marker Pro** onto any chart.
+4. Optional: tick **"Allow DLL imports"** for the link buttons — the indicator works without it, only the buttons don't.
+
+## 🙏 Credits
+
+Request by **decodagobert** in the Forex Factory thread "Free EAs, Indicators & Strategies – MT4 / MT5 / TV + Coding Help" — [post #6](https://www.forexfactory.com/thread/post/15931670#post15931670).
+
+## ⚠️ Notes
+
+- **MT5 only** — MT4 has no built-in economic calendar.
+- The MT5 calendar is **not available in the Strategy Tester** — use the indicator on a live chart.
+- This is an information tool, not a trading signal.
 
 ---
 
