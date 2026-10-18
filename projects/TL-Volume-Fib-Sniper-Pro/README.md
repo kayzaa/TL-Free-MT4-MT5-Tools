@@ -1,4 +1,3 @@
-<!-- auto-generated: remove this line after hand-editing so publish keeps your text -->
 <div align="center">
 
 # ⚡ TL Volume Fib Sniper Pro
@@ -20,49 +19,62 @@
 
 > Compiled build only — source code is not published.
 
-## Overview
+## ✨ Highlights
 
-Volume Profile + Fibonacci = sniper entry. Every step of the popular "sniper entry" method is automated: swing high, swing low, fixed-range volume profile of the impulse, fibonacci, entry zone 0.5 - 0.618 where the volume confirms, stop beyond 0.618, target = 1.618 extension. Made for gold (XAUUSD) - recommended timeframes H1 and H4. Works on every symbol.
+- 🎯 **Volume Profile + Fibonacci = sniper entry** — every step of the popular method is automated.
+- 📊 **Fixed-range volume profile of the impulse** — POC and 70 % value area, split into up / down candle volume.
+- 🟩 **Volume-confirmed entry zone** — 0.5–0.618 is armed only when the volume backs it up.
+- 🔒 **Closed bars only** — no repaint.
+- 🧩 **Two modes** — "EA" (trades) or "Indicator mode only" (never trades).
+- 🖥️ **Setup stepper dashboard** — watch each step light up from swing high to entry.
 
-## Files
+## 🧠 Strategy rules
 
-- MT5/Experts/TL Volume Fib Sniper Pro.ex5   EA - Mode "EA" (trades) or "Indicator mode only" (never trades)
-- MT4/Experts/TL Volume Fib Sniper Pro.ex4   same EA for MT4
+Made for gold (**XAUUSD**), recommended timeframes **H1 and H4**; it runs on every symbol. Long setup shown — shorts are the exact mirror. One trade at a time.
 
-- Install: File -> Open Data Folder -> copy the file into MQL5 (MQL4) /Experts, refresh the Navigator.
-- Allow DLL imports (only used to open the links of the dashboard buttons). For auto trading also enable "Algo Trading" / "Allow live trading".
+| Step | Name | Rule |
+|---|---|---|
+| **1** | SWING HIGH | Confirmed pivot high (10 bars left / 5 bars right, inputs) = end of the impulse |
+| **2** | SWING LOW | Lowest low since the previous swing high = start of the impulse (impulse must be ≥ 4 ATR — input) |
+| **3** | VOLUME | Fixed-range volume profile from the swing low to the swing high (tick volume, teal = up candles, magenta = down candles), POC + 70 % value area |
+| **4** | FIBONACCI | Swing high (0) → swing low (1), levels 0.236 / 0.382 / 0.5 / 0.618 / 0.786 |
+| **5** | ENTRY ZONE | 0.5–0.618, armed only when the volume confirms it: POC within 10 % of the swing range from the zone OR the zone inside the value area (filter: off / POC / value area / either / both) |
+| **6** | TRADE | LIMIT order at 0.5 (default) or a confirmation candle (touch + close back out of the zone) |
 
-## The Six Steps (closed bars only - no repaint)
+> **Stop loss** 0.65 (just beyond 0.618) · **TP1** = swing high (50 % closed + break-even) · **Target** = 1.618 extension. All levels are inputs.
 
-1 SWING HIGH   confirmed pivot high (10 bars left / 5 bars right, inputs) = end of the impulse 2 SWING LOW    lowest low since the previous swing high = start of the impulse (impulse must be >= 4 ATR - input) 3 VOLUME       fixed-range volume profile from the swing low to the swing high (tick volume, teal = up candles, magenta = down candles), POC + value area 70 % 4 FIBONACCI    swing high (0) -> swing low (1), levels 0.236 / 0.382 / 0.5 / 0.618 / 0.786
+**A setup ends** when price makes a new extreme beyond the swing, when it waits longer than 60 bars, when a newer swing takes over, or when price already reached the zone before the swing was confirmed.
 
-## 5 Entry Zone   0.5 - 0.618. Armed only when the volume confirms it:
+## 🖥️ Dashboard & chart
 
-POC within 10 % of the swing range from the zone OR the zone inside the value area (filter: off / POC / value area / either / both) 6 TRADE        LIMIT order at 0.5 (default) or a confirmation candle (touch + close back out of the zone) Stop loss 0.65 (just beyond 0.618), TP1 = swing high (50 % closed + break-even), target = 1.618 extension. All levels are inputs. Shorts are the exact mirror. One trade at a time.
+**On the chart** (like in the video): "Swing High" / "Swing Low" lines, the volume profile box with POC / VAH / VAL, the Fibonacci bands with prices, the green "Entry Long" / red "Entry Short" zone, "Stop-loss" and "Target" lines, position boxes (target / stop, open or closed P&L, risk/reward), BUY / SELL pills with the planned risk/reward and exit tags. Past trades are drawn compact. Everything follows scroll and zoom.
 
-A setup ends when price makes a new extreme beyond the swing, when it waits longer than 60 bars, when a newer swing takes over or when price already reached the zone before the swing was confirmed.
+**Dashboard** (drag the header, **X** folds it to a pill; hover any block for the details):
+- **SETUP** stepper — SW HIGH → SW LOW → VOLUME → FIB → ZONE → ENTRY
+- **VOLUME PROFILE** with a live mini profile
+- **FIBONACCI** ladder with the live price
+- **TRADE PLAN**
+- **VIRTUAL RESULTS** of the history
+- **POSITION / INDICATOR MODE** — pending order, Auto Trading on/off, Close All
+- Rotating rule card
 
-## On The Chart (like in the video)
+## 🔔 Alerts
 
-"Swing High" / "Swing Low" lines, the volume profile box with POC / VAH / VAL, the fibonacci bands with prices, the green "Entry Long" / red "Entry Short" zone, "Stop-loss" and "Target" lines, the position boxes (target / stop, open or closed P&L, risk/reward), BUY / SELL pills with the planned risk/reward, exit tags. Past trades are drawn compact. Follows scroll and zoom.
+New setup armed, entry, TP1 and exit — popup, sound, push and e-mail (inputs).
 
-## Dashboard (drag the header, X folds it to a pill)
+## 🛠️ Installation
 
-SETUP stepper (SW HIGH -> SW LOW -> VOLUME -> FIB -> ZONE -> ENTRY) - VOLUME PROFILE with a live mini profile - FIBONACCI ladder with the live price - TRADE PLAN - VIRTUAL RESULTS of the history -
+1. **MT5:** copy `TL Volume Fib Sniper Pro.ex5` to `File → Open Data Folder → MQL5 → Experts`.
+   **MT4:** copy `TL Volume Fib Sniper Pro.ex4` to `File → Open Data Folder → MQL4 → Experts`.
+2. Refresh the Navigator and drag the EA onto a chart.
+3. For auto trading enable **Algo Trading** / **Allow live trading**. For signals only, choose "Indicator mode only".
+4. **Allow DLL imports** is only used to open the links of the dashboard buttons.
 
-## Position / Indicator Mode (pending order, Auto Trading on/off, Close All) - rotating rule card.
+## ⚠️ Notes
 
-Hover any block for the details.
-
-## Alerts
-
-New setup armed, entry, TP1, exit - popup, sound, push, e-mail (inputs).
-
-## Note
-
----- The virtual results in the panel are a bar simulation without spread / commission - a guide, not a backtest. Test on a demo account first and use your own judgement.
-
-trader.lifestyle
+- The virtual results in the panel are a simple bar simulation without spread / commission — a rough guide, not a full simulation of real trading.
+- Built for gold H1 / H4; other symbols may need their own settings.
+- Test on a demo account first and use your own judgement.
 
 ---
 

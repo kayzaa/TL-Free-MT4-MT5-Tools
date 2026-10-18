@@ -1,4 +1,3 @@
-<!-- auto-generated: remove this line after hand-editing so publish keeps your text -->
 <div align="center">
 
 # ⚡ TL Big Bull Fire EA
@@ -20,33 +19,76 @@
 
 > Compiled build only — source code is not published.
 
-## Overview
+## ✨ Highlights
 
-What it does An Expert Advisor built after the BigBull System 2.0 chart template. The EA calculates the whole system on every closed candle and trades its arrows:
+- 🐂 **The BigBull System 2.0 template, fully automated** — the EA calculates the whole system on every closed candle and trades its arrows.
+- 🔁 **Stop-and-reverse logic** — an opposite arrow closes the open trade and (optionally) opens the new direction.
+- 🧭 **Trend filter on by default** — buys only above the magenta trend line, sells only below.
+- 🔒 **No repaint** — arrows are calculated on closed candles only.
+- 🔥 **A chart like no other** — an animated 3D bull behind the candles that snorts fire, plus an optional full view of clouds, lines and histograms.
+- 📰 **Built-in risk tools** — fixed lot or % risk, ATR stops and targets, break-even, daily profit target and an optional news filter.
 
-- BUY arrow  = the yellow signal line turns up    -> close sell, open buy
-- SELL arrow = the yellow signal line turns down  -> close buy, open sell
-- Trend filter (ON by default): buys only above the magenta trend line, sells only below. An arrow against the trend still closes the open trade, but does not open a new one.
+## 🧠 Strategy rules
 
-Arrows are calculated on closed candles only - they do not repaint.
+| Signal | Condition | Action |
+|---|---|---|
+| **BUY arrow** | The yellow signal line turns up | Close sell, open buy |
+| **SELL arrow** | The yellow signal line turns down | Close buy, open sell |
 
-The chart By default the chart stays clean: candles, BUY / SELL arrows and an animated 3D bull behind the chart that snorts fire from its nostrils. The system lines are calculated in the background either way. Switch them on in the settings if you want to see them:
-- Show clouds / zones   (fast lime/yellow, mid purple/green, slow blue/salmon cloud)
-- Show lines            (rainbow EMAs, yellow signal line, magenta trend line)
-- Show histograms       (power + momentum histogram at the bottom)
+> **Trend filter (ON by default):** buys only above the magenta trend line, sells only below. An arrow against the trend still closes the open trade, but does not open a new one.
 
-trend state, candle countdown, performance of this EA, equity curve, settings, clock. Drag it by the header, "-" collapses it. On small chart windows it switches to a compact layout automatically. Hover any section for an English tooltip (can be off).
+- **Cloud filter** — optional extra filter (off by default).
+- **Start behaviour** — wait for the next arrow, or enter the current one.
+- **Stop Loss / Take Profit** — in ATR; `0` means exit on the opposite arrow.
+- **Break-even** — in ATR.
+- **Daily profit target** — `0` = off. Once reached, the EA stops for the day (optionally closing the open trade).
+- **News filter** — off by default. Blocks new trades around high / medium impact news of the symbol's currencies.
 
-Main settings Yellow signal line period (80) . . . . arrows at its turns - higher = fewer arrows Magenta trend line period (200) Auto trading on arrows (true)  . . . . false = signals only Start behaviour  . . . . . . . . . . . wait for the next arrow / enter the current one Opposite arrow closes AND reverses (true) Trend filter (true), Cloud filter (false) Fixed lot or % risk (stop distance = Stop Loss, or 3 x ATR without a Stop Loss) Stop Loss / Take Profit in ATR (0 = exit on the opposite arrow), Break-even in ATR Max spread, magic number, comment Daily profit target (0 = off): stop for the day once it is reached (optionally closes the open trade) News filter (off by default): no new trades around high / medium impact news of the symbol currencies. MT5 uses the built-in calendar. MT4 loads the Forex Factory calendar - allow WebRequest for <https://nfs.faireconomy.media> (Tools > Options > Expert Advisors). Design: fire chart, 3D bull, zones, lines, histograms, panel, FPS, fire intensity, tooltips
+## 🖥️ Dashboard & chart
 
-Install MT5: copy the .ex5 to  File > Open Data Folder > MQL5 > Experts MT4: copy the .ex4 to  File > Open Data Folder > MQL4 > Experts Refresh the Navigator and drag the EA onto a chart. Enable "Allow Algo Trading". Enable "Allow DLL imports" only if you want the link buttons to open in your browser. Your own chart colours come back when you remove the EA.
+By default the chart stays clean: candles, BUY / SELL arrows and the animated fire-breathing 3D bull. The system lines are always calculated in the background — switch them on if you want to see them:
 
-Notes
-- Any symbol, any timeframe. Default settings are made for XAUUSD M5-H1.
-- Lower the Animation FPS if your PC gets slow (default 15).
-- Free - no lock, no expiry.
+- **Clouds / zones** — fast lime/yellow, mid purple/green, slow blue/salmon cloud
+- **Lines** — rainbow EMAs, yellow signal line, magenta trend line
+- **Histograms** — power + momentum histogram at the bottom
 
-Trading involves risk. Test on a demo account first. This is not investment advice.
+The panel shows trend state, candle countdown, the performance of this EA, an equity curve, settings and a clock. Drag it by the header, `-` collapses it, and on small chart windows it switches to a compact layout automatically. Hover any section for an English tooltip (tooltips can be turned off).
+
+## ⚙️ Key inputs
+
+| Input | What it does |
+|---|---|
+| Yellow signal line period (`80`) | Arrows appear at its turns — higher = fewer arrows |
+| Magenta trend line period (`200`) | Trend line used by the trend filter |
+| Auto trading on arrows (`true`) | `false` = signals only |
+| Start behaviour | Wait for the next arrow / enter the current one |
+| Opposite arrow closes AND reverses (`true`) | Stop-and-reverse on every opposite arrow |
+| Trend filter (`true`) / Cloud filter (`false`) | Entry filters |
+| Fixed lot or % risk | Risk sizing; stop distance = Stop Loss, or 3 × ATR without a Stop Loss |
+| Stop Loss / Take Profit (ATR) | `0` = exit on the opposite arrow |
+| Break-even (ATR) | Moves the stop to entry |
+| Max spread, magic number, comment | Trade housekeeping |
+| Daily profit target | `0` = off; stops for the day when reached |
+| News filter | Off by default; no new trades around high / medium impact news |
+| Design | Fire chart, 3D bull, zones, lines, histograms, panel, FPS, fire intensity, tooltips |
+
+## 🛠️ Installation
+
+1. **MT5:** copy the `.ex5` to `File → Open Data Folder → MQL5 → Experts`.
+   **MT4:** copy the `.ex4` to `File → Open Data Folder → MQL4 → Experts`.
+2. Refresh the Navigator and drag the EA onto a chart.
+3. Enable **Allow Algo Trading**.
+4. Enable **Allow DLL imports** only if you want the link buttons to open in your browser.
+5. **News filter (MT4 only):** MT4 loads the Forex Factory calendar — allow WebRequest for `https://nfs.faireconomy.media` under `Tools → Options → Expert Advisors`. MT5 uses the built-in economic calendar.
+
+Your own chart colours come back when you remove the EA.
+
+## ⚠️ Notes
+
+- Runs on any symbol and any timeframe; the default settings are made for **XAUUSD M5–H1**. Other symbols may need their own settings.
+- Lower the Animation FPS if your PC gets slow (default `15`).
+- Free — no lock, no expiry.
+- Trading involves risk. Test on a demo account first. This is not investment advice.
 
 ---
 

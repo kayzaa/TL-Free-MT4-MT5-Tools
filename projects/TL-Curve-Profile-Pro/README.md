@@ -1,4 +1,3 @@
-<!-- auto-generated: remove this line after hand-editing so publish keeps your text -->
 <div align="center">
 
 # ⚡ TL Curve Profile Pro
@@ -20,50 +19,98 @@
 
 > Compiled build only — source code is not published.
 
-## Overview
+## ✨ Highlights
 
-An independent MetaTrader adaptation of Curved Trendlines (Zeiierman). Original author: Zeiierman. MT adaptation and interface: trader.lifestyle. Source: <https://www.tradingview.com/script/d1yc5hBu-Curved-Trendlines-Zeiierman/> Video: <https://www.youtube.com/watch?v=G0tvIPw3eHs> (Soheil PKO, 5:43). License: Creative Commons Attribution-NonCommercial-ShareAlike 4.0. Free, no account lock, no expiry. Noncommercial use; retain attribution and the same license when sharing adaptations. This is not an official Zeiierman release.
+- 📈 **Curved support & resistance** — each side fits a quadratic curve to recent confirmed swing points, with a midline in between.
+- 📊 **Built-in volume profiles** — a live profile across the current structure plus separate upper/lower memory profiles, each with its own POC.
+- 🌈 **Gradient channel fill** — layered fill between the curves, with optional history of the strongest past channels.
+- 🖥️ **Dark/Cyan/Gold canvas panel** — live boundary/POC values, fit score, pivot delay, volume mode and model status.
+- 🔔 **Optional alerts** — curve breaks and live-POC crosses, at most one message per bar.
+- 🔌 **EA-ready buffers** — upper, lower, midpoint and three POC values.
 
-## Installation
+## 🧠 How it works
 
-- MT5: File > Open Data Folder > MQL5 > Indicators. Copy the EX5 from MT5.
-- MT4: File > Open Data Folder > MQL4 > Indicators. Copy the EX4 from MT4_COMPILE_ONLY. Its runtime remains unverified in this environment.
-- Refresh Navigator, then attach TL Curve Profile Pro to a chart.
-- AutoTrading and DLL imports are not required. No orders are sent.
-- Load enough broker history; at least three confirmed pivots per side are needed.
-- Do not restart a running terminal just to install. Refresh Navigator instead.
+- **Curves** — each side independently fits a quadratic to recent confirmed swing points. The upper fit is shifted by the maximum residual, the lower by the minimum. Projection stops before the upper curve crosses the lower. The midline is their average.
+- **Fit score** — R-squared describes the fit to the selected pivots, not prediction accuracy.
+- **Live profile** — spans the current pivot structure. Volume is distributed across rows by candle-range overlap.
+- **Memory profiles** — older candles contribute to separate upper/lower memory profiles, only outside the live price range and inside the projected envelope. Each non-empty profile has its own POC; empty regions have no POC.
+- **Buy/sell shares** — estimated from the close position inside each candle. This is *not* measured bid/ask delta, exchange order flow or actual buyer/seller identification.
+- **Timing** — `InpClosedBars=true` (default) calculates on completed candles. `false` includes the developing candle, closer to the original live behaviour, with an update throttle.
 
-## How It Works
+> **Trading interpretation:** rising/falling curvature describes structure, and POCs highlight high estimated volume concentrations. These are contextual levels, not trade instructions. The source/video supplies no complete mechanical BUY/SELL, stop-loss, take-profit, position-size or exit rules — this indicator deliberately does not invent them and places no trades. Future curves are mathematical extrapolation.
 
-Each side independently fits a quadratic to recent confirmed swing points. The upper fit is shifted by the maximum residual; the lower by the minimum. Projection stops before the upper curve crosses the lower. Midline is their average. R-squared describes fit to the selected pivots, not prediction accuracy. The live profile spans the current pivot structure. Older candles contribute to separate upper/lower memory profiles only outside that live price range and inside the projected envelope. Each nonempty profile has its own POC. Volume is distributed across rows by candle-range overlap. Buy/sell shares are estimated from close position inside each candle. This is not measured bid/ask delta, exchange order flow, or actual buyer/seller identification.
+## 🖥️ Dashboard & chart
 
-## Features And Inputs
+- Dark/Cyan/Gold canvas interface with animated logo and responsive panel columns.
+- Drag the header, **X** shrinks it to a pill, click the pill to reopen. Contextual hover information everywhere.
+- **CHART LAYER ON/OFF** toggles the drawings; **REFRESH** forces recalculation.
+- `InpTheme=true` styles the chart and heals changes; your original settings are restored on removal. Disable it to keep your own colours.
+- `InpAutoScale=true` includes visible projected curves in the price scale; `InpFitProfileOnScreen=true` compresses profile width/gap to the available space. Disable them for native scaling and literal bar widths.
+- Link buttons display the URL in a dialog and the Experts log — open them in your browser manually. No ShellExecute or DLL access needed.
 
-Structure: InpPivotLength=10 (left AND right confirmation), InpStructurePoints=6 (3..15), InpExtend=20 (0..300). Upper/lower curves: independent visibility and colors; InpCurveWidth=2. Midline: InpMid=true, separate color and width. Fill: InpFill=true, InpLayers=20, outer transparency65, center97; upper/lower colors also set their halves of the gradient. History: InpHistory=false; enable to retain the strongest qualifying pair per completed window. InpHistKeep=10, InpHistWindow=80, InpHistMinFit=50 percent. History color and width are adjustable. This is a bounded reconstruction, not an immutable record of every previously displayed channel. Live profile: InpProfile=true, InpRows=48, InpProfileWidth=60 bars, InpProfileGap=5 bars, configurable buy/sell colors. Live POC: InpPOC=true, configurable gold color. Profile range boundaries: InpBounds=false; optional dotted lines. Memory: InpMemory=true, InpMemoryWidth=50 bars, separate buy/sell colors, InpMemoryPOC=true, configurable blue POC color. Empty regions have no POC. Shared row size can increase to stay within the drawing/bin budget. InpScanBars=5000 (100..20000) bounds pivot/history processing; profile data is limited to 5000 bars. Excessively old structures disable their profiles. InpVolume=V_TICK by default. V_REAL uses broker real_volume only, with no silent fallback. Forex feeds often supply no real volume; profiles then empty.
+## ⚙️ Key inputs
 
-## Our Additions
+| Input | What it does |
+|---|---|
+| `InpPivotLength=10` | Left AND right confirmation bars for pivots |
+| `InpStructurePoints=6` (3..15) | Pivots used per fit |
+| `InpExtend=20` (0..300) | Projection length |
+| `InpCurveWidth=2`, colours, visibility | Upper/lower curve style (independent per side) |
+| `InpMid=true` | Midline, with its own colour and width |
+| `InpFill=true`, `InpLayers=20` | Gradient fill (outer transparency 65, centre 97) |
+| `InpHistory=false` | Keeps the strongest qualifying pair per completed window (`InpHistKeep=10`, `InpHistWindow=80`, `InpHistMinFit=50` percent) |
+| `InpProfile=true`, `InpRows=48` | Live profile; `InpProfileWidth=60` bars, `InpProfileGap=5` bars, buy/sell colours |
+| `InpPOC=true` | Live POC (gold) |
+| `InpBounds=false` | Optional dotted profile range boundaries |
+| `InpMemory=true`, `InpMemoryWidth=50` | Memory profiles with buy/sell colours; `InpMemoryPOC=true` (blue) |
+| `InpScanBars=5000` (100..20000) | Bounds pivot/history processing; profile data is limited to 5000 bars |
+| `InpVolume=V_TICK` | `V_REAL` uses broker real volume only, with no silent fallback |
+| `InpClosedBars=true` | Completed candles only (see Notes) |
+| `InpPopupAlerts` / `InpPushAlerts` | Both `false` by default |
+| `InpShowPanel`, `InpShowTooltips`, `InpPanelX/Y` | Panel and hover visibility, initial position (a saved chart position can take priority) |
+| `InpInstance` | Must differ for additional copies on the same chart |
+| `InpTheme`, `InpAutoScale`, `InpFitProfileOnScreen` | Chart styling and scaling helpers |
 
-Dark/Cyan/Gold Canvas interface, animated logo, responsive panel columns, drag header, X-to-pill, click pill to reopen, contextual hover information. Live boundary/POC values, fit score, pivot delay, volume mode and model status. CHART LAYER ON/OFF toggles drawings; REFRESH forces recalculation. InpShowPanel and InpShowTooltips control panel/hover visibility. InpPanelX/Y set its initial location. A saved chart position can take priority. InpInstance must differ for additional copies on the same chart. Shared chart theme/scale settings can conflict between copies; one themed copy is preferred. InpTheme=true styles the chart and heals changes; original settings are restored on removal. Disable it to keep your own colors. InpAutoScale=true includes visible projected curves in the price scale. InpFitProfileOnScreen=true compresses profile width/gap to available space. Disable those options for native scaling and literal bar widths. Link buttons display URLs in a dialog and Experts log. Open them in your browser manually; the indicator does not need ShellExecute or DLL access.
+## 🔔 Alerts
 
-## Timing, Refitting And Alerts
+In closed-bar mode the optional popup/push alerts fire on an upward upper-curve cross, a downward lower-curve cross, or either live-POC cross, using the prior model projected into the just-closed bar. At most one message per bar; boundary events take priority. Initial attachment is silent. These are optional additions, not entry signals from the video. Push needs terminal Notifications configured.
 
-InpClosedBars=true is the default addition: calculations use completed candles. False includes the developing candle, closer to the original live behavior, with an update throttle. Confirmed pivots still arrive after the right-hand confirmation delay. Curves are REFITTED when new pivots arrive; old chart segments can move. Closed-bar mode does NOT make this a non-repainting system. InpPopupAlerts/InpPushAlerts default false. In closed-bar mode they notify on an upward upper-curve cross, downward lower-curve cross, or either live-POC cross, using the prior model projected into the just-closed bar. At most one message per bar; boundary events take priority. They are optional additions, not entry signals from the video. Push needs terminal Notifications configured; external push delivery has not been verified. Initial attachment is silent.
+## 🔌 Integration buffers (0-based)
 
-## Trading Interpretation
+| Buffer | Value |
+|---|---|
+| 0 | Upper curve |
+| 1 | Lower curve |
+| 2 | Midpoint |
+| 3 | Live POC |
+| 4 | Upper memory POC |
+| 5 | Lower memory POC |
 
-Rising/falling curvature describes structure. POCs highlight high estimated volume concentrations. These are contextual levels, not trade instructions. The video/source supplies no complete mechanical BUY/SELL, stop-loss, take-profit, position-size or exit rules. This indicator deliberately does not invent them or place trades. Future curves are mathematical extrapolation.
+Index 0 holds the most recent calculated snapshot (in closed-bar mode: the last completed candle). Previously observed snapshots shift as new bars arrive; history is **not** backfilled at attachment. `EMPTY_VALUE` = unavailable. These buffers are not a complete historical signal record.
 
-## Integration Buffers (0-based)
+## 🛠️ Installation
 
-0 upper, 1 lower, 2 midpoint, 3 live POC, 4 upper memory POC, 5 lower memory POC. Index0 holds the most recent calculated snapshot. In closed-bar mode it refers to the last completed candle. Previously observed snapshots shift as new bars arrive; historical data is NOT backfilled at attachment. EMPTY_VALUE means unavailable. These are not a complete historical signal/backtest buffer.
+1. **MT5:** copy the `.ex5` from the `MT5` folder to `File → Open Data Folder → MQL5 → Indicators`.
+   **MT4:** copy the `.ex4` from the `MT4` folder to `File → Open Data Folder → MQL4 → Indicators`.
+2. Refresh the Navigator (no need to restart a running terminal), then attach **TL Curve Profile Pro** to a chart.
+3. AutoTrading and DLL imports are **not** required — no orders are sent.
+4. Load enough broker history: at least three confirmed pivots per side are needed.
 
-## Validation Status
+## ⚠️ Notes
 
-Both platform builds compile with 0 errors / 0 warnings. MT5: native core/tester run, independent numeric comparison, real-chart UI checks and actual release EX5 loading/buffers tested. See separate verification. MT4: compiled successfully, but isolated terminal stalled after loading the test harness. Runtime, appearance and interactions are NOT verified on MT4. Broker history, tick volume, sessions and missing bars differ from TradingView; identical settings do not guarantee identical curves or POCs between feeds. No trading-performance or profitability claim is made.
+- **MT4 build is compile-only** — its runtime, appearance and interactions are not verified. The MT5 build is the verified one.
+- **Curves refit.** When new pivots arrive the curves are refitted and old chart segments can move. Closed-bar mode does NOT make this a non-repainting system; confirmed pivots also arrive only after the right-hand confirmation delay.
+- **Volume data:** forex feeds often supply no real volume — with `V_REAL` the profiles are then empty. Shared row size can grow to stay within the drawing budget, and very old structures disable their profiles.
+- **Multiple copies:** shared chart theme/scale settings can conflict; one themed copy is preferred.
+- Broker history, tick volume, sessions and missing bars differ from TradingView — identical settings do not guarantee identical curves or POCs between feeds.
+- No trading-performance or profitability claim is made. Test behaviour on a demo chart before relying on it.
 
-## Links
+## 🙏 Credits
 
-YouTube: <https://www.youtube.com/@traderlifestyle> WhatsApp: <https://wa.me/18585003724> Forex Factory: <https://www.forexfactory.com/thread/1428808-free-eas-indicators-strategies-mt4> RoboForex: <https://my.roboforex.com/en/?a=jjlu> (referral link) CREATED WITH INDICATORGENIUS.COM — <https://indicatorgenius.com/> Trading involves risk. Test behavior on a demo chart before relying on it.
+- Original indicator: [Curved Trendlines by Zeiierman](https://www.tradingview.com/script/d1yc5hBu-Curved-Trendlines-Zeiierman/) (TradingView).
+- Video: [Curved Trendlines walkthrough by Soheil PKO](https://www.youtube.com/watch?v=G0tvIPw3eHs) (5:43).
+- MetaTrader adaptation and interface: trader.lifestyle. This is an independent adaptation, not an official Zeiierman release.
+- License: **Creative Commons Attribution-NonCommercial-ShareAlike 4.0** — noncommercial use; retain attribution and the same license when sharing adaptations. Free, no account lock, no expiry.
 
 ---
 

@@ -1,4 +1,3 @@
-<!-- auto-generated: remove this line after hand-editing so publish keeps your text -->
 <div align="center">
 
 # ⚡ TL HTF Candle Trader Pro
@@ -19,36 +18,80 @@
 
 > Compiled build only — source code is not published.
 
-## Overview
+## ✨ Highlights
 
-What it does One EA that trades the LOWER timeframe candle (default M2) in the direction of the running BIGGER timeframe candle (default M10) - with the bigger / lower candles drawn on the chart (TL Bigger TF Candles Pro built in), a tiny CLOSE ALL button and a tiny candle countdown.
+- 🕯️ **Trade with the bigger candle** — trades the LOWER timeframe candle (default M2) only in the direction of the running BIGGER timeframe candle (default M10).
+- 🎯 **Three entry modes** — market, buy/sell stop at the current lower candle's extreme, or at the previous lower candle's extreme.
+- 🛡️ **Structured exits** — candle-based stops, R-multiple targets, close at candle end, close on flip, break-even.
+- 📦 **Bigger TF candles drawn on your chart** — TL Bigger TF Candles Pro is built in.
+- 🔘 **Tiny CLOSE ALL button + candle countdown** — draggable, position saved per chart.
+- ✅ **Live BUY | SELL checklist** — the dashboard shows every rule and why the EA is waiting.
 
-The rules (BUY - SELL is the exact mirror)
-- Direction   price is ABOVE the open of the running bigger candle -> only BUY trades (below the open -> only SELL trades). Never against the bigger candle.
-- First part  optional: wait X minutes after the bigger candle opened ("First part", 0 = off)
-- Big move    optional: the bigger candle must already be X points above its open (0 = any)
-- Lower wait  optional: wait X seconds after the lower candle opened (0 = off)
-- Trigger     the lower candle must move PAST ITS OWN OPEN in the same direction by at least "min. move" points (default 20 points = 2 pips on a 5-digit pair, 0.20 on gold)
-- Entry       Market            : buy at market as soon as 1-5 are true Stop current high : buy stop at the HIGH of the current lower candle + extra distance Stop previous high: buy stop at the HIGH of the previous lower candle + extra distance (price already above it -> skip, or market order - input) Unfilled stop orders are deleted at the end of the lower candle (or the bigger candle - input) and when the bigger candle flips to the other side of its open.
-- Limits      one trade per lower candle, max. trades per bigger candle (default 1), max. open trades, no new trades in the last X minutes of the bigger candle, trading hours, max. spread. The EA respects the broker trading sessions.
+## 🧠 Strategy rules
 
-Exits
-- **Stop loss** — beyond the bigger candle open / lower candle open / lower candle low (+ buffer), a fixed distance or none Take profit  R multiple of the stop (default 1.5R), fixed points or none Candle end   close the trade when the bigger candle ends (default on) Flip         optional: close when the bigger candle flips against the trade Break even   optional: stop to entry + X points after +Y points profit
+BUY rules are listed below — SELL is the exact mirror.
 
-Tiny buttons (top right, drag them anywhere by the grip - the position is saved per chart)
-- **CLOSE ALL** — closes ALL trades of the chart symbol (like TL Close All Pro): magic filter (-1 = all, 0 = manual only, or one magic), optional pending orders, optional 2-click confirmation, shows the number of open trades Countdown    time left of the current candle - chart timeframe or any timeframe you choose, turns orange in the last 10 seconds Width / height of both buttons in pixels are inputs.
+| # | Rule | Detail |
+|---|---|---|
+| 1 | **Direction** | Price is ABOVE the open of the running bigger candle → only BUY trades (below → only SELL). Never against the bigger candle. |
+| 2 | **First part** *(optional)* | Wait X minutes after the bigger candle opened (`0` = off) |
+| 3 | **Big move** *(optional)* | The bigger candle must already be X points above its open (`0` = any) |
+| 4 | **Lower wait** *(optional)* | Wait X seconds after the lower candle opened (`0` = off) |
+| 5 | **Trigger** | The lower candle must move PAST ITS OWN OPEN in the same direction by at least "min. move" points (default 20 points = 2 pips on a 5-digit pair, 0.20 on gold) |
 
-On the chart Bigger candles as filled boxes with wicks, lower candles as outlines inside them, labels with open time + range in points + countdown, dotted lines at the bigger / lower candle open. The candles are only drawn when the chart timeframe is LOWER than their timeframe (e.g. M1 chart).
+**Entry modes**
+- **Market** — buy at market as soon as rules 1–5 are true.
+- **Stop current high** — buy stop at the HIGH of the current lower candle + extra distance.
+- **Stop previous high** — buy stop at the HIGH of the previous lower candle + extra distance. If price is already above it: skip, or send a market order (input).
 
-Dashboard bigger candle direction, move, time in / left (gold mark = end of the first part), lower candle move / high / low, a live BUY | SELL checklist of every rule, entry mode, status (why it waits), last setup, position, stops, results, auto trading on / off, close all EA trades. X closes it to a small pill, drag the header to move it, hover any line for an explanation.
+Unfilled stop orders are deleted at the end of the lower candle (or the bigger candle — input) and when the bigger candle flips to the other side of its open.
 
-Installation MT5\Experts\TL HTF Candle Trader Pro.ex5 -> File > Open Data Folder > MQL5\Experts Refresh the Navigator, drag the EA onto a chart (M1 chart recommended to see the candles). Enable Algo Trading. "Allow DLL imports" is only needed for the link buttons.
+**Limits** — one trade per lower candle, max. trades per bigger candle (default 1), max. open trades, no new trades in the last X minutes of the bigger candle, trading hours and max. spread. The EA respects the broker trading sessions.
 
-Main inputs Bigger / lower timeframe, direction, first part (min), bigger candle min. move, lower candle wait (s), lower candle min. move, entry mode, extra distance, pending expiry, delete on flip, max. trades per bigger candle, no trades in the last X min, trading hours, stop mode + buffer, target mode, close at candle end, close on flip, break even, fixed lots or risk %, max. open trades, max. spread, candle colours, tiny button sizes, countdown timeframe, close-all filter.
+**Exits**
 
-Risk warning: no profit promise - trading involves high risk. Test on a demo account first.
+| Exit | Options |
+|---|---|
+| **Stop loss** | Beyond the bigger candle open / lower candle open / lower candle low (+ buffer), a fixed distance, or none |
+| **Take profit** | R multiple of the stop (default 1.5R), fixed points, or none |
+| **Candle end** | Close the trade when the bigger candle ends (default on) |
+| **Flip** *(optional)* | Close when the bigger candle flips against the trade |
+| **Break even** *(optional)* | Stop to entry + X points after +Y points profit |
 
-trader.lifestyle - free tools thread on Forex Factory: <https://www.forexfactory.com/thread/1428808-free-eas-indicators-strategies-mt4>
+## 🖥️ Dashboard & chart
+
+**On the chart** — bigger candles as filled boxes with wicks, lower candles as outlines inside them, labels with open time + range in points + countdown, and dotted lines at the bigger / lower candle open. The candles are only drawn when the chart timeframe is LOWER than their timeframe (e.g. an M1 chart).
+
+**Tiny buttons** (top right — drag them anywhere by the grip, the position is saved per chart; width / height are inputs):
+- **CLOSE ALL** — closes ALL trades of the chart symbol (like TL Close All Pro): magic filter (`-1` = all, `0` = manual only, or one magic), optional pending orders, optional 2-click confirmation, shows the number of open trades.
+- **Countdown** — time left of the current candle, for the chart timeframe or any timeframe you choose; turns orange in the last 10 seconds.
+
+**Dashboard** — bigger candle direction, move, time in / left (gold mark = end of the first part), lower candle move / high / low, a live BUY | SELL checklist of every rule, entry mode, status (why it waits), last setup, position, stops, results, auto trading on / off and close all EA trades. **X** closes it to a small pill, drag the header to move it, hover any line for an explanation.
+
+## ⚙️ Key inputs
+
+| Group | Inputs |
+|---|---|
+| **Timeframes & direction** | Bigger / lower timeframe, direction |
+| **Rules** | First part (min), bigger candle min. move, lower candle wait (s), lower candle min. move |
+| **Entry** | Entry mode, extra distance, pending expiry, delete on flip |
+| **Limits** | Max. trades per bigger candle, no trades in the last X min, trading hours, max. open trades, max. spread |
+| **Exits** | Stop mode + buffer, target mode, close at candle end, close on flip, break even |
+| **Money management** | Fixed lots or risk % |
+| **Visuals & tools** | Candle colours, tiny button sizes, countdown timeframe, close-all filter |
+
+## 🛠️ Installation
+
+1. Copy `MT5/TL HTF Candle Trader Pro.ex5` to `File → Open Data Folder → MQL5 → Experts`.
+2. Refresh the Navigator and drag the EA onto a chart (an **M1 chart** is recommended to see the candles).
+3. Enable **Algo Trading**.
+4. **Allow DLL imports** is only needed for the link buttons.
+
+## ⚠️ Notes
+
+- MT5 only.
+- The CLOSE ALL button acts on all trades of the chart symbol that match its magic filter — including manual trades when the filter allows it.
+- No profit promise — trading involves high risk. Test on a demo account first.
 
 ---
 

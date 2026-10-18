@@ -1,4 +1,3 @@
-<!-- auto-generated: remove this line after hand-editing so publish keeps your text -->
 <div align="center">
 
 # ⚡ TL SuperSlope Confluence Pro
@@ -19,31 +18,69 @@
 
 > Compiled build only — source code is not published.
 
-## Overview
+## ✨ Highlights
 
-arrows/MTF table by gprince66, all-pairs fix by VirtualFM).
+- 🔒 **Repaint fixed** — every bar uses the price that was known when that bar closed ("point in time").
+- 🏹 **Arrows only on CLOSED bars** — an arrow never disappears or moves.
+- 🧮 **Confluence score** — up to 8 switchable filters must agree before an arrow appears.
+- ⚪ **Filtered signals stay visible** — a grey dot marks a slope flip without enough confluence.
+- ✅ **Live checklist panel** — click the header to collapse.
+- 🔌 **iCustom buffers for EAs** — slope, mirror, buy / sell score and signal.
 
-## Install
+## 🩹 Why the old version repainted
 
-- MT4: File -> Open Data Folder -> MQL4 -> Indicators -> copy the .ex4 there.
-- Restart MT4 or right-click "Indicators" in the Navigator -> Refresh.
-- Drag it onto the chart. Tick "Allow DLL imports" (only needed for the panel link buttons).
+With `timeFrame = D1` on an intraday chart, v2.2 used the FINAL D1 close for every intraday bar of that day. History therefore showed slope values and arrows that were never on the chart live — especially on the first bars of a new day.
 
-## Why The Old Version Repainted
+## 🧠 How it works
 
-With timeFrame = D1 on an intraday chart, v2.2 used the FINAL D1 close for every intraday bar of that day. History therefore showed slope values and arrows that were never on the chart live - especially on the first bars of a new day.
+**Slope modes**
+- **Point in time** (no repaint) — every bar uses the price known when that bar closed. The live value is identical to v2.2.
+- **Last CLOSED higher-TF bar** — 100 % stable, but one D1 bar slower.
+- **Original** — the old v2.2 behaviour, for comparison.
 
-## What Is New
+**Confluence score** — each filter can be switched on/off in the inputs. The base D1 slope direction is always required.
 
-- No repaint: every bar uses the price that was known when that bar closed ("point in time"). The live value is identical to v2.2. Mode "last CLOSED higher-TF bar" = 100% stable but one D1 bar slower. Mode "Original" = old behaviour, for comparison.
-- Arrows only on CLOSED bars - an arrow never disappears or moves.
-- Confluence score (each filter on/off in the inputs): F1 extra TF 1 (W1) slope agrees      F5 close above/below EMA 50 F2 extra TF 2 (MN) slope agrees      F6 ADX >= 20 and +DI/-DI agree F3 chart-TF slope agrees (timing)    F7 RSI above/below 50 F4 base slope gaining strength       F8 not overextended (inside +-level) The base D1 slope direction is always required. Arrow only when the score reaches MinConfluence (default 5 of 7 active filters).
-- Grey dot = slope flipped but confluence too low (filtered signal).
-- Live checklist panel (click the header to collapse).
-- Alerts (popup / push / e-mail) only on closed bars.
-- iCustom buffers for EAs: 0 slope, 1 mirror, 2 buy score, 3 sell score, 4 signal (+1 buy / -1 sell on the signal bar).
+| Filter | Condition |
+|---|---|
+| **F1** | Extra TF 1 (W1) slope agrees |
+| **F2** | Extra TF 2 (MN) slope agrees |
+| **F3** | Chart-TF slope agrees (timing) |
+| **F4** | Base slope gaining strength |
+| **F5** | Close above / below EMA 50 |
+| **F6** | ADX ≥ 20 and +DI / -DI agree |
+| **F7** | RSI above / below 50 |
+| **F8** | Not overextended (inside ± level) |
 
-Indicators help with timing; they do not guarantee profits. Test on demo first.
+> An arrow appears only when the score reaches **MinConfluence** (default 5 of 7 active filters). A **grey dot** = the slope flipped but confluence was too low (filtered signal).
+
+**Alerts** — popup / push / e-mail, only on closed bars.
+
+## 🔌 Buffers for EAs (iCustom)
+
+| Buffer | Value |
+|---|---|
+| 0 | Slope |
+| 1 | Mirror |
+| 2 | Buy score |
+| 3 | Sell score |
+| 4 | Signal (+1 buy / -1 sell on the signal bar) |
+
+## 🛠️ Installation
+
+1. Copy the `.ex4` to `File → Open Data Folder → MQL4 → Indicators`.
+2. Restart MT4, or right-click "Indicators" in the Navigator → **Refresh**.
+3. Drag the indicator onto the chart.
+4. Tick **Allow DLL imports** only if you want the panel link buttons to work.
+
+## ⚠️ Notes
+
+- MT4 only.
+- "Original" mode reproduces the old repainting behaviour on purpose — use it for comparison only.
+- Indicators help with timing; they do not guarantee profits. Test on demo first.
+
+## 🙏 Credits
+
+- Based on **Baluda's SuperSlope v2.2**, with the arrows / MTF table by **gprince66** and the all-pairs fix by **VirtualFM**.
 
 ---
 
