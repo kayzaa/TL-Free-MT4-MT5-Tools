@@ -1,79 +1,79 @@
-TL-ATM-Machine-Pro|nkpoette's 3-CCI "ATM Machine" stop-and-reverse system from Forex Factory as one EA — all three CCI windows embedded in the panel.
+TL-ATM-Machine-Pro|nkpoette's 3-CCI "ATM Machine" from Forex Factory as one MT5 EA — stop-and-reverse on CCI 140/100/42, all three CCI windows built into the panel.
 TL-ATR-ADR-Pro|ATR matrix across every timeframe plus ADR / AWR / AMR, session clock, trade planner and multi-symbol scanner in one dashboard.
 TL-Adaptive-Trend-Sweep-Pro|Machine-learning adaptive SuperTrend + Nadaraya-Watson liquidity sweeps, automated as an EA with live signal dashboard.
-TL-Auction-Edge-Pro|Trade the edges of value like a fund manager — auction market theory with value area, rotations and edge entries.
-TL-Big-Bull-Fire-EA|The BigBull System 2.0 chart setup rebuilt as a fully automated Expert Advisor with visual trade management.
-TL-Bigger-TF-Candles-Pro|Draws higher-timeframe candles (with weekday labels) directly on your lower-timeframe chart.
+TL-Auction-Edge-Pro|Auction market theory EA for MT5: value area, POC and LVN, scored edge setups and R-based risk on an animated trading desk.
+TL-Big-Bull-Fire-EA|The BigBull System 2.0 automated: trades the signal-line arrows with a trend filter, ATR risk tools, news filter and an animated fire-bull chart.
+TL-Bigger-TF-Candles-Pro|Draws two layers of higher-timeframe candles on your chart — with weekday/time labels, range, countdown and OHLC on hover.
 TL-Breakout-Reversal-Pro|"All you need to know about trading" as an EA — small losses, running winners, position size = risk / stop.
 TL-Bulk-SL-TP-Pro|Drag ONE line and every open position gets the same stop loss or take profit — without closing anything.
-TL-Buyers-Sellers-Profile-Pro|Buyers / sellers volume profile, dynamic support & resistance and volume delta — all-in-one, 1:1 look of the original.
-TL-Candle-Based-Pro|Casper C.'s classic "Candle Based EA" (FF thread 332199) rewritten from scratch for MT4 and MT5.
+TL-Buyers-Sellers-Profile-Pro|Volume profile split into estimated buyers vs sellers, with volume-backed support & resistance, POC confluence zones and delta columns.
+TL-Candle-Based-Pro|Casper C.'s classic previous-candle breakout EA, rebuilt from scratch so every input works on forex, JPY pairs, metals and indices.
 TL-Candle-Countdown-Pro|Candle countdown for any timeframe list — including custom M4 / M7 / S30 — with trend state per candle.
 TL-Candle-Trigger-Pro|The big candle decides the direction, the trigger candle times the entry — a simple price-action EA.
 TL-Close-All-Pro|One button closes every position of the chart symbol. Full panel, small pill or a tiny pixel-sized button.
-TL-Cluster-Footprint|Cluster / footprint chart for MetaTrader: bid × ask volume per price level inside every candle.
-TL-Color-Flip-Pro|The GJ "Holygrail" colour-flip indicator turned into a one-file EA with an animated 3D coin dashboard.
+TL-Cluster-Footprint|Footprint window for MT4/MT5: bid × ask volume per price level, delta, bar POC, imbalances and a volume profile — from your broker's data.
+TL-Color-Flip-Pro|The GJ "Holygrail" colour-flip system as a one-file MT5 EA: alternating basket, equity-target close and an animated 3D coin panel.
 TL-Confluence-Zones-Pro|Smart-money zones that are scored, not just painted: 9 confluence factors → 0–100 score, plan only after confirmation.
-TL-Copy-Matrix-Pro|Local trade copier — one EA for sender and receiver, lot multipliers, netting support and millisecond copy speed.
+TL-Copy-Matrix-Pro|Local trade copier — one EA for sender and receiver, no DLL or server, smart lot sizing, symbol mapping and live copy-speed dashboard.
 TL-Cross-Pullback-Pro|AlistairC's 8/21 EMA cross-and-pullback method, automated with a clean signal and trade panel.
 TL-Currency-Strength-Pro|Full-chart currency strength suite: strength, rate of change and divergence across all majors.
-TL-Curve-Profile-Pro|MetaTrader adaptation of Zeiierman's Curved Trendlines — smooth curved support and resistance.
-TL-Delta-Profile-3D-Pro|3D delta volume profile with buy / sell pressure per price level and a modern depth effect.
+TL-Curve-Profile-Pro|Zeiierman's Curved Trendlines for MetaTrader: quadratic curved support and resistance with live and memory volume profiles and POCs.
+TL-Delta-Profile-3D-Pro|LuxAlgo's 3D delta volume profile, native on MT4/MT5: POC, value area, high-volume beams and POC break/retest signals.
 TL-Drawing-Suite-Pro|A drawing toolbar for MetaTrader — 30 tools, undo / redo, works on every symbol and timeframe.
-TL-Entropy-Heatmap-Pro|Entropy heatmap with POC zones and labels — a faithful port of the LuxAlgo-style heatmap.
-TL-Equilibrium-Pro|Hedge-cycle basket engine: buy + sell-stop hedges, one basket money target, follow-up cycles by distance.
+TL-Entropy-Heatmap-Pro|LuxAlgo's Precision Market Entropy Heatmap for MT5: intrabar volume heatmap with live support/resistance POC zones and buy/sell labels.
+TL-Equilibrium-Pro|Hedge-cycle basket EA: one buy plus two sell-stop hedges per cycle, one shared basket money target, and bigger follow-up cycles by distance.
 TL-FibCloud-PB-Pro|Automated Fibonacci-cloud pullbacks — EA + indicator with cloud-touch and ambiguity filters.
-TL-Fibo-Compass-Pro|FiboCompassArrows rebuilt for MT4 and MT5 with the first animated canvas quant panel.
+TL-Fibo-Compass-Pro|Daily Fibonacci compass from the previous D1 range: breakout, retrace, target and stop-trading levels with lasting arrows and a live dashboard.
 TL-Fibonacci-Cloud-Pro|Multi-timeframe Fibonacci cloud (port of TrendX_'s TradingView script) for MT4 and MT5.
 TL-Freebie-System-Pro|Dredding82's Freebie system: Semafor + pivot fail + Stochastic + Heikin Ashi in one EA.
 TL-GAP-Matrix-Pro|28 pairs × 5 timeframes trend matrix plus GAP buyers / sellers strength on one full-chart dashboard.
 TL-Glory-SuperTrend-Pro|bush01's SuperTrend break EA — stop trails on the ATR line, optional MACD and RSI filters.
-TL-Gold-Arsenal-Quant|106 gold (XAUUSD) trading tools in ONE animated quant dashboard — every tool switchable, no auto trading.
-TL-Gold-Levels-Liquidity-Pro|GLD gamma levels, bond (ZN) context and a live spread-liquidity monitor for gold.
-TL-Gold-Velocity-Pro|Catch fast gold bursts and ride the move — velocity detection with a live speed gauge.
-TL-Guppy-Trend-Zone-Pro|Guppy multiple-MA trend zones as EA + indicator with the standard animated canvas panel.
+TL-Gold-Arsenal-Quant|106 XAUUSD tools in one animated dashboard — levels, SMC, quant, macro, news and risk — each switchable on or off; nothing trades automatically.
+TL-Gold-Levels-Liquidity-Pro|Gold levels from the GLD options market, a bond (ZN) direction filter, a live spread-liquidity monitor and sweep entries.
+TL-Gold-Velocity-Pro|Tick-by-tick gold burst detector — ride the move or trade the rebound, with tick-precise trailing, a Greed Shield and a news/DXY bias score.
+TL-Guppy-Trend-Zone-Pro|Daryl Guppy's GMMA as EA + indicator: trend-coloured candles, pullback entries into the 300 EMA zone, ADR targets and ATR trailing.
 TL-H1-Sweep-Reversal-Pro|H1 liquidity sweep followed by an M5 reversal entry — Silkysilv's method automated.
 TL-HA-MTF-Rider-Pro|RplusT's multi-timeframe Heikin Ashi system rebuilt as one EA — no extra indicators needed.
 TL-HA-Wickless-Pro|Wickless Heikin Ashi candles + EMA 200 on M5, with Forex Factory red-folder news filter.
 TL-HFT-Swing-Quant|The fxDreema box-breakout video as an EA: 12-bar / 30-pip box, signal line cross, fixed SL / TP — with quant panel.
 TL-HTF-Candle-Trader-Pro|Trades the lower timeframe inside the structure of the higher-timeframe candle.
-TL-Hurst-Envelope-Pro|7iv3's Hurst cycle method: centred-MA envelopes, Murrey math levels and Gann 1×1 in one EA.
-TL-KenneDyne-DRIVE-EA|The D.R.I.V.E. framework + Engulfing Killer Order Block entry, built from 6,794 channel posts. Made for gold.
+TL-Hurst-Envelope-Pro|7iv3's Hurst cycle method as an EA: centred-MA envelopes, Murrey math and Gann angles, using closed bars only (no lookahead).
+TL-KenneDyne-DRIVE-EA|KenneDyne's D.R.I.V.E. framework with Engulfing Killer Order Block entries at the POI, built from the channel's own posts. Made for gold.
 TL-Liquidity-Reaper-Pro|Independent MetaTrader implementation of the published Liquidity Reaper [JOAT] rules — requested on Forex Factory.
-TL-Liquidity-Sweep-Pro|Liquidity sweep + CHoCH confirmation with a 0–100 setup score and TP1–TP3 + break even.
-TL-Liquidity-Tracker-Pro|Liquidity sweep-and-run EA from the "Liquidity Tracker" video, with full multi-column panel.
+TL-Liquidity-Sweep-Pro|Maps BSL/SSL and EQH/EQL liquidity, grades every sweep 0–100 and confirms with CHoCH — stop, TP1–TP3 and break-even included. Never repaints.
+TL-Liquidity-Tracker-Pro|Maps monthly, weekly, daily, swing and session liquidity and trades the video's Sweep and Run setups with WaveTrend and volume checks.
 TL-MTF-Six-MA-Pro|Six moving averages across multiple timeframes — trend alignment at a glance.
-TL-Martingale-Calculator-Pro|Plan a martingale / recovery sequence before you trade it — lots, levels and exposure.
-TL-News-Arsenal-Quant|106 news trading tools in ONE animated quant dashboard — MT5 calendar + Forex Factory feed.
-TL-News-Marker-Pro|Economic news from the MT5 calendar right on the chart: actual / forecast / previous, filters and upcoming events.
-TL-POC-Reaction-Pro|Trades the reaction candle at heatmap POC zones and targets the current POC.
+TL-Martingale-Calculator-Pro|Plan a martingale or grid before you trade it — lots, break-even, margin per level and the stop-out price your account survives to.
+TL-News-Arsenal-Quant|A complete news-trading cockpit — calendar, spike, surprise, macro, headlines and risk tools in one animated panel. Never auto-trades.
+TL-News-Marker-Pro|MT5 calendar news on the chart: actual / forecast / previous with better/worse colours, upcoming events, filters, panel and alerts.
+TL-POC-Reaction-Pro|Trades closed reaction candles at confluent daily POC zones and targets today's POC — never enters a zone blindly.
 TL-Pyramid-Grid-Pro|Pyramid grid with stop orders on both sides — adds only while the market runs in that direction (anti-martingale).
-TL-RHO-Pro|Rebuild of the "RHO" dual-MACD indicator with SwingMan's extra options — plus EA.
-TL-RSOR-Pro|RSOR suite — indicator and EA from one ruleset, with signal markers and trade panel.
-TL-Ranked-Zones-Pro|Supply & demand zones ranked by strength, based on Zeiierman's ranked-zone algorithms.
+TL-RHO-Pro|Dual-MACD RHO indicator rebuilt: closed-bar zero-cross signals, whipsaw filters, and trade levels with two targets and break-even.
+TL-RSOR-Pro|RobinHood's RSOR from "Trading Made Simple(r)": EA plus indicator with KICK / 50X / Star entries and a full exit toolkit.
+TL-Ranked-Zones-Pro|Order blocks, fair value gaps and support / resistance in one indicator, ranked by strength — based on Zeiierman's ranked-zone algorithms.
 TL-Real-Time-Price-Analyzer-Pro|TheRumpledOne's Real Time Price Analyzer rewritten: 16 levels of the forming bar and how often past bars touched them.
-TL-Recovery-Grid-Quant|Recovery-grid EA with daily equity trail, loss-pause guards and a full quant panel.
-TL-Renko-Range-Bars-Pro|Real Renko and range-bar charts for MT4 and MT5, rebuilt from history automatically.
-TL-Replay-Studio-Pro|Replay your closed trades on a dedicated replay chart or practise with virtual positions — never touches broker orders.
+TL-Recovery-Grid-Quant|Grid and recovery basket EA for XAUUSD M3 with breakout-exit, trend and impulse guards, a daily equity trail and a full quant panel.
+TL-Renko-Range-Bars-Pro|Real Renko and range-bar charts for MT4 and MT5 that open as normal charts and are fed live tick by tick, so indicators and EAs run on them.
+TL-Replay-Studio-Pro|Replay your closed trades candle by candle, or practise with virtual positions on a dedicated replay chart — it never touches broker orders.
 TL-Resonance-Engine-Pro|One engine, one 0–100 resonance score: SuperTrend trend, smoothed RSI momentum, estimated buy/sell volume and more — momentum-coloured candles.
 TL-Riverbank-Pro|Inthebox's "Waiting at the Riverbank" gold method — session, HTF level, sweep, BOS and engulf entry.
-TL-Seconds-Chart-Pro|Real seconds charts (S5, S15, S30 …) for MT4 and MT5, built from live ticks.
-TL-Signal-Bands-Pro|Centred TMA signal bands with band-touch signals, band ladder and an optional companion EA.
+TL-Seconds-Chart-Pro|Real seconds charts (S1–S3600) for MT4 and MT5, built from live ticks, with one-click trading and full indicator/EA support.
+TL-Signal-Bands-Pro|Triangular MA ATR bands with closed-bar rejection signals, plus a companion EA that trades every circle (optional martingale).
 TL-Signal-Judge-Quant|Reads every indicator, arrow and level on your chart and scores each new signal 0–100 with 17 scenario checks.
-TL-Small-Matter-Pro|hayseed's top-down ladder system: D1 TSR bias, H4 ALMA trigger and a ladder basket.
+TL-Small-Matter-Pro|hayseed's top-down ladder system: weekly TSR bias, H4 ALMA trigger with zigzag confirmation, and a managed limit-order basket.
 TL-Smart-Bots-Pro|Rebuild of the "smart bots" reel, read frame by frame: signal circle on XAUUSD M1, then market order + 3 stop orders pyramiding with momentum.
-TL-SuperSlope-Confluence-Pro|Improved Baluda SuperSlope v2.2 — currency slope confluence across pairs and timeframes.
+TL-SuperSlope-Confluence-Pro|Baluda SuperSlope v2.2 with the repaint fixed: closed-bar arrows only when a confluence score of switchable filters agrees.
 TL-TMS-Suite-Pro|Trading Made Simple suite — Big E's 5-method, arbinka's monitor and Seller9 tools on one screen.
-TL-Trade-Panel-Pro|One-click order panel: risk-based lots, SL / TP lines, pending orders and partial closes.
-TL-Trap-Arsenal-Quant|156 trap trading tools in ONE animated quant dashboard — every tool can be switched on and off.
-TL-Trendline-Bounce-Pro|Automatic trendlines and bounce entries, built after the popular YouTube trendline strategy.
-TL-Trendline-Scalper-Pro|swilliam's TMT trendline scalping — auto tangent lines with the used-line rule.
+TL-Trade-Panel-Pro|One-click order panel: risk-based lots, draggable entry/SL/TP lines, pending orders, partial closes and auto break-even/trailing.
+TL-Trap-Arsenal-Quant|Trap trading in one animated dashboard — 58 trap detectors, liquidity maps, scanner and risk tools, plus an optional trend-only gold auto trader.
+TL-Trendline-Bounce-Pro|Tori Trades' trendline bounce setup automated: top-down trendlines, trend-only bounce entries, line-based stops and trailing.
+TL-Trendline-Scalper-Pro|swilliam's TMT trendline system, fully automatic: auto-drawn swing trendlines, the used-line rule and every option from the thread.
 TL-Triple-Confluence-Gold-M5-Lab|Trend-pullback analysis for gold M5: EMA 25/75/140 structure, ATR-based stops and clear signal pills. Indicator only.
 TL-Triple-Confluence-Pro|EMA / RSI / Stochastic confluence indicator with a large canvas dashboard, sculpted EMA ribbon and BUY / SELL pills. Never trades.
 TL-Volume-Fib-Sniper-Pro|Volume profile + Fibonacci sniper entry automated: impulse profile, 0.5–0.618 entry zone with volume, target at the 1.618 extension.
 TL-Volume-Pulse-Pro|Own volume-pulse oscillator EA: SMA 200 bias, entry on the second closed pulse bar after a zero cross.
-TL-Watchlist-Radar-Pro|Multi-symbol watchlist radar: scanner, heatmap, metrics and rules — scanner only, no trading.
-TL-WaveTrend-Pro|WaveTrend oscillator (LazyBear formula) with RHO-style rules and trailing — indicator + EA.
+TL-Watchlist-Radar-Pro|Multi-symbol, multi-timeframe scanner with seven rule families, documented scoring, heatmap and alerts. Scanner only, no trading.
+TL-WaveTrend-Pro|WaveTrend oscillator with RHO Pro rules: closed-bar signals, whipsaw filter, TP1/TP2, break-even and trailing — as indicator and EA.
 TL-Weekly-Pivot-Pro|Davit's weekly Fibonacci pivots as an EA — 38 / 61 / 78 ladder, PP target and basket stop.
-TL-Wyckoff-Mitigation-Pro|Wyckoff distribution schematic + two-candle system: SA → UT / spring → flip → entry, with phase tracker. EA or indicator mode.
-TL-Zero-Level-Sentinel-Pro|Udine's "00 level trading" (FF 487923) plus the WSD / Market Sentinel filters from ~680 thread posts — rebuilt as a tool.
+TL-Wyckoff-Mitigation-Pro|Wyckoff distribution schematic + two-candle system: SA → UT / spring → flip → entry, with a phase tracker. Comes as an EA and as a pure indicator.
+TL-Zero-Level-Sentinel-Pro|Udine's "00 level trading" from Forex Factory plus the WSD / Market Sentinel filters from the thread, rebuilt as a 28-pair EA with a live rules checklist.
