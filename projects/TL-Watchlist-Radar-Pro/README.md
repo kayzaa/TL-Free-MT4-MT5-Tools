@@ -1,3 +1,4 @@
+<!-- auto-generated: remove this line after hand-editing so publish keeps your text -->
 <div align="center">
 
 # ⚡ TL Watchlist Radar Pro
