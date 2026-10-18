@@ -1,4 +1,3 @@
-<!-- auto-generated: remove this line after hand-editing so publish keeps your text -->
 <div align="center">
 
 # ⚡ TL RHO Pro
@@ -20,51 +19,79 @@
 
 > Compiled build only — source code is not published.
 
-## What It Shows
+## ✨ Highlights
 
-- Fast MACD = MA 5 - MA 10 and slow MACD = MA 11 - MA 13, both in pips (EMA of the close by default)
-- BUY / SELL signal when the fast line crosses zero (or: fast line x slow line, slow line x zero)
-- BUY / SELL pills on the price chart, cyber-style indicator window, dashboard
-- Trade levels for every signal: entry, stop loss, TP1, TP2, break-even
+- **Dual MACD in pips** — a fast MACD (MA 5 − MA 10) and a slow MACD (MA 11 − MA 13), EMA of the close by default.
+- **No repaint** — signals are set when the bar closes and never move again.
+- **Whipsaw filter** — hold, noise-zone and gap rules remove quick BUY / SELL flip-flops.
+- **Complete trade levels for every signal** — entry, stop loss, TP1, TP2 and break-even, with alerts.
+- **Cyber-style visuals** — BUY / SELL pills on the price chart, a styled indicator window and a dashboard.
+- **EA-ready** — 14 buffers for iCustom, including signal, stops, targets and trade state.
 
-## No Repaint
+## 🧠 How it works
 
-Signals are set when the bar closes and never move again (the old live-bar modes are still available).
+- **Fast MACD** = MA 5 − MA 10, **slow MACD** = MA 11 − MA 13, both in pips (EMA of the close by default).
+- **BUY / SELL signal** when the fast line crosses zero. Alternative modes: fast line × slow line, or slow line × zero.
+- Signals are fixed at the bar close and never move again (the old live-bar modes are still available).
 
-## Whipsaw Filter (new - removes the quick BUY/SELL flip-flops)
+### Whipsaw filter
 
-- Hold: the cross must hold 3 closed bars
-- Noise zone: the line must leave a zone of 40 % of its average distance
-- Gap: at least 10 bars between a BUY and a SELL
+| Filter | Rule |
+|---|---|
+| **Hold** | The cross must hold for 3 closed bars |
+| **Noise zone** | The line must leave a zone of 40 % of its average distance |
+| **Gap** | At least 10 bars between a BUY and a SELL |
+
 All three filters can be switched off (1 / 0 / 1) to get the original RHO signals.
 
-## Min. Span Filter (new)
+### Min. span filter
 
-Only signals whose trade span stop loss -> TP2 is at least 26 pips are shown (input "Min. span SL -> TP2", 0 = off). Smaller set-ups are skipped completely (no pill, no trade, no alert, buffer 7 = 0). The value is in pips, so adapt it to the timeframe and the market (26 pips fits EURUSD M15 / H1; on M5 or on gold use other values).
+Only signals whose trade span **stop loss → TP2** is at least **26 pips** are shown (input "Min. span SL -> TP2", 0 = off). Smaller setups are skipped completely: no pill, no trade, no alert, buffer 7 = 0. The value is in pips, so adapt it to the timeframe and market — 26 pips fits EURUSD M15 / H1; on M5 or on gold use other values.
 
-## Trade Levels
+## 🎯 Trade levels
 
-- Entry = close of the signal bar
-- Stop loss behind the swing of the last 5 bars + 0.2 ATR (or an ATR multiple), at least 0.5 ATR
-- TP1 = 1R (50 % closed), TP2 = 2R
-- Break-even: the stop goes to the entry after TP1, and also after 5 candles in a row that stay completely beyond the entry (BUY: low above the entry, SELL: high below the entry)
-- The next signal closes the trade. Stop and target inside one bar = stop first (conservative).
-- Alerts for TP1 / break-even / TP2 / stop (popup, sound, push, e-mail)
-your chart. Win = closed with profit in R (TP2, TP1 + break-even, or closed in profit by the next signal); a loss resets the streak, a 0R break-even is neutral. That is a quick quality check without spread or commission - not a backtest and not a promise of profit.
+- **Entry** = close of the signal bar.
+- **Stop loss** behind the swing of the last 5 bars + 0.2 ATR (or an ATR multiple), at least 0.5 ATR.
+- **TP1** = 1 R (50 % closed), **TP2** = 2 R.
+- **Break-even:** the stop moves to the entry after TP1 — and also after 5 candles in a row that stay completely beyond the entry (BUY: low above the entry, SELL: high below the entry).
+- The next signal closes the trade. If stop and target fall inside one bar, the stop counts first (conservative).
+- **Alerts** for TP1 / break-even / TP2 / stop — popup, sound, push or e-mail.
 
-## Buffers (for EAs via iCustom)
+## 🖥️ Dashboard & chart
 
-0 fast MACD, 1 slow MACD >= 0, 2 slow MACD < 0, 3 fast line, 4 slow line, 5 BUY marker, 6 SELL marker, 7 signal (+1 buy / -1 sell), 8 trade stop (break-even after the move), 9 TP1, 10 TP2, 11 trade state (+-1 open, +-2 after TP1, +-3 stop at break-even before TP1), 12 win streak (closed trades), 13 net result in R of the statistics window (newest bar)
+- BUY / SELL pills on the price chart, the cyber-style indicator window and the dashboard.
+- A statistics window on your chart counts the streak of closed signal trades in profit (TP2, TP1 + break-even, or closed in profit by the next signal) and the net result in R. A loss resets the streak; a 0 R break-even is neutral. It ignores spread and commission — a quick visual quality check, not a promise of profit.
+- The chart colours switch to the dashboard style and are restored when you remove the indicator (input "Chart in the dashboard style" = false keeps your colours).
 
-## Install
+## 🔌 Buffers (for EAs via iCustom)
 
-- MT5: copy "TL RHO Pro.ex5" to  File -> Open Data Folder -> MQL5\Indicators
-- MT4: copy "TL RHO Pro.ex4" to  File -> Open Data Folder -> MQL4\Indicators Restart the terminal (or refresh the Navigator) and drag the indicator onto a chart.
-- The buttons in the dashboard open links and need "Allow DLL imports" (indicator properties -> Common).
-- The chart colours are set to the dashboard style and restored when you remove the indicator (input "Chart in the dashboard style" = false keeps your colours).
+| Buffer | Value |
+|---|---|
+| 0 | Fast MACD |
+| 1 | Slow MACD ≥ 0 |
+| 2 | Slow MACD < 0 |
+| 3 | Fast line |
+| 4 | Slow line |
+| 5 | BUY marker |
+| 6 | SELL marker |
+| 7 | Signal (+1 buy / −1 sell) |
+| 8 | Trade stop (break-even after the move) |
+| 9 | TP1 |
+| 10 | TP2 |
+| 11 | Trade state (±1 open, ±2 after TP1, ±3 stop at break-even before TP1) |
+| 12 | Win streak (closed signal trades) |
+| 13 | Net result in R of the statistics window (newest bar) |
 
-- Trading involves high risk. This indicator is a tool, not financial advice.
-- trader.lifestyle - Forex Factory: <https://www.forexfactory.com/thread/1428808-free-eas-indicators-strategies-mt4>
+## 🛠️ Installation
+
+1. In MetaTrader open **File → Open Data Folder**.
+2. **MT4:** copy `TL RHO Pro.ex4` into `MQL4 → Indicators`. **MT5:** copy `TL RHO Pro.ex5` into `MQL5 → Indicators`.
+3. Restart the terminal (or refresh the Navigator) and drag the indicator onto a chart.
+4. The dashboard buttons open links and need **"Allow DLL imports"** (indicator properties → Common).
+
+## ⚠️ Notes
+
+Trading involves high risk. This indicator is a tool, not financial advice.
 
 ---
 

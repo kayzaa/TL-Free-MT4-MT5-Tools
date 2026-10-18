@@ -1,4 +1,3 @@
-<!-- auto-generated: remove this line after hand-editing so publish keeps your text -->
 <div align="center">
 
 # ⚡ TL GAP Matrix Pro
@@ -18,35 +17,73 @@
 
 > Compiled build only — source code is not published.
 
-## Overview
+## ✨ Highlights
 
-Idea: SwingMan's "GAP without Excel" dashboard (FF thread 657370) and the GAP method (FF thread 561309).
+- **28 pairs × 5 timeframes on one chart** — M5, M15, H1, H4 and D1 trend conditions for every pair in a single matrix.
+- **Three trend conditions per cell** — MA breakout, linear regression slope and Bollinger-Keltner squeeze; all three agree = the timeframe is in trend.
+- **GAP strength engine** — bid ratio, currency strength, absolute strength (GAP), momentum, buyers % and sync.
+- **Six signal modes** — S23, S33, S34, S35, W45 and W55, switchable from tabs in the header.
+- **ATR-based targets** — TP / SL from the ATR of the next higher timeframe.
+- **Trading OFF by default** — optional one-click BUY / SELL or auto trading on confirmed signals.
 
-## Install
+## 🧠 How it works
 
-- MT5: copy "TL GAP Matrix Pro.ex5" to MQL5\Experts
-- MT4: copy "TL GAP Matrix Pro.ex4" to MQL4\Experts
-- Refresh the navigator, drag the EA onto ONE chart (any symbol / timeframe), maximise the chart.
-- Tick "Allow DLL imports" (only needed for the link buttons).
-- The first start loads 28 pairs x 5 timeframes of history (a few seconds, progress bar).
+### The matrix
 
-## What You See
+For every pair the matrix shows the **spread**, the **M15 ATR** and the **daily open side**. Then, for **M5 M15 H1 H4 D1**, it checks three conditions:
 
-- Matrix: per pair spread, M15 ATR, daily open side, and for M5 M15 H1 H4 D1 three conditions MA breakout (SMA 20) / linear regression slope (20 bars) / Bollinger-Keltner squeeze (yellow ring = squeeze). All three agree = cell green or red = timeframe in trend. Then ALIGN, GAP and the SIGNAL column.
-- Signal modes S23 S33 S34 S35 W45 W55 (tabs in the header).
-- Filters: daily open, GAP direction (min 1.0), max spread. Confirmation: 60 seconds.
-- Targets: ATR of the next higher timeframe after the smallest timeframe in trend (TP / SL multipliers).
-- GAP: bid ratio, currency strength 0-9, absolute strength (GAP), momentum (30 min), buyers %, sync 0-7.
-- Cards: Best setup, Pair inspector (5 charts button, one-click BUY / SELL), Buyers vs sellers, GAP matrix, Signal tracker (virtual pips, spread included), Market pulse (radar, stats, sessions).
-- X folds the suite to a pill. Hover over anything for an explanation.
+| Condition | Definition |
+|---|---|
+| **MA breakout** | Price vs. SMA 20 |
+| **Linear regression slope** | Slope over 20 bars |
+| **Bollinger-Keltner squeeze** | Yellow ring = squeeze |
 
-## Trading
+When all three agree, the cell turns **green** or **red** — that timeframe is in trend. The matrix ends with the **ALIGN**, **GAP** and **SIGNAL** columns.
 
-- OFF by default. "Trading: enable the BUY / SELL buttons" = one-click trading (second click within 3 s confirms).
-- "Trading: open a trade on every confirmed signal" = auto trading (one trade per pair, max trades, magic number, close on signal flip / end).
+### Signals, filters and targets
+
+- **Signal modes:** S23, S33, S34, S35, W45, W55 (tabs in the header).
+- **Filters:** daily open, GAP direction (min 1.0), max spread. A signal must hold for **60 seconds** to be confirmed.
+- **Targets:** the ATR of the next higher timeframe after the smallest timeframe in trend, scaled by TP / SL multipliers.
+
+### GAP
+
+Bid ratio, currency strength 0–9, absolute strength (GAP), momentum (30 min), buyers % and sync 0–7.
+
+## 🖥️ Dashboard & chart
+
+- **Best setup** card.
+- **Pair inspector** — a "5 charts" button and one-click BUY / SELL.
+- **Buyers vs sellers**, **GAP matrix** and **Signal tracker** (virtual pips, spread included).
+- **Market pulse** — radar, stats and sessions.
+- **X** folds the whole suite to a pill. Hover over anything for an explanation.
+
+## ⚙️ Trading
+
+| Input | What it does |
+|---|---|
+| Trading: enable the BUY / SELL buttons | One-click trading — a second click within 3 s confirms |
+| Trading: open a trade on every confirmed signal | Auto trading — one trade per pair, with max trades, magic number and close on signal flip / end |
+
+Both are **OFF by default**.
+
+## 🛠️ Installation
+
+1. In MetaTrader open **File → Open Data Folder**.
+2. **MT4:** copy `TL GAP Matrix Pro.ex4` into `MQL4 → Experts`. **MT5:** copy `TL GAP Matrix Pro.ex5` into `MQL5 → Experts`.
+3. Refresh the Navigator, drag the EA onto **one** chart (any symbol / timeframe) and maximise the chart.
+4. Tick **"Allow DLL imports"** only if you want the link buttons to work.
+5. The first start loads 28 pairs × 5 timeframes of history — this takes a few seconds (progress bar).
+
+## ⚠️ Notes
+
 - Trading is risky. Test on a demo account first.
+- The signal tracker counts virtual pips on past signals — it describes the past, not the future.
+- Free, no lock, no expiry.
 
-Free, no lock, no expiry.  trader.lifestyle More free tools: <https://www.forexfactory.com/thread/1428808-free-eas-indicators-strategies-mt4>
+## 🙏 Credits
+
+Idea: **SwingMan**'s ["GAP without Excel" dashboard](https://www.forexfactory.com/thread/657370) and [the GAP method](https://www.forexfactory.com/thread/561309) on Forex Factory.
 
 ---
 

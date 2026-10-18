@@ -1,4 +1,3 @@
-<!-- auto-generated: remove this line after hand-editing so publish keeps your text -->
 <div align="center">
 
 # ⚡ TL Auction Edge Pro
@@ -20,48 +19,75 @@
 
 > Compiled build only — source code is not published.
 
-## Overview
+## ✨ Highlights
 
-Trade the edges of value like a fund manager. Built after the live trade of hedge fund trader Imre Gams with Tim Flossbach (YouTube: "So tradet ein Hedgefonds-Manager WIRKLICH").
+- **Auction market theory, automated** — the EA reads balance vs. imbalance and trades the edges of value.
+- **Value box + volume profile** — 70 % value area with VAH, POC, VAL and the thin areas (LVN) beyond the edges.
+- **Scored setups** — every idea gets a 0–100 score; below your minimum the desk does nothing.
+- **Risk in R** — one fixed % per idea across all DCA steps, one stop, a winner never becomes a loser.
+- **News-aware** — MT5 calendar filter, because new information breaks the balance.
+- **Animated trading desk** — auction state, value map, setup radar, trade and risk desk, all in one panel.
 
-## Files
+## 🧠 The idea (auction market theory)
 
-- **MT5/Experts/TL Auction Edge Pro.ex5** — EA  (input "Mode": EA or Indicator only) MT5/Indicators/TL Auction Edge Pro Indicator.ex5  indicator build (never trades)
+- Markets are auctions. **BALANCE** = fair value found: price moves sideways, and breakouts **and** breakdowns fail. **IMBALANCE** = trend: the market searches for a new fair value.
+- A **value box + volume profile** (70 % value area) marks VAH, POC, VAL and the thin areas (LVN) beyond the edges.
+- **Value migration** (higher / lower) and the space between a fast and a slow EMA add context.
 
-## Install
+## 🎯 Setups
 
-- File -> Open Data Folder -> MQL5 -> copy the files into Experts / Indicators, refresh the Navigator, drag the tool on a chart. Allow "DLL imports" for the link buttons.
+| Setup | Logic |
+|---|---|
+| **EDGE** | Sell the value area high, buy the value area low of a confirmed balance. |
+| **RETURN** | The market comes back to the value it left (fib 50 % confluence). |
+| **BREAK** | Optional: an accepted break = price + time (closes outside) + volume. |
+| **RE-ENTRY** | Stopped out, but the market reaches the level again and reverses? Enter again (max 2 per idea). |
 
-## The Idea (auction market theory)
+- **Trigger** — no blind entries: a little selling / buying at the edge is required (rejection, optional volume).
+- **Score 0–100** — built from balance, edge, LVN / fib, trigger, EMAs, context, central bank, reward : risk and news. Below the minimum score the desk does nothing.
 
-- Markets are auctions. BALANCE = fair value found (sideways, breakouts AND breakdowns fail). IMBALANCE = trend, the market searches a new fair value.
-- Value box + volume profile (70 % value area): VAH, POC, VAL, thin areas (LVN) beyond the edges.
-- Value migration (higher / lower) and the space between a fast and a slow EMA.
+## 🛡️ Risk management (all in R)
 
-## Setups
+- One idea risks a **fixed %** across **all** DCA steps: the first step at market, DCA limit steps towards the stop, **one** stop for all of them, and an optional add after a fast impulse + slow return (not around news).
+- The stop goes where the idea is wrong — beyond the failed breakout / defended swing — and is never widened.
+- **SWING plan:** cover the initial risk at the opposite edge (partial close), stop to entry, the runner goes to the next value / x R, then trails behind defended swings once the balance has broken (accepted).
+- **SCALP plan:** everything closes at the opposite edge.
+- A winner never becomes a loser: stop to entry at +x R.
+- **News filter** (MT5 economic calendar).
 
-- **EDGE** — sell the value area high, buy the value area low of a confirmed balance RETURN    the market comes back to the value it left (fib 50 % confluence) BREAK     optional: accepted break = price + time (closes outside) + volume RE-ENTRY  stopped out? If the market goes up there and reverses - sell again (max 2 per idea) Trigger   no confirmation: a little selling / buying at the edge (rejection, optional volume) Score     0-100 (balance, edge, LVN / fib, trigger, EMAs, context, central bank, reward:risk, news)
-  - below the minimum the desk does nothing.
+## 🖥️ Trading desk (animated panel)
 
-## Risk Management (all in R)
+- **Auction state** and **value map** (live profile + price).
+- **Setup radar** with score rings and checklist.
+- **Price / time / volume acceptance**.
+- **Trade desk** — DCA steps, invalidation, cover risk, runner.
+- **Risk desk**, a virtual **track record** of every idea in the chart history, and a rule carousel.
+- **X** closes the desk to a pill, drag the header to move it, hover anything for help.
 
-- One idea risks a fixed % over ALL DCA steps: first step at market, DCA limit steps towards the stop, ONE stop for all, optional add after a fast impulse + slow return (no news).
-- Stop where the idea is wrong: beyond the failed breakout / defended swing, never widened.
-- SWING plan: cover the initial risk at the opposite edge (partial), stop to entry, runner to the next value / x R, trailing behind defended swings once the balance broke (accepted). SCALP plan: everything at the opposite edge.
-- A winner never becomes a loser (stop to entry at +x R).
-- News filter (MT5 calendar): new information breaks the balance.
+## 📦 Files
 
-## Trading Desk (animated panel)
+| File | Role |
+|---|---|
+| `TL Auction Edge Pro.ex5` | The EA — input **"Mode"** switches between EA and Indicator only |
+| `TL Auction Edge Pro Indicator.ex5` | Indicator build — never trades |
 
-Auction state, value map (live profile + price), setup radar (score rings + checklist), price / time / volume acceptance, trade desk (DCA steps, invalidation, cover risk, runner), risk desk, track record (virtual, every idea of the history), rule carousel. X closes the desk to a pill, drag the header to move it, hover = help.
+## 🛠️ Installation
 
-## Notes
+1. In MetaTrader 5 open **File → Open Data Folder**.
+2. Copy `TL Auction Edge Pro.ex5` into `MQL5 → Experts` and `TL Auction Edge Pro Indicator.ex5` into `MQL5 → Indicators`.
+3. Refresh the Navigator and drag the EA or the indicator onto a chart. For the EA, enable Algo Trading.
+4. Enable **"Allow DLL imports"** only if you want the panel's link buttons to work.
 
-- Signals on closed bars only - no repaint.
-- The track record is a bar-data simulation incl. spread, not a backtest.
-- Test on a demo account first. Trading involves high risk - only risk money you can afford to lose.
+## ⚠️ Notes
 
-trader.lifestyle
+- Signals are calculated on closed bars only — no repaint.
+- The track record is a bar-data simulation including spread, not a full strategy test, and says nothing about future results.
+- DCA steps add to a position in the direction of the stop — size the risk per idea carefully.
+- Test on a demo account first. Trading involves high risk — only risk money you can afford to lose.
+
+## 🙏 Credits
+
+Built after the live trade of hedge fund trader **Imre Gams** with **Tim Flossbach** (YouTube: "So tradet ein Hedgefonds-Manager WIRKLICH").
 
 ---
 

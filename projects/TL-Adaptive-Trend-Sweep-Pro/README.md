@@ -1,4 +1,3 @@
-<!-- auto-generated: remove this line after hand-editing so publish keeps your text -->
 <div align="center">
 
 # ⚡ TL Adaptive Trend Sweep Pro
@@ -20,48 +19,98 @@
 
 > Compiled build only — source code is not published.
 
-## Overview
+## ✨ Highlights
 
-Thread: <https://www.myfxbook.com/community/programming/my-free-eas-indicators-/3376352,1>
+- **Two AlgoAlpha TradingView scripts, ported line by line** — Machine Learning Adaptive SuperTrend + Nadaraya-Watson Regression Liquidity Sweeps, combined into one EA.
+- **Closed-bar logic** — nothing repaints, one trade per SuperTrend label.
+- **Structure-based stops** — the stop sits on the red / green liquidity line, the target is a multiple of the risk.
+- **Full trade management** — optional break-even, trailing stop and 2 or 3 take profits with partial closes, all measured in R.
+- **Daily trading window and trade cap** — trade only during your hours, with a maximum number of trades per day.
+- **INVERSE mode** — trade every signal in the opposite direction as a true mirror.
 
-What it trades The strategy from the YouTube video "j6ZKzAyACzM" (NDQ 1-minute chart), built from two open-source TradingView scripts by AlgoAlpha, ported line by line:
-- Machine Learning Adaptive SuperTrend [AlgoAlpha]  - ATR length 11 (video), factor 3, k-means training 100 bars, initial guesses 0.75 / 0.50 / 0.25
-- Nadaraya-Watson Regression Liquidity Sweeps [AlgoAlpha] - bandwidth 2 (video), lookback 140, normalization 100, smoothing 21, signal 14, swing points on
+## 🧠 Strategy rules
 
-SELL  1. SuperTrend label DOWN (trend flips bearish)
-- Nadaraya-Watson oscillator in the RED area (below 0)
-  - a BEARISH candle closes (first one after the label candle) -> sell at market. Stop = the red line (previous high / upper liquidity level). Target = 1.5 x risk.
-BUY   mirror image: label UP, GREEN area, BULLISH candle, stop = green line (previous low), target 1.5 x risk.
+The strategy comes from a YouTube video (NASDAQ / NDQ, 1-minute chart) and is built from two indicators:
 
-One trade per label. Closed-bar logic - nothing repaints. If the red / green line is not beyond the entry price, the stop falls back to the highest high / lowest low of the last 20 bars (input).
+- **Machine Learning Adaptive SuperTrend [AlgoAlpha]** — ATR length 11 (as in the video), factor 3, k-means training over 100 bars, initial guesses 0.75 / 0.50 / 0.25.
+- **Nadaraya-Watson Regression Liquidity Sweeps [AlgoAlpha]** — bandwidth 2 (as in the video), lookback 140, normalization 100, smoothing 21, signal 14, swing points on.
 
-Installation MT5: copy MT5\TL Adaptive Trend Sweep Pro.ex5 to  File -> Open Data Folder -> MQL5\Experts MT4: copy MT4\TL Adaptive Trend Sweep Pro.ex4 to  File -> Open Data Folder -> MQL4\Experts Refresh the Navigator, drag the EA onto a chart (video: NASDAQ / NDQ, M1). Tick "Allow Algo Trading" and "Allow DLL imports" (DLL only opens the links of the buttons). Source files (.mq5 / .mq4) are included - one source file, compiles on both platforms.
+| | SELL | BUY |
+|---|---|---|
+| **1. Trend** | SuperTrend label **DOWN** (trend flips bearish) | SuperTrend label **UP** (trend flips bullish) |
+| **2. Oscillator** | Nadaraya-Watson oscillator in the **red** area (below 0) | Oscillator in the **green** area (above 0) |
+| **3. Trigger** | The first **bearish** candle that closes after the label candle → sell at market | The first **bullish** candle that closes after the label candle → buy at market |
+| **Stop** | The red line (previous high / upper liquidity level) | The green line (previous low) |
+| **Target** | 1.5 × risk | 1.5 × risk |
 
-Dashboard SuperTrend trend + volatility cluster (high / medium / low), Nadaraya-Watson oscillator with a mini chart of the last 70 bars (green / red area), current red / green line, setup state, open position, auto trading ON / OFF button and a backtest of the loaded chart bars. All elements have English tooltips (input "Show tooltips" switches them off).
+- One trade per label, closed-bar logic — nothing repaints.
+- If the red / green line is not beyond the entry price, the stop falls back to the highest high / lowest low of the last 20 bars (input).
+- Optional: max bars to wait for the confirmation candle (0 = until the next label), close on the opposite label.
 
-Inverse mode (v1.01) Input "INVERSE mode" (default off): every signal of the video is traded in the opposite direction. The stop goes where the original target was and the target where the original stop was (the red / green line), so the trade is a true mirror (reward : risk = 1 : 1.5). The dashboard header shows "ATS INVERSE" while it is active.
+## 🎯 Trade management
 
-Break-even and trailing stop (v1.02, both optional, default OFF) Break-even: when the trade is x R in profit (default 1.0 R), the stop moves to the entry price (+ optional extra points to lock in). Trailing stop: from x R profit (default 1.0 R) the stop follows the price at a distance of x R (default 1.0 R). R = the initial risk of the trade, so it scales with every trade automatically. Min. step in points avoids too many modifications. Both work in normal and INVERSE mode, on MT4 and MT5, and survive a restart (the initial risk is taken from the target, which the EA never moves). The chart backtest on the dashboard uses the same rules (new stop active from the next candle).
+- **INVERSE mode** (default off) — every signal is traded in the opposite direction. The stop goes where the original target was and the target where the original stop was (the red / green line), so the trade is a true mirror (reward : risk = 1 : 1.5). The dashboard header shows **ATS INVERSE** while it is active.
+- **Break-even** (optional, default off) — once the trade is x R in profit (default 1.0 R), the stop moves to the entry price, plus optional extra points to lock in.
+- **Trailing stop** (optional, default off) — from x R profit (default 1.0 R) the stop follows price at a distance of x R (default 1.0 R). A minimum step in points avoids too many modifications.
+- **R** is the initial risk of each trade, so everything scales automatically. Break-even and trailing work in normal and INVERSE mode on MT4 and MT5, and survive a restart (the initial risk is derived from the target, which the EA never moves).
+- **2 or 3 take profits** — default is **2 targets**: 50 % closes at TP1 and the stop moves to break-even, the rest runs to TP2. With 3 targets, one third closes at TP1 (stop to break-even), another third at TP2, and the last third runs to TP3. TP1 / TP2 / TP3 in R default to 1.0 / 1.5 / 2.0. Set targets to **1** for the exact video rule (one target at 1.5 R).
+  - The broker target of the order is the last TP; the partial closes are done by the EA.
+  - The reached stage is stored per position (terminal global variable), so it survives a restart.
+  - Very small lots (e.g. 0.01) cannot be split — then only the break-even move is done.
+- **Max trades per day** — default 5 (0 = unlimited). Counts the trades this EA opened today (server day); partial closes are not counted twice.
+- **Daily trading window** — default ON, 10:00 – 18:00 server time. Set "from" and "to" as HH:MM (e.g. 08:30 and 17:45). New trades only open inside the window; windows over midnight work too (e.g. 22:00 – 02:00). Optionally close open positions at the end time.
 
-2 or 3 take profits (v1.03) - DEFAULT: 2 targets (50 % at TP1 + break-even, rest at TP2) (set it to 1 target for the exact video rule: 1 x target at 1.5 R) "Targets: number of take profits" = 1 / 2 / 3. TP1 / TP2 / TP3 in R (default 1.0 / 1.5 / 2.0). 2 targets: at TP1 half of the position is closed and the stop moves to break-even, the rest runs to TP2. 3 targets: at TP1 one third is closed and the stop moves to break-even, at TP2 another third, the last third runs to TP3. The broker target of the order is the last TP; the partial closes are done by the EA. The reached stage is stored per position (terminal global variable), so it survives a restart. Very small lots (e.g. 0.01) cannot be split - then only the break-even move is done. TP1 / TP2 / TP3 lines are drawn on the chart.
+## 🖥️ Dashboard & chart
 
-Max trades per day (v1.03) - DEFAULT: 5 "Trading: max trades per day" (0 = unlimited). Counts the trades opened today (server day) by this EA - partial closes are not counted twice.
+- SuperTrend trend and volatility cluster (high / medium / low).
+- Nadaraya-Watson oscillator with a mini chart of the last 70 bars (green / red area).
+- Current red / green line, setup state, open position and an **AUTO TRADING ON / OFF** button.
+- A simulation of the rules on the loaded chart bars, using the same break-even / trailing rules as live trading (a new stop becomes active from the next candle).
+- Trading window status (OPEN / CLOSED).
+- **Virtual stop line** (default ON) — an orange dashed step line for every trade of the chart model: initial stop → break-even → each trailing step → exit. It works with AUTO TRADING OFF, so you can watch break-even and trailing behave without placing a single order. It needs break-even, trailing stop or 2 / 3 targets switched on (otherwise the stop never moves).
+- TP1 / TP2 / TP3 lines on the chart.
+- English tooltips everywhere (input "Show tooltips" switches them off).
 
-Daily trading window (v1.04) - DEFAULT: ON, 10:00 - 18:00 server time "Trading window" on / off, "from" and "to" as HH:MM in server time (e.g. 08:30 and 17:45). New trades only inside the window - afterwards the EA waits for the next day. Windows over midnight work too (e.g. 22:00 - 02:00). Optional: close open positions at the end time. The dashboard shows the window and whether it is OPEN or CLOSED.
+## ⚙️ Key inputs
 
-Virtual stop line (v1.09) "Display: virtual stop line" (default ON) draws an orange dashed step line for every trade of the chart model: initial stop -> break-even -> each trailing step -> exit. It works with AUTO TRADING OFF, so you can watch break-even / trailing behave without placing any order. Needs break-even, trailing stop or 2 / 3 targets switched on (otherwise the stop never moves).
+| Input | What it does |
+|---|---|
+| Risk per trade % / fixed lots | Position size — default 1 % risk, or a fixed lot size |
+| RR | Reward : risk of the target (default 1.5) |
+| Stop mode | Liquidity line or swing high / low |
+| Max bars to wait | Bars to wait for the confirmation candle (0 = until the next label) |
+| Direction filter | Limit which trade direction is allowed |
+| One position at a time | Only one open position |
+| Close on opposite label | Optional exit on the next SuperTrend label |
+| INVERSE mode | Trade every signal in the opposite direction |
+| Break-even / trailing stop | Optional R-based stop management |
+| Targets: number of take profits | 1 / 2 / 3, with TP1 / TP2 / TP3 in R |
+| Trading window | On / off, from / to (HH:MM server time), optional close at end |
+| Max trades per day | Daily cap (0 = unlimited) |
+| Max spread | No entry above this spread |
+| Display: virtual stop line | Draws the stop path of every chart-model trade |
+| Magic | Magic number of the EA |
 
-Main inputs Risk per trade % (default 1 %) or fixed lots, RR (1.5), stop mode (liquidity line / swing), max bars to wait for the confirmation candle (0 = until the next label), direction filter, one position at a time, optional close on opposite label, trading window, max trades per day, max spread, magic.
+## 🛠️ Installation
 
-Honest test results (MT5 strategy tester, RoboForex, 10,000 USD, 1 % risk) The indicator values were checked against an independent re-implementation of the Pine code: EURUSD 0.51, GBPJPY 0.71, BTCUSD 0.74 - spread / commission is paid in both directions. Break-even / trailing stop (defaults 1 R), XAUUSD M1: Multiple targets, XAUUSD M1 (defaults 1.0 / 1.5 / 2.0 R):
+1. In MetaTrader open **File → Open Data Folder**.
+2. **MT4:** copy `TL Adaptive Trend Sweep Pro.ex4` into `MQL4 → Experts`. **MT5:** copy `TL Adaptive Trend Sweep Pro.ex5` into `MQL5 → Experts`.
+3. Refresh the Navigator and drag the EA onto a chart (the video uses NASDAQ / NDQ on M1).
+4. Tick **"Allow Algo Trading"**. Tick **"Allow DLL imports"** only if you want the dashboard link buttons to work.
 
-## Nasdaq (the market of the video) could not be tested - no data on the test account.
+## ⚠️ Notes
 
-=> The rules do NOT show a stable edge in these tests. Use a demo account first.
+- The market of the video (NASDAQ) is the reference; other symbols and timeframes may behave very differently.
+- Results vary by symbol, broker and costs — spread and commission matter on M1. Test on a demo account first.
+- Trading involves risk. Not financial advice.
 
-Credits / licence Indicator logic (c) AlgoAlpha, Mozilla Public License 2.0: <https://www.tradingview.com/script/CLk71Qgy-Machine-Learning-Adaptive-SuperTrend-AlgoAlpha/> <https://www.tradingview.com/script/IdfeKkUv-Nadaraya-Watson-Regression-Liquidity-Sweeps-AlgoAlpha/> This port is distributed as source under the same MPL 2.0 terms. Trading involves risk. Past results do not guarantee future results. Not financial advice.
+## 🙏 Credits
 
-YouTube  <https://www.youtube.com/@traderlifestyle> WhatsApp <https://wa.me/18585003724>
+- Indicator logic © **AlgoAlpha**, Mozilla Public License 2.0:
+  - [Machine Learning Adaptive SuperTrend [AlgoAlpha]](https://www.tradingview.com/script/CLk71Qgy-Machine-Learning-Adaptive-SuperTrend-AlgoAlpha/)
+  - [Nadaraya-Watson Regression Liquidity Sweeps [AlgoAlpha]](https://www.tradingview.com/script/IdfeKkUv-Nadaraya-Watson-Regression-Liquidity-Sweeps-AlgoAlpha/)
+- Strategy video: [YouTube j6ZKzAyACzM](https://www.youtube.com/watch?v=j6ZKzAyACzM)
+- Discussion thread: [Myfxbook — My free EAs & indicators](https://www.myfxbook.com/community/programming/my-free-eas-indicators-/3376352,1)
 
 ---
 

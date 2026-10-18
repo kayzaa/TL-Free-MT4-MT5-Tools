@@ -1,4 +1,3 @@
-<!-- auto-generated: remove this line after hand-editing so publish keeps your text -->
 <div align="center">
 
 # ⚡ TL ATR ADR Pro
@@ -20,49 +19,68 @@
 
 > Compiled build only — source code is not published.
 
-## What It Shows
+## ✨ Highlights
 
-- TODAY vs ADR: animated ring with % of the ADR used today, day status (ROOM TO RUN / NORMAL DAY / STRETCHED / ADR HIT / EXTREME DAY), ADR, today's range, range left, ADR high + low target with the distance from price, change from the open and the PACE (how fast today moves compared with a normal day at this hour).
-- DAY MAP: price, open and today's range inside the ADR window.
-- ADR HISTORY: last 20 daily ranges + today live, ADR line, how often ADR was reached, ADR 5 / 10 / 20 / N, weekly range (AWR) and monthly range (AMR) with % used.
-- ATR MATRIX: ATR on M1 M5 M15 M30 H1 H4 D1 W1 (your list), current candle in % of the ATR, ATR trend, volatility regime (LOW / NORMAL / HIGH / EXTREME = rank of the ATR inside its last 100 values) and a 30-bar sparkline.
-- VOLATILITY CLOCK: average H1 range for every hour of the day (last 20 days), current hour live, Tokyo / London / New York sessions in server time, peak hour.
-- ATR RISK PLANNER: stop = N x ATR, take profit = R x stop, lot size for your risk %, BUY / SELL levels, optional lines on the chart. It never places trades.
-- ADR SCANNER: up to 14 symbols (Market Watch or your list) sorted by room left. Click a symbol to open it.
-- ON THE CHART: today's ADR high + low target, day open, the targets of the last days.
+- **Today vs ADR at a glance** — an animated ring shows how much of the average daily range is already used, with a clear day status from ROOM TO RUN to EXTREME DAY.
+- **ATR matrix on every timeframe** — M1 to W1 (your own list), with candle size in % of ATR, ATR trend, volatility regime and a sparkline.
+- **ADR, AWR and AMR** — daily, weekly and monthly ranges with % used, plus a 20-day range history.
+- **Volatility clock** — the average H1 range for every hour of the day, with Tokyo / London / New York sessions and the peak hour.
+- **ATR risk planner** — stop, target and lot size for your risk %, with optional chart lines. It never places trades.
+- **Multi-symbol ADR scanner** — up to 14 symbols sorted by room left; click one to open it.
 
-## How It Calculates (100 % transparent)
+## 🖥️ Dashboard & chart
 
-- True range = max(high, previous close) - min(low, previous close).
-- ATR = average of the true range of the last N CLOSED candles. Methods: SMA (MetaTrader standard, identical to the built-in ATR), Wilder / RMA (TradingView standard), EMA.
-- ADR = average (high - low) of the last N completed days. Saturday / Sunday candles are skipped by default (some brokers have tiny Sunday candles).
-- ADR high target = today's low + ADR.  ADR low target = today's high - ADR.
+| Block | What you get |
+|---|---|
+| **TODAY vs ADR** | Animated ring with % of ADR used today and the day status (ROOM TO RUN / NORMAL DAY / STRETCHED / ADR HIT / EXTREME DAY). Shows ADR, today's range, range left, ADR high + low target with the distance from price, change from the open, and **PACE** — how fast today moves compared with a normal day at this hour. |
+| **DAY MAP** | Price, open and today's range drawn inside the ADR window. |
+| **ADR HISTORY** | The last 20 daily ranges plus today live, the ADR line, how often ADR was reached, ADR 5 / 10 / 20 / N, the weekly range (AWR) and the monthly range (AMR) with % used. |
+| **ATR MATRIX** | ATR on M1 M5 M15 M30 H1 H4 D1 W1 (your list), the current candle in % of the ATR, ATR trend, volatility regime (LOW / NORMAL / HIGH / EXTREME = rank of the ATR inside its last 100 values) and a 30-bar sparkline. |
+| **VOLATILITY CLOCK** | Average H1 range for every hour of the day (last 20 days), the current hour live, Tokyo / London / New York sessions in server time and the peak hour. |
+| **ATR RISK PLANNER** | Stop = N × ATR, take profit = R × stop, lot size for your risk %, BUY / SELL levels and optional lines on the chart. Planning only — it never places trades. |
+| **ADR SCANNER** | Up to 14 symbols (Market Watch or your own list) sorted by room left. Click a symbol to open it. |
 
-## Panel
+**On the chart:** today's ADR high + low target, the day open and the targets of the last days.
 
-- Drag the header to move it, X folds it to a small pill, click the pill to open it again.
-- Square button = compact panel (today vs ADR + ATR matrix) / full dashboard.
+### Panel handling
+
+- Drag the header to move the panel; **X** folds it to a small pill, click the pill to open it again.
+- The square button switches between the **compact panel** (today vs ADR + ATR matrix) and the **full dashboard**.
 - Hover anything for an explanation (tooltips can be switched off).
-- AUTO PLACEMENT: if another trader.lifestyle panel is already on the chart, this panel moves to the nearest free spot. Not enough room for the full dashboard -> it switches to the compact panel, no room at all -> it folds to the pill, and it opens again by itself when room is free. Once you move or open it yourself, your choice wins.
+- **Auto placement:** if another trader.lifestyle panel is already on the chart, this panel moves to the nearest free spot. Not enough room for the full dashboard → it switches to the compact panel; no room at all → it folds to the pill, and it opens again by itself once there is room. As soon as you move or open it yourself, your choice wins.
 - Position, mode and planner settings are remembered per chart.
 
-## Alerts
+## 🧠 How it calculates (100 % transparent)
 
-- % of ADR used (default 80 and 100 %, once per day each).
-- Volatility spike: chart candle range >= 2 x ATR.
-- Popup / sound / push / e-mail.
+- **True range** = max(high, previous close) − min(low, previous close).
+- **ATR** = average true range of the last N **closed** candles. Methods: SMA (MetaTrader standard, identical to the built-in ATR), Wilder / RMA (TradingView standard) or EMA.
+- **ADR** = average (high − low) of the last N completed days. Saturday / Sunday candles are skipped by default, because some brokers print tiny Sunday candles.
+- **ADR high target** = today's low + ADR. **ADR low target** = today's high − ADR.
 
-## 0 = ADR (price units) | 1 = ADR high target | 2 = ADR low target | 3 = ADR used % |
+## 🔔 Alerts
 
-4 = ATR of the chart timeframe. Buffers 0-3 use only the days BEFORE the bar's day and the day's high / low up to that bar.
+- % of ADR used (default 80 % and 100 %, each once per day).
+- Volatility spike: chart candle range ≥ 2 × ATR.
+- Delivered as popup, sound, push notification or e-mail.
 
-## Install
+## 🔌 Buffers (for EAs via iCustom)
 
-- MT5: copy "TL ATR ADR Pro.ex5" to File > Open Data Folder > MQL5\Indicators
-- MT4: copy "TL ATR ADR Pro.ex4" to File > Open Data Folder > MQL4\Indicators Refresh the Navigator and drag it on any chart.
-- "Allow DLL imports" is only needed for the link buttons (YouTube / WhatsApp / RoboForex / FF).
+| Buffer | Value |
+|---|---|
+| 0 | ADR (price units) |
+| 1 | ADR high target |
+| 2 | ADR low target |
+| 3 | ADR used % |
+| 4 | ATR of the chart timeframe |
 
-- More free tools: <https://www.forexfactory.com/thread/1428808-free-eas-indicators-strategies-mt4>
+Buffers 0–3 use only the days **before** the bar's day, plus that day's high / low up to the bar itself.
+
+## 🛠️ Installation
+
+1. In MetaTrader open **File → Open Data Folder**.
+2. **MT4:** copy `TL ATR ADR Pro.ex4` into `MQL4 → Indicators`. **MT5:** copy `TL ATR ADR Pro.ex5` into `MQL5 → Indicators`.
+3. Refresh the Navigator and drag the indicator onto any chart.
+4. Enable **"Allow DLL imports"** only if you want the panel's link buttons (YouTube / WhatsApp / RoboForex / Forex Factory) to work.
 
 ---
 

@@ -1,4 +1,3 @@
-<!-- auto-generated: remove this line after hand-editing so publish keeps your text -->
 <div align="center">
 
 # ⚡ TL Candle Trigger Pro
@@ -20,35 +19,73 @@
 
 > Compiled build only — source code is not published.
 
-## Overview
+## ✨ Highlights
 
-The idea in one sentence The big candle decides which way we are allowed to trade, the small candle tells us when that direction has gained enough momentum to enter, and the trade limits decide whether we are allowed to take the trade.
+- **One clear idea** — the big candle decides which way you may trade, the small candle decides when momentum is strong enough to enter, and your trade limits decide whether the trade is allowed.
+- **Three trigger approaches** — fixed points, % of the small candle range, or a multiple of ATR.
+- **Every tick re-checked** — no condition "stays" true; if price falls back through the big candle open, the setup is gone.
+- **Flexible timeframe pairs** — from M5+M1 up to H4+M15, or custom minutes, built from M1 bars (M2 / M3 / M10 work on MT4 too).
+- **Live dashboard** — direction, timing and permission as a stepper, a checklist of every rule and why the EA is waiting.
+- **Trigger lab** — MAE / MFE of the EA trades and the best / worst move after every first trigger.
 
-- **DIRECTION** — ->  TIMING  ->  PERMISSION  ->  TRADE
+## 🧠 Strategy rules
 
-The rules (BUY - SELL is the exact mirror)
-- DIRECTION   Bid is ABOVE the open of the running big candle = bullish, only BUY is allowed. Bid below the open = bearish, only SELL. Bid exactly at the open = neither. Optional: big candle minimum age (minutes) and minimum movement from its open (points, measured as Bid - open for BUY, open - Bid for SELL).
-- TIMING      The running small candle reaches the trigger distance from ITS OWN open in the same direction as the big candle. Optional: small candle minimum age (seconds). Trigger approaches: A  fixed points (simple baseline, e.g. 20 points) B  % of the small candle range (average of the last N closed small candles - the running candle is still developing) C  x ATR of the small timeframe (adapts to volatility, start with 0.10 - 0.20)
-- PERMISSION  Applied AFTER direction + trigger: max. spread, trading hours, max. trades per big candle, max. trades per day, max. open trades, one trade per small candle, broker trading session.
-- TRADE       Market order only when ALL conditions are true at the same moment. Everything is re-checked on every tick - an earlier condition never "stays" true. If Bid falls back through the big candle open before the entry, the BUY setup is gone.
+> **DIRECTION → TIMING → PERMISSION → TRADE**
+> BUY rules shown — SELL is the exact mirror.
 
-Timeframe combinations (input "Big + small candle") M5+M1, M10+M2, M15+M3 (default), M15+M5, M30+M5, M30+M10, H1+M5, H1+M15, H4+M15 or CUSTOM minutes. The candles are built from M1 bars, so M2 / M3 / M10 ... work on MT4 too. Attach the EA to any chart (M1 recommended to see the levels). MT4 strategy tester: test on the M1 chart.
+| Step | Rule |
+|---|---|
+| **1. DIRECTION** | Bid **above** the open of the running big candle = bullish, only BUY allowed. Bid below the open = bearish, only SELL. Bid exactly at the open = neither. Optional: big candle minimum age (minutes) and minimum movement from its open (points; Bid − open for BUY, open − Bid for SELL). |
+| **2. TIMING** | The running small candle reaches the trigger distance from **its own** open in the same direction as the big candle. Optional: small candle minimum age (seconds). |
+| **3. PERMISSION** | Checked **after** direction + trigger: max spread, trading hours, max trades per big candle, max trades per day, max open trades, one trade per small candle, broker trading session. |
+| **4. TRADE** | A market order is sent only when **all** conditions are true at the same moment. Everything is re-checked on every tick. |
 
-Exits (inputs)
-- **Stop loss** — big candle open (= direction reversal) / small candle open (+ buffer), x ATR, fixed points or none Take profit  R multiple (default 1.5R), fixed points, x ATR or none Big candle   close the trade when the big candle ends (default on) Flip         optional: close when Bid crosses back through the big candle open Break even   optional: stop to entry + X points after +Y points
+### Trigger approaches
 
-Dashboard (drag the header, X closes it to a pill, hover any line for an explanation)
-- **1 DIRECTION** — big candle open, Bid, movement, age / time left (gold mark = minimum age) 2 TIMING      small candle open + move, trigger distance, BUY / SELL trigger levels, progress 3 ALL CONDITIONS AT ONCE   DIRECTION -> TIMING -> PERMISSION -> TRADE stepper + BUY / SELL checklist of every rule + why the EA is waiting MAE / MFE of the EA trades + TRIGGER LAB: best / worst move after every first trigger until the big candle ends (live + M1 history) POSITION      open trade, stops, P/L, AUTO TRADING on / off, CLOSE ALL Buttons       RoboForex, WhatsApp, YouTube, Forex Factory thread The dashboard moves out of the way of other trader.lifestyle panels on the same chart.
+- **A — Fixed points:** simple baseline, e.g. 20 points.
+- **B — % of the small candle range:** average of the last N closed small candles (the running candle is still developing).
+- **C — × ATR of the small timeframe:** adapts to volatility; start with 0.10 – 0.20.
 
-On the chart gold line = big candle open, cyan line = small candle open, green / red dotted lines = BUY / SELL trigger levels of the running small candle.
+### Timeframe combinations
 
-How to test it (the concept itself says so) Keep the entry logic the same and change ONE thing at a time: first the timeframe combination, then the trigger distance (5 / 10 / 15 / 20 / 25 / 30 / 40 points) or the trigger approach. MAE / MFE and how sensitive the result is to spread and slippage. Small trigger distances and tight stops are very sensitive to the spread of your broker.
+Input **"Big + small candle"**: M5+M1, M10+M2, **M15+M3 (default)**, M15+M5, M30+M5, M30+M10, H1+M5, H1+M15, H4+M15 or CUSTOM minutes. The candles are built from M1 bars, so M2 / M3 / M10 work on MT4 too.
 
-Installation MT5: MT5\Experts\TL Candle Trigger Pro.ex5 -> File > Open Data Folder > MQL5\Experts MT4: MT4\Experts\TL Candle Trigger Pro.ex4 -> File > Open Data Folder > MQL4\Experts Refresh the Navigator, drag the EA onto a chart, enable Algo / Auto Trading. "Allow DLL imports" is only needed for the link buttons.
+## 🎯 Exits
 
-Risk warning: no profit promise - trading involves high risk. Test on a demo account first.
+| Input | Options |
+|---|---|
+| **Stop loss** | Big candle open (= direction reversal), small candle open (+ buffer), × ATR, fixed points or none |
+| **Take profit** | R multiple (default 1.5 R), fixed points, × ATR or none |
+| **Big candle close** | Close the trade when the big candle ends (default on) |
+| **Flip** | Optional: close when Bid crosses back through the big candle open |
+| **Break-even** | Optional: stop to entry + X points after +Y points |
 
-trader.lifestyle - free tools thread on Forex Factory: <https://www.forexfactory.com/thread/1428808-free-eas-indicators-strategies-mt4>
+## 🖥️ Dashboard & chart
+
+1. **DIRECTION** — big candle open, Bid, movement, age / time left (gold mark = minimum age).
+2. **TIMING** — small candle open + move, trigger distance, BUY / SELL trigger levels, progress.
+3. **ALL CONDITIONS AT ONCE** — the DIRECTION → TIMING → PERMISSION → TRADE stepper plus a BUY / SELL checklist of every rule and why the EA is waiting.
+4. **MAE / MFE + TRIGGER LAB** — MAE / MFE of the EA trades, plus the best / worst move after every first trigger until the big candle ends (live + M1 history).
+5. **POSITION** — open trade, stops, P/L, AUTO TRADING on / off, CLOSE ALL.
+
+Drag the header to move it, **X** closes it to a pill, hover any line for an explanation. Link buttons: RoboForex, WhatsApp, YouTube, Forex Factory thread. The dashboard moves out of the way of other trader.lifestyle panels on the same chart.
+
+**On the chart:** gold line = big candle open, cyan line = small candle open, green / red dotted lines = BUY / SELL trigger levels of the running small candle.
+
+## 🔬 How to explore it
+
+Keep the entry logic the same and change **one** thing at a time: first the timeframe combination, then the trigger distance (5 / 10 / 15 / 20 / 25 / 30 / 40 points) or the trigger approach. Watch MAE / MFE and how sensitive the outcome is to spread and slippage. Small trigger distances and tight stops react strongly to your broker's spread.
+
+## 🛠️ Installation
+
+1. In MetaTrader open **File → Open Data Folder**.
+2. **MT4:** copy `TL Candle Trigger Pro.ex4` into `MQL4 → Experts`. **MT5:** copy `TL Candle Trigger Pro.ex5` into `MQL5 → Experts`.
+3. Refresh the Navigator and drag the EA onto a chart — M1 is recommended to see the levels. In the MT4 Strategy Tester, use the M1 chart.
+4. Enable **Algo / Auto Trading**. **"Allow DLL imports"** is only needed for the link buttons.
+
+## ⚠️ Notes
+
+No profit promise — trading involves high risk. Test on a demo account first.
 
 ---
 

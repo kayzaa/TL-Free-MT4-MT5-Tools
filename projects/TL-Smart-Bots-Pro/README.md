@@ -1,4 +1,3 @@
-<!-- auto-generated: remove this line after hand-editing so publish keeps your text -->
 <div align="center">
 
 # ⚡ TL Smart Bots Pro
@@ -20,24 +19,65 @@
 
 > Compiled build only — source code is not published.
 
-## Overview
+## ✨ Highlights
 
-What it is A rebuild of the Facebook reel "Power of automatic trading bot / smart bots" (page "Agibt" / AGI Bot AI, XAUUSD M1, 26 Sep 2025). The reel has no voice and no description - every rule below was read from the screen recording frame by frame.
+- **A silent reel, decoded** — the "Power of automatic trading bot / smart bots" reel has no voice and no description; every rule was read from the screen recording frame by frame.
+- **Momentum pyramid basket** — 1 market order + 3 stop orders in trade direction.
+- **Individual TP and SL per leg** — the reel's values are the defaults.
+- **Break-even on the last leg** after 3 take profits.
+- **No-repaint signal circles** — confirmed higher lows / lower highs, or manual baskets via buttons.
+- **Animated dashboard** — basket table, live ladder and one-click BUY / SELL / CLOSE / AUTO.
 
-What the reel shows (and what the EA does)
-- A green (buy) or red (sell) CIRCLE appears on the M1 chart.
-- A basket starts: 1 order at market + 3 STOP orders in trade direction (buy: 3 buy stops above, sell: 3 sell stops below) = pyramid on momentum. Reel: buy 3746.140, buy stops 3747.905 / 3748.367 / 3748.829
-- Every leg has its OWN take profit and stop loss (values of the reel, defaults): leg      TP distance   SL distance market      4.651         3.535 stop 1      3.043         4.435 stop 2      3.537         4.649 stop 3      2.310         4.899
-- After 3 take profits the last open leg goes to break-even (+0.031).
-- Result in the reel: all 4 legs hit TP, 400 -> 4,459 USD with 3.00 lots per leg (that is ~30x the account in lots - pure gambling, do NOT copy the lot size).
+## 🧠 Strategy rules
 
-Signal circles The reel does not say what draws the circles. Default "Structure": a confirmed HIGHER LOW = BUY circle, a confirmed LOWER HIGH = SELL circle (swing point = extreme of 2 bars left / 4 bars right, confirmed 4 bars later, no repaint). On real XAUUSD M1 data of the same day this hits all 4 circles of the reel within +-2 bars. Other modes: every swing point, or MANUAL = only the BUY / SELL basket buttons.
+> A green (buy) or red (sell) **circle** appears on the XAUUSD M1 chart → a **basket** starts.
 
-Dashboard Animated panel (drag the header, X closes it to a pill, click the pill to reopen): signal, basket table with every leg (entry / TP / SL / state), live ladder, one-click BUY / SELL / CLOSE / AUTO buttons, statistics. Tooltips can be switched off. Buttons YouTube / RoboForex / WhatsApp / Forex Factory need "Allow DLL imports".
+- **Basket:** 1 order at market + 3 **stop orders** in trade direction (buy: 3 buy stops above, sell: 3 sell stops below) — a pyramid on momentum.
+- **Every leg has its own take profit and stop loss** (price distances from the reel, used as defaults):
 
-Honest backtest (RoboForex, XAUUSD M1, 0.01 lot per leg, 10,000 USD) (signal 13:59 server time) closed with 4 of 4 take profits like in the video.
+| Leg | TP distance | SL distance |
+|---|---|---|
+| Market | 4.651 | 3.535 |
+| Stop 1 | 3.043 | 4.435 |
+| Stop 2 | 3.537 | 4.649 |
+| Stop 3 | 2.310 | 4.899 |
 
-Install MT5: copy "TL Smart Bots Pro.ex5" to MQL5\Experts, MT4: the .ex4 to MQL4\Experts, refresh the Navigator, drag it on XAUUSD M1, allow Algo Trading (+ DLL for the buttons).
+- **Break-even:** after 3 take profits, the last open leg moves to break-even (+0.031).
+
+### Signal circles
+
+The reel does not say what draws the circles, so the EA offers three modes:
+
+| Mode | Signal |
+|---|---|
+| **Structure** (default) | A confirmed **higher low** = BUY circle, a confirmed **lower high** = SELL circle. Swing point = extreme of 2 bars left / 4 bars right, confirmed 4 bars later — no repaint. |
+| **Every swing point** | Every confirmed swing point draws a circle |
+| **MANUAL** | Only the BUY / SELL basket buttons |
+
+## 🖥️ Dashboard & chart
+
+- Animated panel: drag the header, **X** closes it to a pill, click the pill to reopen.
+- Signal, a basket table with every leg (entry / TP / SL / state), live ladder and statistics.
+- One-click **BUY / SELL / CLOSE / AUTO** buttons.
+- Tooltips can be switched off.
+- Link buttons YouTube / RoboForex / WhatsApp / Forex Factory need "Allow DLL imports".
+
+## 🛠️ Installation
+
+1. In MetaTrader open **File → Open Data Folder**.
+2. **MT4:** copy `TL Smart Bots Pro.ex4` into `MQL4 → Experts`. **MT5:** copy `TL Smart Bots Pro.ex5` into `MQL5 → Experts`.
+3. Refresh the Navigator and drag the EA onto **XAUUSD M1**.
+4. Allow Algo Trading. Tick **"Allow DLL imports"** only if you want the link buttons to work.
+
+## ⚠️ Notes
+
+- The reel used a lot size far too large for its account — **do not copy the lot size** of the reel. Start small.
+- A basket of four legs adds exposure quickly as the stop orders fill. Test on a demo account first.
+- The TP / SL distances are gold price distances from the reel; other symbols need their own values.
+
+## 🙏 Credits
+
+Rebuild of the Facebook reel "Power of automatic trading bot / smart bots" from the page **"Agibt" / AGI Bot AI** (XAUUSD M1, 26 Sep 2025).
 
 ---
 
