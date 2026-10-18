@@ -1,4 +1,3 @@
-<!-- auto-generated: remove this line after hand-editing so publish keeps your text -->
 <div align="center">
 
 # ⚡ TL Gold Levels Liquidity Pro
@@ -20,41 +19,91 @@
 
 > Compiled build only — source code is not published.
 
-## Overview
+## ✨ Highlights
 
-Inspired by the Forex Factory thread "Gold Levels" (Asylum1). Independent rebuild - not the original indicator (its calculation was never published). trader.lifestyle
+- **Options-market levels on your gold chart** — call wall, put wall, gamma flip, max pain and key strikes from the free GLD option chain.
+- **Bond-market direction filter** — 10Y T-Note (ZN) trend decides LONG ONLY, SHORT ONLY or no entries.
+- **Live liquidity monitor** — spots moments when the bid/ask spread blows out and liquidity is pulled from the book.
+- **Thread-style entries** — liquidity sweep + liquidity event + bond direction + EMA 20 reclaim → BUY / SELL arrow, on closed candles.
+- **Manual levels** — type in your own levels, e.g. the ones posted in the thread.
+- **EA-ready buffers** for iCustom.
 
-## What It Does
+## 🧠 How it works
 
-- LEVELS from the options market Dealer gamma of the GLD option chain (CBOE, 15 min delayed, free), mapped to gold with the XAU / GLD ratio at the GLD close: CALL WALL  = largest call gamma above price  -> resistance / pin PUT WALL   = largest put gamma below price   -> support GAMMA FLIP = price where total dealer gamma changes sign above = positive gamma (mean reversion), below = negative gamma (trend) MAX PAIN   = strike with the smallest option payout of the main expiry + key strikes with the largest net gamma You can also type your own levels (inputs "Manual: ...") - e.g. the levels posted in the thread.
+### 1. Levels from the options market
 
-- DIRECTION from the bond market (10Y T-Note) Bonds up = yields down = gold up. Source: your broker's bond symbol (auto-detected) or the 10Y T-Note futures ZN=F (5 min) from the web. BONDS UP = EMA 20 over EMA 50 + bullish break of structure -> LONG ONLY. BONDS DOWN -> SHORT ONLY. MIXED -> no entries (input).
+Dealer gamma of the **GLD option chain** (CBOE, 15 min delayed, free), mapped to gold with the XAU / GLD ratio at the GLD close:
 
-## 3. Liquidity Monitor (the "liquid indicator")
+| Level | Definition | Meaning |
+|---|---|---|
+| **CALL WALL** | Largest call gamma above price | Resistance / pin |
+| **PUT WALL** | Largest put gamma below price | Support |
+| **GAMMA FLIP** | Price where total dealer gamma changes sign | Above = positive gamma (mean reversion), below = negative gamma (trend) |
+| **MAX PAIN** | Strike with the smallest option payout of the main expiry | — |
+| **Key strikes** | Strikes with the largest net gamma | — |
 
-Measures the bid/ask spread tick by tick. When the spread stays above 2x its average (last 100 ticks) for 30 seconds, liquidity was pulled from the book -> orange dot on the chart. Not directional - use it at your levels. MT5 rebuilds the last 72 h from the tick history, MT4 records live (saved to a file, survives restarts).
+You can also type your own levels (inputs `Manual: ...`).
 
-## 4. Entry (thread rules)
+### 2. Direction from the bond market (10Y T-Note)
 
-Liquidity taken (H1 swing high / low or previous day high / low) + liquidity event around the sweep + bond direction + candle closes back over / under EMA 20 -> BUY / SELL arrow. Stop beyond the sweep (or beyond EMA 50), target = next liquidity level (min 1R, else 2R). Signals use closed candles only - no repaint. The thread trades M1 for entries.
+Bonds up = yields down = gold up. Source: your broker's bond symbol (auto-detected) or the 10Y T-Note futures **ZN=F** (5 min) from the web.
 
-## Install
+| Bond state | Rule | Bias |
+|---|---|---|
+| **BONDS UP** | EMA 20 above EMA 50 + bullish break of structure | LONG ONLY |
+| **BONDS DOWN** | Mirror image | SHORT ONLY |
+| **MIXED** | — | No entries (input) |
 
-- **MT5: copy "TL Gold Levels Liquidity Pro.ex5" to** — MQL5\Indicators MT4: copy "TL Gold Levels Liquidity Pro.ex4" to  MQL4\Indicators Restart the terminal or right click Navigator -> Refresh. Drag it on an XAUUSD chart. IMPORTANT: tick "Allow DLL imports" (Common tab). It is needed for the web data (GLD option chain, ZN futures) and the buttons. WebRequest is not allowed inside indicators, so the indicator downloads with Windows' wininet.dll - no URL whitelist needed.
+### 3. Liquidity monitor (the "liquid indicator")
 
-## Dashboard
+Measures the bid/ask spread tick by tick. When the spread stays above **2× its average** (last 100 ticks) for **30 seconds**, liquidity was pulled from the book → **orange dot** on the chart. It is not directional — use it at your levels. MT5 rebuilds the last 72 h from the tick history; MT4 records live (saved to a file, survives restarts).
 
-Click X to close it to a small pill, click the pill to open it again, drag the header or the pill to move it. Hover over any section for an explanation (tooltips can be switched off).
+### 4. Entry (thread rules)
 
-## Buffers (for EAs / iCustom)
+> **Liquidity taken** (H1 swing high / low or previous day high / low) **+ liquidity event** around the sweep **+ bond direction + candle closes back over / under EMA 20** → BUY / SELL arrow.
+>
+> **Stop:** beyond the sweep (or beyond EMA 50). **Target:** next liquidity level (min 1R, else 2R).
 
-- **0 EMA fast** — 1 EMA mid  2 EMA slow  3 buy signal (entry price)  4 sell signal 5 liquidity event (price)  6 bias (+1 long only, -1 short only, 2 both, 0 none)
+Signals use closed candles only — no repaint. The thread trades M1 for entries.
 
-## Honest Note
+## 🖥️ Dashboard & chart
 
-The thread uses gold FUTURES options (QuikStrike). GLD is the free public proxy he also uses on expiry days - levels can differ. Spread behaviour depends on your broker: if you see too many or too few orange dots, change "Liquidity: trigger" / "spread must stay above ... seconds". No indicator is a trading system - test on demo first. No profit is promised.
+Click **X** to close the dashboard to a small pill, click the pill to open it again, and drag the header or the pill to move it. Hover over any section for an explanation (tooltips can be switched off).
 
-Free tools + coding help: <https://www.forexfactory.com/thread/1428808-free-eas-indicators-strategies-mt4> YouTube: <https://www.youtube.com/@traderlifestyle>
+## 🔌 Buffers (for EAs / iCustom)
+
+| Buffer | Content |
+|---|---|
+| 0 | EMA fast |
+| 1 | EMA mid |
+| 2 | EMA slow |
+| 3 | Buy signal (entry price) |
+| 4 | Sell signal |
+| 5 | Liquidity event (price) |
+| 6 | Bias (+1 long only, −1 short only, 2 both, 0 none) |
+
+## 📋 Requirements
+
+- An **XAUUSD** chart.
+- **"Allow DLL imports"** (Common tab) is **required** — for the web data (GLD option chain, ZN futures) and the buttons. WebRequest is not allowed inside indicators, so the indicator downloads via Windows' wininet.dll — no URL whitelist needed.
+
+## 🛠️ Installation
+
+1. **MT5:** copy `TL Gold Levels Liquidity Pro.ex5` to `File → Open Data Folder → MQL5 → Indicators`.
+   **MT4:** copy `TL Gold Levels Liquidity Pro.ex4` to `File → Open Data Folder → MQL4 → Indicators`.
+2. Restart the terminal, or right-click the Navigator → **Refresh**.
+3. Drag the indicator onto an XAUUSD chart.
+4. Tick **"Allow DLL imports"** on the Common tab.
+
+## ⚠️ Notes
+
+- The thread uses gold **futures** options (QuikStrike). GLD is the free public proxy he also uses on expiry days — levels can differ.
+- Spread behaviour depends on your broker: if you see too many or too few orange dots, adjust **"Liquidity: trigger"** / **"spread must stay above ... seconds"**.
+- No indicator is a trading system — test on demo first. No profit is promised.
+
+## 🙏 Credits
+
+Inspired by the Forex Factory thread **"Gold Levels"** by **Asylum1**. This is an independent rebuild by trader.lifestyle — not the original indicator (its calculation was never published).
 
 ---
 

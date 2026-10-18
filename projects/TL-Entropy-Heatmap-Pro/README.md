@@ -1,4 +1,3 @@
-<!-- auto-generated: remove this line after hand-editing so publish keeps your text -->
 <div align="center">
 
 # ⚡ TL Entropy Heatmap Pro
@@ -19,39 +18,69 @@
 
 > Compiled build only — source code is not published.
 
-## Overview
+## ✨ Highlights
 
-MT5 port of "Precision Market Entropy Heatmap" (c) LuxAlgo, including the tweak shown in the LuxAlgo short "This NEW Volume Profile Indicator Is Actually Accurate": previous-day POCs are drawn as ZONES with a day counter, the POC-row volume and the buy/sell dominance.
+- **MT5 port of LuxAlgo's "Precision Market Entropy Heatmap"** — session-by-session volume heatmap from intrabar data.
+- **Includes the tweak from LuxAlgo's short** *"This NEW Volume Profile Indicator Is Actually Accurate"*: previous-day POCs drawn as **zones**.
+- **Live support / resistance colouring** — POC zones turn green below price and red above, flipping as price crosses.
+- **Information-rich labels** — day counter, POC-row volume and buy / sell dominance.
+- **Developing POC line** for every session, plus detailed hover tooltips.
+- **Optional video chart theme** — dark background, no grid, restored when you remove the indicator.
 
-License: the original script is CC BY-NC-SA 4.0 (<https://creativecommons.org/licenses/by-nc-sa/4.0/).> This port is free, non-commercial and shared with source code under the same license. No lock, no expiry.
+## 🧠 How it works
 
-## What You See
+| Element | What it shows |
+|---|---|
+| **Heatmap** | One block per session (Anchor Interval, default D1). The session range is split into 50 rows; every intrabar (default M1) spreads its volume evenly over the rows it touched. Colour = row volume / peak row volume: dark navy (low) → green (mid) → yellow (high). |
+| **POC zone** | The row with the most volume in each session, extended to the current bar, with a dotted centre line. Green = POC below price (support), red = POC above price (resistance). The colour flips live when price crosses the zone middle. |
+| **Labels** | `N Days \| Vol: 36.26K (52% B)` — see below. The running session is labelled `Current Profile \| ...`. |
+| **White line** | Developing POC of every session. |
 
-- Heatmap: one block per session (Anchor Interval, default D1). The session range is split into 50 rows; every intrabar (default M1) spreads its volume evenly over the rows it touched. Colour = row volume / peak row volume: dark navy (low) -> green (mid) -> yellow (high).
-- POC zone: the row with the most volume of each session, extended to the current bar, with a dotted centre line. Green = POC below price (support), red = POC above price (resistance). The colour flips live when price crosses the zone middle.
-- Labels: "N Days | Vol: 36.26K (52% B)" N Days   = calendar days since that session started Vol      = volume inside that session's POC row (not accumulated over days) 52% B/S  = share of that volume from bullish (B) or bearish (S) intrabars, dominant side "Current Profile | ..." is the running session.
-- White line: developing POC of every session.
+**Label anatomy:**
 
-## How To Trade It (as in the video)
+- **N Days** — calendar days since that session started.
+- **Vol** — volume inside that session's POC row (not accumulated over days).
+- **52% B / S** — share of that volume from bullish (B) or bearish (S) intrabars, showing the dominant side.
 
-- Wait for price to reach a previous POC zone; several POCs lining up = stronger level.
-- Enter only on a clear reaction: rejection candle or 3-bar reversal. Do not buy/sell blindly.
-- Typical target: the current profile's POC.
+## 🎯 How to trade it (as in the video)
 
-## Inputs (all in English, tooltips can be switched off)
+> 1. Wait for price to reach a previous POC zone — several POCs lining up = a stronger level.
+> 2. Enter only on a clear reaction: a rejection candle or a 3-bar reversal. Do not buy / sell blindly.
+> 3. Typical target: the current profile's POC.
 
-Heatmap Settings : Anchor Interval, Intrabar Precision, Number of Rows (10-100), Volume Source Style Settings   : 3 heatmap colours, Heatmap Transparency (80 = gold scenes of the video, 70 = original default), POC bull/bear colours, zone fill/border transparency (80/30 as in the tweaked script), Developing POC (+Auto colour) Display Settings : Max Sessions (the original caps sessions x rows at 500 boxes), Extend POCs to Current Bar, show zones / labels, label font/size/offset Chart & Extras   : Apply video chart theme (dark #0A0A0A, no grid, white/grey candles, restored when the indicator is removed), Tooltips on/off, link buttons, Forex Factory thread link
+The indicator draws the levels; it does not place trades.
 
-## Notes
+## ⚙️ Key inputs
 
-- MT5 uses tick volume by default (spot FX/gold has no central volume), so the numbers differ from TradingView/OANDA; the distribution and the POCs are what matters.
-- Chart timeframe must be lower than the Anchor Interval (e.g. M1-H1 for D1).
-- Hover over a zone or a heatmap row to get a detailed tooltip.
-- The buttons (YouTube / RoboForex / WhatsApp / Myfxbook) open links via shell32.dll, so "Allow DLL imports" must be enabled. Everything else works without it.
+All inputs are in English, with tooltips that can be switched off.
 
-## Install
+| Group | Inputs |
+|---|---|
+| **Heatmap Settings** | Anchor Interval, Intrabar Precision, Number of Rows (10–100), Volume Source |
+| **Style Settings** | 3 heatmap colours; Heatmap Transparency (80 = gold scenes of the video, 70 = original default); POC bull / bear colours; zone fill / border transparency (80 / 30 as in the tweaked script); Developing POC (+ auto colour) |
+| **Display Settings** | Max Sessions (the original caps sessions × rows at 500 boxes), Extend POCs to Current Bar, show zones / labels, label font / size / offset |
+| **Chart & Extras** | Apply video chart theme (dark #0A0A0A, no grid, white / grey candles, restored on removal), tooltips on / off, link buttons, Forex Factory thread link |
 
-- Copy "TL Entropy Heatmap Pro.ex5" to  File > Open Data Folder > MQL5 > Indicators, refresh the Navigator and drag it onto a chart.
+## 📋 Requirements
+
+- The chart timeframe must be **lower** than the Anchor Interval (e.g. M1–H1 for D1).
+- The link buttons (YouTube / RoboForex / WhatsApp / Myfxbook) open links via shell32.dll, so they need **"Allow DLL imports"**. Everything else works without it.
+
+## 🛠️ Installation
+
+1. Copy `TL Entropy Heatmap Pro.ex5` to `File → Open Data Folder → MQL5 → Indicators`.
+2. Refresh the Navigator.
+3. Drag the indicator onto a chart with a timeframe below the Anchor Interval.
+
+## ⚠️ Notes
+
+- MT5 uses tick volume by default (spot FX / gold has no central volume), so the numbers differ from TradingView / OANDA — the distribution and the POCs are what matters.
+- Hover over a zone or a heatmap row for a detailed tooltip.
+
+## 🙏 Credits
+
+- Original script: **"Precision Market Entropy Heatmap"** © LuxAlgo, plus the POC-zone tweak shown in LuxAlgo's short *"This NEW Volume Profile Indicator Is Actually Accurate"*.
+- License: the original is [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). This port is free and non-commercial under the same license. No lock, no expiry.
 
 ---
 

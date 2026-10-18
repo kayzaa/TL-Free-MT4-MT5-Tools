@@ -1,4 +1,3 @@
-<!-- auto-generated: remove this line after hand-editing so publish keeps your text -->
 <div align="center">
 
 # ⚡ TL Guppy Trend Zone Pro
@@ -22,34 +21,84 @@
 
 > Compiled build only — source code is not published.
 
-## Overview
+## ✨ Highlights
 
-What it is An independent EA + indicator built from the rules that are PUBLICLY described in the ANTSSYS "SuperGuppy" user guide (Daryl Guppy's GMMA concept). It is NOT the original ANTS software: the ANTS signal itself and the "Traders ATR" stop are proprietary and not published, so they are replaced here by clearly defined, open rules. No code or files of the original are used.
+- **Daryl Guppy's GMMA concept, as EA + indicator** — built from the rules publicly described in the ANTSSYS "SuperGuppy" user guide.
+- **Trend-coloured candles** — green / red / yellow from EMA 60 + WMA 60 versus the 300 EMA.
+- **Pullback-into-zone entries** — buy the reclaim of the fast GMMA group after a dip into the 300 EMA zone (and the mirror for sells).
+- **ADR-based targets** — take profit at the 100 % average-daily-range level; trades are skipped when the day's move is used up.
+- **Full trade management** — structure stop, ATR trailing after +1R, colour exit and risk-based lots.
+- **Animated canvas dashboard** with a BUY | SELL checklist of every condition.
 
-The building blocks (as described in the guide)
-- **Candle colour** — green  = EMA 60 AND WMA 60 above the 300 EMA (uptrend) red    = both below (downtrend) yellow = mixed - heads-up, the trend may be changing GMMA            Guppy multiple moving averages: fast group 3,5,8,10,12,15 / slow group 30-60 Zone            a band around the 300 EMA (guide: 10 pips each side). Default here: 1 x ATR(14) each side, so it works on every symbol (gold, indices, JPY pairs). Fixed pips selectable. Filters         stochastic oversold / overbought, MACD direction (both optional, like in the guide) ADR levels      25 / 50 / 75 / 100 % of the average daily range (5 days) from today's low and high
+## 🧠 Strategy rules
 
-The signal (my open replacement for the proprietary ANTS arrow)
-- **BUY** — 1. candle colour is green
-  - price pulled back into the zone in the last 5 bars and did not close below it
-  - a candle closes back ABOVE the whole GMMA fast group (trigger)
-  - MACD main above its signal line (filter, default on) optional: stochastic was oversold in the last 5 bars, whole slow GMMA group above the 300 EMA SELL exact mirror (red, zone touch from below, close below the fast group, MACD below signal) Signals use closed bars only - they never repaint.
+### Building blocks (as described in the guide)
 
-Trade management of the EA
-- **Stop loss** — beyond the low / high of the last 5 bars + 0.2 ATR (or a fixed ATR multiple) Take profit  ADR 100 % level (BUY: today's low + ADR, SELL: today's high - ADR). If that target is less than 1R away the day's move is used up -> trade skipped (or: use a 2R target / trade without TP - input) Trailing     ATR trailing stop (2.5 ATR from the best close) once the trade is +1R Colour exit  a long closes when a candle closes red, a short when it closes green Lots         1 % risk of the balance per trade (or fixed lots), one trade at a time
+| Block | Definition |
+|---|---|
+| **Candle colour** | 🟢 green = EMA 60 **and** WMA 60 above the 300 EMA (uptrend) · 🔴 red = both below (downtrend) · 🟡 yellow = mixed — heads-up, the trend may be changing |
+| **GMMA** | Guppy multiple moving averages: fast group 3, 5, 8, 10, 12, 15 / slow group 30–60 |
+| **Zone** | A band around the 300 EMA (guide: 10 pips each side). Default here: 1 × ATR(14) each side, so it works on every symbol (gold, indices, JPY pairs). Fixed pips selectable. |
+| **Filters** | Stochastic oversold / overbought and MACD direction (both optional, as in the guide) |
+| **ADR levels** | 25 / 50 / 75 / 100 % of the average daily range (5 days) from today's low and high |
 
-Installation
-- **MT5: MT5\Experts\TL Guppy Trend Zone Pro.ex5** — -> File > Open Data Folder > MQL5\Experts MT5\Indicators\TL Guppy Trend Zone Pro Indicator.ex5 -> MQL5\Indicators (optional, for manual use) The MT5 EA already contains the indicator and draws it on the chart by itself. MT4: MT4\Experts\TL Guppy Trend Zone Pro.ex4            -> MQL4\Experts MT4\Indicators\TL Guppy Trend Zone Pro Indicator.ex4 -> MQL4\Indicators In MT4 attach the indicator to the same chart for the drawing (MT4 EAs cannot add indicators). Restart the terminal or right-click the Navigator > Refresh. Enable "Allow DLL imports" if you want the YouTube / RoboForex / WhatsApp / Forex Factory buttons to open links (the EA trades without it).
+### The signal
 
-On the chart (indicator) Coloured candles (green / red / yellow), blue fast GMMA, orange slow GMMA, thick orange 300 EMA with the dotted zone, arrows = signals, grey lines = today's ADR levels, info strip with buttons. Data window / EA buffers: "Signal" (+1 buy, -1 sell, 0) and "Colour" (+1, -1, 0).
+The ANTS arrow is proprietary, so this is an open replacement:
 
-Dashboard (EA) trend colour, EMA/WMA 60 vs 300, GMMA state, zone + price position, a BUY | SELL checklist of every condition on the last closed bar, last signal and why it was (not) traded, ADR used today, ADR targets, stop / target / trailing settings, position, results, auto trading on/off, close all.
+> **BUY**
+> 1. Candle colour is green.
+> 2. Price pulled back into the zone in the last 5 bars and did not close below it.
+> 3. A candle closes back **above the whole fast GMMA group** (trigger).
+> 4. MACD main above its signal line (filter, default on).
+> 5. Optional: Stochastic was oversold in the last 5 bars; whole slow GMMA group above the 300 EMA.
+>
+> **SELL** — exact mirror: red colour, zone touch from below, close below the fast group, MACD below signal.
 
-Main inputs Timeframe, base EMA (300), trend MA (60), GMMA groups, zone mode ATR / pips, trigger (fast GMMA reclaim or breakout candle), filters on/off (colour, zone, slow GMMA, stochastic, MACD), stop mode, ADR days / level / min. reward:risk, R target, trailing on/off + distance + start, colour exit, risk % or fixed lots, max. open trades, max. spread, magic, alerts.
+Signals use closed bars only — they never repaint.
 
-Risk warning: no profit promise - trading involves high risk. Test on a demo account first.
+### Trade management (EA)
 
-trader.lifestyle - free tools thread on Forex Factory: <https://www.forexfactory.com/thread/1428808-free-eas-indicators-strategies-mt4>
+| Item | Rule |
+|---|---|
+| **Stop loss** | Beyond the low / high of the last 5 bars + 0.2 ATR (or a fixed ATR multiple) |
+| **Take profit** | ADR 100 % level (BUY: today's low + ADR, SELL: today's high − ADR). If that target is less than 1R away, the day's move is used up → trade skipped (or use a 2R target / no TP — input) |
+| **Trailing** | ATR trailing stop (2.5 ATR from the best close) once the position is +1R |
+| **Colour exit** | A long closes when a candle closes red, a short when it closes green |
+| **Lots** | 1 % risk of the balance per trade (or fixed lots), one position at a time |
+
+## 🖥️ Dashboard & chart
+
+**On the chart (indicator):** coloured candles (green / red / yellow), blue fast GMMA, orange slow GMMA, thick orange 300 EMA with the dotted zone, arrows = signals, grey lines = today's ADR levels, and an info strip with buttons. Data window / EA buffers: **"Signal"** (+1 buy, −1 sell, 0) and **"Colour"** (+1, −1, 0).
+
+**Dashboard (EA):** trend colour, EMA / WMA 60 vs 300, GMMA state, zone + price position, a BUY | SELL checklist of every condition on the last closed bar, last signal and why it was (not) traded, ADR used today, ADR targets, stop / target / trailing settings, position, results, auto trading on / off and close all.
+
+## ⚙️ Key inputs
+
+| Group | Inputs |
+|---|---|
+| **Trend** | Timeframe, base EMA (300), trend MA (60), GMMA groups |
+| **Zone & trigger** | Zone mode ATR / pips; trigger (fast GMMA reclaim or breakout candle) |
+| **Filters** | On / off for colour, zone, slow GMMA, Stochastic, MACD |
+| **Exits** | Stop mode; ADR days / level / min. reward:risk; R target; trailing on / off + distance + start; colour exit |
+| **Risk** | Risk % or fixed lots, max. open positions, max. spread, magic number, alerts |
+
+## 🛠️ Installation
+
+1. Open `File → Open Data Folder`.
+2. **MT5:** copy `TL Guppy Trend Zone Pro.ex5` to `MQL5 → Experts` and (optional, for manual use) `TL Guppy Trend Zone Pro Indicator.ex5` to `MQL5 → Indicators`. The MT5 EA already contains the indicator and draws it on the chart by itself.
+3. **MT4:** copy `TL Guppy Trend Zone Pro.ex4` to `MQL4 → Experts` and `TL Guppy Trend Zone Pro Indicator.ex4` to `MQL4 → Indicators`. In MT4, attach the indicator to the same chart for the drawing (MT4 EAs cannot add indicators).
+4. Restart the terminal, or right-click the Navigator → **Refresh**.
+5. Enable **"Allow DLL imports"** only if you want the YouTube / RoboForex / WhatsApp / Forex Factory buttons to open links — the EA trades without it.
+
+## 🙏 Credits
+
+Based on **Daryl Guppy's** GMMA concept and the rules publicly described in the **ANTSSYS "SuperGuppy"** user guide.
+
+## ⚠️ Notes
+
+- This is an independent build — **not** the original ANTS software. The ANTS signal and the "Traders ATR" stop are proprietary and unpublished, so they are replaced here by clearly defined, open rules. No code or files of the original are used.
+- No profit is promised — trading involves high risk. Test on a demo account first.
 
 ---
 

@@ -1,4 +1,3 @@
-<!-- auto-generated: remove this line after hand-editing so publish keeps your text -->
 <div align="center">
 
 # ⚡ TL HFT Swing Quant
@@ -19,24 +18,63 @@
 
 > Compiled build only — source code is not published.
 
-## Overview
+## ✨ Highlights
 
-Enable "Allow DLL imports" only if you want the RoboForex / WhatsApp / YouTube / Forex Factory buttons to open links.
+- **1:1 rebuild of the fxDreema project "HFT Swing Trade X"** (Boxxocode ep546) as a native MT5 EA.
+- **Tight-range box detection** — waits for the last 12 closed bars to fit into 30 pips, then draws the box.
+- **Signal-line cross entries** — BUY / SELL when the close crosses the box midline (or the box edges).
+- **Fixed SL 15 / TP 30 pips**, measured from the closing price just like fxDreema.
+- **Optional martingale lot ladder** with a hard lot cap — or plain fixed lots.
+- **Quant-style panel** that checks the fxDreema block blueprint live.
 
-## Rules (1:1 rebuild of the fxDreema project "HFT Swing Trade X", Boxxocode ep546)
+## 🧠 Strategy rules
 
-- No open position + the last 12 closed bars fit into 30 pips (highest high - lowest low) + the last close is inside that box -> Line High / Line Low are set, once per bar Line Signal = (High + Low) / 2. Three horizontal lines are drawn.
-- BUY : the last close crosses above Line Signal (or above Line High when Mode_ALL_signal = true). SELL: the last close crosses below Line Signal (or below Line Low).  Max one entry per bar.
-- SL 15 pips, TP 30 pips (measured from the closing price, like fxDreema).
-- Lot: Mode_Lots_X = martingale (look at the last trade: loss -> lot x 1.6, win -> back to Lot_start), Mode_Max_Lots = lot limit 0.5. Mode_Lots_X = false -> fixed Lot_start.
-- After every entry the lines are deleted and the variables reset to 0.
-- 1 pip = 10 points on 5/3 digit symbols and on gold (0.10). Override with "Points per pip".
+| Step | Rule |
+|---|---|
+| **Box** | No open position + the last 12 closed bars fit into 30 pips (highest high − lowest low) + the last close is inside that box → **Line High** / **Line Low** are set (once per bar). **Line Signal** = (High + Low) / 2. Three horizontal lines are drawn. |
+| **BUY** | The last close crosses above Line Signal (or above Line High when `Mode_ALL_signal = true`). |
+| **SELL** | The last close crosses below Line Signal (or below Line Low). |
+| **Limit** | Max. one entry per bar. |
+| **SL / TP** | SL 15 pips, TP 30 pips, measured from the closing price (like fxDreema). |
+| **Reset** | After every entry the lines are deleted and the variables reset to 0. |
 
-## Panel (quant style, collapsible with Min): execution, swing box state + range gauge, signal matrix,
+**Lot sizing:**
 
-box scope, martingale ladder, performance of this EA, the fxDreema block blueprint checked live. English tooltips on everything (switch off in the inputs).
+- `Mode_Lots_X = true` → martingale: after a losing position the lot is multiplied by 1.6; after a winner it goes back to `Lot_start`. `Mode_Max_Lots` caps the lot at 0.5.
+- `Mode_Lots_X = false` → fixed `Lot_start`.
 
-WARNING: martingale can wipe out an account. In our own test on XAUUSD M1 (real ticks, 2026) Not financial advice - backtests are no promise.
+**Pips:** 1 pip = 10 points on 5 / 3-digit symbols and on gold (0.10). Override with **"Points per pip"**.
+
+## 🖥️ Dashboard & chart
+
+Quant-style panel, collapsible with **Min**:
+
+- execution status
+- swing box state + range gauge
+- signal matrix
+- box scope
+- martingale ladder
+- performance of this EA
+- the fxDreema block blueprint, checked live
+
+English tooltips on everything (can be switched off in the inputs).
+
+## 🛠️ Installation
+
+1. Copy `TL HFT Swing Quant.ex5` to `File → Open Data Folder → MQL5 → Experts`.
+2. Refresh the Navigator and drag the EA onto a chart.
+3. Allow Algo Trading.
+4. Enable **"Allow DLL imports"** only if you want the RoboForex / WhatsApp / YouTube / Forex Factory buttons to open links.
+
+## 🙏 Credits
+
+Rebuilt from the fxDreema project **"HFT Swing Trade X"** shown in **Boxxocode** episode 546.
+
+## ⚠️ Notes
+
+- With martingale mode on, lot sizes grow after every loss and exposure can grow quickly. Keep the lot cap low and test on a demo account first.
+- The fixed 15 / 30-pip distances are not universal — other symbols and timeframes need their own distances.
+- Not financial advice. No profit is promised.
 
 ---
 

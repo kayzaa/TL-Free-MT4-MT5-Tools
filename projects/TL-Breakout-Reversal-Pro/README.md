@@ -1,4 +1,3 @@
-<!-- auto-generated: remove this line after hand-editing so publish keeps your text -->
 <div align="center">
 
 # ⚡ TL Breakout Reversal Pro
@@ -20,67 +19,95 @@
 
 > Compiled build only — source code is not published.
 
-## Overview
+## 💡 The idea
 
-"All you need to know about trading" - as an EA. Nothing else is in it.
+"All you need to know about trading" — as an EA. Nothing else is in it.
 
 - Price either goes up or down. No one knows what will happen next.
 - Keep losses small and let winners run.
-- POSITION SIZE = RISK / STOP LOSS.
+- **Position size = risk / stop loss.**
 - You control the size of your loss (skill), not the size of your win (luck).
 - Know when to pick up your chips and cash them in.
-- Expectancy = P(win) x average win - P(loss) x average loss. The only part you control is the average loss.
+- Expectancy = P(win) × average win − P(loss) × average loss. The only part you control is the average loss.
 
-## Price Action (price action rules quoted from H. Rearden on Forex Factory)
+## ✨ Highlights
 
-- Price breaks out of the high, the low or both of the previous bar
-- Price does not break out of the previous bar
-- Price closes above a level (line) or not It happens on every time frame.
+- **Three choices, nothing more** — WAIT, BREAKOUT or REVERSAL, set via inputs or straight from the dashboard buttons.
+- **Previous-bar levels** — trades the high / low of the previous bar (default: the previous **day**), drawn on any chart timeframe.
+- **Risk-based sizing** — lots are calculated from the stop distance, so the money at risk stays the same whether the stop is wide or tight.
+- **Cost guard** — skips trades where the spread eats too much of the stop.
+- **Let winners run** — no fixed target by default; a bar-by-bar trailing stop takes over after +1R.
+- **Live dashboard** — position size, spread cost, expectancy of closed trades and a CLOSE ALL button.
 
-## Entering A Trade - your Only 3 options (inputs or dashboard buttons)
+## 🧠 Strategy rules
 
-- WAIT      - no trade (open trades are still managed)
-- BREAKOUT  - price breaks the previous high -> BUY, the previous low -> SELL stop = the other end of the previous bar
-- REVERSAL  - price makes a new high and comes back below the previous high -> SELL (new low, back above the previous low -> BUY) stop = beyond the new extreme
+The price action rules (quoted from H. Rearden on Forex Factory) — on every timeframe, price does one of three things:
 
-## Timeframe
+- breaks out of the high, the low or both of the previous bar,
+- does not break out of the previous bar,
+- closes above a level (line) or not.
 
-Default: D1 = the previous DAY's high / low (works on any chart time frame, the lines are drawn on lower charts too). Any time frame can be set - but the smaller the bars, the more of every stop is eaten by the spread (see the cost guard below).
+From that come your only three options:
 
-## Trigger
+| Option | What happens | Stop loss |
+|---|---|---|
+| **WAIT** | No new trade (open trades are still managed). | — |
+| **BREAKOUT** | Price breaks the previous high → **BUY**; breaks the previous low → **SELL**. | The other end of the previous bar |
+| **REVERSAL** | Price makes a new high and comes back below the previous high → **SELL**; makes a new low and comes back above the previous low → **BUY**. | Beyond the new extreme |
 
-- **BREAK OF THE BAR** — - the trade opens the moment price breaks the line (tick by tick) CLOSE BEYOND LINE   - decided at the bar close: closed beyond the line = breakout, broke out but closed back inside = reversal One trade at a time, max. one entry per bar. A CLOSE signal that falls into a session break (e.g. gold at the day change) is executed at the first tick after the market opens.
+### Timeframe
 
-## Position Size = Risk / Stop Loss
+Default is **D1** — the previous day's high / low. It works on any chart timeframe; the lines are drawn on lower charts too. Any timeframe can be set, but the smaller the bars, the more of every stop is eaten by the spread (see the cost guard).
 
-Risk per trade in % of balance or a fixed amount. The lot size is calculated from the stop distance: wide stop = small size, tight stop = bigger size - the loss stays the same. If even the minimum lot would risk more than twice the allowed amount, the trade is skipped.
+### Trigger
 
-## Cost Guard (keep losses small)
+| Trigger | Behaviour |
+|---|---|
+| **Break of the bar** | The trade opens the moment price breaks the line (tick by tick). |
+| **Close beyond line** | Decided at the bar close: closed beyond the line = breakout; broke out but closed back inside = reversal. |
 
-The spread is part of every loss. If the spread costs more than 10 % of the stop (input, 0 = off), the trade is skipped - a stop that is mostly spread is not a trade. The dashboard shows the spread cost of the next BUY / SELL stop live.
+One trade at a time, max. one entry per bar. A close signal that falls into a session break (e.g. gold at the day change) is executed at the first tick after the market opens.
 
-## Let Winners Run - Cash In Your Chips
+### Position size = risk / stop loss
 
-No fixed target by default. At every bar close the stop trails behind the lowest low (BUY) / highest high (SELL) of the last 3 bars (input), starting after +1R. Optional take profit as an R multiple. CLOSE ALL button in the dashboard.
+Risk per trade is set in % of balance or as a fixed amount. The lot size is calculated from the stop distance: wide stop = small size, tight stop = bigger size — the loss stays the same. If even the minimum lot would risk more than twice the allowed amount, the trade is skipped.
 
-## Chart
+### Cost guard (keep losses small)
 
-Lines: previous bar high / low. Marks on every bar: green / red arrow = broke the previous high / low and closed beyond it (breakout)
-- **orange arrow** — = broke out but closed back inside (reversal) grey dot          = inside bar, no breakout
+The spread is part of every loss. If the spread costs more than 10 % of the stop (input, 0 = off), the trade is skipped — a stop that is mostly spread is not a trade. The dashboard shows the spread cost of the next BUY / SELL stop live.
 
-## Dashboard
+### Let winners run — cash in your chips
 
-Price action of the forming bar, the 3 option buttons + trigger, next BUY / SELL line, live position size (risk / stop = lots), expectancy of the closed trades, position, CLOSE ALL. Drag the header to move it, X closes it to a pill, click the pill to reopen.
+No fixed target by default. At every bar close the stop trails behind the lowest low (BUY) / highest high (SELL) of the last 3 bars (input), starting after +1R. An optional take profit can be set as an R multiple, and the dashboard has a **CLOSE ALL** button.
 
-## Install
+## 🖥️ Dashboard & chart
 
-- **MT5: copy MT5/Experts/TL Breakout Reversal Pro.ex5 to** — File > Open Data Folder > MQL5/Experts MT4: copy MT4/Experts/TL Breakout Reversal Pro.ex4 to  File > Open Data Folder > MQL4/Experts Refresh the Navigator, drag the EA onto a chart, allow Algo Trading. The link buttons need "Allow DLL imports". One magic number per chart.
+**Chart:** lines at the previous bar's high / low, plus a mark on every bar:
 
-## Risk Warning
+| Mark | Meaning |
+|---|---|
+| 🟢 / 🔴 arrow | Broke the previous high / low and closed beyond it (breakout) |
+| 🟠 orange arrow | Broke out but closed back inside (reversal) |
+| ⚪ grey dot | Inside bar, no breakout |
 
-Trading involves a high risk of loss. Test on a demo account first. No profit is promised - no one knows what will happen next.
+**Dashboard:** price action of the forming bar, the three option buttons + trigger, next BUY / SELL line, live position size (risk / stop = lots), expectancy of the closed trades, current position and CLOSE ALL. Drag the header to move it; **X** collapses it to a pill, click the pill to reopen.
 
-trader.lifestyle  -  <https://www.forexfactory.com/thread/1428808-free-eas-indicators-strategies-mt4>
+## 🛠️ Installation
+
+1. **MT5:** copy `MT5/TL Breakout Reversal Pro.ex5` to `File → Open Data Folder → MQL5 → Experts`.
+   **MT4:** copy `MT4/TL Breakout Reversal Pro.ex4` to `File → Open Data Folder → MQL4 → Experts`.
+2. Refresh the Navigator and drag the EA onto a chart.
+3. Allow Algo Trading.
+4. The dashboard's link buttons need **"Allow DLL imports"**.
+5. Use one magic number per chart.
+
+## 🙏 Credits
+
+Price action rules quoted from **H. Rearden** on Forex Factory.
+
+## ⚠️ Notes
+
+Trading involves a high risk of loss. Test on a demo account first. No profit is promised — no one knows what will happen next.
 
 ---
 

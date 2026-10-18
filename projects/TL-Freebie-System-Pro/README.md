@@ -1,4 +1,3 @@
-<!-- auto-generated: remove this line after hand-editing so publish keeps your text -->
 <div align="center">
 
 # ⚡ TL Freebie System Pro
@@ -19,59 +18,77 @@
 
 > Compiled build only — source code is not published.
 
-## Overview
+## ✨ Highlights
 
-Built after the Forex Factory thread "Price Action Trading with Indicators! The Freebie System" by Dredding82 (2011) <https://www.forexfactory.com/thread/276813-price-action-trading-with-indicators-the-freebie-system>
+- **The classic Forex Factory "Freebie System"** by Dredding82 (2011), turned into one MT5 Expert Advisor.
+- **One file, the whole template** — every indicator of the original template is calculated and drawn by the EA itself. Nothing else to install.
+- **Rule-by-rule checklist** — the panel shows YES / no for every BUY and SELL rule on the last closed candle.
+- **Higher-timeframe trend filter** — trade only with the trend of the next timeframe up.
+- **"Free trade" management** — half off at 1R and the stop to break even, as in the thread.
+- **Signal-only mode** — set *Trading ON* = false and use it as a pure signal / alert tool.
 
-ONE file (.ex5). All indicators of the original template are calculated and drawn by the EA itself - nothing else to install:
-- Heiken Ashi candles (the normal candles are hidden behind them)
-- Stochastic 10,3,3 (simple, close/close) in its own window
-- ZZ Semafor dots, 3 levels (5 / 13 / 34)
-- ZigZag line (12 / 5 / 3)
-- Fib pivots + mid pivots (daily on M1-H1, weekly on H4, monthly on D1 = "Myperiod")
-- Daily Range Calculator (ADR, range used today, expected high / low) in the panel
+## 📊 Built-in indicators
 
-## BUY - trade with the trend of a higher timeframe
+- **Heiken Ashi candles** (the normal candles are hidden behind them)
+- **Stochastic 10, 3, 3** (simple, close/close) in its own window
+- **ZZ Semafor dots**, 3 levels (5 / 13 / 34)
+- **ZigZag line** (12 / 5 / 3)
+- **Fib pivots + mid pivots** — daily on M1–H1, weekly on H4, monthly on D1 ("Myperiod")
+- **Daily Range Calculator** — ADR, range used today, expected high / low — in the panel
 
-- ZZ Semafor dot on the BOTTOM (within 1-3 candles)
-- Failed at a pivot: the candle touches / pierces a Fib pivot (1-5 pips are ok) and closes back ABOVE it
-- Stoch crossed UP
-- Heiken Ashi candle closed GREEN SL = last low (the semafor dot) + buffer TP = 1:1 - 1:4 risk:reward or the other pivots ("the Daily Range indicator will tell you what pivot to max profits")
-SELL = the mirror image. Everything is checked at CANDLE CLOSE.
+## 🧠 Strategy rules
 
-Money management (post #1041): risk 2% of the account, close 1/2 of the lots at 1:1, move the SL to break even -> "a free trade". Post #234: a trailing stop is safer when you leave the trade alone. Friday: no new trades after London close.
+The original rules — trade with the trend of a higher timeframe. Everything is checked at **candle close**.
 
-## How The EA Trades
+| | BUY | SELL |
+|---|---|---|
+| **Semafor** | ZZ Semafor dot at the bottom (within 1–3 candles) | Dot at the top |
+| **Pivot fail** | Candle touches / pierces a Fib pivot (1–5 pips is fine) and closes back **above** it | Closes back **below** it |
+| **Stochastic** | Crossed **up** | Crossed **down** |
+| **Heiken Ashi** | Candle closed **green** | Candle closed **red** |
+| **Stop loss** | Last low (the semafor dot) + buffer | Last high + buffer |
+| **Take profit** | 1:1 – 1:4 risk:reward or the other pivots — "the Daily Range indicator will tell you what pivot to max profits" | Mirror |
 
-- Signal = all enabled rules are true on the candle that just closed (and were not on the candle before). The trade opens at the start of the next candle.
-- Trend (default): colour of the last CLOSED Heiken Ashi candle of the higher TF (M1-M5 -> H1, M15-H1 -> H4, H4 -> D1, D1 -> W1). Other modes: higher highs / lower lows of the higher TF, EMA, or off.
-- SL: below / above the semafor dot (+2 pips buffer, min. 5 pips).
-- TP (default "pivot inside the daily range"): the farthest pivot that today's average daily range still allows, at least 1:1, at most 1:4. Other modes: next pivot, fixed R:R, none.
-- At 1R: 50% closed, SL to break even + 1 pip.
-- One trade at a time per chart (magic number).
+**Money management from the thread:**
 
-## Installation
+- Post #1041: risk 2 % of the account, close half the lots at 1:1 and move the stop to break even → "a free trade".
+- Post #234: a trailing stop is safer when you leave the position alone.
+- Friday: no new trades after the London close.
 
-- Copy "TL Freebie System Pro.ex5" into  File > Open Data Folder > MQL5 > Experts
-- Restart MT5 or right-click "Expert Advisors" in the Navigator > Refresh
-- Drag the EA onto a chart (e.g. EURUSD M15 or H1)
-- Tick "Allow Algo Trading" and "Allow DLL imports" (DLL only for the 3 link buttons)
-- Click "Algo Trading" in the toolbar
+### How the EA trades it
 
-- Set "Trading ON" = false to use it as a pure signal / alert tool.
+- **Signal** = all enabled rules are true on the candle that just closed (and were not on the candle before). The trade opens at the start of the next candle.
+- **Trend filter** (default): colour of the last *closed* Heiken Ashi candle of the higher timeframe (M1–M5 → H1, M15–H1 → H4, H4 → D1, D1 → W1). Other modes: higher highs / lower lows of the higher timeframe, EMA, or off.
+- **SL:** below / above the semafor dot (+2 pips buffer, min. 5 pips).
+- **TP** (default "pivot inside the daily range"): the farthest pivot that today's average daily range still allows — at least 1:1, at most 1:4. Other modes: next pivot, fixed R:R, none.
+- **At 1R:** 50 % closed, SL to break even + 1 pip.
+- **One trade at a time** per chart (magic number).
 
-## Panel
+## 🖥️ Dashboard & chart
 
-- Status: position, higher-TF trend, trading state, last signal
-- THE RULES: YES / no for BUY and SELL, rule by rule, for the last closed candle
-- Fib pivots + Daily Range: all levels, nearest level, ADR bar, expected high / low
-- Position (R multiple, SL, TP, partial done), results, chart history of the signals
-- Buttons: TRADING ON/PAUSED, CLOSE ALL, YOUTUBE, ROBOFOREX, WHATSAPP
-- Click "MYFXBOOK" to open the original thread. "–" minimises the panel.
+- **Status:** position, higher-TF trend, trading state, last signal.
+- **THE RULES:** YES / no for BUY and SELL, rule by rule, for the last closed candle.
+- **Fib pivots + Daily Range:** all levels, nearest level, ADR bar, expected high / low.
+- **Position:** R multiple, SL, TP, partial done, results, and a chart history of the signals.
+- **Buttons:** TRADING ON / PAUSED, CLOSE ALL, YOUTUBE, ROBOFOREX, WHATSAPP. Click **MYFXBOOK** to open the original thread; **–** minimises the panel.
 
-## Risk Warning
+## 🛠️ Installation
 
-Trading involves high risk. Past results are no guarantee. No profit promise. Test it on a demo account first - as Dredding82 said himself. See BACKTEST.txt for the backtest results.
+1. Copy `TL Freebie System Pro.ex5` to `File → Open Data Folder → MQL5 → Experts`.
+2. Restart MT5, or right-click **Expert Advisors** in the Navigator → **Refresh**.
+3. Drag the EA onto a chart (e.g. EURUSD M15 or H1).
+4. Tick **"Allow Algo Trading"** — and **"Allow DLL imports"** only if you want the link buttons to work.
+5. Click **Algo Trading** in the toolbar.
+
+Tip: set **Trading ON = false** to use it as a pure signal / alert tool.
+
+## 🙏 Credits
+
+Built after the Forex Factory thread [Price Action Trading with Indicators! The Freebie System](https://www.forexfactory.com/thread/276813-price-action-trading-with-indicators-the-freebie-system) by **Dredding82** (2011).
+
+## ⚠️ Notes
+
+Trading involves high risk and no profit is promised. Test it on a demo account first — as Dredding82 said himself.
 
 ---
 

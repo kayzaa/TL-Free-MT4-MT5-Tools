@@ -1,4 +1,3 @@
-<!-- auto-generated: remove this line after hand-editing so publish keeps your text -->
 <div align="center">
 
 # ⚡ TL Seconds Chart Pro
@@ -22,57 +21,79 @@
 
 > Compiled build only — source code is not published.
 
-## Overview
+## ✨ Highlights
 
-Real candle charts from S1 to S3600 (any list of seconds), built from real ticks and fed live. Indicators, drawing tools and EAs work on them like on any normal chart.
+- **Real candle charts from S1 to S3600** — any list of seconds, built from real ticks and fed live.
+- **Works like a normal chart** — indicators, drawing tools and EAs run on the seconds charts.
+- **One-click trading from the seconds chart** — orders go to the real symbol through the hub EA; drag SL / TP lines to modify.
+- **Real seconds time axis**, bar clock and a live market box (spread, ticks per second, range vs. average).
+- **Spike alerts** when a candle's range is a multiple of the average.
+- **Tick history** — MT5 downloads the broker tick history; MT4 builds its own 1-second database on disk.
 
-## Files
+## 📦 What's in the package
 
-- **MT5:** — Experts\TL Seconds Chart Pro.ex5              (the hub - feeds the seconds charts, executes trades) Indicators\TL Seconds Chart Pro Overlay.ex5   (panel on every seconds chart - attached automatically) MT4:  Experts\TL Seconds Chart Pro.ex4 Indicators\TL Seconds Chart Pro Overlay.ex4
+| File | Folder | Role |
+|---|---|---|
+| `TL Seconds Chart Pro.ex5` / `.ex4` | Experts | **The hub** — feeds the seconds charts and executes trades |
+| `TL Seconds Chart Pro Overlay.ex5` / `.ex4` | Indicators | **Panel on every seconds chart** — attached automatically |
 
-## Install
+## 🧠 How it works
 
-- File -> Open Data Folder -> MQL5 (MQL4). Copy the EA into Experts, the overlay into Indicators (both files, both folders - keep the overlay file name unchanged).
-- Navigator -> right click -> Refresh (no terminal restart needed).
-- Drag "TL Seconds Chart Pro" onto any chart of the symbol (any timeframe). Tick "Allow DLL imports" (link buttons; MT4 also needs it for the live refresh of the offline charts) and "Allow Algo Trading" if you want to trade from the seconds charts.
-- Click a timeframe button (S1 ... S30) in the panel -> the seconds chart opens. Keep the EA running on its chart - it feeds all seconds charts of that symbol.
+- **MT5:** every seconds timeframe is a custom symbol (e.g. `XAUUSD_S5`) that receives the real ticks. Each seconds candle is one M1 candle of that symbol on a synthetic minute clock — that is why standard indicators, drawings and EAs (OnTick) run on it, and you can even run an EA on the seconds candles in the Strategy Tester. The synthetic clock is stable, so your drawings stay in place after a restart. The overlay replaces the date scale with the real time axis.
+- **MT4:** every seconds timeframe is an offline chart (`symbol,M20005` = S5) with real timestamps, refreshed live. EAs on these charts receive ticks and trade the real symbol directly.
 
-## What You Get On Every Seconds Chart
+## 🖥️ Dashboard & chart
 
-- Timeframe buttons: switch the chart to another seconds timeframe (your indicators stay on it)
-- Real time axis with seconds + crosshair time tag (exact open time of every candle)
-- Bar clock: countdown to the candle close on the broker server clock
-- Market box: bid / ask, spread, ticks per second, candle range vs. average
-- One-click trade panel: lots or risk-% sizing, SL / TP in points, BUY / SELL, close all / winners / losers, breakeven. Orders go to the real symbol through the hub EA.
-- Position, pending order, SL and TP lines of the real symbol on the seconds chart. Select an SL or TP line and drag it -> the order is modified.
-- Spike alert: candle range = x times the average range (popup / sound / push) + arrow on the chart
-- Panels: X closes to a pill, click the pill to reopen, drag the header to move (position is saved)
+**On every seconds chart:**
 
-## Hub Panel (chart with the EA)
+- **Timeframe buttons** — switch the chart to another seconds timeframe (your indicators stay on it).
+- **Real time axis** with seconds + crosshair time tag (exact open time of every candle).
+- **Bar clock** — countdown to the candle close on the broker server clock.
+- **Market box** — bid / ask, spread, ticks per second, candle range vs. average.
+- **One-click trade panel** — lots or risk-% sizing, SL / TP in points, BUY / SELL, close all / winners / losers, breakeven.
+- **Order lines** — position, pending order, SL and TP lines of the real symbol. Select an SL or TP line and drag it → the order is modified.
+- **Spike alert** — candle range = x times the average range (popup / sound / push) + arrow on the chart.
+- **Panels** — X closes to a pill, click the pill to reopen, drag the header to move (position is saved).
 
-- Open / focus seconds charts, status of every chart (live, building, dormant), ticks per second
-- MT5: tick history loader - downloads the broker tick history of the last N days with progress
-- MT4: 1-second database - MT4 keeps no ticks, so the EA records every second to disk (MQL4\Files\TLSC\<symbol>\). History grows while the EA runs and survives terminal restarts.
+**Hub panel (chart with the EA):**
 
-## Inputs (EA)
+- Open / focus seconds charts; status of every chart (live, building, dormant); ticks per second.
+- **MT5:** tick history loader — downloads the broker tick history of the last N days, with progress.
+- **MT4:** 1-second database — MT4 keeps no ticks, so the EA records every second to disk (`MQL4\Files\TLSC\<symbol>\`). History grows while the EA runs and survives terminal restarts.
 
-Seconds timeframes ........ list of seconds 1-3600, e.g. "1,2,3,5,10,15,30,45,60,90" Open on start ............. seconds charts to open automatically, e.g. "5,15" History bars / max days ... depth of every seconds chart (default 5,000 bars, max 10 days of ticks) From date / To date ....... From only = live chart starting at that date. From + To = static chart of exactly that period (news review, own trades) Price ..................... Bid / Ask / Mid / Last Colors .................... dark quant, classic, or keep your terminal colors Trading ................... lots, risk %, SL, TP, magic, slippage, confirm every trade Alerts .................... spike factor, popup, sound, push
+## ⚙️ Key inputs
 
-## How It Works
+| Input | What it does |
+|---|---|
+| **Seconds timeframes** | List of seconds 1–3600, e.g. `1,2,3,5,10,15,30,45,60,90` |
+| **Open on start** | Seconds charts to open automatically, e.g. `5,15` |
+| **History bars / max days** | Depth of every seconds chart (default 5,000 bars, max 10 days of ticks) |
+| **From date / To date** | From only = live chart starting at that date. From + To = static chart of exactly that period (news review, own trades) |
+| **Price** | Bid / Ask / Mid / Last |
+| **Colors** | Dark quant, classic, or keep your terminal colours |
+| **Trading** | Lots, risk %, SL, TP, magic, slippage, confirm every trade |
+| **Alerts** | Spike factor, popup, sound, push |
 
-MT5: every seconds timeframe is a custom symbol (e.g. XAUUSD_S5) that receives the real ticks. Each seconds candle is one M1 candle of that symbol on a synthetic minute clock - that is why standard indicators, drawings and EAs (OnTick) run on it, and you can even backtest an EA on the seconds candles in the Strategy Tester. The synthetic clock is stable: your drawings stay in place after a restart. The overlay replaces the date scale with the real time axis. MT4: every seconds timeframe is an offline chart (symbol,M20005 = S5) with real timestamps, refreshed live. EAs on these charts receive ticks and trade the real symbol directly.
+## 🛠️ Installation
 
-## Strategy Tester (MT5)
+1. Open `File → Open Data Folder`.
+2. **MT5:** copy `TL Seconds Chart Pro.ex5` to `MQL5 → Experts` and `TL Seconds Chart Pro Overlay.ex5` to `MQL5 → Indicators`.
+   **MT4:** copy `TL Seconds Chart Pro.ex4` to `MQL4 → Experts` and `TL Seconds Chart Pro Overlay.ex4` to `MQL4 → Indicators`.
+   Both files are needed — keep the overlay file name unchanged.
+3. In the Navigator, right-click → **Refresh** (no terminal restart needed).
+4. Drag **TL Seconds Chart Pro** onto any chart of the symbol (any timeframe).
+5. Tick **"Allow DLL imports"** (link buttons; MT4 also needs it for the live refresh of the offline charts) and **"Allow Algo Trading"** if you want to trade from the seconds charts.
+6. Click a timeframe button (S1 … S30) in the panel → the seconds chart opens. Keep the EA running on its chart — it feeds all seconds charts of that symbol.
 
-Select the custom symbol (e.g. XAUUSD_S5), timeframe M1, model "Every tick based on real ticks" and the synthetic date range shown in the hub panel tooltip of that chart (around 1990.01.01). Tested: Moving Average example EA on XAUUSD_S5 -> 122,740 real ticks, 4,365 seconds candles, trades executed.
+## 🧪 Strategy Tester (MT5)
 
-## Notes
+Select the custom symbol (e.g. `XAUUSD_S5`), timeframe **M1**, model **"Every tick based on real ticks"** and the synthetic date range shown in the hub panel tooltip of that chart (around 1990.01.01).
 
-- An EA running on an MT5 seconds chart sees the custom symbol (XAUUSD_S5). To trade from it the EA must send its orders to the real symbol, or use the trade panel of the overlay.
-- Custom symbols / offline files stay after removing the EA, so the charts reopen instantly. To delete them: MT5 Symbols window -> Custom -> TL Seconds Chart; MT4 history folder files *2xxxx.hst.
+## ⚠️ Notes
+
+- An EA running on an MT5 seconds chart sees the custom symbol (`XAUUSD_S5`). To trade from it, the EA must send its orders to the real symbol — or use the overlay's trade panel.
+- Custom symbols / offline files stay after removing the EA, so the charts reopen instantly. To delete them: MT5 Symbols window → Custom → TL Seconds Chart; MT4 history folder files `*2xxxx.hst`.
 - Seconds with no tick produce no candle (like every tick-built chart).
-
-Free tool by trader.lifestyle - YouTube @traderlifestyle - Forex Factory thread: <https://www.forexfactory.com/thread/1428808-free-eas-indicators-strategies-mt4>
 
 ## 🖼️ More screenshots
 

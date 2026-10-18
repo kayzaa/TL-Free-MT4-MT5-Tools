@@ -1,4 +1,3 @@
-<!-- auto-generated: remove this line after hand-editing so publish keeps your text -->
 <div align="center">
 
 # ⚡ TL Trendline Bounce Pro
@@ -20,35 +19,61 @@
 
 > Compiled build only — source code is not published.
 
-## Overview
+## ✨ Highlights
 
-by Tori Trades (trend line bounce setup).
+- **Tori Trades' trendline bounce setup, automated** — the rules from the video, drawn and traded by one tool.
+- **Top-down trendlines** — from the monthly chart down to the 4h structure, refined on lower timeframes.
+- **Trend-only bounce entries** — BUY after a higher low, SELL after a lower high, when a candle closes on the right side of the line.
+- **Line-based risk** — the stop sits just beyond the line; the line must be violated for a loss.
+- **Ride the trend** — no fixed target; swing-based trailing plus an optional sideways-breakout stop jump.
+- **Two modes** — fully automatic EA, or an indicator mode with lines, signals, alerts and virtual trades only.
 
-## Install
+## 🔀 Mode (first input)
 
-- MT5: copy MT5/Experts/TL Trendline Bounce Pro.ex5 to  <Data folder>/MQL5/Experts/
-- MT4: copy MT4/Experts/TL Trendline Bounce Pro.ex4 to  <Data folder>/MQL4/Experts/ Restart or refresh the Navigator, drag it onto a chart (video: 15 min).
-- Enable "Allow DLL imports" for the panel buttons (links only).
+| Mode | Behaviour |
+|---|---|
+| **EA mode** | Trades automatically. |
+| **Indicator mode** | Lines, signals, alerts and virtual trades only — never sends orders. |
 
-## Mode (first input)
+## 🧠 Strategy rules (from the video)
 
-EA mode        - trades automatically Indicator mode - lines, signals, alerts and virtual trades only. Never sends orders.
+**Drawing the lines**
 
-## Rules (from the video)
+1. Top-down: monthly → weekly → daily → 4h → 1h → your timeframe.
+2. First down line from the highest point, first up line from the lowest point.
+3. Price may never intersect a line; capture as many touch points as possible.
+4. The last touch (point B) of a line is point A of the next, steeper line.
+5. New lines down to the 4h structure (point B = 4h swing); lower timeframes only refine.
 
-- Top-down: monthly -> weekly -> daily -> 4h -> 1h -> your timeframe.
-- First down line from the highest point, first up line from the lowest point.
-- Price may never intersect a line; capture as many touch points as possible.
-- The last touch (point B) of a line is point A of the next, steeper line.
-- New lines down to the 4h structure (point B = 4h swing), lower timeframes only refine.
-- Entry: price comes back "at or near" the line and the candle closes on the right side. Only with the trend (BUY after a higher low, SELL after a lower high). Max. 2 entries per line (entry + the bonus re-entry of the video).
-- Stop just beyond the line - the line must be violated for a loss.
-- Trailing: after every new swing the stop moves - but never inside the line. Sideways phase (extra rule, can be switched off): when price moves sideways in profit and then breaks out in the trade direction, the stop jumps below the phase (SELL: above it).
-- Exit: a candle closes on the other side of the line. No target (ride the trend).
+**Trading the bounce**
 
-All decisions on closed bars - no repaint. Strategy tester note: MT5 only provides about one year of history before the test start, so the monthly / weekly lines in the tester are shorter than on a live chart.
+| Item | Rule |
+|---|---|
+| **Entry** | Price comes back "at or near" the line and the candle closes on the right side. Only with the trend: BUY after a higher low, SELL after a lower high. |
+| **Max. entries** | 2 per line (entry + the bonus re-entry from the video). |
+| **Stop** | Just beyond the line — the line must be violated for a loss. |
+| **Trailing** | After every new swing the stop moves — but never inside the line. |
+| **Sideways phase** | Extra rule, can be switched off: when price moves sideways in profit and then breaks out in the trade direction, the stop jumps below the phase (SELL: above it). |
+| **Exit** | A candle closes on the other side of the line. No target — ride the trend. |
 
-Trading involves high risk. Test on a demo account first.
+All decisions are made on closed bars — no repaint.
+
+## 🛠️ Installation
+
+1. **MT5:** copy `MT5/TL Trendline Bounce Pro.ex5` to `File → Open Data Folder → MQL5 → Experts`.
+   **MT4:** copy `MT4/TL Trendline Bounce Pro.ex4` to `File → Open Data Folder → MQL4 → Experts`.
+2. Restart the terminal or refresh the Navigator.
+3. Drag it onto a chart (the video uses 15 min).
+4. Enable **"Allow DLL imports"** only for the panel buttons (links only).
+
+## 🙏 Credits
+
+Strategy by **Tori Trades** (trendline bounce setup).
+
+## ⚠️ Notes
+
+- The MT5 Strategy Tester only provides about one year of history before the start date, so the monthly / weekly lines there are shorter than on a live chart.
+- Trading involves high risk. Test on a demo account first.
 
 ---
 
