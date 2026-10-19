@@ -25,6 +25,7 @@ TL-Equilibrium-Pro|Hedge-cycle basket EA: one buy plus two sell-stop hedges per 
 TL-FibCloud-PB-Pro|Automated Fibonacci-cloud pullbacks — EA + indicator with cloud-touch and ambiguity filters.
 TL-Fibo-Compass-Pro|Daily Fibonacci compass from the previous D1 range: breakout, retrace, target and stop-trading levels with lasting arrows and a live dashboard.
 TL-Fibonacci-Cloud-Pro|Multi-timeframe Fibonacci cloud (port of TrendX_'s TradingView script) for MT4 and MT5.
+TL-Flat-Trend-Pro|FlatTrend Defolt rebuilt 1:1 for MT4/MT5 — the four-colour ADX + Parabolic SAR histogram — as an EA with BUY/SELL pills, SAR-flip exit and an optional Autotrade mode.
 TL-Freebie-System-Pro|Dredding82's Freebie system: Semafor + pivot fail + Stochastic + Heikin Ashi in one EA.
 TL-GAP-Matrix-Pro|28 pairs × 5 timeframes trend matrix plus GAP buyers / sellers strength on one full-chart dashboard.
 TL-Glory-SuperTrend-Pro|bush01's SuperTrend break EA — stop trails on the ATR line, optional MACD and RSI filters.

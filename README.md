@@ -4,7 +4,7 @@
 
 ### Expert Advisors & indicators built for the Forex Factory community — free, no lock, no expiry.
 
-![tools](https://img.shields.io/badge/tools-80-00e5ff?style=for-the-badge) ![Expert Advisors](https://img.shields.io/badge/Expert_Advisors-50-ffc400?style=for-the-badge) ![indicators](https://img.shields.io/badge/indicators-30-ffc400?style=for-the-badge) ![MT5 builds](https://img.shields.io/badge/MT5_builds-79-0d1117?style=for-the-badge) ![MT4 builds](https://img.shields.io/badge/MT4_builds-57-0d1117?style=for-the-badge) ![price](https://img.shields.io/badge/price-FREE-2ea043?style=for-the-badge)
+![tools](https://img.shields.io/badge/tools-81-00e5ff?style=for-the-badge) ![Expert Advisors](https://img.shields.io/badge/Expert_Advisors-51-ffc400?style=for-the-badge) ![indicators](https://img.shields.io/badge/indicators-30-ffc400?style=for-the-badge) ![MT5 builds](https://img.shields.io/badge/MT5_builds-80-0d1117?style=for-the-badge) ![MT4 builds](https://img.shields.io/badge/MT4_builds-58-0d1117?style=for-the-badge) ![price](https://img.shields.io/badge/price-FREE-2ea043?style=for-the-badge)
 
 [**Forex Factory thread**](https://www.forexfactory.com/thread/1428808-free-eas-indicators-strategies-mt4) · [**YouTube**](https://www.youtube.com/@traderlifestyle) · [**WhatsApp**](https://wa.me/18585003724)
 
@@ -29,7 +29,7 @@ Each one was rebuilt from scratch, extended with a modern animated dashboard and
 3. Right-click the Navigator → **Refresh**, drag the tool onto a chart.
 4. Tick **Allow DLL imports** if you want the YouTube / WhatsApp / Forex Factory buttons to open your browser.
 
-## 🤖 Expert Advisors (50)
+## 🤖 Expert Advisors (51)
 
 | | Tool | Platforms | What it does |
 |:---:|---|:---:|---|
@@ -46,6 +46,7 @@ Each one was rebuilt from scratch, extended with a modern animated dashboard and
 | <img src="projects/TL-Copy-Matrix-Pro/screenshots/TL_Copy_Matrix_Pro_live_receiver.png" width="180"> | **[TL Copy Matrix Pro](projects/TL-Copy-Matrix-Pro)**<br><sub>v1.00</sub> | MT5 | Local trade copier — one EA for sender and receiver, no DLL or server, smart lot sizing, symbol mapping and live copy-speed dashboard. |
 | <img src="projects/TL-Cross-Pullback-Pro/screenshots/Cross%20Pullback%20Pro%20-%20XAUUSD%20H4.png" width="180"> | **[TL Cross Pullback Pro](projects/TL-Cross-Pullback-Pro)**<br><sub>v1.10</sub> | MT4 MT5 | AlistairC's 8/21 EMA cross-and-pullback method, automated with a clean signal and trade panel. |
 | <img src="projects/TL-FibCloud-PB-Pro/screenshots/TL_FibCloud_PB_Pro_dashboard.png" width="180"> | **[TL FibCloud PB Pro](projects/TL-FibCloud-PB-Pro)**<br><sub>v1.00</sub> | MT4 MT5 | Automated Fibonacci-cloud pullbacks — EA + indicator with cloud-touch and ambiguity filters. |
+| <img src="projects/TL-Flat-Trend-Pro/screenshots/TL_Flat_Trend_Pro_screenshot.png" width="180"> | **[TL Flat Trend Pro](projects/TL-Flat-Trend-Pro)**<br><sub>v1.00</sub> | MT4 MT5 | FlatTrend Defolt rebuilt 1:1 for MT4/MT5 — the four-colour ADX + Parabolic SAR histogram — as an EA with BUY/SELL pills, SAR-flip exit and an optional Autotrade mode. |
 | <img src="projects/TL-Freebie-System-Pro/screenshots/TL_Freebie_System_Pro_fbs_shot_M15.png" width="180"> | **[TL Freebie System Pro](projects/TL-Freebie-System-Pro)**<br><sub>v1.00</sub> | MT5 | Dredding82's Freebie system: Semafor + pivot fail + Stochastic + Heikin Ashi in one EA. |
 |  | **[TL GAP Matrix Pro](projects/TL-GAP-Matrix-Pro)**<br><sub>v1.00</sub> | MT4 MT5 | 28 pairs × 5 timeframes trend matrix plus GAP buyers / sellers strength on one full-chart dashboard. |
 | <img src="projects/TL-Glory-SuperTrend-Pro/screenshots/TL_Glory_SuperTrend_Pro_panel.png" width="180"> | **[TL Glory SuperTrend Pro](projects/TL-Glory-SuperTrend-Pro)**<br><sub>v1.00</sub> | MT5 | bush01's SuperTrend break EA — stop trails on the ATR line, optional MACD and RSI filters. |
