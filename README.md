@@ -4,7 +4,7 @@
 
 ### Expert Advisors & indicators built for the Forex Factory community — free, no lock, no expiry.
 
-![tools](https://img.shields.io/badge/tools-81-00e5ff?style=for-the-badge) ![Expert Advisors](https://img.shields.io/badge/Expert_Advisors-51-ffc400?style=for-the-badge) ![indicators](https://img.shields.io/badge/indicators-30-ffc400?style=for-the-badge) ![MT5 builds](https://img.shields.io/badge/MT5_builds-80-0d1117?style=for-the-badge) ![MT4 builds](https://img.shields.io/badge/MT4_builds-58-0d1117?style=for-the-badge) ![price](https://img.shields.io/badge/price-FREE-2ea043?style=for-the-badge)
+![tools](https://img.shields.io/badge/tools-82-00e5ff?style=for-the-badge) ![Expert Advisors](https://img.shields.io/badge/Expert_Advisors-51-ffc400?style=for-the-badge) ![indicators](https://img.shields.io/badge/indicators-31-ffc400?style=for-the-badge) ![MT5 builds](https://img.shields.io/badge/MT5_builds-81-0d1117?style=for-the-badge) ![MT4 builds](https://img.shields.io/badge/MT4_builds-59-0d1117?style=for-the-badge) ![price](https://img.shields.io/badge/price-FREE-2ea043?style=for-the-badge)
 
 [**Forex Factory thread**](https://www.forexfactory.com/thread/1428808-free-eas-indicators-strategies-mt4) · [**YouTube**](https://www.youtube.com/@traderlifestyle) · [**WhatsApp**](https://wa.me/18585003724)
 
@@ -85,7 +85,7 @@ Each one was rebuilt from scratch, extended with a modern animated dashboard and
 | <img src="projects/TL-Wyckoff-Mitigation-Pro/screenshots/TL_WyckoffMitigationPro_screenshot.png" width="180"> | **[TL Wyckoff Mitigation Pro](projects/TL-Wyckoff-Mitigation-Pro)**<br><sub>v1.00</sub> | MT4 MT5 | Wyckoff distribution schematic + two-candle system: SA → UT / spring → flip → entry, with a phase tracker. Comes as an EA and as a pure indicator. |
 | <img src="projects/TL-Zero-Level-Sentinel-Pro/screenshots/TL_ZeroLevelSentinelPro_screenshot.png" width="180"> | **[TL Zero Level Sentinel Pro](projects/TL-Zero-Level-Sentinel-Pro)**<br><sub>v1.00</sub> | MT4 MT5 | Udine's "00 level trading" from Forex Factory plus the WSD / Market Sentinel filters from the thread, rebuilt as a 28-pair EA with a live rules checklist. |
 
-## 📈 Indicators & utilities (30)
+## 📈 Indicators & utilities (31)
 
 | | Tool | Platforms | What it does |
 |:---:|---|:---:|---|
@@ -114,6 +114,7 @@ Each one was rebuilt from scratch, extended with a modern animated dashboard and
 | <img src="projects/TL-Renko-Range-Bars-Pro/screenshots/TL_RenkoRangeBarsPro_Panel.png" width="180"> | **[TL Renko Range Bars Pro](projects/TL-Renko-Range-Bars-Pro)**<br><sub>v1.00</sub> | MT4 MT5 | Real Renko and range-bar charts for MT4 and MT5 that open as normal charts and are fed live tick by tick, so indicators and EAs run on them. |
 | <img src="projects/TL-Seconds-Chart-Pro/screenshots/TL_SecondsChartPro_MT5.png" width="180"> | **[TL Seconds Chart Pro](projects/TL-Seconds-Chart-Pro)**<br><sub>v1.00</sub> | MT4 MT5 | Real seconds charts (S1–S3600) for MT4 and MT5, built from live ticks, with one-click trading and full indicator/EA support. |
 | <img src="projects/TL-SuperSlope-Confluence-Pro/screenshots/TL%20SuperSlope%20Confluence%20Pro.png" width="180"> | **[TL SuperSlope Confluence Pro](projects/TL-SuperSlope-Confluence-Pro)**<br><sub>v3.0</sub> | MT4 | Baluda SuperSlope v2.2 with the repaint fixed: closed-bar arrows only when a confluence score of switchable filters agrees. |
+| <img src="projects/TL-Three-Star-Pullback-Pro/screenshots/TL_Three_Star_Pullback_Pro_signal.png" width="180"> | **[TL Three Star Pullback Pro](projects/TL-Three-Star-Pullback-Pro)**<br><sub>v1.00</sub> | MT4 MT5 | Smart-money pullbacks from the ComLucro Trader video: BOS by close, FVG and 38.2 % depth rated with 1-3 stars, NOISE vs REAL PULLBACK on the chart and a structure-only view. Indicator only. |
 | <img src="projects/TL-Trap-Arsenal-Quant/screenshots/TL_Trap_Arsenal_Quant_sheet_00.png" width="180"> | **[TL Trap Arsenal Quant](projects/TL-Trap-Arsenal-Quant)**<br><sub>v1.00</sub> | MT4 MT5 | Trap trading in one animated dashboard — 58 trap detectors, liquidity maps, scanner and risk tools, plus an optional trend-only gold auto trader. |
 | <img src="projects/TL-Trendline-Bounce-Pro/screenshots/TL%20Trendline%20Bounce%20Pro%20-%20XAUUSD%20M15.png" width="180"> | **[TL Trendline Bounce Pro](projects/TL-Trendline-Bounce-Pro)**<br><sub>v1.00</sub> | MT4 MT5 | Tori Trades' trendline bounce setup automated: top-down trendlines, trend-only bounce entries, line-based stops and trailing. |
 | <img src="projects/TL-Triple-Confluence-Gold-M5-Lab/screenshots/Screenshot_MT5.png" width="180"> | **[TL Triple Confluence Gold M5 Lab](projects/TL-Triple-Confluence-Gold-M5-Lab)**<br><sub>v1.20</sub> | MT4 MT5 | Trend-pullback analysis for gold M5: EMA 25/75/140 structure, ATR-based stops and clear signal pills. Indicator only. |

@@ -64,6 +64,7 @@ TL-Signal-Judge-Quant|Reads every indicator, arrow and level on your chart and s
 TL-Small-Matter-Pro|hayseed's top-down ladder system: weekly TSR bias, H4 ALMA trigger with zigzag confirmation, and a managed limit-order basket.
 TL-Smart-Bots-Pro|Rebuild of the "smart bots" reel, read frame by frame: signal circle on XAUUSD M1, then market order + 3 stop orders pyramiding with momentum.
 TL-SuperSlope-Confluence-Pro|Baluda SuperSlope v2.2 with the repaint fixed: closed-bar arrows only when a confluence score of switchable filters agrees.
+TL-Three-Star-Pullback-Pro|Smart-money pullbacks from the ComLucro Trader video: BOS by close, FVG and 38.2 % depth rated with 1-3 stars, NOISE vs REAL PULLBACK on the chart and a structure-only view. Indicator only.
 TL-TMS-Suite-Pro|Trading Made Simple suite — Big E's 5-method, arbinka's monitor and Seller9 tools on one screen.
 TL-Trade-Panel-Pro|One-click order panel: risk-based lots, draggable entry/SL/TP lines, pending orders, partial closes and auto break-even/trailing.
 TL-Trap-Arsenal-Quant|Trap trading in one animated dashboard — 58 trap detectors, liquidity maps, scanner and risk tools, plus an optional trend-only gold auto trader.
