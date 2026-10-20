@@ -79,3 +79,4 @@ TL-WaveTrend-Pro|WaveTrend oscillator with RHO Pro rules: closed-bar signals, wh
 TL-Weekly-Pivot-Pro|Davit's weekly Fibonacci pivots as an EA — 38 / 61 / 78 ladder, PP target and basket stop.
 TL-Wyckoff-Mitigation-Pro|Wyckoff distribution schematic + two-candle system: SA → UT / spring → flip → entry, with a phase tracker. Comes as an EA and as a pure indicator.
 TL-Zero-Level-Sentinel-Pro|Udine's "00 level trading" from Forex Factory plus the WSD / Market Sentinel filters from the thread, rebuilt as a 28-pair EA with a live rules checklist.
+TL-Avery-Holo-Pro|HOLO reversal workspace with selectable EA/indicator operation, a separate pure indicator and read-only historical replay with a speed slider.

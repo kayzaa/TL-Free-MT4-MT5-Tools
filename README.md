@@ -4,7 +4,7 @@
 
 ### Expert Advisors & indicators built for the Forex Factory community — free, no lock, no expiry.
 
-![tools](https://img.shields.io/badge/tools-82-00e5ff?style=for-the-badge) ![Expert Advisors](https://img.shields.io/badge/Expert_Advisors-51-ffc400?style=for-the-badge) ![indicators](https://img.shields.io/badge/indicators-31-ffc400?style=for-the-badge) ![MT5 builds](https://img.shields.io/badge/MT5_builds-81-0d1117?style=for-the-badge) ![MT4 builds](https://img.shields.io/badge/MT4_builds-59-0d1117?style=for-the-badge) ![price](https://img.shields.io/badge/price-FREE-2ea043?style=for-the-badge)
+![tools](https://img.shields.io/badge/tools-83-00e5ff?style=for-the-badge) ![Expert Advisors](https://img.shields.io/badge/Expert_Advisors-52-ffc400?style=for-the-badge) ![indicators](https://img.shields.io/badge/indicators-31-ffc400?style=for-the-badge) ![MT5 builds](https://img.shields.io/badge/MT5_builds-82-0d1117?style=for-the-badge) ![MT4 builds](https://img.shields.io/badge/MT4_builds-60-0d1117?style=for-the-badge) ![price](https://img.shields.io/badge/price-FREE-2ea043?style=for-the-badge)
 
 [**Forex Factory thread**](https://www.forexfactory.com/thread/1428808-free-eas-indicators-strategies-mt4) · [**YouTube**](https://www.youtube.com/@traderlifestyle) · [**WhatsApp**](https://wa.me/18585003724)
 
@@ -29,13 +29,14 @@ Each one was rebuilt from scratch, extended with a modern animated dashboard and
 3. Right-click the Navigator → **Refresh**, drag the tool onto a chart.
 4. Tick **Allow DLL imports** if you want the YouTube / WhatsApp / Forex Factory buttons to open your browser.
 
-## 🤖 Expert Advisors (51)
+## 🤖 Expert Advisors (52)
 
 | | Tool | Platforms | What it does |
 |:---:|---|:---:|---|
 |  | **[TL ATM Machine Pro](projects/TL-ATM-Machine-Pro)**<br><sub>v1.00</sub> | MT5 | nkpoette's 3-CCI "ATM Machine" from Forex Factory as one MT5 EA — stop-and-reverse on CCI 140/100/42, all three CCI windows built into the panel. |
 | <img src="projects/TL-Adaptive-Trend-Sweep-Pro/screenshots/TL_Adaptive_Trend_Sweep_Pro_XAUUSD_M1_tlats_scale1.png" width="180"> | **[TL Adaptive Trend Sweep Pro](projects/TL-Adaptive-Trend-Sweep-Pro)**<br><sub>v1.09</sub> | MT4 MT5 | Machine-learning adaptive SuperTrend + Nadaraya-Watson liquidity sweeps, automated as an EA with live signal dashboard. |
 | <img src="projects/TL-Auction-Edge-Pro/screenshots/TL_AuctionEdgePro_screenshot.png" width="180"> | **[TL Auction Edge Pro](projects/TL-Auction-Edge-Pro)**<br><sub>v1.00</sub> | MT5 | Auction market theory EA for MT5: value area, POC and LVN, scored edge setups and R-based risk on an animated trading desk. |
+| <img src="projects/TL-Avery-Holo-Pro/screenshots/Avery_Quant_Suite.png" width="180"> | **[TL Avery Holo Pro](projects/TL-Avery-Holo-Pro)**<br><sub>v1.00</sub> | MT4 MT5 | HOLO reversal workspace with selectable EA/indicator operation, a separate pure indicator and read-only historical replay with a speed slider. |
 | <img src="projects/TL-Big-Bull-Fire-EA/screenshots/TL_BigBullFireEA_screenshot.png" width="180"> | **[TL Big Bull Fire EA](projects/TL-Big-Bull-Fire-EA)**<br><sub>v1.00</sub> | MT4 MT5 | The BigBull System 2.0 automated: trades the signal-line arrows with a trend filter, ATR risk tools, news filter and an animated fire-bull chart. |
 | <img src="projects/TL-Breakout-Reversal-Pro/screenshots/TL_Breakout_Reversal_Pro_XAUUSD_H1_brp_shot.png" width="180"> | **[TL Breakout Reversal Pro](projects/TL-Breakout-Reversal-Pro)**<br><sub>v1.10</sub> | MT4 MT5 | "All you need to know about trading" as an EA — small losses, running winners, position size = risk / stop. |
 | <img src="projects/TL-Bulk-SL-TP-Pro/screenshots/TL_BulkSLTPPro_screenshot.png" width="180"> | **[TL Bulk SL TP Pro](projects/TL-Bulk-SL-TP-Pro)**<br><sub>v1.00</sub> | MT5 | Drag ONE line and every open position gets the same stop loss or take profit — without closing anything. |
