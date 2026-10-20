@@ -4,7 +4,7 @@
 
 ### Expert Advisors & indicators built for the Forex Factory community — free, no lock, no expiry.
 
-![tools](https://img.shields.io/badge/tools-83-00e5ff?style=for-the-badge) ![Expert Advisors](https://img.shields.io/badge/Expert_Advisors-52-ffc400?style=for-the-badge) ![indicators](https://img.shields.io/badge/indicators-31-ffc400?style=for-the-badge) ![MT5 builds](https://img.shields.io/badge/MT5_builds-82-0d1117?style=for-the-badge) ![MT4 builds](https://img.shields.io/badge/MT4_builds-60-0d1117?style=for-the-badge) ![price](https://img.shields.io/badge/price-FREE-2ea043?style=for-the-badge)
+![tools](https://img.shields.io/badge/tools-84-00e5ff?style=for-the-badge) ![Expert Advisors](https://img.shields.io/badge/Expert_Advisors-53-ffc400?style=for-the-badge) ![indicators](https://img.shields.io/badge/indicators-31-ffc400?style=for-the-badge) ![MT5 builds](https://img.shields.io/badge/MT5_builds-83-0d1117?style=for-the-badge) ![MT4 builds](https://img.shields.io/badge/MT4_builds-61-0d1117?style=for-the-badge) ![price](https://img.shields.io/badge/price-FREE-2ea043?style=for-the-badge)
 
 [**Forex Factory thread**](https://www.forexfactory.com/thread/1428808-free-eas-indicators-strategies-mt4) · [**YouTube**](https://www.youtube.com/@traderlifestyle) · [**WhatsApp**](https://wa.me/18585003724)
 
@@ -29,7 +29,7 @@ Each one was rebuilt from scratch, extended with a modern animated dashboard and
 3. Right-click the Navigator → **Refresh**, drag the tool onto a chart.
 4. Tick **Allow DLL imports** if you want the YouTube / WhatsApp / Forex Factory buttons to open your browser.
 
-## 🤖 Expert Advisors (52)
+## 🤖 Expert Advisors (53)
 
 | | Tool | Platforms | What it does |
 |:---:|---|:---:|---|
@@ -46,6 +46,7 @@ Each one was rebuilt from scratch, extended with a modern animated dashboard and
 | <img src="projects/TL-Color-Flip-Pro/screenshots/screenshot.png" width="180"> | **[TL Color Flip Pro](projects/TL-Color-Flip-Pro)**<br><sub>v1.00</sub> | MT5 | The GJ "Holygrail" colour-flip system as a one-file MT5 EA: alternating basket, equity-target close and an animated 3D coin panel. |
 | <img src="projects/TL-Copy-Matrix-Pro/screenshots/TL_Copy_Matrix_Pro_live_receiver.png" width="180"> | **[TL Copy Matrix Pro](projects/TL-Copy-Matrix-Pro)**<br><sub>v1.00</sub> | MT5 | Local trade copier — one EA for sender and receiver, no DLL or server, smart lot sizing, symbol mapping and live copy-speed dashboard. |
 | <img src="projects/TL-Cross-Pullback-Pro/screenshots/Cross%20Pullback%20Pro%20-%20XAUUSD%20H4.png" width="180"> | **[TL Cross Pullback Pro](projects/TL-Cross-Pullback-Pro)**<br><sub>v1.10</sub> | MT4 MT5 | AlistairC's 8/21 EMA cross-and-pullback method, automated with a clean signal and trade panel. |
+| <img src="projects/TL-FibCloud-EDB-Suite/screenshots/TL_FibCloud_EDB_Suite_signal.png" width="180"> | **[TL FibCloud EDB Suite](projects/TL-FibCloud-EDB-Suite)**<br><sub>v1.00</sub> | MT4 MT5 | Sagat1977's KK FibCloud PB v2 + EDB channel pullback strategy as one EA: box trend, plasma Fib cloud, WPR trigger, X exit, SIGNALS / MANUAL / AUTO and a full-chart 11-symbol x 5-timeframe scanner suite. |
 | <img src="projects/TL-FibCloud-PB-Pro/screenshots/TL_FibCloud_PB_Pro_dashboard.png" width="180"> | **[TL FibCloud PB Pro](projects/TL-FibCloud-PB-Pro)**<br><sub>v1.00</sub> | MT4 MT5 | Automated Fibonacci-cloud pullbacks — EA + indicator with cloud-touch and ambiguity filters. |
 | <img src="projects/TL-Flat-Trend-Pro/screenshots/TL_Flat_Trend_Pro_screenshot.png" width="180"> | **[TL Flat Trend Pro](projects/TL-Flat-Trend-Pro)**<br><sub>v1.00</sub> | MT4 MT5 | FlatTrend Defolt rebuilt 1:1 for MT4/MT5 — the four-colour ADX + Parabolic SAR histogram — as an EA with BUY/SELL pills, SAR-flip exit and an optional Autotrade mode. |
 | <img src="projects/TL-Freebie-System-Pro/screenshots/TL_Freebie_System_Pro_fbs_shot_M15.png" width="180"> | **[TL Freebie System Pro](projects/TL-Freebie-System-Pro)**<br><sub>v1.00</sub> | MT5 | Dredding82's Freebie system: Semafor + pivot fail + Stochastic + Heikin Ashi in one EA. |

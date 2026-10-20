@@ -80,3 +80,4 @@ TL-Weekly-Pivot-Pro|Davit's weekly Fibonacci pivots as an EA — 38 / 61 / 78 la
 TL-Wyckoff-Mitigation-Pro|Wyckoff distribution schematic + two-candle system: SA → UT / spring → flip → entry, with a phase tracker. Comes as an EA and as a pure indicator.
 TL-Zero-Level-Sentinel-Pro|Udine's "00 level trading" from Forex Factory plus the WSD / Market Sentinel filters from the thread, rebuilt as a 28-pair EA with a live rules checklist.
 TL-Avery-Holo-Pro|HOLO reversal workspace with selectable EA/indicator operation, a separate pure indicator and read-only historical replay with a speed slider.
+TL-FibCloud-EDB-Suite|Sagat1977's KK FibCloud PB v2 + EDB channel pullback strategy as one EA: box trend, plasma Fib cloud, WPR trigger, X exit, SIGNALS / MANUAL / AUTO and a full-chart 11-symbol x 5-timeframe scanner suite.
