@@ -4,7 +4,7 @@
 
 ### Expert Advisors & indicators built for the Forex Factory community — free, no lock, no expiry.
 
-![tools](https://img.shields.io/badge/tools-84-00e5ff?style=for-the-badge) ![Expert Advisors](https://img.shields.io/badge/Expert_Advisors-53-ffc400?style=for-the-badge) ![indicators](https://img.shields.io/badge/indicators-31-ffc400?style=for-the-badge) ![MT5 builds](https://img.shields.io/badge/MT5_builds-83-0d1117?style=for-the-badge) ![MT4 builds](https://img.shields.io/badge/MT4_builds-61-0d1117?style=for-the-badge) ![price](https://img.shields.io/badge/price-FREE-2ea043?style=for-the-badge)
+![tools](https://img.shields.io/badge/tools-85-00e5ff?style=for-the-badge) ![Expert Advisors](https://img.shields.io/badge/Expert_Advisors-54-ffc400?style=for-the-badge) ![indicators](https://img.shields.io/badge/indicators-31-ffc400?style=for-the-badge) ![MT5 builds](https://img.shields.io/badge/MT5_builds-84-0d1117?style=for-the-badge) ![MT4 builds](https://img.shields.io/badge/MT4_builds-62-0d1117?style=for-the-badge) ![price](https://img.shields.io/badge/price-FREE-2ea043?style=for-the-badge)
 
 [**Forex Factory thread**](https://www.forexfactory.com/thread/1428808-free-eas-indicators-strategies-mt4) · [**YouTube**](https://www.youtube.com/@traderlifestyle) · [**WhatsApp**](https://wa.me/18585003724)
 
@@ -29,7 +29,7 @@ Each one was rebuilt from scratch, extended with a modern animated dashboard and
 3. Right-click the Navigator → **Refresh**, drag the tool onto a chart.
 4. Tick **Allow DLL imports** if you want the YouTube / WhatsApp / Forex Factory buttons to open your browser.
 
-## 🤖 Expert Advisors (53)
+## 🤖 Expert Advisors (54)
 
 | | Tool | Platforms | What it does |
 |:---:|---|:---:|---|
@@ -79,6 +79,7 @@ Each one was rebuilt from scratch, extended with a modern animated dashboard and
 | <img src="projects/TL-Smart-Bots-Pro/screenshots/TL_Smart_Bots_Pro_XAUUSD_M1_sbp_shot.png" width="180"> | **[TL Smart Bots Pro](projects/TL-Smart-Bots-Pro)**<br><sub>v1.00</sub> | MT4 MT5 | Rebuild of the "smart bots" reel, read frame by frame: signal circle on XAUUSD M1, then market order + 3 stop orders pyramiding with momentum. |
 | <img src="projects/TL-TMS-Suite-Pro/screenshots/TL_TMS_Suite_Pro_m30_real_c3_grab_1.png" width="180"> | **[TL TMS Suite Pro](projects/TL-TMS-Suite-Pro)**<br><sub>v1.10</sub> | MT4 MT5 | Trading Made Simple suite — Big E's 5-method, arbinka's monitor and Seller9 tools on one screen. |
 | <img src="projects/TL-Trade-Panel-Pro/screenshots/TL_Trade_Panel_Pro_XAUUSD_tlv_8_final.png" width="180"> | **[TL Trade Panel Pro](projects/TL-Trade-Panel-Pro)**<br><sub>v1.00</sub> | MT4 MT5 | One-click order panel: risk-based lots, draggable entry/SL/TP lines, pending orders, partial closes and auto break-even/trailing. |
+| <img src="projects/TL-Transient-Zones-Pro/screenshots/TL_Transient_Zones_Pro_zone.png" width="180"> | **[TL Transient Zones Pro](projects/TL-Transient-Zones-Pro)**<br><sub>v1.00</sub> | MT4 MT5 | Freefox's Transient Zones rebuilt 1:1 plus Vlady1974's Uneven Transient Zones 'present price' entry as one EA: 3D zones with UTZ ratio, live forming zone, UTZ support / resistance and SIGNALS / MANUAL / AUTO. |
 | <img src="projects/TL-Trendline-Scalper-Pro/screenshots/TL_Trendline_Scalper_Pro_XAUUSD_M5_tsp_shot.png" width="180"> | **[TL Trendline Scalper Pro](projects/TL-Trendline-Scalper-Pro)**<br><sub>v1.00</sub> | MT4 MT5 | swilliam's TMT trendline system, fully automatic: auto-drawn swing trendlines, the used-line rule and every option from the thread. |
 | <img src="projects/TL-Volume-Fib-Sniper-Pro/screenshots/TL_VolumeFibSniperPro_screenshot.png" width="180"> | **[TL Volume Fib Sniper Pro](projects/TL-Volume-Fib-Sniper-Pro)**<br><sub>v1.00</sub> | MT4 MT5 | Volume profile + Fibonacci sniper entry automated: impulse profile, 0.5–0.618 entry zone with volume, target at the 1.618 extension. |
 | <img src="projects/TL-Volume-Pulse-Pro/screenshots/Volume%20Pulse%20Pro%20-%20XAUUSD%20H1.png" width="180"> | **[TL Volume Pulse Pro](projects/TL-Volume-Pulse-Pro)**<br><sub>v1.10</sub> | MT4 MT5 | Own volume-pulse oscillator EA: SMA 200 bias, entry on the second closed pulse bar after a zero cross. |
