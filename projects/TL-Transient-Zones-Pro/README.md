@@ -5,7 +5,7 @@
 
 **Freefox's Transient Zones rebuilt 1:1 plus Vlady1974's Uneven Transient Zones 'present price' entry as one EA: 3D zones with UTZ ratio, live forming zone, UTZ support / resistance and SIGNALS / MANUAL / AUTO.**
 
-![version](https://img.shields.io/badge/version-v1.10-00e5ff?style=for-the-badge) ![type](https://img.shields.io/badge/type-Expert_Advisor-ffc400?style=for-the-badge) ![platform](https://img.shields.io/badge/platform-MT4-0d1117?style=for-the-badge) ![platform](https://img.shields.io/badge/platform-MT5-0d1117?style=for-the-badge) ![price](https://img.shields.io/badge/price-FREE-2ea043?style=for-the-badge) ![license](https://img.shields.io/badge/license-no_lock_·_no_expiry-8957e5?style=for-the-badge)
+![version](https://img.shields.io/badge/version-v1.11-00e5ff?style=for-the-badge) ![type](https://img.shields.io/badge/type-Expert_Advisor-ffc400?style=for-the-badge) ![platform](https://img.shields.io/badge/platform-MT4-0d1117?style=for-the-badge) ![platform](https://img.shields.io/badge/platform-MT5-0d1117?style=for-the-badge) ![price](https://img.shields.io/badge/price-FREE-2ea043?style=for-the-badge) ![license](https://img.shields.io/badge/license-no_lock_·_no_expiry-8957e5?style=for-the-badge)
 
 </div>
 
@@ -45,6 +45,9 @@ What I added (TL)
 - Chart design: 3D zones lit from the central bar, rims, shadows, glowing extremes, BUY / SELL pills, dark theme (restored on removal). Hover any zone or pill for an explanation box.
 - Standard TL dashboard: drag the header, X folds it to a pill, more columns on low charts, moves away from other TL panels automatically.
 
+New in v1.11
+- Lot size on the dashboard: - / value / + (step 0.01 / 0.1 / 1 / 10, never below the broker step). Used by BUY / SELL and by AUTO trades, remembered per chart. With "AUTO: risk %" > 0 the AUTO trades use the % risk size instead (max lots caps it).
+
 New in v1.10
 - High-DPI screens (2K / 4K laptops with Windows scaling 125-300 %): dashboard, hover boxes and chart marks now scale with the screen, text always fits. Input "Size of dashboard + chart marks": Auto (default) or a fixed 100-300 %.
 - Chart buttons (bottom right): SIGNALS ON / OFF shows or hides the BUY / SELL pills, HEIKIN ASHI ON / OFF switches Heikin Ashi candles (display only - zones and signals always use the real candles). Start states are inputs, the last state is remembered.
@@ -54,7 +57,7 @@ New in v1.10
 Dashboard
 - **Header** — links, idea link to the Forex Factory post Transient zones  state (TOP / BOTTOM FORMING n/h, signal), last top and bottom with UTZ ratio and age, forming zones, nearest UTZ resistance / support Entry checklist  left side formed, N right bars held, uneven, alternation - BUY / SELL Trade            position, today / week, SIGNALS / MANUAL / AUTO, BUY / SELL / CLOSE ALL
 
-Inputs (most important) h 10, combine zones true, bars 1500 Right-side bars 3, uneven filter on, alternation off, min zone 0 ATR Start mode SIGNALS, lots 0.01 (or risk %), stop = zone extreme + 0.2 ATR (max 4 ATR), target 2R, break-even at 1R, close on opposite signal, max spread 0.5 ATR Zones, S/R lines (6 nearest, length), signals, Heikin Ashi, chart buttons, chart colours, UI size (Auto / 100-300 %), animation, panel position, tooltips
+Inputs (most important) h 10, combine zones true, bars 1500 Right-side bars 3, uneven filter on, alternation off, min zone 0 ATR Start mode SIGNALS, lot size 0.01 (change it on the dashboard; AUTO can use risk % instead), stop = zone extreme + 0.2 ATR (max 4 ATR), target 2R, break-even at 1R, close on opposite signal, max spread 0.5 ATR Zones, S/R lines (6 nearest, length), signals, Heikin Ashi, chart buttons, chart colours, UI size (Auto / 100-300 %), animation, panel position, tooltips
 
 Installation
 - **MT5: copy "TL Transient Zones Pro.ex5" to** — <data folder>\MQL5\Experts\ MT4: copy "TL Transient Zones Pro.ex4" to  <data folder>\MQL4\Experts\ (File -> Open Data Folder). Refresh the Navigator, drag the EA onto a chart. Tick "Allow DLL imports" - only used to open the link buttons in your browser. For MANUAL / AUTO enable Algo Trading (MT5) / AutoTrading (MT4).
@@ -69,8 +72,8 @@ trader.lifestyle - YouTube <https://www.youtube.com/@traderlifestyle> Forex Fact
 
 <img src="screenshots/TL_Transient_Zones_Pro_v110_ha.png" width="49%">
 <img src="screenshots/TL_Transient_Zones_Pro_zone.png" width="49%">
-<img src="screenshots/TL_Transient_Zones_Pro_signal.png" width="49%">
 <img src="screenshots/TL_Transient_Zones_Pro_mini.png" width="49%">
+<img src="screenshots/TL_Transient_Zones_Pro_signal.png" width="49%">
 
 ---
 
