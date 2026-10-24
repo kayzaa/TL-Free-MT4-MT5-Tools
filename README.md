@@ -4,7 +4,7 @@
 
 ### Expert Advisors & indicators built for the Forex Factory community — free, no lock, no expiry.
 
-![tools](https://img.shields.io/badge/tools-85-00e5ff?style=for-the-badge) ![Expert Advisors](https://img.shields.io/badge/Expert_Advisors-54-ffc400?style=for-the-badge) ![indicators](https://img.shields.io/badge/indicators-31-ffc400?style=for-the-badge) ![MT5 builds](https://img.shields.io/badge/MT5_builds-84-0d1117?style=for-the-badge) ![MT4 builds](https://img.shields.io/badge/MT4_builds-62-0d1117?style=for-the-badge) ![price](https://img.shields.io/badge/price-FREE-2ea043?style=for-the-badge)
+![tools](https://img.shields.io/badge/tools-86-00e5ff?style=for-the-badge) ![Expert Advisors](https://img.shields.io/badge/Expert_Advisors-55-ffc400?style=for-the-badge) ![indicators](https://img.shields.io/badge/indicators-31-ffc400?style=for-the-badge) ![MT5 builds](https://img.shields.io/badge/MT5_builds-85-0d1117?style=for-the-badge) ![MT4 builds](https://img.shields.io/badge/MT4_builds-63-0d1117?style=for-the-badge) ![price](https://img.shields.io/badge/price-FREE-2ea043?style=for-the-badge)
 
 [**Forex Factory thread**](https://www.forexfactory.com/thread/1428808-free-eas-indicators-strategies-mt4) · [**YouTube**](https://www.youtube.com/@traderlifestyle) · [**WhatsApp**](https://wa.me/18585003724)
 
@@ -29,7 +29,7 @@ Each one was rebuilt from scratch, extended with a modern animated dashboard and
 3. Right-click the Navigator → **Refresh**, drag the tool onto a chart.
 4. Tick **Allow DLL imports** if you want the YouTube / WhatsApp / Forex Factory buttons to open your browser.
 
-## 🤖 Expert Advisors (54)
+## 🤖 Expert Advisors (55)
 
 | | Tool | Platforms | What it does |
 |:---:|---|:---:|---|
@@ -64,6 +64,7 @@ Each one was rebuilt from scratch, extended with a modern animated dashboard and
 | <img src="projects/TL-KenneDyne-DRIVE-EA/screenshots/TL_KenneDyneDRIVE_screenshot.png" width="180"> | **[TL KenneDyne DRIVE EA](projects/TL-KenneDyne-DRIVE-EA)**<br><sub>v1.00</sub> | MT5 | KenneDyne's D.R.I.V.E. framework with Engulfing Killer Order Block entries at the POI, built from the channel's own posts. Made for gold. |
 |  | **[TL Liquidity Reaper Pro](projects/TL-Liquidity-Reaper-Pro)**<br><sub>v1.00</sub> | MT5 | Independent MetaTrader implementation of the published Liquidity Reaper [JOAT] rules — requested on Forex Factory. |
 | <img src="projects/TL-Liquidity-Tracker-Pro/screenshots/TL_Liquidity_Tracker_Pro_shot_H4_prev.png" width="180"> | **[TL Liquidity Tracker Pro](projects/TL-Liquidity-Tracker-Pro)**<br><sub>v1.00</sub> | MT5 | Maps monthly, weekly, daily, swing and session liquidity and trades the video's Sweep and Run setups with WaveTrend and volume checks. |
+| <img src="projects/TL-M1-Countertrend-Pro/screenshots/TL_M1_Countertrend_Pro_signal.png" width="180"> | **[TL M1 Countertrend Pro](projects/TL-M1-Countertrend-Pro)**<br><sub>v1.00</sub> | MT4 MT5 | The M1 Countertrend Scalping Strategy (FF thread 1190104, Abade / King of Forex EMA method) as one EA: fade overextensions beyond the 9/20/50 EMA, 9 EMA re-entries with a fixed lot, exit at the EMA touch, basket stop and SIGNALS / MANUAL / AUTO. |
 |  | **[TL News Arsenal Quant](projects/TL-News-Arsenal-Quant)**<br><sub>v1.00</sub> | MT4 MT5 | A complete news-trading cockpit — calendar, spike, surprise, macro, headlines and risk tools in one animated panel. Never auto-trades. |
 | <img src="projects/TL-POC-Reaction-Pro/screenshots/TL_POC_Reaction_Pro_XAUUSD_M5_tlprp_shot.png" width="180"> | **[TL POC Reaction Pro](projects/TL-POC-Reaction-Pro)**<br><sub>v1.00</sub> | MT5 | Trades closed reaction candles at confluent daily POC zones and targets today's POC — never enters a zone blindly. |
 |  | **[TL POC Retest Pro](projects/TL-POC-Retest-Pro)**<br><sub>v1.00</sub> | MT4 MT5 | What it is An EA that trades the "accumulation -> volume profile POC -> retest" pattern shown in two short videos that were posted as a request on Forex Fact… |
