@@ -4,7 +4,7 @@
 
 ### Expert Advisors & indicators built for the Forex Factory community — free, no lock, no expiry.
 
-![tools](https://img.shields.io/badge/tools-87-00e5ff?style=for-the-badge) ![Expert Advisors](https://img.shields.io/badge/Expert_Advisors-56-ffc400?style=for-the-badge) ![indicators](https://img.shields.io/badge/indicators-31-ffc400?style=for-the-badge) ![MT5 builds](https://img.shields.io/badge/MT5_builds-86-0d1117?style=for-the-badge) ![MT4 builds](https://img.shields.io/badge/MT4_builds-64-0d1117?style=for-the-badge) ![price](https://img.shields.io/badge/price-FREE-2ea043?style=for-the-badge)
+![tools](https://img.shields.io/badge/tools-88-00e5ff?style=for-the-badge) ![Expert Advisors](https://img.shields.io/badge/Expert_Advisors-57-ffc400?style=for-the-badge) ![indicators](https://img.shields.io/badge/indicators-31-ffc400?style=for-the-badge) ![MT5 builds](https://img.shields.io/badge/MT5_builds-87-0d1117?style=for-the-badge) ![MT4 builds](https://img.shields.io/badge/MT4_builds-65-0d1117?style=for-the-badge) ![price](https://img.shields.io/badge/price-FREE-2ea043?style=for-the-badge)
 
 [**Forex Factory thread**](https://www.forexfactory.com/thread/1428808-free-eas-indicators-strategies-mt4) · [**YouTube**](https://www.youtube.com/@traderlifestyle) · [**WhatsApp**](https://wa.me/18585003724)
 
@@ -29,7 +29,7 @@ Each one was rebuilt from scratch, extended with a modern animated dashboard and
 3. Right-click the Navigator → **Refresh**, drag the tool onto a chart.
 4. Tick **Allow DLL imports** if you want the YouTube / WhatsApp / Forex Factory buttons to open your browser.
 
-## 🤖 Expert Advisors (56)
+## 🤖 Expert Advisors (57)
 
 | | Tool | Platforms | What it does |
 |:---:|---|:---:|---|
@@ -53,6 +53,7 @@ Each one was rebuilt from scratch, extended with a modern animated dashboard and
 |  | **[TL GAP Matrix Pro](projects/TL-GAP-Matrix-Pro)**<br><sub>v1.00</sub> | MT4 MT5 | 28 pairs × 5 timeframes trend matrix plus GAP buyers / sellers strength on one full-chart dashboard. |
 | <img src="projects/TL-Glory-SuperTrend-Pro/screenshots/TL_Glory_SuperTrend_Pro_panel.png" width="180"> | **[TL Glory SuperTrend Pro](projects/TL-Glory-SuperTrend-Pro)**<br><sub>v1.00</sub> | MT5 | bush01's SuperTrend break EA — stop trails on the ATR line, optional MACD and RSI filters. |
 |  | **[TL Gold Arsenal Quant](projects/TL-Gold-Arsenal-Quant)**<br><sub>v1.00</sub> | MT4 MT5 | 106 XAUUSD tools in one animated dashboard — levels, SMC, quant, macro, news and risk — each switchable on or off; nothing trades automatically. |
+| <img src="projects/TL-Gold-Trinity-Pro/screenshots/TL_Gold_Trinity_Pro_signal.png" width="180"> | **[TL Gold Trinity Pro](projects/TL-Gold-Trinity-Pro)**<br><sub>v1.00</sub> | MT4 MT5 | Smart Risk's three gold scalping setups as one EA: S1 sweep + order block + IFVG, S2 supply / demand + breaker, S3 CHoCH + FVG + IFVG. The TRINITY RATING scores every setup live and only the top rated strategy trades. Created with IndicatorGenius.com. |
 | <img src="projects/TL-Gold-Velocity-Pro/screenshots/TL_Gold_Velocity_Pro_gvp_panel_compact_preview.png" width="180"> | **[TL Gold Velocity Pro](projects/TL-Gold-Velocity-Pro)**<br><sub>v1.00</sub> | MT5 | Tick-by-tick gold burst detector — ride the move or trade the rebound, with tick-precise trailing, a Greed Shield and a news/DXY bias score. |
 | <img src="projects/TL-Guppy-Trend-Zone-Pro/screenshots/TL_GuppyTrendZonePro_screenshot.png" width="180"> | **[TL Guppy Trend Zone Pro](projects/TL-Guppy-Trend-Zone-Pro)**<br><sub>v1.00</sub> | MT4 MT5 | Daryl Guppy's GMMA as EA + indicator: trend-coloured candles, pullback entries into the 300 EMA zone, ADR targets and ATR trailing. |
 | <img src="projects/TL-H1-Sweep-Reversal-Pro/screenshots/TL_H1SweepReversalPro_chart.png" width="180"> | **[TL H1 Sweep Reversal Pro](projects/TL-H1-Sweep-Reversal-Pro)**<br><sub>v1.00</sub> | MT4 MT5 | H1 liquidity sweep followed by an M5 reversal entry — Silkysilv's method automated. |
