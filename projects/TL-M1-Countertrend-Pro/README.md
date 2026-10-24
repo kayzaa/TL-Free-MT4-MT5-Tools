@@ -5,7 +5,7 @@
 
 **The M1 Countertrend Scalping Strategy (FF thread 1190104, Abade / King of Forex EMA method) as one EA: fade overextensions beyond the 9/20/50 EMA, 9 EMA re-entries with a fixed lot, exit at the EMA touch, basket stop and SIGNALS / MANUAL / AUTO.**
 
-![version](https://img.shields.io/badge/version-v1.01-00e5ff?style=for-the-badge) ![type](https://img.shields.io/badge/type-Expert_Advisor-ffc400?style=for-the-badge) ![platform](https://img.shields.io/badge/platform-MT4-0d1117?style=for-the-badge) ![platform](https://img.shields.io/badge/platform-MT5-0d1117?style=for-the-badge) ![price](https://img.shields.io/badge/price-FREE-2ea043?style=for-the-badge) ![license](https://img.shields.io/badge/license-no_lock_·_no_expiry-8957e5?style=for-the-badge)
+![version](https://img.shields.io/badge/version-v1.02-00e5ff?style=for-the-badge) ![type](https://img.shields.io/badge/type-Expert_Advisor-ffc400?style=for-the-badge) ![platform](https://img.shields.io/badge/platform-MT4-0d1117?style=for-the-badge) ![platform](https://img.shields.io/badge/platform-MT5-0d1117?style=for-the-badge) ![price](https://img.shields.io/badge/price-FREE-2ea043?style=for-the-badge) ![license](https://img.shields.io/badge/license-no_lock_·_no_expiry-8957e5?style=for-the-badge)
 
 </div>
 
@@ -23,6 +23,10 @@
 ## Overview
 
 Created with IndicatorGenius.com  ->  <https://indicatorgenius.com/>
+
+New in v1.02
+- Bid and ask line now in ONE colour (new input "Bid + ask line colour", None = theme colour) - no more two different lines at the price.
+- Spread filter for every symbol: forex and metals in pips as before; crypto and indices (e.g. ETHUSD, US30) compare the spread with the needed entry distance (max 50 %, input). Before, a crypto spread of a few hundred points blocked every AUTO entry. Thanks to gringo2019 for the feedback (FF post #340).
 
 New in v1.01
 - Chart theme input: Dark (TL style), Light (white chart) or Off (keep your own colours).
@@ -58,7 +62,8 @@ Inputs (main groups)
 
 Good to know
 - Made for M1 (M5 also works). Pairs with a low spread; the thread mostly used EURUSD, GBPUSD, USDCAD, EURGBP, later also gold. JPY crosses and news spikes are known as hard for countertrend trading.
-- Pips: 5 / 3 digit symbols = 10 points, gold = 0.10, silver = 0.01. For indices or crypto set "Max spread" to 0 or to a value in points.
+- Pips: 5 / 3 digit symbols = 10 points, gold = 0.10, silver = 0.01. Crypto / indices: the spread limit is a share of the entry distance (input, default 50 %).
+- Dollar cost averaging (several entries): AUTO adds re-entries by itself (max entries input, default 6, same lot each). In MANUAL, click BUY / SELL again while a basket of the same direction is open - every click adds one entry with the dashboard lot.
 - Averaging adds risk: in a long trend the basket can grow to the maximum number of entries before price comes back. The basket stop and the last-chance exit limit this, they cannot remove it. Use small lots.
 - Netting accounts (MT5): all entries are one position; the EA counts the entries itself.
 - News: the EA has no news calendar - stay away from high-impact news yourself or use the session filter.
@@ -78,6 +83,7 @@ Risk notice Trading leveraged products carries a high risk of loss. This EA is a
 ## 🖼️ More screenshots
 
 <img src="screenshots/TL_M1_Countertrend_Pro_signal.png" width="49%">
+<img src="screenshots/TL_M1_Countertrend_Pro_v102_ethusd.png" width="49%">
 <img src="screenshots/TL_M1_Countertrend_Pro_mini.png" width="49%">
 
 ---
