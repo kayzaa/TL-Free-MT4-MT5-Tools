@@ -5,11 +5,11 @@
 
 **The M1 Countertrend Scalping Strategy (FF thread 1190104, Abade / King of Forex EMA method) as one EA: fade overextensions beyond the 9/20/50 EMA, 9 EMA re-entries with a fixed lot, exit at the EMA touch, basket stop and SIGNALS / MANUAL / AUTO.**
 
-![version](https://img.shields.io/badge/version-v1.00-00e5ff?style=for-the-badge) ![type](https://img.shields.io/badge/type-Expert_Advisor-ffc400?style=for-the-badge) ![platform](https://img.shields.io/badge/platform-MT4-0d1117?style=for-the-badge) ![platform](https://img.shields.io/badge/platform-MT5-0d1117?style=for-the-badge) ![price](https://img.shields.io/badge/price-FREE-2ea043?style=for-the-badge) ![license](https://img.shields.io/badge/license-no_lock_·_no_expiry-8957e5?style=for-the-badge)
+![version](https://img.shields.io/badge/version-v1.01-00e5ff?style=for-the-badge) ![type](https://img.shields.io/badge/type-Expert_Advisor-ffc400?style=for-the-badge) ![platform](https://img.shields.io/badge/platform-MT4-0d1117?style=for-the-badge) ![platform](https://img.shields.io/badge/platform-MT5-0d1117?style=for-the-badge) ![price](https://img.shields.io/badge/price-FREE-2ea043?style=for-the-badge) ![license](https://img.shields.io/badge/license-no_lock_·_no_expiry-8957e5?style=for-the-badge)
 
 </div>
 
-<p align="center"><img src="screenshots/TL_M1_Countertrend_Pro_signal.png" alt="TL M1 Countertrend Pro" width="100%"></p>
+<p align="center"><img src="screenshots/TL_M1_Countertrend_Pro_light.png" alt="TL M1 Countertrend Pro" width="100%"></p>
 
 ## 📥 Download
 
@@ -21,6 +21,13 @@
 > Compiled build only — source code is not published.
 
 ## Overview
+
+Created with IndicatorGenius.com  ->  <https://indicatorgenius.com/>
+
+New in v1.01
+- Chart theme input: Dark (TL style), Light (white chart) or Off (keep your own colours).
+- The EMA ribbons and distance lines switch to stronger, darker colours on a light chart - also with "Off" on your own white chart.
+- No line graph any more, faint grid, bid and ask lines clearly visible in both themes. Thanks to gringo2019 for the feedback (FF post #336).
 
 What it is One Expert Advisor for MetaTrader 4 and MetaTrader 5 that trades the "M1 Countertrend Scalping Strategy" from Forex Factory (thread 1190104, started by Abade in November 2022, based on the EMA method of "King of Forex"). The thread has more than 19,000 posts - I read all of them and built the rules of post #1 into a mechanical EA, plus the risk rules the thread worked out over four years. All credit for the strategy goes to Abade, King of Forex, cpfleger, niks and everybody in the thread who shared rules, charts and lessons.
 
@@ -36,7 +43,7 @@ What I added (TL)
 - The risk layer the thread asked for again and again: fixed lot per entry, max entries, growing re-entry gap, optional "tough trend" guard (no re-entry after N bars without an EMA 9 touch - from the KoF tough-trend notes), basket stop in % of balance with a pause, last-chance exit, Friday close, spread limit, magic number.
 - Trading modes on the dashboard: SIGNALS (no orders), MANUAL (BUY / SELL / CLOSE ALL buttons - the EA manages the exit and the basket stop), AUTO. Start mode = input, default SIGNALS.
 - Lot size: dashboard - / + (step 0.01 / 0.1 / 1 / 10) or lots per 1,000 of balance (KoF / Abade: 0.01 per 1,000).
-- Chart design: glowing EMA ribbons, the 9/20/50 EMA cluster tinted by the EMA stack (green bull, red bear, grey = "stuck"), BUY / SELL distance lines, BUY / SELL pills, re-entry tags (+2, +3 ...), exit tags with the basket path and the pips per entry. Live basket: average line, exit EMA, next re-entry level and the basket-stop level. Dark theme, restored on removal. Hover any mark for an explanation box.
+- Chart design: glowing EMA ribbons, the 9/20/50 EMA cluster tinted by the EMA stack (green bull, red bear, grey = "stuck"), BUY / SELL distance lines, BUY / SELL pills, re-entry tags (+2, +3 ...), exit tags with the basket path and the pips per entry. Live basket: average line, exit EMA, next re-entry level and the basket-stop level. Dark or Light theme (or your own colours), restored on removal. Hover any mark for an explanation box.
 - Standard TL dashboard: EMA map with distance gauge, entry checklist (BUY / SELL), basket, trade block. Drag the header, X folds it to a pill, more columns on low charts, moves away from other TL panels automatically. Works on 2K / 4K screens.
 - Chart buttons SIGNALS ON / OFF and BANDS ON / OFF (display only).
 
@@ -46,7 +53,7 @@ Inputs (main groups)
 - Re-entries    max entries, 9 EMA cross on/off, gap in ATR, gap growth, tough-trend guard.
 - Exit & risk   exit EMA, minimum profit, last chance, basket stop %, pause, hard stop.
 - Trading       start mode, direction, lot mode, lot, lots per 1,000, max spread, session, no-overnight hour, Friday close, magic, slippage.
-- Display       theme, EMA ribbons, bands, marks, chart buttons, colours, animation, size (Auto / 100-300 %), dashboard position, auto-avoid, tooltips.
+- Display       theme Dark / Light / Off, EMA ribbons, bands, marks, chart buttons, colours, animation, size (Auto / 100-300 %), dashboard position, auto-avoid, tooltips.
 - Alerts        popup, sound, push.
 
 Good to know
@@ -61,6 +68,8 @@ Installation
 
 Package MT4/Experts/TL M1 Countertrend Pro.ex4 MT5/Experts/TL M1 Countertrend Pro.ex5 README_EN.txt
 
+Credits Strategy: Abade, King of Forex, cpfleger, niks and the M1 Countertrend thread. EA, risk layer, dashboard and chart design: trader.lifestyle Created with IndicatorGenius.com - <https://indicatorgenius.com/>
+
 Links
 - **YouTube** — <https://www.youtube.com/@traderlifestyle> WhatsApp  <https://wa.me/18585003724> My free tools on Forex Factory: <https://www.forexfactory.com/thread/1428808-free-eas-indicators-strategies-mt4> Strategy thread: <https://www.forexfactory.com/thread/1190104-m1-countertrend-scalping-strategy>
 
@@ -68,6 +77,7 @@ Risk notice Trading leveraged products carries a high risk of loss. This EA is a
 
 ## 🖼️ More screenshots
 
+<img src="screenshots/TL_M1_Countertrend_Pro_signal.png" width="49%">
 <img src="screenshots/TL_M1_Countertrend_Pro_mini.png" width="49%">
 
 ---
