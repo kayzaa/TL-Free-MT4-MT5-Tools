@@ -4,7 +4,7 @@
 
 ### Expert Advisors & indicators built for the Forex Factory community — free, no lock, no expiry.
 
-![tools](https://img.shields.io/badge/tools-90-00e5ff?style=for-the-badge) ![Expert Advisors](https://img.shields.io/badge/Expert_Advisors-59-ffc400?style=for-the-badge) ![indicators](https://img.shields.io/badge/indicators-31-ffc400?style=for-the-badge) ![MT5 builds](https://img.shields.io/badge/MT5_builds-89-0d1117?style=for-the-badge) ![MT4 builds](https://img.shields.io/badge/MT4_builds-67-0d1117?style=for-the-badge) ![price](https://img.shields.io/badge/price-FREE-2ea043?style=for-the-badge)
+![tools](https://img.shields.io/badge/tools-91-00e5ff?style=for-the-badge) ![Expert Advisors](https://img.shields.io/badge/Expert_Advisors-59-ffc400?style=for-the-badge) ![indicators](https://img.shields.io/badge/indicators-32-ffc400?style=for-the-badge) ![MT5 builds](https://img.shields.io/badge/MT5_builds-90-0d1117?style=for-the-badge) ![MT4 builds](https://img.shields.io/badge/MT4_builds-68-0d1117?style=for-the-badge) ![price](https://img.shields.io/badge/price-FREE-2ea043?style=for-the-badge)
 
 [**Forex Factory thread**](https://www.forexfactory.com/thread/1428808-free-eas-indicators-strategies-mt4) · [**YouTube**](https://www.youtube.com/@traderlifestyle) · [**WhatsApp**](https://wa.me/18585003724)
 
@@ -93,7 +93,7 @@ Each one was rebuilt from scratch, extended with a modern animated dashboard and
 | <img src="projects/TL-Wyckoff-Mitigation-Pro/screenshots/TL_WyckoffMitigationPro_screenshot.png" width="180"> | **[TL Wyckoff Mitigation Pro](projects/TL-Wyckoff-Mitigation-Pro)**<br><sub>v1.00</sub> | MT4 MT5 | Wyckoff distribution schematic + two-candle system: SA → UT / spring → flip → entry, with a phase tracker. Comes as an EA and as a pure indicator. |
 | <img src="projects/TL-Zero-Level-Sentinel-Pro/screenshots/TL_ZeroLevelSentinelPro_screenshot.png" width="180"> | **[TL Zero Level Sentinel Pro](projects/TL-Zero-Level-Sentinel-Pro)**<br><sub>v1.00</sub> | MT4 MT5 | Udine's "00 level trading" from Forex Factory plus the WSD / Market Sentinel filters from the thread, rebuilt as a 28-pair EA with a live rules checklist. |
 
-## 📈 Indicators & utilities (31)
+## 📈 Indicators & utilities (32)
 
 | | Tool | Platforms | What it does |
 |:---:|---|:---:|---|
@@ -111,6 +111,7 @@ Each one was rebuilt from scratch, extended with a modern animated dashboard and
 | <img src="projects/TL-Equilibrium-Pro/screenshots/TL_EquilibriumPro_Panel.png" width="180"> | **[TL Equilibrium Pro](projects/TL-Equilibrium-Pro)**<br><sub>v1.00</sub> | MT5 | Hedge-cycle basket EA: one buy plus two sell-stop hedges per cycle, one shared basket money target, and bigger follow-up cycles by distance. |
 | <img src="projects/TL-Fibo-Compass-Pro/screenshots/TL_Fibo_Compass_Pro_fcp_6_H1.png" width="180"> | **[TL Fibo Compass Pro](projects/TL-Fibo-Compass-Pro)**<br><sub>v1.00</sub> | MT4 MT5 | Daily Fibonacci compass from the previous D1 range: breakout, retrace, target and stop-trading levels with lasting arrows and a live dashboard. |
 | <img src="projects/TL-Fibonacci-Cloud-Pro/screenshots/TL%20Fibonacci%20Cloud%20Pro%20-%20XAUUSD%20D1%20(W1%20cloud).png" width="180"> | **[TL Fibonacci Cloud Pro](projects/TL-Fibonacci-Cloud-Pro)**<br><sub>v1.00</sub> | MT4 MT5 | Multi-timeframe Fibonacci cloud (port of TrendX_'s TradingView script) for MT4 and MT5. |
+| <img src="projects/TL-G-Matrix-Pro/screenshots/TL_GMatrix_Pro_MT4.png" width="180"> | **[TL G-Matrix Pro](projects/TL-G-Matrix-Pro)**<br><sub>v1.00</sub> | MT4 MT5 | Original-style blue/red fast arrows and trend band, reconstructed for MT4/MT5. The centered trend repaints. |
 | <img src="projects/TL-Gold-Levels-Liquidity-Pro/screenshots/TL_GoldLevelsLiquidityPro_screenshot.png" width="180"> | **[TL Gold Levels Liquidity Pro](projects/TL-Gold-Levels-Liquidity-Pro)**<br><sub>v1.00</sub> | MT4 MT5 | Gold levels from the GLD options market, a bond (ZN) direction filter, a live spread-liquidity monitor and sweep entries. |
 | <img src="projects/TL-Liquidity-Sweep-Pro/screenshots/TL_Liquidity_Sweep_Pro_tllsp_M5_s3.png" width="180"> | **[TL Liquidity Sweep Pro](projects/TL-Liquidity-Sweep-Pro)**<br><sub>v1.00</sub> | MT4 MT5 | Maps BSL/SSL and EQH/EQL liquidity, grades every sweep 0–100 and confirms with CHoCH — stop, TP1–TP3 and break-even included. Never repaints. |
 | <img src="projects/TL-MTF-Six-MA-Pro/screenshots/TL_MTFSixMAPro_FF.png" width="180"> | **[TL MTF Six MA Pro](projects/TL-MTF-Six-MA-Pro)**<br><sub>v1.00</sub> | MT4 MT5 | Six moving averages across multiple timeframes — trend alignment at a glance. |
