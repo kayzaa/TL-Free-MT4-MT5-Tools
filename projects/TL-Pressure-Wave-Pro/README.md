@@ -5,7 +5,7 @@
 
 **The Scruffy Trader's entry system as one EA: hourly MACD 24/52/18 + RSI 28 trend filter ('pressure wave'), entry on M15 / M5 at the touch or cross of the 8 'T line', 25-pip target, swing stop, break-even. Created with IndicatorGenius.com.**
 
-![version](https://img.shields.io/badge/version-v1.00-00e5ff?style=for-the-badge) ![type](https://img.shields.io/badge/type-Expert_Advisor-ffc400?style=for-the-badge) ![platform](https://img.shields.io/badge/platform-MT4-0d1117?style=for-the-badge) ![platform](https://img.shields.io/badge/platform-MT5-0d1117?style=for-the-badge) ![price](https://img.shields.io/badge/price-FREE-2ea043?style=for-the-badge) ![license](https://img.shields.io/badge/license-no_lock_·_no_expiry-8957e5?style=for-the-badge)
+![version](https://img.shields.io/badge/version-v1.01-00e5ff?style=for-the-badge) ![type](https://img.shields.io/badge/type-Expert_Advisor-ffc400?style=for-the-badge) ![platform](https://img.shields.io/badge/platform-MT4-0d1117?style=for-the-badge) ![platform](https://img.shields.io/badge/platform-MT5-0d1117?style=for-the-badge) ![price](https://img.shields.io/badge/price-FREE-2ea043?style=for-the-badge) ![license](https://img.shields.io/badge/license-no_lock_·_no_expiry-8957e5?style=for-the-badge)
 
 </div>
 
@@ -19,6 +19,20 @@
 | **MT5** | [`TL Pressure Wave Pro.ex5`](MT5/TL%20Pressure%20Wave%20Pro.ex5) |
 
 > Compiled build only — source code is not published.
+
+## New In V1.01
+
+Thanks to AmaweFX for the ideas (Forex Factory post #349). All new options are inputs; the defaults still trade exactly like v1.00 (the video setup).
+
+- **Break-even in R** — move the stop to entry +1 pip after +N R (R = the first stop distance), or after +N pips as before.
+
+- **Trailing stop** — off / ATR / R. Starts when a bar closes +N R in profit and follows at the bar close (N x ATR or N x R behind the close). It only ever tightens the stop.
+
+- **Trend start** — "Also enter when the hourly filter turns valid": after a trend change the EA can enter right away in the new direction, in addition to the T line touch / cross.
+
+- **Open trades** — max open trades at the same time (1 = one at a time, as in the video). All open trades are in one direction. MT5 netting accounts always use 1.
+
+- **Per day** — "Max new trades per day" = 0 means unlimited.
 
 ## What It Is
 
@@ -62,13 +76,15 @@ The stop was not shown ("it depends on your risk criteria"). The presenter menti
 
 - **Stop (TL)** — below the lowest low of the last 6 bars + 1 pip (above the highest high for a SELL), at least 5 and at most 30 pips. Or ATR, or fixed pips.
 
-- **Break-even (TL)** — at +15 pips the stop moves to entry +1 pip (input, 0 = off).
+- **Break-even (TL)** — at +15 pips (or +N R) the stop moves to entry +1 pip (input, 0 = off).
+
+- **Trailing (TL)** — off by default; ATR or R distance, at the bar close, from +1 R.
 
 - **Exits** — T line exit (a bar closes back through the T line) - option from the video, off by default. Filter-flip exit (TL): close when the hourly filter no longer agrees - on by default.
 
-- **Per day** — max 2 new trades (input), optional daily target and daily loss limit in % - then no new trades until the next day.
+- **Per day** — max 2 new trades (input, 0 = unlimited), optional daily target and daily loss limit in % - then no new trades until the next day.
 
-One trade at a time. Stop and target are sent with the order (broker side). All signals are calculated on CLOSED bars - nothing repaints.
+One trade at a time by default (input: max open trades). Stop and target are sent with the order (broker side). All signals are calculated on CLOSED bars - nothing repaints.
 
 ## What I Added (TL)
 
