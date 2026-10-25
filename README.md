@@ -4,7 +4,7 @@
 
 ### Expert Advisors & indicators built for the Forex Factory community — free, no lock, no expiry.
 
-![tools](https://img.shields.io/badge/tools-89-00e5ff?style=for-the-badge) ![Expert Advisors](https://img.shields.io/badge/Expert_Advisors-58-ffc400?style=for-the-badge) ![indicators](https://img.shields.io/badge/indicators-31-ffc400?style=for-the-badge) ![MT5 builds](https://img.shields.io/badge/MT5_builds-88-0d1117?style=for-the-badge) ![MT4 builds](https://img.shields.io/badge/MT4_builds-66-0d1117?style=for-the-badge) ![price](https://img.shields.io/badge/price-FREE-2ea043?style=for-the-badge)
+![tools](https://img.shields.io/badge/tools-90-00e5ff?style=for-the-badge) ![Expert Advisors](https://img.shields.io/badge/Expert_Advisors-59-ffc400?style=for-the-badge) ![indicators](https://img.shields.io/badge/indicators-31-ffc400?style=for-the-badge) ![MT5 builds](https://img.shields.io/badge/MT5_builds-89-0d1117?style=for-the-badge) ![MT4 builds](https://img.shields.io/badge/MT4_builds-67-0d1117?style=for-the-badge) ![price](https://img.shields.io/badge/price-FREE-2ea043?style=for-the-badge)
 
 [**Forex Factory thread**](https://www.forexfactory.com/thread/1428808-free-eas-indicators-strategies-mt4) · [**YouTube**](https://www.youtube.com/@traderlifestyle) · [**WhatsApp**](https://wa.me/18585003724)
 
@@ -29,7 +29,7 @@ Each one was rebuilt from scratch, extended with a modern animated dashboard and
 3. Right-click the Navigator → **Refresh**, drag the tool onto a chart.
 4. Tick **Allow DLL imports** if you want the YouTube / WhatsApp / Forex Factory buttons to open your browser.
 
-## 🤖 Expert Advisors (58)
+## 🤖 Expert Advisors (59)
 
 | | Tool | Platforms | What it does |
 |:---:|---|:---:|---|
@@ -69,6 +69,7 @@ Each one was rebuilt from scratch, extended with a modern animated dashboard and
 |  | **[TL News Arsenal Quant](projects/TL-News-Arsenal-Quant)**<br><sub>v1.00</sub> | MT4 MT5 | A complete news-trading cockpit — calendar, spike, surprise, macro, headlines and risk tools in one animated panel. Never auto-trades. |
 | <img src="projects/TL-POC-Reaction-Pro/screenshots/TL_POC_Reaction_Pro_XAUUSD_M5_tlprp_shot.png" width="180"> | **[TL POC Reaction Pro](projects/TL-POC-Reaction-Pro)**<br><sub>v1.00</sub> | MT5 | Trades closed reaction candles at confluent daily POC zones and targets today's POC — never enters a zone blindly. |
 |  | **[TL POC Retest Pro](projects/TL-POC-Retest-Pro)**<br><sub>v1.00</sub> | MT4 MT5 | What it is An EA that trades the "accumulation -> volume profile POC -> retest" pattern shown in two short videos that were posted as a request on Forex Fact… |
+| <img src="projects/TL-Power-of-3-Pro/screenshots/TL_Power_of_3_Pro_hover.png" width="180"> | **[TL Power of 3 Pro](projects/TL-Power-of-3-Pro)**<br><sub>v1.00</sub> | MT4 MT5 | ICT Power of 3 (AMD) as one EA after Allan Munene Mutiiria's step-by-step article: Asian range accumulation, the London stop hunt (Judas swing), close back inside + MSS + FVG entry on the discount side of the midnight open, TP1 Asian range + break-even, TP2 previous day high / low, 12:00 New York time stop. New York clock with automatic broker DST detection. Created with IndicatorGenius.com. |
 | <img src="projects/TL-Pressure-Wave-Pro/screenshots/TL_Pressure_Wave_Pro_signal.png" width="180"> | **[TL Pressure Wave Pro](projects/TL-Pressure-Wave-Pro)**<br><sub>v1.01</sub> | MT4 MT5 | The Scruffy Trader's entry system as one EA: hourly MACD 24/52/18 + RSI 28 trend filter ('pressure wave'), entry on M15 / M5 at the touch or cross of the 8 'T line', 25-pip target, swing stop, break-even. Created with IndicatorGenius.com. |
 | <img src="projects/TL-Pyramid-Grid-Pro/screenshots/TL_PyramidGridPro_screenshot.png" width="180"> | **[TL Pyramid Grid Pro](projects/TL-Pyramid-Grid-Pro)**<br><sub>v1.00</sub> | MT4 MT5 | Pyramid grid with stop orders on both sides — adds only while the market runs in that direction (anti-martingale). |
 | <img src="projects/TL-RSOR-Pro/screenshots/TL_RSOR_Pro_screenshot.png" width="180"> | **[TL RSOR Pro](projects/TL-RSOR-Pro)**<br><sub>v1.00</sub> | MT4 MT5 | RobinHood's RSOR from "Trading Made Simple(r)": EA plus indicator with KICK / 50X / Star entries and a full exit toolkit. |
