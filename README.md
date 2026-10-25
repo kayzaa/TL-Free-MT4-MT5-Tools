@@ -4,7 +4,7 @@
 
 ### Expert Advisors & indicators built for the Forex Factory community — free, no lock, no expiry.
 
-![tools](https://img.shields.io/badge/tools-88-00e5ff?style=for-the-badge) ![Expert Advisors](https://img.shields.io/badge/Expert_Advisors-57-ffc400?style=for-the-badge) ![indicators](https://img.shields.io/badge/indicators-31-ffc400?style=for-the-badge) ![MT5 builds](https://img.shields.io/badge/MT5_builds-87-0d1117?style=for-the-badge) ![MT4 builds](https://img.shields.io/badge/MT4_builds-65-0d1117?style=for-the-badge) ![price](https://img.shields.io/badge/price-FREE-2ea043?style=for-the-badge)
+![tools](https://img.shields.io/badge/tools-89-00e5ff?style=for-the-badge) ![Expert Advisors](https://img.shields.io/badge/Expert_Advisors-58-ffc400?style=for-the-badge) ![indicators](https://img.shields.io/badge/indicators-31-ffc400?style=for-the-badge) ![MT5 builds](https://img.shields.io/badge/MT5_builds-88-0d1117?style=for-the-badge) ![MT4 builds](https://img.shields.io/badge/MT4_builds-66-0d1117?style=for-the-badge) ![price](https://img.shields.io/badge/price-FREE-2ea043?style=for-the-badge)
 
 [**Forex Factory thread**](https://www.forexfactory.com/thread/1428808-free-eas-indicators-strategies-mt4) · [**YouTube**](https://www.youtube.com/@traderlifestyle) · [**WhatsApp**](https://wa.me/18585003724)
 
@@ -29,7 +29,7 @@ Each one was rebuilt from scratch, extended with a modern animated dashboard and
 3. Right-click the Navigator → **Refresh**, drag the tool onto a chart.
 4. Tick **Allow DLL imports** if you want the YouTube / WhatsApp / Forex Factory buttons to open your browser.
 
-## 🤖 Expert Advisors (57)
+## 🤖 Expert Advisors (58)
 
 | | Tool | Platforms | What it does |
 |:---:|---|:---:|---|
@@ -75,6 +75,7 @@ Each one was rebuilt from scratch, extended with a modern animated dashboard and
 | <img src="projects/TL-Recovery-Grid-Quant/screenshots/TL_Recovery_Grid_Quant_view.png" width="180"> | **[TL Recovery Grid Quant](projects/TL-Recovery-Grid-Quant)**<br><sub>v1.00</sub> | MT5 | Grid and recovery basket EA for XAUUSD M3 with breakout-exit, trend and impulse guards, a daily equity trail and a full quant panel. |
 | <img src="projects/TL-Replay-Studio-Pro/screenshots/TL_Replay_Studio_Pro_MT5.png" width="180"> | **[TL Replay Studio Pro](projects/TL-Replay-Studio-Pro)**<br><sub>v1.00</sub> | MT4 MT5 | Replay your closed trades candle by candle, or practise with virtual positions on a dedicated replay chart — it never touches broker orders. |
 |  | **[TL Resonance Engine Pro](projects/TL-Resonance-Engine-Pro)**<br><sub>v1.00</sub> | MT5 | One engine, one 0–100 resonance score: SuperTrend trend, smoothed RSI momentum, estimated buy/sell volume and more — momentum-coloured candles. |
+| <img src="projects/TL-Retouch-Bands-Pro/screenshots/TL_Retouch_Bands_Pro_signal.png" width="180"> | **[TL Retouch Bands Pro](projects/TL-Retouch-Bands-Pro)**<br><sub>v1.00</sub> | MT4 MT5 | Band retouch counter-trend signals for gold and BTC (idea: Dark Bands by Marco Solito, request by thedailypips on FF): RSI, Stochastic and EMA confirmations, BUY / GOOD / STRONG grades with a 1m-15m matrix, success-rate window and Liquidity Reaper style SL / TP boxes. EA + indicator. Created with IndicatorGenius.com. |
 | <img src="projects/TL-Riverbank-Pro/screenshots/TL_RiverbankPro_FF.png" width="180"> | **[TL Riverbank Pro](projects/TL-Riverbank-Pro)**<br><sub>v1.00</sub> | MT4 MT5 | Inthebox's "Waiting at the Riverbank" gold method — session, HTF level, sweep, BOS and engulf entry. |
 | <img src="projects/TL-Signal-Bands-Pro/screenshots/TL_Signal_Bands_Pro_tlsbp_shot_M5_s1.png" width="180"> | **[TL Signal Bands Pro](projects/TL-Signal-Bands-Pro)**<br><sub>v1.10</sub> | MT5 | Triangular MA ATR bands with closed-bar rejection signals, plus a companion EA that trades every circle (optional martingale). |
 | <img src="projects/TL-Signal-Judge-Quant/screenshots/TL_SignalJudgeQuant_Post.png" width="180"> | **[TL Signal Judge Quant](projects/TL-Signal-Judge-Quant)**<br><sub>v1.04</sub> | MT4 MT5 | Reads every indicator, arrow and level on your chart and scores each new signal 0–100 with 17 scenario checks. |
