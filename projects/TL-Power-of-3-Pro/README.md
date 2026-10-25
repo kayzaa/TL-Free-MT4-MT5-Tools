@@ -9,7 +9,7 @@
 
 </div>
 
-<p align="center"><img src="screenshots/TL_Power_of_3_Pro_hover.png" alt="TL Power of 3 Pro" width="100%"></p>
+<p align="center"><img src="screenshots/TL_Power_of_3_Pro_signal.png" alt="TL Power of 3 Pro" width="100%"></p>
 
 ## 📥 Download
 
@@ -79,7 +79,7 @@ Trading leveraged products carries a high risk of loss. This EA is a tool, not a
 
 ## 🖼️ More screenshots
 
-<img src="screenshots/TL_Power_of_3_Pro_signal.png" width="49%">
+<img src="screenshots/TL_Power_of_3_Pro_hover.png" width="49%">
 <img src="screenshots/TL_Power_of_3_Pro_mini.png" width="49%">
 
 ---
